@@ -1,6 +1,8 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
-import kamenov.springkamenovnatnature.entity.Product;
+
+
+import kamenov.naturalnaturefinalapp.entity.Product;
 
 import java.util.List;
 

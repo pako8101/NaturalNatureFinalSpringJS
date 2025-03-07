@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.entity.dto;
+package kamenov.naturalnaturefinalapp.entity.dto;
 
 import kamenov.springkamenovnatnature.entity.UserEntity;
 

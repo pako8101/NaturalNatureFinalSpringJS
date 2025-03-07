@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.user;
+package kamenov.naturalnaturefinalapp.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

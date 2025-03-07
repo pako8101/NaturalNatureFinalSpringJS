@@ -1,12 +1,14 @@
-package kamenov.springkamenovnatnature.service.impl;
+package kamenov.naturalnaturefinalapp.service.impl;
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.entity.dto.RegisterDto;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
-import kamenov.springkamenovnatnature.service.UserService;
-import kamenov.springkamenovnatnature.user.AppUserDetails;
-import kamenov.springkamenovnatnature.user.LoggedUser;
-import kamenov.springkamenovnatnature.web.AuthController;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.entity.dto.RegisterDto;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+import kamenov.naturalnaturefinalapp.service.UserService;
+import kamenov.naturalnaturefinalapp.user.AppUserDetails;
+import kamenov.naturalnaturefinalapp.user.LoggedUser;
+
+import kamenov.naturalnaturefinalapp.web.AuthController;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -53,8 +54,8 @@ public class UserServiceImpl implements UserService {
 //        return userRepository.save(user);
 //    }
     @Override
-    public UserEntity  registerUser(RegisterDto userRegisterDto,
-                                    Consumer<Authentication> successfulRegister) {
+    public UserEntity registerUser(RegisterDto userRegisterDto,
+                                   Consumer<Authentication> successfulRegister) {
         UserEntity user = modelMapper.map(userRegisterDto, UserEntity.class);
         user.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
         user.setConfirmPassword(passwordEncoder.encode(user.getPassword()));

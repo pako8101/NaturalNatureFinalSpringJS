@@ -1,8 +1,9 @@
-package kamenov.springkamenovnatnature.web;
+package kamenov.naturalnaturefinalapp.web;
 
-import kamenov.springkamenovnatnature.entity.CartItem;
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.service.CartService;
+
+import kamenov.naturalnaturefinalapp.entity.CartItem;
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cart")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/cart")
+
 public class CartController {
 
 

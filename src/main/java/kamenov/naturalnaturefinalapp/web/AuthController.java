@@ -1,18 +1,18 @@
-package kamenov.springkamenovnatnature.web;
+package kamenov.naturalnaturefinalapp.web;
 
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.entity.dto.AuthResponse;
-import kamenov.springkamenovnatnature.entity.dto.LoginDto;
-import kamenov.springkamenovnatnature.entity.dto.RegisterDto;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
-import kamenov.springkamenovnatnature.service.JwtService;
-import kamenov.springkamenovnatnature.service.RecaptchaService;
-import kamenov.springkamenovnatnature.service.UserService;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.entity.dto.LoginDto;
+import kamenov.naturalnaturefinalapp.entity.dto.RegisterDto;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+import kamenov.naturalnaturefinalapp.service.JwtService;
+import kamenov.naturalnaturefinalapp.service.RecaptchaService;
+import kamenov.naturalnaturefinalapp.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,8 +40,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/user")
+
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserService userService;
@@ -89,21 +89,7 @@ public class AuthController {
 //        return ResponseEntity.ok("User registered successfully");
 //    }
 
-    @GetMapping("/me")
-    public ResponseEntity<?> getCurrentUser(@AuthenticationPrincipal UserDetails userDetails) {
-        if (userDetails == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authenticated");
-        }
-        Map<String, String> response = new HashMap<>();
-        response.put("username", userDetails.getUsername());
-        // Добавяне на ролята от authorities
-        String role = userDetails.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .findFirst()
-                .orElse("USER"); // По подразбиране "USER", ако няма роли
-        response.put("role", role.replace("ROLE_", "")); // Премахва "ROLE_" префикса, ако има
-        return ResponseEntity.ok(response);
-    }
+
 
 //@GetMapping("/me")
 //public ResponseEntity<?> getCurrentUser(@AuthenticationPrincipal UserDetails userDetails) {
@@ -177,26 +163,13 @@ public class AuthController {
         return new LoginDto();
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@Valid @RequestBody LoginDto request) {
-        try {
-            Authentication auth = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
-            );
-            UserDetails userDetails = (UserDetails) auth.getPrincipal();
-            String token = jwtService.generateToken(request.getUsername());
-            Map<String, String> response = new HashMap<>();
-            response.put("token", token);
-            response.put("username", request.getUsername().toString());
-            String role = userDetails.getAuthorities().stream()
-                    .map(GrantedAuthority::getAuthority)
-                    .findFirst()
-                    .orElse("USER");
-            response.put("role", role.replace("ROLE_", ""));
-            return ResponseEntity.ok(response);
-        } catch (AuthenticationException e) {
-            return ResponseEntity.status(401).body("Incorrect username or password");
+    @GetMapping("/login")
+    public String login( Model model) {
+        if (!model.containsAttribute("isFound")) {
+            model.addAttribute("isFound", true);
         }
+
+        return "login";
     }
 
 //    @PostMapping("/login")

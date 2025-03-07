@@ -1,6 +1,7 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
-import kamenov.springkamenovnatnature.entity.Order;
+
+import kamenov.naturalnaturefinalapp.entity.Order;
 
 public interface OrderService {
     Order createOrder(Order order);

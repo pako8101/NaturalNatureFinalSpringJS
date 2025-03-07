@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Recycling Map</title>
+    <link rel="stylesheet" th:href="/css/style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
-$END$
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <h1>Recycling Points</h1>
+    <form th:action="@{/recycling}" method="get">
+        <label for="city">Filter by City:</label>
+        <input type="text" id="city" name="city">
+        <button type="submit">Search</button>
+    </form>
+    <div id="map" style="height: 400px;"></div>
+    <div th:each="point : ${points}" class="card">
+        <h3 th:text="${point.address}"></h3>
+        <p th:text="${point.city} + ' - ' + ${point.type}"></p>
+    </div>
+</div>
+<script th:inline="javascript">
+    var map = L.map('map').setView([42.6977, 23.3219], 13); // София по подразбиране
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+    var points = /*[[${points}]]*/ [];
+    points.forEach(function(point) {
+        L.marker([point.latitude, point.longitude])
+            .addTo(map)
+            .bindPopup(point.address + '<br>' + point.type);
+    });
+</script>
 </body>
 </html>

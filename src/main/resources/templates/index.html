@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en"
+       xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="/fragments/commons::head">-->
+<!--</head>-->
+
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>EcoLife - Sustainable Living</title>
+    <link rel="stylesheet" th:href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-$END$
+<nav class="navbar">
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/recycling}">Recycling Map</a>
+    <a th:href="@{/marketplace}">Marketplace</a>
+    <a th:href="@{/blog}">Blog</a>
+    <a th:href="@{/green-cooking}">Green Cooking</a>
+    <a th:href="@{/video-courses}">Video Courses</a>
+</nav>
+<div class="container">
+    <h1>Welcome to EcoLife</h1>
+    <p>A platform for recycling, sustainable living, and eco-friendly cooking.</p>
+</div>
 </body>
 </html>

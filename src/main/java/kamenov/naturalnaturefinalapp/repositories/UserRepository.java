@@ -1,6 +1,7 @@
-package kamenov.springkamenovnatnature.repositories;
+package kamenov.naturalnaturefinalapp.repositories;
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

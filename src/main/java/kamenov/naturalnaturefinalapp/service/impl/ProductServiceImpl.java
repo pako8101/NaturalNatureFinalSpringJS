@@ -1,8 +1,9 @@
-package kamenov.springkamenovnatnature.service.impl;
+package kamenov.naturalnaturefinalapp.service.impl;
 
-import kamenov.springkamenovnatnature.entity.Product;
-import kamenov.springkamenovnatnature.repositories.ProductRepository;
-import kamenov.springkamenovnatnature.service.ProductService;
+
+import kamenov.naturalnaturefinalapp.entity.Product;
+import kamenov.naturalnaturefinalapp.repositories.ProductRepository;
+import kamenov.naturalnaturefinalapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

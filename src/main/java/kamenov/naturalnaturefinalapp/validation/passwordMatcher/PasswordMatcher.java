@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.validation.passwordMatcher;
+package kamenov.naturalnaturefinalapp.validation.passwordMatcher;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

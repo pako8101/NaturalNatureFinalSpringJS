@@ -1,6 +1,7 @@
-package kamenov.springkamenovnatnature.repositories;
+package kamenov.naturalnaturefinalapp.repositories;
 
-import kamenov.springkamenovnatnature.entity.BlogPost;
+
+import kamenov.naturalnaturefinalapp.entity.BlogPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

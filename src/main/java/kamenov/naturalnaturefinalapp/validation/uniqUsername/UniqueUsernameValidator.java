@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.validation.uniqUsername;
+package kamenov.naturalnaturefinalapp.validation.uniqUsername;
 
 
 import jakarta.validation.ConstraintValidator;

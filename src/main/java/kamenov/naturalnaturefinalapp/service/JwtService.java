@@ -1,6 +1,7 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Map;

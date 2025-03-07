@@ -1,10 +1,11 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.entity.UserRoleEnt;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
-import kamenov.springkamenovnatnature.user.AppUserDetails;
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.entity.UserRoleEnt;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+
+import kamenov.naturalnaturefinalapp.user.AppUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +21,8 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     public ApplicationUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -51,6 +54,6 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     }
 
     private static GrantedAuthority mapRole(UserRoleEnt userRoleEntity) {
-        return new SimpleGrantedAuthority("ROLE_" + userRoleEntity.getRole().name());
+        return new SimpleGrantedAuthority("ROLE_" + userRoleEntity.getRole());
     }
 }

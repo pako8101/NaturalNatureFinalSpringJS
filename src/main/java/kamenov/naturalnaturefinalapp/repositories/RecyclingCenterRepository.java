@@ -1,8 +1,8 @@
-package kamenov.springkamenovnatnature.repositories;
+package kamenov.naturalnaturefinalapp.repositories;
 
-import kamenov.springkamenovnatnature.entity.RecyclingCenter;
+
+import kamenov.naturalnaturefinalapp.entity.RecyclingCenter;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

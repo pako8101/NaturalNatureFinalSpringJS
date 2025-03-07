@@ -1,12 +1,13 @@
-package kamenov.springkamenovnatnature.service.impl;
+package kamenov.naturalnaturefinalapp.service.impl;
 
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.service.JwtService;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.service.JwtService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

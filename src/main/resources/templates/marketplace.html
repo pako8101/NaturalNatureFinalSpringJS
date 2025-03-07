@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Marketplace</title>
+    <link rel="stylesheet" th:href="/css/style.css">
 </head>
 <body>
-$END$
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <h1>Marketplace</h1>
+    <div th:each="product : ${products}" class="card">
+        <img th:src="${product.imageUrl}" alt="Product Image">
+        <h3 th:text="${product.name}"></h3>
+        <p th:text="${product.description}"></p>
+        <p th:text="'Price: $' + ${product.price}"></p>
+        <a th:href="@{/marketplace/product/{id}(id=${product.id})}">View Details</a>
+    </div>
+</div>
 </body>
 </html>

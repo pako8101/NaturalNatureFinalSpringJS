@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title th:text="${recipe.name} + ' - Green Cooking'"></title>
+    <link rel="stylesheet" th:href="/css/style.css">
 </head>
 <body>
-$END$
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <h1 th:text="${recipe.name}"></h1>
+    <p th:text="${recipe.description}"></p>
+    <h3>Ingredients</h3>
+    <ul>
+        <li th:each="ingredient : ${recipe.ingredients}" th:text="${ingredient}"></li>
+    </ul>
+    <h3>Instructions</h3>
+    <p th:text="${recipe.instructions}"></p>
+    <iframe th:src="${recipe.videoUrl}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    <form th:action="@{/green-cooking/order/{id}(id=${recipe.id})}" th:object="${order}" method="post">
+        <label for="userEmail">Your Email:</label>
+        <input type="email" id="userEmail" th:field="*{userEmail}" required>
+        <button type="submit">Order Ingredients</button>
+    </form>
+</div>
 </body>
 </html>

@@ -1,9 +1,9 @@
-package kamenov.springkamenovnatnature.configuration;
+package kamenov.naturalnaturefinalapp.configuration;
 
-import kamenov.springkamenovnatnature.entity.enums.UserRoleEnum;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
-import kamenov.springkamenovnatnature.service.ApplicationUserDetailsService;
-import org.springframework.beans.factory.annotation.Value;
+
+import kamenov.naturalnaturefinalapp.entity.enums.UserRoleEnum;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+import kamenov.naturalnaturefinalapp.service.ApplicationUserDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,18 +48,15 @@ public class SecurityConfig {
                                         .permitAll().
                                         requestMatchers("/",
                                                 "/about",
-                                                "/api/auth/**",
-                                                "api/blog/posts",
-                                                "api/blog/comments",
-                                                "api/blog/likes",
-                                                "api/marketplace/products",
-                                                "api/cart/**",
+
+                                                "/marketplace/products",
+                                                "/cart/**",
                                                 "/wine",
                                                 "/delete/**",
-                                                "/api/auth/login",
-                                                "/api/auth/register",
+                                                "/user/login",
+                                                "/user/register",
                                                 "/edit/**",
-                                                "/users/login-error"
+                                                "/user/login-error"
 
 
                                         )
@@ -76,17 +73,17 @@ public class SecurityConfig {
                 .formLogin(
                         (formLogin) ->
                                 formLogin.
-                                        loginPage("/api/auth/login").
+                                        loginPage("/user/login").
                                         usernameParameter(
                                                 UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
                                         passwordParameter(
                                                 UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).
                                         defaultSuccessUrl("/", true).
-                                        failureForwardUrl("/api/auth/login-error")
+                                        failureForwardUrl("user/login-error")
 
                 )
                 .logout((logout) ->
-                        logout.logoutUrl("/users/logout").
+                        logout.logoutUrl("/user/logout").
                                 logoutSuccessUrl("/").//go to homepage after logout
                                 invalidateHttpSession(true)
                                 .deleteCookies("JSESSIONID")

@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.entity;
+package kamenov.naturalnaturefinalapp.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

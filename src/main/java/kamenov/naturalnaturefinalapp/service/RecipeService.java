@@ -1,9 +1,14 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
-import kamenov.springkamenovnatnature.entity.Recipe;
+
+
+import kamenov.naturalnaturefinalapp.entity.Recipe;
 
 import java.util.List;
 
 public interface RecipeService {
-    List<Recipe> searchRecipes(String title);
+    List<Recipe> getAllRecipes();
+
+    Recipe getRecipeById(Long id);
 }
+

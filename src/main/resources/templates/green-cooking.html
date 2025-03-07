@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Green Cooking</title>
+    <link rel="stylesheet" th:href="/css/style.css">
 </head>
 <body>
-$END$
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <h1>Green Cooking</h1>
+    <div th:each="recipe : ${recipes}" class="card">
+        <h3 th:text="${recipe.name}"></h3>
+        <p th:text="${recipe.description}"></p>
+        <a th:href="@{/green-cooking/{id}(id=${recipe.id})}">View Recipe</a>
+    </div>
+</div>
 </body>
 </html>

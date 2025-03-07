@@ -1,16 +1,17 @@
-package kamenov.springkamenovnatnature.service.impl;
+package kamenov.naturalnaturefinalapp.service.impl;
 
-import kamenov.springkamenovnatnature.entity.Order;
-import kamenov.springkamenovnatnature.repositories.OrderRepository;
-import kamenov.springkamenovnatnature.service.OrderService;
+
+import kamenov.naturalnaturefinalapp.entity.Order;
+import kamenov.naturalnaturefinalapp.repositories.OrderRepository;
+import kamenov.naturalnaturefinalapp.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-    @Autowired
-    private final OrderRepository repository;
 
+    private final OrderRepository repository;
+    @Autowired
     public OrderServiceImpl(OrderRepository repository) {
         this.repository = repository;
     }

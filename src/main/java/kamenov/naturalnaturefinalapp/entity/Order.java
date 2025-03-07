@@ -1,9 +1,6 @@
-package kamenov.springkamenovnatnature.entity;
+package kamenov.naturalnaturefinalapp.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -16,8 +13,19 @@ public class Order extends BaseEntity{
     private String customerAddress;
     @OneToMany
     private List<Product> products;
+    @ManyToOne
+    private Recipe recipe;
 
     public Order() {
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public Order setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+        return this;
     }
 
     public String getCustomerName() {

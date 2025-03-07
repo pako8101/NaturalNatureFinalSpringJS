@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.entity.dto;
+package kamenov.naturalnaturefinalapp.entity.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

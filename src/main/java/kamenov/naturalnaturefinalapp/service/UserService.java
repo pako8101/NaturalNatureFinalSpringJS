@@ -1,8 +1,9 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.entity.dto.RegisterDto;
-import kamenov.springkamenovnatnature.user.AppUserDetails;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.entity.dto.RegisterDto;
+import kamenov.naturalnaturefinalapp.user.AppUserDetails;
 import org.springframework.security.core.Authentication;
 
 import java.util.Optional;

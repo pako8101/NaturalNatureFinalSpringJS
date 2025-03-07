@@ -1,7 +1,9 @@
-package kamenov.springkamenovnatnature.service;
+package kamenov.naturalnaturefinalapp.service;
 
-import kamenov.springkamenovnatnature.entity.CartItem;
-import kamenov.springkamenovnatnature.entity.UserEntity;
+
+
+import kamenov.naturalnaturefinalapp.entity.CartItem;
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
 
 import java.util.List;
 

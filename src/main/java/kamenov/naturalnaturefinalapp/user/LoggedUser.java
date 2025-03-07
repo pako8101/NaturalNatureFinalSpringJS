@@ -1,9 +1,10 @@
-package kamenov.springkamenovnatnature.user;
+package kamenov.naturalnaturefinalapp.user;
 
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.entity.enums.UserRoleEnum;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.entity.enums.UserRoleEnum;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

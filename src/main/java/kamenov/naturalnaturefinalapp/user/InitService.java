@@ -1,12 +1,13 @@
-package kamenov.springkamenovnatnature.user;
+package kamenov.naturalnaturefinalapp.user;
 
 
 import jakarta.annotation.PostConstruct;
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.entity.UserRoleEnt;
-import kamenov.springkamenovnatnature.entity.enums.UserRoleEnum;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
-import kamenov.springkamenovnatnature.repositories.UserRoleRepository;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.entity.UserRoleEnt;
+import kamenov.naturalnaturefinalapp.entity.enums.UserRoleEnum;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+import kamenov.naturalnaturefinalapp.repositories.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;

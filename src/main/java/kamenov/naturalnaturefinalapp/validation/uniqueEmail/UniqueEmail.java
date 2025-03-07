@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.validation.uniqueEmail;
+package kamenov.naturalnaturefinalapp.validation.uniqueEmail;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

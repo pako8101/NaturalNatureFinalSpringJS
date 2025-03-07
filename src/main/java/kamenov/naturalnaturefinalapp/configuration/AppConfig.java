@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.configuration;
+package kamenov.naturalnaturefinalapp.configuration;
 
 
 import org.modelmapper.ModelMapper;
@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
+
 
 @Configuration
 public class AppConfig {

@@ -1,2 +1,44 @@
-package kamenov.naturalnaturefinalapp.web;public class GreenCookingController {
+package kamenov.naturalnaturefinalapp.web;
+
+import kamenov.naturalnaturefinalapp.entity.Order;
+import kamenov.naturalnaturefinalapp.service.OrderService;
+import kamenov.naturalnaturefinalapp.service.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class GreenCookingController {
+
+    private  final RecipeService recipeService;
+
+    private final OrderService orderService;
+    @Autowired
+    public GreenCookingController(RecipeService recipeService, OrderService orderService) {
+        this.recipeService = recipeService;
+        this.orderService = orderService;
+    }
+
+    @GetMapping("/green-cooking")
+    public String recipes(Model model) {
+        model.addAttribute("recipes", recipeService.getAllRecipes());
+        return "green-cooking";
+    }
+
+    @GetMapping("/green-cooking/{id}")
+    public String recipeDetails(@PathVariable Long id, Model model) {
+        model.addAttribute("recipe", recipeService.getRecipeById(id));
+        model.addAttribute("order", new Order());
+        return "recipe-details";
+    }
+
+    @PostMapping("/green-cooking/order/{id}")
+    public String orderIngredients(@PathVariable Long id, Order order) {
+        order.setRecipe(recipeService.getRecipeById(id));
+        orderService.createOrder(order);
+        return "redirect:/order-confirmation";
+    }
 }

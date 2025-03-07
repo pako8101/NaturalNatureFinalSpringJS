@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <link rel="stylesheet" th:href="/css/style.css">
 </head>
 <body>
-$END$
+<nav class="navbar" th:fragment="navbar">
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/recycling}">Recycling Map</a>
+    <a th:href="@{/marketplace}">Marketplace</a>
+    <a th:href="@{/blog}">Blog</a>
+    <a th:href="@{/green-cooking}">Green Cooking</a>
+    <a th:href="@{/video-courses}">Video Courses</a>
+    <div sec:authorize="isAuthenticated()">
+        <span>Hello, <span sec:authentication="name"></span></span>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </div>
+</nav>
 </body>
 </html>

@@ -1,17 +1,18 @@
-package kamenov.springkamenovnatnature.web;
+package kamenov.naturalnaturefinalapp.web;
 
-import kamenov.springkamenovnatnature.entity.Order;
-import kamenov.springkamenovnatnature.service.OrderService;
+
+import kamenov.naturalnaturefinalapp.entity.Order;
+import kamenov.naturalnaturefinalapp.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/orders")
-@CrossOrigin(origins = "http://localhost:3000")
-public class OrderController {
-    @Autowired
-    private final OrderService service;
+@RequestMapping("/orders")
 
+public class OrderController {
+
+    private final OrderService service;
+    @Autowired
     public OrderController(OrderService service) {
         this.service = service;
     }

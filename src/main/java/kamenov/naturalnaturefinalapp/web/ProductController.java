@@ -1,8 +1,8 @@
-package kamenov.springkamenovnatnature.web;
+package kamenov.naturalnaturefinalapp.web;
 
-import kamenov.springkamenovnatnature.entity.Product;
-import kamenov.springkamenovnatnature.repositories.ProductRepository;
-import kamenov.springkamenovnatnature.service.ProductService;
+
+import kamenov.naturalnaturefinalapp.entity.Product;
+import kamenov.naturalnaturefinalapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/products")
+
 public class ProductController {
 
 

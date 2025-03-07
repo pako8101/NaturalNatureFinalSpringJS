@@ -1,12 +1,13 @@
-package kamenov.springkamenovnatnature.service.impl;
+package kamenov.naturalnaturefinalapp.service.impl;
 
-import kamenov.springkamenovnatnature.entity.CartItem;
-import kamenov.springkamenovnatnature.entity.Product;
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.repositories.CartItemRepository;
-import kamenov.springkamenovnatnature.repositories.ProductRepository;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
-import kamenov.springkamenovnatnature.service.CartService;
+
+import kamenov.naturalnaturefinalapp.entity.CartItem;
+import kamenov.naturalnaturefinalapp.entity.Product;
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.repositories.CartItemRepository;
+import kamenov.naturalnaturefinalapp.repositories.ProductRepository;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+import kamenov.naturalnaturefinalapp.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

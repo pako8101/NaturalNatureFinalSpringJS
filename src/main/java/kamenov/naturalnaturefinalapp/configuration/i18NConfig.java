@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.configuration;
+package kamenov.naturalnaturefinalapp.configuration;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,8 @@
-package kamenov.springkamenovnatnature.repositories;
+package kamenov.naturalnaturefinalapp.repositories;
 
-import kamenov.springkamenovnatnature.entity.UserRoleEnt;
-import kamenov.springkamenovnatnature.entity.enums.UserRoleEnum;
+
+import kamenov.naturalnaturefinalapp.entity.UserRoleEnt;
+import kamenov.naturalnaturefinalapp.entity.enums.UserRoleEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

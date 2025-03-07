@@ -1,8 +1,10 @@
-package kamenov.springkamenovnatnature.service.impl;
+package kamenov.naturalnaturefinalapp.service.impl;
 
-import kamenov.springkamenovnatnature.entity.BlogPost;
-import kamenov.springkamenovnatnature.repositories.BlogRepository;
-import kamenov.springkamenovnatnature.service.BlogService;
+
+import kamenov.naturalnaturefinalapp.entity.BlogPost;
+import kamenov.naturalnaturefinalapp.repositories.BlogRepository;
+import kamenov.naturalnaturefinalapp.service.BlogService;
+import kamenov.naturalnaturefinalapp.web.BlogController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,9 @@ import java.util.List;
 public class BlogServiceImpl implements BlogService {
 
 
-        @Autowired
-        private final BlogRepository repository;
 
+        private final BlogRepository repository;
+    @Autowired
     public BlogServiceImpl(BlogRepository repository) {
         this.repository = repository;
     }
@@ -22,6 +24,16 @@ public class BlogServiceImpl implements BlogService {
     public List<BlogPost> searchPosts(String title) {
             return repository.findByTitleContaining(title);
 
+    }
+
+    @Override
+    public List<BlogPost> getAllPosts() {
+        return repository.findAll();
+    }
+
+    @Override
+    public BlogPost getPostById(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
 }

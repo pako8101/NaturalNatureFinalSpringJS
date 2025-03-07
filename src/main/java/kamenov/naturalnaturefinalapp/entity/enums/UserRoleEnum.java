@@ -1,4 +1,4 @@
-package kamenov.springkamenovnatnature.entity.enums;
+package kamenov.naturalnaturefinalapp.entity.enums;
 
 public enum UserRoleEnum {
     ADMIN,USER

@@ -1,15 +1,17 @@
-package kamenov.springkamenovnatnature.web;
+package kamenov.naturalnaturefinalapp.web;
 
-import kamenov.springkamenovnatnature.entity.RecyclingCenter;
-import kamenov.springkamenovnatnature.service.RecyclingCenterService;
+
+import kamenov.naturalnaturefinalapp.entity.RecyclingCenter;
+import kamenov.naturalnaturefinalapp.service.RecyclingCenterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/recycling")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/recycling")
+
 public class RecyclingCenterController {
     @Autowired
     private final RecyclingCenterService service;
@@ -21,6 +23,13 @@ public class RecyclingCenterController {
     @GetMapping("/centers")
     public List<RecyclingCenter> getCentersByCity(@RequestParam String city) {
         return service.getCentersByCity(city);
+    }
+    @GetMapping("/recycling")
+    public String recyclingMap(@RequestParam(required = false) String city,
+                               Model model) {
+        model.addAttribute("points",
+                city != null ? service.getCentersByCity(city) : service.getAllCenters());
+        return "recycling";
     }
 }
 

@@ -1,8 +1,9 @@
-package kamenov.springkamenovnatnature.repositories;
+package kamenov.naturalnaturefinalapp.repositories;
 
-import kamenov.springkamenovnatnature.entity.CartItem;
-import kamenov.springkamenovnatnature.entity.Product;
-import kamenov.springkamenovnatnature.entity.UserEntity;
+
+import kamenov.naturalnaturefinalapp.entity.CartItem;
+import kamenov.naturalnaturefinalapp.entity.Product;
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,8 @@
-package kamenov.springkamenovnatnature.entity;
+package kamenov.naturalnaturefinalapp.entity;
 
 import jakarta.persistence.*;
-import kamenov.springkamenovnatnature.entity.enums.UserRoleEnum;
+import kamenov.naturalnaturefinalapp.entity.enums.UserRoleEnum;
+
 
 @Entity
 @Table(name = "roles")
