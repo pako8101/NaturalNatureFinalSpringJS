@@ -37,7 +37,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'org.model mapper:model mapper:2.4.2'
+    implementation 'org.modelmapper:modelmapper:2.4.2'
     implementation 'org.modelmapper:modelmapper:3.0.0'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
@@ -47,9 +47,6 @@ dependencies {
     testImplementation 'org.testcontainers:mysql'
 
     testImplementation 'org.mockito:mockito-core:5.5.0'
-
-    // Mockito-inline dependency (ако ще моквате финални класове или статични методи)
-    testImplementation 'org.mockito:mockito-inline:5.5.0'
 
     implementation 'net.bytebuddy:byte-buddy:1.14.5'
 

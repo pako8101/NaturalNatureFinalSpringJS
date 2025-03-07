@@ -12,7 +12,7 @@ import java.util.Map;
 @Service
 public class RecaptchaServiceImpl implements RecaptchaService {
 
-    @Value("${secret_key_recaptcha}")
+    @Value("${secret_key}")
     private String recaptchaSecret;
 
     private static final String RECAPTCHA_VERIFY_URL =

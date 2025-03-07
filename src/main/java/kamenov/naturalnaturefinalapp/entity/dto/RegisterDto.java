@@ -23,7 +23,7 @@ public class RegisterDto {
     private String username;
 
     @Size(min = 2, max = 200)
-    @NotBlank(message = "First name cannot be empty!")
+    @NotBlank(message = "Name cannot be empty!")
     private String fullName;
 
     @NotBlank
@@ -32,7 +32,7 @@ public class RegisterDto {
     @NotBlank(message = "The field must not be empty")
     private String email;
 
-    @Length(min = 3, max = 20, message = "The password must be between 3 and 20 characters")
+    @Length(min = 6, max = 20, message = "The password must be between 6 and 20 characters")
     @NotBlank(message = "The field must not be empty")
     private String password;
     @Length(min = 3, max = 20, message = "The password length must be between 3 and 20 characters")

@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "google.recaptcha")
 public class CaptchaSettings {
-    @Value("${site_key_recaptcha}")
+    @Value("${site_key}")
     private String site;
-    @Value("${secret_key_recaptcha}")
+    @Value("${secret_key}")
     private String secret;
 
     public CaptchaSettings() {

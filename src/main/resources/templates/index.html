@@ -9,19 +9,12 @@
 <head>
     <meta charset="UTF-8">
     <title>EcoLife - Sustainable Living</title>
-    <link rel="stylesheet" th:href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-<nav class="navbar">
-    <a th:href="@{/}">Home</a>
-    <a th:href="@{/recycling}">Recycling Map</a>
-    <a th:href="@{/marketplace}">Marketplace</a>
-    <a th:href="@{/blog}">Blog</a>
-    <a th:href="@{/green-cooking}">Green Cooking</a>
-    <a th:href="@{/video-courses}">Video Courses</a>
-</nav>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <div class="container">
     <h1>Welcome to EcoLife</h1>
     <p>A platform for recycling, sustainable living, and eco-friendly cooking.</p>

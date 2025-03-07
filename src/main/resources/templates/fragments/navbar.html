@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <link rel="stylesheet" th:href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
 </head>
 <body>
 <nav class="navbar" th:fragment="navbar">
@@ -14,12 +15,27 @@
     <a th:href="@{/video-courses}">Video Courses</a>
     <div sec:authorize="isAuthenticated()">
         <span>Hello, <span sec:authentication="name"></span></span>
-        <a th:href="@{/logout}">Logout</a>
+        <a th:href="@{/user/logout}" th:method="post">Logout</a>
     </div>
-    <div sec:authorize="!isAuthenticated()">
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/register}">Register</a>
-    </div>
+    <th:block sec:authorize="!isAuthenticated()">
+        <form  class="navbar-link active">
+            <button class="navbar-link">
+                <a th:href="@{/user/login}" >LOGIN</a>
+<!--            th:text="#{nav_bar_subscribe}"
+ th:text="#{nav_bar_login}"-->
+
+            </button>
+        </form>
+        <form class="navbar-link active-table-tab">
+            <button class="navbar-link">
+                <a th:href="@{/user/register}">SUBSCRIBE</a>
+            </button>
+        </form>
+    </th:block>
+<!--    <div sec:authorize="!isAuthenticated()">-->
+<!--        <a th:href="@{/user/login}">Login</a>-->
+<!--        <a th:href="@{/user/register}">Register</a>-->
+<!--    </div>-->
 </nav>
 </body>
 </html>

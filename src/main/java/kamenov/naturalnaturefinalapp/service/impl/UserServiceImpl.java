@@ -8,7 +8,7 @@ import kamenov.naturalnaturefinalapp.service.UserService;
 import kamenov.naturalnaturefinalapp.user.AppUserDetails;
 import kamenov.naturalnaturefinalapp.user.LoggedUser;
 
-import kamenov.naturalnaturefinalapp.web.AuthController;
+
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     private final ModelMapper modelMapper;
     private final LoggedUser loggedUser;
-    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+    //private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     private final UserDetailsService userDetailsService;
     @Autowired

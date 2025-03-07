@@ -48,10 +48,9 @@ public class SecurityConfig {
                                         .permitAll().
                                         requestMatchers("/",
                                                 "/about",
-
                                                 "/marketplace/products",
                                                 "/cart/**",
-                                                "/wine",
+                                                "/blog/**",
                                                 "/delete/**",
                                                 "/user/login",
                                                 "/user/register",
@@ -79,7 +78,7 @@ public class SecurityConfig {
                                         passwordParameter(
                                                 UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).
                                         defaultSuccessUrl("/", true).
-                                        failureForwardUrl("user/login-error")
+                                        failureForwardUrl("/user/login-error")
 
                 )
                 .logout((logout) ->

@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register - EcoLife</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <h1>Register</h1>
+    <form th:action="@{/register}" th:object="${user}" method="post" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" th:field="*{username}" required>
+            <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" th:field="*{fullName}" required>
+            <span class="error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" th:field="*{email}" required>
+            <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" th:field="*{password}" required>
+            <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
+            <span class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></span>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LcrsOAqAAAAAOpY4fcfSfn5pjd1EkwSdFlR97ET"></div>
+        <input type="hidden" name="g-recaptcha-response">
+        <div class="error" th:if="${error}" th:text="${error}"></div>
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
+</div>
+<script>
+    function validateForm() {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        if (username.length < 3) {
+            alert('Username must be at least 3 characters');
+            return false;
+        }
+        if (!email.includes('@')) {
+            alert('Please enter a valid email');
+            return false;
+        }
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters');
+            return false;
+        }
 
+        if (confirmPassword.length !== password.length) {
+            alert('Must be the same!');
+            return false;
+        }
+        return true;
+    }
+</script>
 </body>
 </html>
