@@ -3,7 +3,8 @@ package kamenov.naturalnaturefinalapp.validation.uniqueEmail;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import kamenov.springkamenovnatnature.repositories.UserRepository;
+import kamenov.naturalnaturefinalapp.repositories.UserRepository;
+
 
 public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
 

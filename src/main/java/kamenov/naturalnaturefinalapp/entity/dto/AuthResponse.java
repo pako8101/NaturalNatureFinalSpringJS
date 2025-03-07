@@ -1,6 +1,7 @@
 package kamenov.naturalnaturefinalapp.entity.dto;
 
-import kamenov.springkamenovnatnature.entity.UserEntity;
+
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
 
 public class AuthResponse {
     public String token;

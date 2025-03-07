@@ -3,8 +3,9 @@ package kamenov.naturalnaturefinalapp.entity.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import kamenov.springkamenovnatnature.entity.UserEntity;
-import kamenov.springkamenovnatnature.validation.uniqUsername.UniqueUsername;
+import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.validation.uniqUsername.UniqueUsername;
+
 
 public class LoginDto {
     @Size(min = 3,max = 20,message = "Username must be between 3 and 20 symbols!")

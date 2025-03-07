@@ -4,9 +4,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import kamenov.springkamenovnatnature.validation.passwordMatcher.PasswordMatcher;
-import kamenov.springkamenovnatnature.validation.uniqUsername.UniqueUsername;
-import kamenov.springkamenovnatnature.validation.uniqueEmail.UniqueEmail;
+
+import kamenov.naturalnaturefinalapp.validation.passwordMatcher.PasswordMatcher;
+import kamenov.naturalnaturefinalapp.validation.uniqUsername.UniqueUsername;
+import kamenov.naturalnaturefinalapp.validation.uniqueEmail.UniqueEmail;
 import org.hibernate.validator.constraints.Length;
 
 @PasswordMatcher(
