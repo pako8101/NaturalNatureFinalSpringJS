@@ -1,6 +1,7 @@
 package kamenov.naturalnaturefinalapp.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "video_course")
 public class VideoCourse extends BaseEntity{
 
     private String title;

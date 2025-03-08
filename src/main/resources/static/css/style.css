@@ -1,10 +1,24 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: skyblue;
+    background-image: url('/images/life.jpg');
+
+}
+h1, h2, h3 {
+    font-family: 'Indie Flower', cursive;
+    color: #355e3b; /* Forest green */
 }
 
+a {
+    text-decoration: none;
+    color: #4682b4; /* Steel blue */
+}
+
+a:hover {
+    color: #ffa500; /* Vibrant orange */
+}
 .navbar {
     background-color: #2e7d32;
     padding: 15px;

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.video-courses-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.video-courses-container h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #2e7d32;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in;
+}
+
+.course-card {
+    display: inline-block;
+    width: 30%;
+    margin: 1.5%;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #388e3c;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.course-card p {
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.course-card a {
+    display: inline-block;
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.course-card a:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

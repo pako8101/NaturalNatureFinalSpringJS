@@ -1,0 +1,29 @@
+.navbar {
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a, .navbar span {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding: 12px 25px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #388e3c;
+    border-radius: 25px;
+}
+
+.navbar span {
+    font-size: 16px;
+}

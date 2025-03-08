@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head">
+</head>
     <meta charset="UTF-8">
-    <title>Recycling Map</title>
+    <title>Recycling Map - EcoLife</title>
+    <link rel="stylesheet" th:href="/css/recycling.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-</head>
+
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
-<div class="container">
-    <h1>Recycling Points</h1>
+<div class="recycling-container">
+    <h1><i class="fas fa-recycle"></i> Recycling Points</h1>
     <form th:action="@{/recycling}" method="get">
-        <label for="city">Filter by City:</label>
-        <input type="text" id="city" name="city">
-        <button type="submit">Search</button>
+        <input type="text" id="city" name="city" placeholder="Enter city...">
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
     </form>
-    <div id="map" style="height: 400px;"></div>
+    <div id="map"></div>
     <div th:each="point : ${points}" class="card">
         <h3 th:text="${point.address}"></h3>
         <p th:text="${point.city} + ' - ' + ${point.type}"></p>
     </div>
 </div>
 <script th:inline="javascript">
-    var map = L.map('map').setView([42.6977, 23.3219], 13); // София по подразбиране
+    var map = L.map('map').setView([42.6977, 23.3219], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
     }).addTo(map);
@@ -36,5 +37,6 @@
             .bindPopup(point.address + '<br>' + point.type);
     });
 </script>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

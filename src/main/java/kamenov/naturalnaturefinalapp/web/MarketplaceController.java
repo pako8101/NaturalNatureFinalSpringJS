@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/marketplace")
+//@RequestMapping("/marketplace")
 
 public class MarketplaceController {
 

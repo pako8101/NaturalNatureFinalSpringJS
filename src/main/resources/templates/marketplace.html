@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/head::head">
+</head>
     <meta charset="UTF-8">
     <title>Marketplace</title>
     <link rel="stylesheet" href="/css/style.css">
-</head>
+    <link rel="stylesheet" href="/css/marketplace.css">
+<link rel="stylesheet" href="/css/reset-css.css">
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<body>
+
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <div class="container">
@@ -17,5 +24,6 @@
         <a th:href="@{/marketplace/product/{id}(id=${product.id})}">View Details</a>
     </div>
 </div>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

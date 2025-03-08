@@ -2,22 +2,36 @@
 <html  lang="en"
        xmlns="http://www.w3.org/1999/xhtml"
        xmlns:th="http://www.thymeleaf.org">
-<!--<head th:replace="/fragments/commons::head">-->
-<!--</head>-->
 
+<head th:replace="fragments/head::head">
+</head>
 
-<head>
-    <meta charset="UTF-8">
     <title>EcoLife - Sustainable Living</title>
+<meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
     <link rel="stylesheet" href="/css/index.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
-<div class="container">
-    <h1>Welcome to EcoLife</h1>
-    <p>A platform for recycling, sustainable living, and eco-friendly cooking.</p>
+<div class="home-container">
+    <div class="earth-container">
+        <div class="earth"></div>
+        <div class="leaves">
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+        </div>
+    </div>
+    <div class="hero-section">
+        <h1><i class="fas fa-globe"></i> Welcome to EcoLife</h1>
+        <p>Join us in creating a sustainable future with recycling, eco-friendly cooking, and mindful living.</p>
+        <a th:href="@{/green-cooking}" class="cta-button"><i class="fas fa-leaf"></i> Get Started</a>
+    </div>
 </div>
 </body>
+<footer th:replace="fragments/footer :: footer"></footer>
 </html>

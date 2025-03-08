@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/head::head">
+</head>
     <meta charset="UTF-8">
     <title>Register - EcoLife</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
+    <link rel="stylesheet" href="/css/register.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <div class="container">
-    <h1>Register</h1>
+    <h1><i class="fas fa-user-plus"></i>Register</h1>
     <form th:action="@{/register}" th:object="${user}" method="post" onsubmit="return validateForm()">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" th:field="*{username}" required>
+            <label for="username"><i class="fas fa-user"></i>Username</label>
+            <input type="text" id="username" autocomplete="username" th:field="*{username}" required>
             <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
         </div>
         <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" th:field="*{fullName}" required>
+            <label for="fullName"><i class="fas fa-user">Full Name</i></label>
+            <input type="text" id="fullName" autocomplete="fullName" th:field="*{fullName}" required>
             <span class="error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" th:field="*{email}" required>
+            <label for="email"><i class="fas fa-envelope"></i>Email</label>
+            <input type="email" id="email" autocomplete="email" th:field="*{email}" required>
             <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" th:field="*{password}" required>
+            <label for="password"><i class="fas fa-lock"></i>Password</label>
+            <input type="password" autocomplete="new-password" id="password" th:field="*{password}" required>
             <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
         </div>
         <div class="form-group">
-            <label for="confirmPassword">Confirm password</label>
-            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
+            <label for="confirmPassword"><i class="fas fa-lock"></i>Confirm password</label>
+            <input type="password" id="confirmPassword" autocomplete="new-password" th:field="*{confirmPassword}" required>
             <span class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></span>
         </div>
         <div class="g-recaptcha" data-sitekey="6LcrsOAqAAAAAOpY4fcfSfn5pjd1EkwSdFlR97ET"></div>
         <input type="hidden" name="g-recaptcha-response">
         <div class="error" th:if="${error}" th:text="${error}"></div>
-        <button type="submit">Register</button>
+        <button type="submit"><i class="fas fa-sign-in-alt"></i>Register</button>
     </form>
     <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
 </div>
@@ -70,5 +73,6 @@
         return true;
     }
 </script>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
