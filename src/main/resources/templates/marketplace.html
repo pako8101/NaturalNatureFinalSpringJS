@@ -14,16 +14,39 @@
 
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
-<div class="container">
-    <h1>Marketplace</h1>
-    <div th:each="product : ${products}" class="card">
-        <img th:src="${product.imageUrl}" alt="Product Image">
-        <h3 th:text="${product.name}"></h3>
-        <p th:text="${product.description}"></p>
-        <p th:text="'Price: $' + ${product.price}"></p>
-        <a th:href="@{/marketplace/product/{id}(id=${product.id})}">View Details</a>
+<div class="marketplace-container">
+    <div class="marketplace-header">
+        <h1><i class="fas fa-shopping-bag"></i> EcoLife Marketplace</h1>
+        <p>Discover sustainable products for a greener life!</p>
+        <a th:href="@{/admin/add-product}" class="admin-link"><i class="fas fa-plus"></i> Add Product</a>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" th:each="product : ${products}">
+            <div class="product-image" th:style="'background-image: url(' + ${product.imageUrl} + ')'"></div>
+            <div class="product-info">
+                <h2 th:text="${product.name}"></h2>
+                <p th:text="${product.description}"></p>
+                <span class="price" th:text="'$' + ${product.price}"></span>
+                <button class="buy-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="decorative-elements">
+        <div class="decor-item eco"></div>
+        <div class="decor-item leaf"></div>
+        <div class="decor-item bag"></div>
     </div>
 </div>
+<!--<div class="container">-->
+<!--    <h1>Marketplace</h1>-->
+<!--    <div th:each="product : ${products}" class="card">-->
+<!--        <img th:src="${product.imageUrl}" alt="Product Image">-->
+<!--        <h3 th:text="${product.name}"></h3>-->
+<!--        <p th:text="${product.description}"></p>-->
+<!--        <p th:text="'Price: $' + ${product.price}"></p>-->
+<!--        <a th:href="@{/marketplace/product/{id}(id=${product.id})}">View Details</a>-->
+<!--    </div>-->
+<!--</div>-->
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

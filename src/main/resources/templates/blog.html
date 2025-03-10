@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Blog - EcoLife</title>
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<body>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="blog-container">
+    <div class="blog-header">
+        <h1><i class="fas fa-leaf"></i> EcoLife Blog</h1>
+        <p>Discover tips, stories, and ideas for a sustainable lifestyle!</p>
+    </div>
+    <div class="blog-posts">
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d6942ee" alt="Recycling Tips">
+            <h2>Top 10 Recycling Tips</h2>
+            <p>Learn the best ways to reduce waste and recycle effectively in your daily life.
+                <br>
+<a> Know Your Local Recycling Rules
+                🏡 Different cities have different recycling guidelines. Check your local waste management website to learn what materials are accepted.
+</a><br>
+<a>Clean & Dry Before Recycling
+    🚰 Rinse out food and drink containers before recycling them. Wet or dirty items can contaminate an entire batch.
+</a><br>
+                <a> Avoid "Wishcycling"
+                    ❌ Just because something looks recyclable doesn’t mean it is. Throwing non-recyclables in the bin can cause processing issues.
+                </a><br>
+                <a>         Separate Properly
+                    🔄 Many recycling programs require separation of materials like paper, plastic, and glass. Follow the guidelines to ensure efficient recycling.
+                </a>
+             <a>      Skip the Plastic Bags
+                    🛍️ Don’t put recyclables in plastic bags—they can clog sorting machines. Instead, place items loosely in the bin.
+                </a>
+             <a>         Flatten Cardboard Boxes
+                    📦 Break down boxes before recycling to save space and improve processing efficiency.
+                </a>
+             <a>      Recycle Electronics Responsibly
+                    💻 Many electronics (phones, batteries, laptops) require special disposal. Take them to designated e-waste recycling centers.
+                </a>
+              <a>     Compost Organic Waste
+                    🌱 Food scraps, coffee grounds, and yard waste can be composted instead of thrown in the trash, reducing landfill waste.
+                </a>
+               <a>   Reduce & Reuse First
+                    🔄 Before recycling, try to reduce waste by using reusable bags, bottles, and containers. Reusing items extends their life and saves resources.
+                </a>
+              <a>      Support Recycled Products
+                    🛒 Buy products made from recycled materials—like notebooks, clothing, and packaging—to support the recycling industry.
+                </a>
+            </p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Eco Cooking">
+            <h2>Eco-Friendly Cooking</h2>
+            <p>Delicious recipes that minimize waste and maximize sustainability.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09" alt="Green Living">
+            <h2>Green Living Guide</h2>
+            <p>Simple steps to transform your home into an eco-friendly haven.</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+    <div class="decorative-leaves">
+        <div class="leaf-decor"></div>
+        <div class="leaf-decor"></div>
+        <div class="leaf-decor"></div>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

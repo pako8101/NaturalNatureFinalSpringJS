@@ -25,13 +25,23 @@ public class RecyclingCenterController {
     public List<RecyclingCenter> getCentersByCity(@RequestParam String city) {
         return service.getCentersByCity(city);
     }
-    @GetMapping("/recycling")
-    public String recyclingMap(@RequestParam(required = false) String city,
-                               Model model) {
-        model.addAttribute("points",
-                city != null ? service.getCentersByCity(city) : service.getAllCenters());
+    @GetMapping()
+//    public String recyclingMap(@RequestParam(required = false) String city,
+//                               Model model) {
+//
+//        model.addAttribute("points",
+//                city != null ? service.getCentersByCity(city) : service.getAllCenters());
+//        return "recycling";
+//    }
+    public String recyclingMap(@RequestParam(value = "city", required = false) String city, Model model) {
+        if (city != null && !city.isEmpty()) {
+            // Логика за търсене на град
+            model.addAttribute("city", city);
+            model.addAttribute("points", service.getCentersByCity(city));
+        }
         return "recycling";
     }
+
 }
 
 

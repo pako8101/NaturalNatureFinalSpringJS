@@ -8,40 +8,222 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/reset-css.css">
-<link rel="stylesheet" href="/css/index.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+">
+
 <body>
 
-<footer class="footer" th:fragment="footer">
-    <div class="footer-container">
-        <div class="footer-section">
+<footer class="footer"
+        style=":before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 235, 59, 0.3), transparent);
+        animation: float 10s infinite ease-in-out;
+    };:after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(129, 199, 132, 0.3), transparent);
+        animation: float 12s infinite ease-in-out reverse;
+    } ;
+         background: linear-gradient(135deg, #1a3c34, #4caf50, #81c784);
+    color: #fff;
+    padding: 60px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+    margin-top: 50px;
+" th:fragment="footer">
+    <div style=" max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding-bottom: 40px;
+        position: relative;
+        z-index: 2;" class="footer-container">
+
+        <div style=" padding: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        transition: transform 0.3s ease;" class="footer-section">
             <h3>About EcoLife</h3>
-            <p>EcoLife is your platform for sustainable living, recycling, and eco-friendly cooking.</p>
+            <p style="font-size: 16px;
+        line-height: 1.6;
+        color: #e0f7fa;">EcoLife is your platform for sustainable living, recycling, and eco-friendly cooking.</p>
         </div>
-        <div class="footer-section">
+        <div style=" padding: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        transition: transform 0.3s ease;" class="footer-section">
             <h3>Quick Links</h3>
-            <ul>
-                <li><a th:href="@{/}">Home</a></li>
-                <li><a th:href="@{/recycling}">Recycling Map</a></li>
-                <li><a th:href="@{/marketplace}">Marketplace</a></li>
-                <li><a th:href="@{/blog}">Blog</a></li>
-                <li><a th:href="@{/green-cooking}">Green Cooking</a></li>
+            <ul style=" list-style: none;
+        padding: 0;">
+                <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/}">Home</a></li>
+                <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/recycling}">Recycling Map</a></li>
+                <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/marketplace}">Marketplace</a></li>
+                <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/blog}">Blog</a></li>
+                <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/green-cooking}">Green Cooking</a></li>
             </ul>
         </div>
-        <div class="footer-section">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <div style=" padding: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        transition: transform 0.3s ease;" class="footer-section">
+            <h3 style="font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;">Follow Us</h3>
+            <div style=" display: flex;
+        gap: 20px;" class="social-icons">
+                <a style="  color: #fff;
+        font-size: 28px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;" href="https://facebook.com" target="_blank">
+                    <i style="margin-right: 10px;
+        color: #ffeb3b;" class="fab fa-facebook-f"></i></a>
+                <a style="  color: #fff;
+        font-size: 28px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;" href="https://twitter.com" target="_blank">
+                    <i style="margin-right: 10px;
+        color: #ffeb3b;" class="fab fa-twitter"></i></a>
+                <a style="  color: #fff;
+        font-size: 28px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;" href="https://instagram.com" target="_blank">
+                    <i style="margin-right: 10px;
+        color: #ffeb3b;" class="fab fa-instagram"></i></a>
+                <a style="  color: #fff;
+        font-size: 28px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;" href="https://youtube.com" target="_blank">
+                    <i style="margin-right: 10px;
+        color: #ffeb3b;" class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 EcoLife. All Rights Reserved.</p>
+    <div style=" text-align: center;
+        padding: 15px 0;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 2;" class="footer-bottom">
+        <p style=" margin: 0;
+        color: #e0f7fa;">&copy; 2025 EcoLife. All Rights Reserved.</p>
     </div>
 </footer>
 </body>
 </html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+    .footer-section:hover {
+        transform: translateY(-10px);
+    }
+
+    .footer-section h3::after {
+        content: '';
+        width: 60px;
+        height: 3px;
+        background: #ffeb3b;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        border-radius: 5px;
+    }
+
+    .footer-section ul li a:hover {
+        color: #ffeb3b;
+        padding-left: 15px;
+    }
+
+
+    .social-icons a:hover {
+        transform: rotate(360deg);
+        color: #ffeb3b;
+    }
+
+
+
+    /* Динамични елементи */
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 235, 59, 0.3), transparent);
+        animation: float 10s infinite ease-in-out;
+    }
+
+    .footer::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(129, 199, 132, 0.3), transparent);
+        animation: float 12s infinite ease-in-out reverse;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(20px, 20px); }
+    }
+</style>

@@ -11,9 +11,10 @@
 }
 
 .navbar a, .navbar span {
-    color: #fff;
+
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Indie Flower', cursive;
+    color: #355e3b;
     font-weight: 600;
     padding: 12px 25px;
     transition: all 0.3s ease;

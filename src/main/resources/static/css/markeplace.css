@@ -1,61 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #b2dfdb, #fffde7);
+    overflow-x: hidden;
+}
 
 .marketplace-container {
-    max-width: 1200px;
-    margin: 50px auto;
+    max-width: 1300px;
+    margin: 80px auto;
     padding: 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
 }
 
-.marketplace-container h1 {
-    font-family: 'Poppins', sans-serif;
-    color: #2e7d32;
-    font-size: 32px;
+.marketplace-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+    animation: bounceIn 1s ease-out;
 }
 
-.card {
-    display: inline-block;
-    width: 30%;
-    margin: 1.5%;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+.marketplace-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2e7d32;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.card h3 {
-    font-family: 'Poppins', sans-serif;
+.marketplace-header p {
+    font-size: 20px;
     color: #388e3c;
+    margin-top: 10px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h2 {
+    font-size: 22px;
+    color: #2e7d32;
     margin: 10px 0;
 }
 
-.card p {
-    font-family: 'Poppins', sans-serif;
+.product-info p {
+    font-size: 16px;
     color: #555;
+    margin-bottom: 15px;
 }
 
-.card a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #2e7d32;
+.product-info .price {
+    font-size: 20px;
     font-weight: 600;
-    text-decoration: none;
+    color: #388e3c;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.card a:hover {
-    text-decoration: underline;
+.buy-btn {
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.buy-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Декоративни елементи */
+.decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decor-item {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    opacity: 0.7;
+    animation: floatDecor 15s infinite ease-in-out;
+}
+
+.decor-item.eco { background: url('https://cdn-icons-png.flaticon.com/512/2921/2921222.png') no-repeat center; top: 10%; left: 5%; }
+.decor-item.leaf { background: url('https://cdn-icons-png.flaticon.com/512/2909/2909778.png') no-repeat center; top: 20%; right: 10%; }
+.decor-item.bag { background: url('https://cdn-icons-png.flaticon.com/512/3737/3737178.png') no-repeat center; bottom: 15%; left: 15%; }
+
+/* Анимации */
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes floatDecor {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(20px) rotate(10deg); }
 }

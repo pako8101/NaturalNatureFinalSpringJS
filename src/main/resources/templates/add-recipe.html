@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Recipe - EcoLife</title>
+    <link rel="stylesheet" th:href="@{/css/add-recipe.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<div class="add-recipe-container">
+    <h1><i class="fas fa-plus"></i> Add New Recipe</h1>
+    <form th:action="@{/admin/add-recipe}" th:object="${recipe}" method="post">
+        <div class="form-group">
+            <label for="title"><i class="fas fa-utensils"></i> Title</label>
+            <input type="text" id="title" th:field="*{title}" required>
+        </div>
+        <div class="form-group">
+            <label for="description"><i class="fas fa-align-left"></i> Description</label>
+            <textarea id="description" th:field="*{description}" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="imageUrl"><i class="fas fa-image"></i> Image URL</label>
+            <input type="text" id="imageUrl" th:field="*{imageUrl}" required>
+        </div>
+        <div class="form-group">
+            <label for="videoUrl"><i class="fas fa-video"></i> Video URL</label>
+            <input type="text" id="videoUrl" th:field="*{videoUrl}" required>
+        </div>
+        <div class="form-group">
+            <label for="ingredients"><i class="fas fa-list"></i> Ingredients (separate with commas)</label>
+            <textarea id="ingredients" th:field="*{ingredients}" required></textarea>
+        </div>
+        <button type="submit"><i class="fas fa-save"></i> Add Recipe</button>
+    </form>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

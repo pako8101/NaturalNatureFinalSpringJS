@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f1f8e9, #c5e1a5, #fffde7);
+    overflow-x: hidden;
+}
+
+.green-cooking-container {
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.cooking-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: bounceIn 1s ease-out;
+}
+
+.cooking-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2e7d32;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cooking-header p {
+    font-size: 20px;
+    color: #388e3c;
+    margin-top: 10px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(129, 199, 132, 0.2), transparent);
+    animation: ripple 10s infinite ease-in-out;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.recipe-card h2 {
+    font-size: 22px;
+    color: #2e7d32;
+    margin: 10px 0;
+}
+
+.recipe-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.recipe-card .video-link {
+    display: inline-block;
+    background: linear-gradient(90deg, #ffca28, #ffb300);
+    color: #1a3c34;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card .video-link:hover {
+    transform: scale(1.1);
+}
+
+/* Интерактивни елементи */
+.recipe-card .ingredients {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    z-index: 2;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.recipe-card:hover .ingredients {
+    display: block;
+}
+
+.recipe-card .ingredients h3 {
+    font-size: 20px;
+    color: #388e3c;
+    margin-bottom: 15px;
+}
+
+.recipe-card .ingredients ul {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.recipe-card .ingredients ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.recipe-card .ingredients ul li i {
+    margin-right: 10px;
+    color: #4caf50;
+}
+
+/* Декоративни елементи */
+.decorative-ingredients {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ingredient-decor {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    opacity: 0.8;
+    animation: floatIngredient 12s infinite ease-in-out;
+}
+
+.ingredient-decor.carrot { background: url('https://cdn-icons-png.flaticon.com/512/3461/3461970.png') no-repeat center; }
+.ingredient-decor.tomato { background: url('https://cdn-icons-png.flaticon.com/512/2921/2921237.png') no-repeat center; }
+.ingredient-decor.leaf { background: url('https://cdn-icons-png.flaticon.com/512/2909/2909778.png') no-repeat center; }
+
+.ingredient-decor:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+.ingredient-decor:nth-child(2) { top: 15%; right: 15%; animation-delay: 4s; }
+.ingredient-decor:nth-child(3) { bottom: 10%; left: 20%; animation-delay: 8s; }
+
+/* Анимации */
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+}
+
+@keyframes floatIngredient {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(15px) rotate(5deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

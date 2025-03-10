@@ -10,5 +10,7 @@ public interface RecipeService {
     List<Recipe> getAllRecipes();
 
     Recipe getRecipeById(Long id);
+
+    void saveRecipe(Recipe recipe);
 }
 

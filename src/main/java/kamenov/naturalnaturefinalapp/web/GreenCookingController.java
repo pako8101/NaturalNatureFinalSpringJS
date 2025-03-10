@@ -1,12 +1,14 @@
 package kamenov.naturalnaturefinalapp.web;
 
 import kamenov.naturalnaturefinalapp.entity.Order;
+import kamenov.naturalnaturefinalapp.entity.Recipe;
 import kamenov.naturalnaturefinalapp.service.OrderService;
 import kamenov.naturalnaturefinalapp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,12 +24,24 @@ public class GreenCookingController {
         this.orderService = orderService;
     }
 
+
     @GetMapping("/green-cooking")
-    public String recipes(Model model) {
+    public String greenCooking(Model model) {
         model.addAttribute("recipes", recipeService.getAllRecipes());
         return "green-cooking";
     }
 
+    @GetMapping("/admin/add-recipe")
+    public String showAddRecipeForm(Model model) {
+        model.addAttribute("recipe", new Recipe());
+        return "add-recipe";
+    }
+
+    @PostMapping("/admin/add-recipe")
+    public String addRecipe(@ModelAttribute Recipe recipe) {
+        recipeService.saveRecipe(recipe);
+        return "redirect:/green-cooking";
+    }
     @GetMapping("/green-cooking/{id}")
     public String recipeDetails(@PathVariable Long id, Model model) {
         model.addAttribute("recipe", recipeService.getRecipeById(id));

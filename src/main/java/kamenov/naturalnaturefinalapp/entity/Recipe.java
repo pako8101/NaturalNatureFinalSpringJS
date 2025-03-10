@@ -13,8 +13,30 @@ public class Recipe extends BaseEntity {
     private String ingredients;
     @Column(columnDefinition = "TEXT")
     private String instructions;
+    @Column(name = "image_url",nullable = false)
+    private String imageUrl;
+    @Column(name = "video_url",nullable = false)
+    private String videoUrl;
 
     public Recipe() {
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public Recipe setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public Recipe setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+        return this;
     }
 
     public String getTitle() {

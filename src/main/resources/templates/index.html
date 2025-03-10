@@ -16,8 +16,29 @@
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <div class="home-container">
-    <div class="earth-container">
+    <div class="background-elements">
         <div class="earth"></div>
+        <div class="sun"></div>
+        <div class="wave-container">
+            <div class="waves"></div>
+            <div class="shark"></div>
+            <div class="whale"></div>
+        </div>
+        <div class="clouds">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        <div class="birds">
+            <div class="bird"></div>
+            <div class="bird"></div>
+            <div class="bird"></div>
+        </div>
+        <div class="trees">
+            <div class="tree"></div>
+            <div class="tree"></div>
+            <div class="tree"></div>
+        </div>
         <div class="leaves">
             <div class="leaf"></div>
             <div class="leaf"></div>
@@ -28,8 +49,8 @@
     </div>
     <div class="hero-section">
         <h1><i class="fas fa-globe"></i> Welcome to EcoLife</h1>
-        <p>Join us in creating a sustainable future with recycling, eco-friendly cooking, and mindful living.</p>
-        <a th:href="@{/green-cooking}" class="cta-button"><i class="fas fa-leaf"></i> Get Started</a>
+        <p>Embrace a greener world with sustainable living, recycling, and eco-friendly cooking.</p>
+        <a th:href="@{/green-cooking}" class="cta-button"><i class="fas fa-seedling"></i> Start Your Journey</a>
     </div>
 </div>
 </body>

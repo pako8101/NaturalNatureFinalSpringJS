@@ -12,11 +12,22 @@ public class Product extends BaseEntity {
     private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
+    @Column(name = "image_url",nullable = false)
+    private String imageUrl;
     @PositiveOrZero
     @Column(nullable = false)
     private double price;
 
     public Product() {
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public Product setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
     }
 
     public String getName() {

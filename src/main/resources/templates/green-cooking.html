@@ -7,20 +7,102 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/reset-css.css">
 <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" th:href="@{/css/green-cooking.css}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <body>
-
-<body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
-<div class="container">
-    <h1>Green Cooking</h1>
-    <div th:each="recipe : ${recipes}" class="card">
-        <h3 th:text="${recipe.title}"></h3>
-        <p th:text="${recipe.ingredients}"></p>
-        <a th:href="@{/green-cooking/{id}(id=${recipe.id})}">View Recipe</a>
+<div class="green-cooking-container">
+    <div class="cooking-header">
+        <h1><i class="fas fa-utensils"></i> Green Cooking</h1>
+        <p>Healthy, sustainable recipes for a greener lifestyle!</p>
+    </div>
+    <div class="recipe-grid">
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Quinoa Salad">
+            <h2>Quinoa Veggie Salad</h2>
+            <p>A light, nutritious salad packed with fresh veggies and protein.</p>
+            <a href="https://www.youtube.com/watch?v=example1" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li><i class="fas fa-seedling"></i> 1 cup quinoa</li>
+                    <li><i class="fas fa-carrot"></i> 2 carrots, shredded</li>
+                    <li><i class="fas fa-leaf"></i> 1 cup spinach</li>
+                    <li><i class="fas fa-lemon"></i> Juice of 1 lemon</li>
+                </ul>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Vegan Curry">
+            <h2>Spicy Vegan Curry</h2>
+            <p>A flavorful curry made with seasonal vegetables and coconut milk.</p>
+            <a href="https://www.youtube.com/watch?v=example2" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li><i class="fas fa-seedling"></i> 1 can chickpeas</li>
+                    <li><i class="fas fa-pepper-hot"></i> 2 tbsp curry paste</li>
+                    <li><i class="fas fa-coconut"></i> 1 can coconut milk</li>
+                    <li><i class="fas fa-carrot"></i> 1 sweet potato</li>
+                </ul>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1622878482587-6d861d75ac4c" alt="Green Smoothie">
+            <h2>Green Detox Smoothie</h2>
+            <p>A refreshing blend of fruits and greens to boost your day.</p>
+            <a href="https://www.youtube.com/watch?v=example3" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li><i class="fas fa-leaf"></i> 2 cups kale</li>
+                    <li><i class="fas fa-apple-alt"></i> 1 apple</li>
+                    <li><i class="fas fa-banana"></i> 1 banana</li>
+                    <li><i class="fas fa-tint"></i> 1 cup water</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="decorative-ingredients">
+        <div class="ingredient-decor carrot"></div>
+        <div class="ingredient-decor tomato"></div>
+        <div class="ingredient-decor leaf"></div>
+    </div>
+</div><div class="cooking-header">
+    <h1><i class="fas fa-utensils"></i> Add Recipes</h1>
+    <p>Healthy, sustainable recipes for a greener lifestyle!</p>
+    <a th:href="@{/admin/add-recipe}" class="admin-link"><i class="fas fa-plus"></i> Add Recipe</a>
+</div>
+<div class="recipe-grid">
+    <div class="recipe-card" th:each="recipe : ${recipes}">
+        <img th:src="${recipe.imageUrl}" th:alt="${recipe.title}">
+        <h2 th:text="${recipe.title}"></h2>
+        <p th:text="${recipe.description}"></p>
+        <a th:href="${recipe.videoUrl}" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
+        <div class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li th:each="ingredient : ${#strings.split(recipe.ingredients, ',')}" th:text="${ingredient.trim()}">
+                    <i class="fas fa-seedling"></i>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+<div class="decorative-ingredients">
+    <div class="ingredient-decor carrot"></div>
+    <div class="ingredient-decor tomato"></div>
+    <div class="ingredient-decor leaf"></div>
+</div>
+<!--<div class="container">-->
+<!--    <h1>Green Cooking</h1>-->
+<!--    <div th:each="recipe : ${recipes}" class="card">-->
+<!--        <h3 th:text="${recipe.title}"></h3>-->
+<!--        <p th:text="${recipe.ingredients}"></p>-->
+<!--        <a th:href="@{/green-cooking/{id}(id=${recipe.id})}">View Recipe</a>-->
+<!--    </div>-->
+<!--</div>-->
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

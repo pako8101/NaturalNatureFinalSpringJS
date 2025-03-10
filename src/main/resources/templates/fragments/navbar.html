@@ -14,6 +14,7 @@
     <a th:href="@{/blog}">Blog</a>
     <a th:href="@{/green-cooking}">Green Cooking</a>
     <a th:href="@{/video-courses}">Video Courses</a>
+    <a th:href="@{/waste-management}">Waste Management</a>
     <div sec:authorize="isAuthenticated()">
         <span>Hello, <span sec:authentication="name"></span></span>
         <a th:href="@{/user/logout}" th:method="post">Logout</a>
