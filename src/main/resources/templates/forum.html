@@ -1,0 +1,70 @@
+<!-- src/main/resources/templates/forum.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Forum - Eco Life</title>
+    <link rel="stylesheet" th:href="@{/css/forum.css}">
+
+<body>
+<!-- Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header class="hero">
+    <h1>Nature Ethos Forum</h1>
+    <p>Share your eco ideas and connect with the community!</p>
+</header>
+
+<section class="forum-section">
+    <div class="post-form">
+        <h2>Create a Post</h2>
+        <form th:action="@{/forum/add-post}" method="post" enctype="multipart/form-data">
+            <input type="text" name="author" placeholder="Your Name" required>
+            <textarea name="content" placeholder="Write your post..." required></textarea>
+            <input type="file" name="image" accept="image/*">
+            <button type="submit">Post</button>
+        </form>
+    </div>
+
+    <div class="posts-container">
+        <div th:each="post : ${posts}" class="post-card">
+            <div class="post-header">
+                <span th:text="${post.author}"></span>
+                <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}"></span>
+            </div>
+            <p th:text="${post.content}"></p>
+            <div th:if="${post.imagePath}" class="post-image">
+                <img th:src="${post.imagePath}" alt="Post Image">
+            </div>
+            <div class="comment-section">
+                <h3>Comments</h3>
+                <form th:action="@{/forum/add-comment}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" th:name="postId" th:value="${post.id}">
+                    <input type="text" name="author" placeholder="Your Name" required>
+                    <textarea name="content" placeholder="Write a comment..." required></textarea>
+                    <input type="file" name="image" accept="image/*">
+                    <button type="submit">Comment</button>
+                </form>
+                <div th:if="${post.comments != null && !post.comments.isEmpty()}">
+                    <div th:each="comment : ${post.comments}" class="comment-card">
+                        <div class="comment-header">
+                            <span th:text="${comment.author}"></span>
+                            <span th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></span>
+                        </div>
+                        <p th:text="${comment.content}"></p>
+                        <div th:if="${comment.imagePath}" class="comment-image">
+                            <img th:src="${comment.imagePath}" alt="Comment Image">
+                        </div>
+                    </div>
+                </div>
+                <div th:if="${post.comments == null || post.comments.isEmpty()}" class="no-comments">
+                    <p>No comments yet. Be the first to comment!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

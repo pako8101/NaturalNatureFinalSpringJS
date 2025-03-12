@@ -26,7 +26,7 @@ public class VideoCourseController {
                 new VideoCourse("Beginners Guide to Zero Waste Living", "https://www.youtube.com/watch?v=6jQ_oiJOx0A"),
                 new VideoCourse("Easy Ways to Reduce Waste", "https://www.youtube.com/watch?v=8oN1lMtLY5I"),
                 new VideoCourse("Sustainable Living Tips", "https://www.youtube.com/watch?v=5fG9xM6Y5Zk"),
-                new VideoCourse("Eco-Friendly Lifestyle Playlist", "https://www.youtube.com/watch?v=P0LOIGXNLu"),
+                new VideoCourse("Eco-Friendly: The Future of Eco-Sustainable Houses", "https://www.youtube.com/watch?v=RUosBOg0hAM&t=2s"),
                 new VideoCourse("How to Start Composting", "https://www.youtube.com/watch?v=zvUYRO7R7eU")
         );
         model.addAttribute("videoCourses", videoCourses);

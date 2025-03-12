@@ -1,6 +1,6 @@
 /* src/main/resources/static/css/video-courses.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Franklin Gothic Book";
     margin: 0;
     padding: 0;
     background: url('/images/forest-gone.jpg') no-repeat center/cover fixed; /* Уникален фон за Video Courses */
@@ -33,13 +33,15 @@ body {
     color: #f1c40f;
 }
 
-.hero {
+.hero{
     background: rgba(0, 0, 0, 0.5) url('/images/life.jpg') no-repeat center/cover;
     background-blend-mode: overlay;
     color: white;
     text-align: center;
     padding: 100px 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: x-large;
+    font-family: "Droid Sans Mono";
 }
 
 .video-section, .image-section {
@@ -53,7 +55,7 @@ body {
 
 .video-section h2, .image-section h2 {
     text-align: center;
-    color: #2ecc71;
+    color: lightseagreen;
     margin-bottom: 20px;
 }
 
@@ -61,6 +63,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    font-size: large;
+    color: #c8e6c9;
 }
 
 .video-card {

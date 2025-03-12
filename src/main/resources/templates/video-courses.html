@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <header class="hero">
-    <h1>Video Courses</h1>
+    <h1 style="color: gainsboro">Video Courses</h1>
     <p>Explore tutorials and guides for a sustainable lifestyle!</p>
 </header>
 
@@ -21,7 +21,7 @@
         <a th:each="course : ${videoCourses}" th:href="${course.videoUrl}"
            target="_blank" class="video-card">
             <div class="video-overlay">
-                <h3 th:text="${course.title}"></h3>
+                <h3 style="color: blanchedalmond" th:text="${course.title}"></h3>
             </div>
         </a>
     </div>

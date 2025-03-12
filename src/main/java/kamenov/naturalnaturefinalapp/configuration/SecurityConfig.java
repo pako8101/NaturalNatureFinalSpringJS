@@ -47,9 +47,12 @@ public class SecurityConfig {
                                         .permitAll().
                                         requestMatchers("/",
                                                 "/about",
+                                                "/forum/**",
+                                                "/forum/add-post/**",
                                                 "/video-courses/**",
                                                 "/marketplace/products",
                                                 "/marketplace/products/**",
+                                                "/admin/add-product",
                                                 "/marketplace/**",
                                                 "/waste-management/**",
                                                 "/green-cooking/**",

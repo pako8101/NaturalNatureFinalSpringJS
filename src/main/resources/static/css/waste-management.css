@@ -3,8 +3,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    /*background-color: #f4f4f4;*/
     color: #333;
+    background: rgba(0, 0, 0, 0.5) url('/images/polution.jpg') no-repeat center/cover;
 }
 
 .navbar {
@@ -32,16 +33,35 @@ body {
 .navbar a:hover {
     color: #f1c40f;
 }
+.title{
+    color: lightyellow;
+    text-shadow: 0 0 5px #000000; /* Очертаване на текста */
+    animation: smooth-blink 2s infinite; /* Анимация за плавно премигване */
+}
+
+/* Анимация за плавно премигване */
+@keyframes smooth-blink {
+    0%, 100% {
+        opacity: 1; /* Напълно видим текст */
+    }
+    50% {
+        opacity: 0.3; /* Полупрозрачен текст */
+    }
+}
 
 .hero {
-    background: url('/images/waste-hero.jpg') no-repeat center/cover;
-    color: white;
+
+    animation: smooth-blink 2s infinite; /* Анимация за премигване */
+    color: papayawhip;
+    font-family: "Poor Richard";
+    font-size: xxx-large;
     text-align: center;
     padding: 100px 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .tips-section, .add-tip-section {
+
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
@@ -107,4 +127,60 @@ footer {
     padding: 20px;
     background: #2ecc71;
     color: white;
+}
+.video-section, .image-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85); /* Полупрозрачен фон */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-section h2, .image-section h2 {
+    text-align: center;
+    color: sienna;
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.image-card {
+    position: relative;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.3em;
+    transition: background 0.3s;
+}
+
+.image-card:hover .image-overlay {
+    background: rgba(52, 152, 219, 0.8); /* Син ефект при hover */
 }

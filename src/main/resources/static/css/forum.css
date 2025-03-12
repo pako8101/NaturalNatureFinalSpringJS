@@ -1,0 +1,226 @@
+/* src/main/resources/static/css/forum.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/green-life1.png') no-repeat center/cover fixed;
+    color: #2d3436;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+    padding: 1rem;
+
+}
+.dropdown li {
+    display: block;
+   /* Разположете подменюто вертикално */
+}
+
+.navbar ul li:hover .dropdown {
+    display: block; /* Покажете падащото меню при задържане с мишката върху родителя */
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #ffeaa7;
+}
+
+.hero {
+    /*background: rgba(0, 0, 0, 0.6) url('/images/oneWorld.jpg') no-repeat center/cover;*/
+    background-blend-mode: overlay;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #f1c40f;
+}
+
+.hero p {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #dfe6e9;
+}
+
+.forum-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.post-form, .post-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid #f39c12;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-form:hover, .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-form h2 {
+    color: #d35400;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.post-form input[type="text"], .post-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid #fab1a0;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.post-form input[type="text"]:focus, .post-form textarea:focus {
+    border-color: #e67e22;
+    outline: none;
+}
+
+.post-form button {
+    background: #e67e22;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.post-form button:hover {
+    background: #d35400;
+}
+
+.post-card .post-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #636e72;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.post-card .post-header span:first-child {
+    color: #e67e22;
+}
+
+.post-card p {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #2d3436;
+}
+
+.post-image img, .comment-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px solid #fab1a0;
+}
+
+.comment-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #f39c12;
+}
+
+.comment-section h3 {
+    color: #d35400;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.comment-section form input[type="text"], .comment-section form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #fab1a0;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+}
+
+.comment-section form button {
+    background: #e67e22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.comment-section form button:hover {
+    background: #d35400;
+}
+
+.comment-card {
+    background: #ffeaa7;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 1px solid #f39c12;
+}
+
+.comment-card .comment-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: #636e72;
+    font-weight: 600;
+}
+
+.comment-card .comment-header span:first-child {
+    color: #d35400;
+}
+
+.comment-card p {
+    margin: 5px 0;
+    color: #2d3436;
+}
+
+.no-comments {
+    text-align: center;
+    color: #636e72;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f39c12;
+    color: white;
+    font-weight: 600;
+}

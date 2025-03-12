@@ -67,13 +67,31 @@ servlet:
         server:
           tomcat:
             uri-encoding=UTF-8:
-  mail:
-    host: smtp.gmail.com
-    port: 578
-    username: ${email_username}
-    password: ${password_email}
-    test-connection: true
 
+              spring:
+                mail:
+                  host: smtp.gmail.com
+                  port: 587
+                  username: ${email_username}
+                  password: ${password_email}
+                  properties:
+                    mail.smtp.auth: true
+                    mail.smtp.starttls.enable: true
+
+
+#  mail:
+#    host: smtp.gmail.com
+#    port: 578
+#    username: ${email_username}
+#    password: ${password_email}
+#    test-connection: true
+
+  upload:
+  directory: src/main/resources/static/uploads/
+
+  # Адрес за уведомления (твой имейл)
+  notification:
+    mail: ${email_notification}
     properties:
       mail:
         smtp:

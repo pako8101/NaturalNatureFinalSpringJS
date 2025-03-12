@@ -16,7 +16,7 @@
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <div class="marketplace-container">
     <div class="marketplace-header">
-        <h1><i class="fas fa-shopping-bag"></i> EcoLife Marketplace</h1>
+        <h1><i class="fas fa-shopping-bag"></i> NatureEthos Marketplace</h1>
         <p>Discover sustainable products for a greener life!</p>
         <a th:href="@{/admin/add-product}" class="admin-link"><i class="fas fa-plus"></i> Add Product</a>
     </div>
@@ -28,7 +28,8 @@
                 <p th:text="${product.description}"></p>
                 <span class="price" th:text="'$' + ${product.price}"></span>
                 <button class="buy-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                <div th:if="${#authorization.hasRole('ROLE_ADMIN')}">
+<!--                th:if="${#authorization.hasRole('ROLE_ADMIN')}"-->
+                <div >
                     <a th:href="@{/admin/edit-product/{id}(id=${product.id})}" class="edit-link"><i class="fas fa-edit"></i> Edit</a>
                     <a th:href="@{/admin/delete-product/{id}(id=${product.id})}" class="delete-link"><i class="fas fa-trash"></i> Delete</a>
                 </div>

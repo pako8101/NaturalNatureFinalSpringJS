@@ -9,7 +9,11 @@
     top: 0;
     z-index: 1000;
 }
-
+/*.nav-logo {*/
+/*    width: 50px; !* Задайте желаната ширина *!*/
+/*    height: auto; !* Автоматична височина за запазване на пропорциите *!*/
+/*    margin-right: 20px; !* Отстъп между логото и менюто *!*/
+/*}*/
 .navbar a, .navbar span {
 
     text-decoration: none;
@@ -27,4 +31,43 @@
 
 .navbar span {
     font-size: 16px;
+}
+
+
+.navbar ul {
+    list-style-type: none; /* Премахване на булетите */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    position: relative; /* Позволява позициониране на подменюто */
+    display: inline-block; /* Разположете елементите в ред */
+}
+
+.navbar ul li a {
+    display: block; /* Показва линковете като блокови елементи */
+    color: white; /* Цвят на текста */
+    padding: 15px 20px; /* Отстъпи около линковете */
+    text-decoration: none; /* Премахнете подчертаването */
+}
+
+.navbar ul li a:hover {
+    background-color: #575757; /* Цвят при задържане с мишката */
+}
+
+.dropdown {
+    display: none; /* Скрива падащото меню по подразбиране */
+    position: absolute; /* Абсолютно позициониране спрямо родителя */
+    background-color: #333; /* Фон на падащото меню */
+    min-width: 160px; /* Минимална ширина на падащото меню */
+    z-index: 1; /* Задайте z-index, за да бъде над другите елементи */
+}
+
+.dropdown li {
+    display: block; /* Разположете подменюто вертикално */
+}
+
+.navbar ul li:hover .dropdown {
+    display: block; /* Покажете падащото меню при задържане с мишката върху родителя */
 }
