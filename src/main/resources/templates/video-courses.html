@@ -9,14 +9,53 @@
 
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
-<div class="video-courses-container">
-    <h1><i class="fas fa-video"></i> Video Courses</h1>
-    <div th:each="course : ${courses}" class="course-card">
-        <h3 th:text="${course.title}"></h3>
-        <p th:text="${course.description}"></p>
-        <a th:href="@{/video-courses/{id}(id=${course.id})}">Watch Now</a>
+<header class="hero">
+    <h1>Video Courses</h1>
+    <p>Explore tutorials and guides for a sustainable lifestyle!</p>
+</header>
+
+<!-- Секция за видеокурсове -->
+<section class="video-section">
+    <h2>Learn Eco-Friendly Living</h2>
+    <div class="video-grid">
+        <a th:each="course : ${videoCourses}" th:href="${course.videoUrl}"
+           target="_blank" class="video-card">
+            <div class="video-overlay">
+                <h3 th:text="${course.title}"></h3>
+            </div>
+        </a>
     </div>
-</div>
+</section>
+
+<!-- Секция със снимки и текстови наслагвания -->
+<section class="image-section">
+    <h2>Get Inspired</h2>
+    <div class="image-grid">
+        <div class="image-card" style="background-image: url('/images/zero-waste.jpg');">
+            <div class="image-overlay">
+                <p>Master Zero Waste Living</p>
+            </div>
+        </div>
+        <div class="image-card" style="background-image: url('/images/oneWorld.jpg');">
+            <div class="image-overlay">
+                <p>Live Sustainably Every Day</p>
+            </div>
+        </div>
+        <div class="image-card" style="background-image: url('/images/comosterWood.jpg');">
+            <div class="image-overlay">
+                <p>Compost Like a Pro</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<div class="video-courses-container">-->
+<!--    <h1><i class="fas fa-video"></i> Video Courses</h1>-->
+<!--    <div th:each="course : ${courses}" class="course-card">-->
+<!--        <h3 th:text="${course.title}"></h3>-->
+<!--        <p th:text="${course.description}"></p>-->
+<!--        <a th:href="@{/video-courses/{id}(id=${course.id})}">Watch Now</a>-->
+<!--    </div>-->
+<!--</div>-->
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

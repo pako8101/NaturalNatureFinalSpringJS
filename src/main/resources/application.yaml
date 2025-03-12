@@ -22,14 +22,21 @@ spring:
     encoding: UTF-8
     prefix: file:src/main/resources/templates/
 
+
   web:
     resources:
       static-locations: file:src/main/resources/static/
       cache:
         period: 0
+
+
+  main:
+    allow-circular-references: true
 logging:
   level: 
     org:
+      springframework=DEBUG:
+        naturalnaturefinalapp=DEBUG:
       hibernate:
         type:
           descriptor: TRACE
@@ -113,9 +120,9 @@ user.deletion: P300D
 log:
   deletion: P30D
 
-wines:
+natural:
   api:
-    baseUrl: "http//localhost:8022/api"
+    baseUrl: "http//localhost:8029/api"
 
 After 3 years of frustration here is a solution for a working HOT SWAP:
 

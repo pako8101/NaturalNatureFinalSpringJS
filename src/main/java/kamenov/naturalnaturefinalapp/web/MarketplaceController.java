@@ -49,4 +49,41 @@ private final ProductService productService;
         productService.saveProduct(product);
         return "redirect:/marketplace";
     }
+
+    @GetMapping("/admin/edit-product/{id}")
+    public String showEditProductForm(@PathVariable Long id, Model model) {
+        Product product = productService.getProductById(id);
+        if (product == null) {
+            return "redirect:/marketplace";
+        }
+        model.addAttribute("product", product);
+        return "edit-product";
+    }
+
+    @PostMapping("/admin/edit-product/{id}")
+    public String editProduct(@PathVariable Long id, @ModelAttribute Product product) {
+        Product existingProduct = productService.getProductById(id);
+        if (existingProduct != null) {
+            product.setId(id);
+            productService.updateProduct(product);
+        }
+        return "redirect:/marketplace";
+    }
+
+    @GetMapping("/admin/delete-product/{id}")
+    public String deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return "redirect:/marketplace";
+    }
+//    @GetMapping("/admin/add-product")
+//    public String showAddProductForm(Model model) {
+//        model.addAttribute("product", new Product());
+//        return "add-product";
+//    }
+//
+//    @PostMapping("/admin/add-product")
+//    public String addProduct(@ModelAttribute Product product) {
+//        productService.saveProduct(product);
+//        return "redirect:/marketplace";
+//    }
 }

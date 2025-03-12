@@ -4,11 +4,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e8f5e9, #b2dfdb, #fffde7);
+    /*background: linear-gradient(135deg, #e8f5e9, #b2dfdb, #fffde7);*/
+    background: url('/images/eco-life-1.jpg') no-repeat center/cover fixed;
     overflow-x: hidden;
 }
 
 .blog-container {
+
+
     max-width: 1200px;
     margin: 80px auto;
     padding: 40px;

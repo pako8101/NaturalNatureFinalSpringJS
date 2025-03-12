@@ -16,6 +16,11 @@ import lombok.Setter;
 public class VideoCourse extends BaseEntity{
 
     private String title;
-    private String description;
+//    private String description;
     private String videoUrl;
+
+    public VideoCourse(String title, String videoUrl) {
+        this.title = title;
+        this.videoUrl = videoUrl;
+    }
 }

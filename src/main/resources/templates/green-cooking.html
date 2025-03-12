@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="recipe-card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Vegan Curry">
+            <img th:src="@{/images/spicy-vegan-curry-2.jpg}" alt="Vegan Curry">
             <h2>Spicy Vegan Curry</h2>
             <p>A flavorful curry made with seasonal vegetables and coconut milk.</p>
             <a href="https://www.youtube.com/watch?v=example2" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
@@ -49,7 +49,8 @@
             </div>
         </div>
         <div class="recipe-card">
-            <img src="https://images.unsplash.com/photo-1622878482587-6d861d75ac4c" alt="Green Smoothie">
+            <img th:src="@{/images/smoothy.jpg}"
+                 alt="Green Smoothie">
             <h2>Green Detox Smoothie</h2>
             <p>A refreshing blend of fruits and greens to boost your day.</p>
             <a href="https://www.youtube.com/watch?v=example3" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
@@ -80,6 +81,10 @@
         <h2 th:text="${recipe.title}"></h2>
         <p th:text="${recipe.description}"></p>
         <a th:href="${recipe.videoUrl}" target="_blank" class="video-link"><i class="fas fa-play"></i> Watch Recipe</a>
+        <div th:if="${currentUser != null and recipe.createdBy.id == currentUser.id}">
+            <a th:href="@{/green-cooking/edit/{id}(id=${recipe.id})}" class="edit-link"><i class="fas fa-edit"></i> Edit</a>
+            <a th:href="@{/green-cooking/delete/{id}(id=${recipe.id})}" class="delete-link"><i class="fas fa-trash"></i> Delete</a>
+        </div>
         <div class="ingredients">
             <h3>Ingredients</h3>
             <ul>

@@ -10,9 +10,9 @@ public class HomeController {
     public String home() {
         return "index";
     }
-    @GetMapping("/waste-management")
-    public String wasteManagement() {
-        return "waste-management";
-    }
+//    @GetMapping("/waste-management")
+//    public String wasteManagement() {
+//        return "waste-management";
+//    }
 
 }

@@ -4,7 +4,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f1f8e9, #c5e1a5, #fffde7);
+    /*background: linear-gradient(135deg, #f1f8e9, #c5e1a5, #fffde7);*/
+    background: url('/images/green-coocking-2.jpg') no-repeat center/cover fixed;
     overflow-x: hidden;
 }
 
@@ -44,6 +45,7 @@ body {
 }
 
 .recipe-card {
+    background: url('/images/smoothy.jpg') no-repeat center/cover;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     padding: 25px;

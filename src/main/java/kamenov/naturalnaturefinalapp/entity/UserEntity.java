@@ -25,6 +25,11 @@ public class UserEntity {
     private String confirmPassword;
 
     @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "users_roles",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id")
+//    )
     private List<UserRoleEnt> roles ;
 
     public UserEntity() {
@@ -36,6 +41,15 @@ public class UserEntity {
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
+    }
+
+    public UserEntity(String username, String fullName, String email, String password, String confirmPassword, List<UserRoleEnt> roles) {
+        this.username = username;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.roles = roles;
     }
 
     public Long getId() {

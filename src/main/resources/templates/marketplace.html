@@ -28,6 +28,10 @@
                 <p th:text="${product.description}"></p>
                 <span class="price" th:text="'$' + ${product.price}"></span>
                 <button class="buy-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                <div th:if="${#authorization.hasRole('ROLE_ADMIN')}">
+                    <a th:href="@{/admin/edit-product/{id}(id=${product.id})}" class="edit-link"><i class="fas fa-edit"></i> Edit</a>
+                    <a th:href="@{/admin/delete-product/{id}(id=${product.id})}" class="delete-link"><i class="fas fa-trash"></i> Delete</a>
+                </div>
             </div>
         </div>
     </div>

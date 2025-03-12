@@ -12,5 +12,11 @@ public interface RecipeService {
     Recipe getRecipeById(Long id);
 
     void saveRecipe(Recipe recipe);
+
+    void updateRecipe(Recipe recipe);
+
+    void deleteRecipe(Long id);
+
+    boolean canEditRecipe(Recipe recipe);
 }
 

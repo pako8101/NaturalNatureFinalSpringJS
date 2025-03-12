@@ -6,13 +6,16 @@ import kamenov.naturalnaturefinalapp.entity.UserRoleEnt;
 import kamenov.naturalnaturefinalapp.repositories.UserRepository;
 
 import kamenov.naturalnaturefinalapp.user.AppUserDetails;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 public class ApplicationUserDetailsService implements UserDetailsService {
 
@@ -34,7 +37,9 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     }
 
     private static   UserDetails map(UserEntity userEntity) {
-
+        if (userEntity == null) {
+            throw new IllegalArgumentException("UserEntity cannot be null");
+        }
         return new AppUserDetails(
                 userEntity.getUsername(),
                 userEntity.getPassword(),
@@ -55,5 +60,8 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 
     private static GrantedAuthority mapRole(UserRoleEnt userRoleEntity) {
         return new SimpleGrantedAuthority("ROLE_" + userRoleEntity.getRole());
+    }
+    public void saveUser(UserEntity user) {
+        userRepository.save(user);
     }
 }

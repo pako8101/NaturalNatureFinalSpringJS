@@ -59,4 +59,5 @@ public class LoggedUser {
                 .orElseThrow(() -> new UsernameNotFoundException("User with username: " + username + " was not found!"));
 
     }
+
 }

@@ -34,11 +34,10 @@ public class SecurityConfig {
 //    }
 
 
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,
                                            SecurityContextRepository securityContextRepository
-            , JwtAuthFilter jwtAuthFilter   ) throws Exception {
+            , JwtAuthFilter jwtAuthFilter) throws Exception {
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
@@ -52,6 +51,7 @@ public class SecurityConfig {
                                                 "/marketplace/products",
                                                 "/marketplace/products/**",
                                                 "/marketplace/**",
+                                                "/waste-management/**",
                                                 "/green-cooking/**",
                                                 "/rec/**",
                                                 "/recycling/**",
@@ -65,9 +65,14 @@ public class SecurityConfig {
 
 
                                         )
+
+
                                         .permitAll()
 //                                        .anyRequest().authenticated().
-                                        .requestMatchers("/error").permitAll().
+                                        .requestMatchers("/error").permitAll()
+                                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                                        .requestMatchers("/green-cooking/edit/**", "/green-cooking/delete/**")
+                                      .permitAll().
                                         requestMatchers("/pages/admins").hasRole(UserRoleEnum.ADMIN.name()).
                                         requestMatchers("/pages/all").hasRole(UserRoleEnum.USER.name()).
                                         anyRequest().authenticated()
@@ -111,7 +116,7 @@ public class SecurityConfig {
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 )
-                .addFilterBefore(jwtAuthFilter,UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
         ;
 
         return http.build();
@@ -134,6 +139,7 @@ public class SecurityConfig {
                 new HttpSessionSecurityContextRepository()
         );
     }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();

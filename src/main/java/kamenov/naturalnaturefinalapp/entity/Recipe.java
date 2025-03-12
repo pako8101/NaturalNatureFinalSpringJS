@@ -2,6 +2,7 @@ package kamenov.naturalnaturefinalapp.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,13 +13,35 @@ public class Recipe extends BaseEntity {
     @Column(nullable = false)
     private String ingredients;
     @Column(columnDefinition = "TEXT")
+    private String description;
+    @Column(columnDefinition = "TEXT")
     private String instructions;
     @Column(name = "image_url",nullable = false)
     private String imageUrl;
     @Column(name = "video_url",nullable = false)
     private String videoUrl;
+    @ManyToOne
+    private UserEntity createdBy;
 
     public Recipe() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Recipe setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public UserEntity getCreatedBy() {
+        return createdBy;
+    }
+
+    public Recipe setCreatedBy(UserEntity createdBy) {
+        this.createdBy = createdBy;
+        return this;
     }
 
     public String getImageUrl() {

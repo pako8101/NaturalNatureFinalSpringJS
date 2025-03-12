@@ -44,6 +44,13 @@ public class RegisterDto {
     public RegisterDto() {
     }
 
+    public RegisterDto(String username, String fullName, String email, String password, String confirmPassword) {
+        this.username = username;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+    }
 
     public @NotBlank @Length(min = 3, max = 20, message = "The username must be between 3 and 20 characters") @NotBlank(message = "The field must not be empty") String getUsername() {
         return username;

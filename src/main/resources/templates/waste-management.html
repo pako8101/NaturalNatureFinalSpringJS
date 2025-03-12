@@ -1,10 +1,65 @@
+<!-- src/main/resources/templates/waste-management.html -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Waste Management</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head">
 </head>
-<body>
+    <meta charset="UTF-8">
+    <title>Waste Management - Practical Tips</title>
+    <link rel="stylesheet" th:href="@{/css/waste-management.css}">
 
+<!-- Navbar -->
+
+<body>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header class="hero">
+    <h1>Waste Management</h1>
+    <p>Learn how to reduce waste and live more sustainably!</p>
+</header>
+
+<section class="tips-section">
+    <h2>Practical Tips</h2>
+
+    <!-- Филтър по категория -->
+    <form th:action="@{/waste-management}" method="get">
+        <label for="category">Filter by Category:</label>
+        <select id="categoryFilter" name="category">
+            <option value="">All</option>
+            <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}"></option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Съобщения за успех или грешка -->
+    <p th:if="${success}" class="success" th:text="${success}"></p>
+    <p th:if="${error}" class="error" th:text="${error}"></p>
+
+    <!-- Списък със съвети -->
+    <ul class="tips-list">
+        <li th:each="tip : ${tips}">
+            <strong th:text="${tip.category} + ' (Priority: ' + ${tip.priority} + ')'"></strong>
+            <p th:text="${tip.description}"></p>
+        </li>
+    </ul>
+</section>
+
+<!-- Форма за добавяне на нов съвет -->
+<section class="add-tip-section">
+    <h2>Add Your Own Tip</h2>
+    <form th:action="@{/waste-management/add-tip}" method="post">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="priority">Priority (1-5):</label>
+        <input type="number" id="priority" name="priority" min="1" max="5" required><br>
+
+        <button type="submit">Add Tip</button>
+    </form>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
