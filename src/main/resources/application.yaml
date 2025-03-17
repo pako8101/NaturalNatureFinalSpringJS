@@ -30,6 +30,7 @@ spring:
         period: 0
 
 
+
   main:
     allow-circular-references: true
 logging:
@@ -105,7 +106,9 @@ servlet:
                         connectiontimeout: 5000  # Максимално време за изчакване на свързване (в милисекунди)
                         timeout: 5000            # Максимално време за отговор
                         writetimeout: 5000
-
+stripe:
+  api:
+    key: ${stripe.api.key}
 
 NaturalNatureApp:
   default.admin.pass: ${default.admin.pass}

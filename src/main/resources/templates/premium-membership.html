@@ -1,0 +1,41 @@
+<!-- src/main/resources/templates/premium-membership.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Premium Membership - Natural Ethos</title>
+    <link rel="stylesheet" th:href="@{/css/premium-membership.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animated-title">Natural Ethos Premium Membership</h1>
+        <p class="hero-subtitle">Unlock Exclusive Content for a Sustainable Lifestyle</p>
+        <a href="/subscribe" class="cta-btn">Join Now for $9.99/month</a>
+    </div>
+</header>
+
+<section class="content-section">
+    <h2 class="section-title">What You Get</h2>
+    <div class="content-gallery" th:each="content : ${contents}">
+        <div class="content-card">
+            <img th:src="${content.thumbnailPath}" alt="Content Thumbnail" class="content-image">
+            <h3 th:text="${content.title}" class="content-title">Content Title</h3>
+            <p th:text="${content.description}" class="content-description">Content Description</p>
+            <a th:href="${content.url}" target="_blank" class="access-btn">Access Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="community-section">
+    <h2 class="section-title">Join Our Exclusive Community</h2>
+    <p class="community-text">Connect with like-minded eco-enthusiasts, share tips, and grow together.</p>
+    <a href="/community" class="community-btn">Join the Community</a>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

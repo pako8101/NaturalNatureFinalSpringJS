@@ -1,0 +1,227 @@
+/* src/main/resources/static/css/journey.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@media only screen and (min-width: 800px) {
+    .alignright {
+        float: right;
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f4f8;
+    color:  #333333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    /*background: url('/images/whale.jpg') no-repeat center/cover;*/
+
+}
+
+
+.content-container {
+    display: flex; /* Разполага текста и картинките в ред */
+    justify-content: space-between; /* Разделя елементите по ширината */
+    align-items: center; /* Центрира елементите по вертикалата */
+
+}
+
+.text-content {
+    width: 60%; /* Задайте ширина на текста */
+    padding: 20px; /* Отстъпи около текста */
+}
+
+.text-content ul {
+    list-style-type: disc; /* Тип на маркерите за подточките */
+    padding-left: 20px; /* Отстъп от лявата страна за подточките */
+}
+.image-container {
+    position: relative;
+    display: flex; /* Разполага картинките в ред */
+    flex-direction: column; /* Разполага картинките вертикално */
+    justify-content: space-around; /* Разделя картинките равномерно по височината */
+    height: 100vh; /* Задайте височина на контейнера */
+    align-items: center; /* Центрира картинките по хоризонталата */
+    padding: 20px 0;
+}
+.image-container img {
+    max-width: 100%; /* Осигурява, че снимките не надхвърлят ширината на контейнера */
+    height: auto;
+    width: 50%; /* Задайте ширина на картинките */
+     /* Автоматична височина за запазване на пропорциите */
+    margin: 20px; /* Премахване на отстъпи */
+    border-radius: 20px; /* Заоблен ръб за картинките */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Сянка за картинките */
+
+}
+
+/*.image-container {*/
+/*    width: 30%; !* Задайте ширина на картинките *!*/
+/*    display: flex; !* Разполага картинките в ред *!*/
+/*    flex-direction: column; !* Разполага картинките вертикално *!*/
+/*    justify-content: space-around; !* Разделя картинките равномерно *!*/
+/*}*/
+
+/*.image-container img {*/
+/*    width: 100%; !* Задайте ширина на картинките *!*/
+/*    height: auto; !* Автоматична височина за запазване на пропорциите *!*/
+/*    margin-bottom: 10px; !* Отстъп между картинките *!*/
+/*}*/
+
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+ p {
+    font-size: 1.2em;
+    color:  #333333;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2em;
+    color:  #333333;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.journey-sections {
+    padding: 50px 20px;
+    background: #F5F5DC;
+    text-align: center;
+}
+
+.journey-sections h2 {
+    font-size: 2em;
+    color: #8B4513;
+    margin-bottom: 30px;
+}
+
+.section-item {
+    background: #F0FFF0;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.subsections {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px dashed #8B4513;
+}
+
+.subsection-item {
+    background: #E0FFFF;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.subsection-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.subsection-item h4 {
+    font-size: 1.2em;
+    color: #4682B4;
+    margin-bottom: 8px;
+}
+
+.subsection-item p {
+    font-size: 0.9em;
+    color: #3C2F2F;
+}
+@media (max-width: 600px) {
+    .video-container {
+        padding-bottom: 75%; /* Променете съотношението за малки екрани */
+    }
+}
+.video-container iframe {
+    border-radius: 10px; /* Заоблени ъгли */
+    overflow: hidden; /* Скрива частите извън заобления радиус */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 съотношение (9 / 16 = 0.5625) */
+    margin: 20px 0; /* Разстояние от текста */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Премахва границата */
+}
+
+/*footer {*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+/*    background: #8B4513;*/
+/*    color: white;*/
+/*    font-weight: 600;*/
+/*}*/
+
+/*.overlay-image{*/
+/*    font: 12px Roboto, Arial, sans-serif;*/
+/*    font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;*/
+/*    color: #eee;*/
+/*    text-align: left;*/
+/*    direction: ltr;*/
+/*    font-size: 11px;*/
+/*    line-height: 1.3;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*    -webkit-tap-highlight-color: rgba(0,0,0,0);*/
+/*    forced-color-adjust: none;*/
+/*    cursor: pointer;*/
+/*    -webkit-background-size: cover;*/
+
+/*    width: 60%;*/
+/*    height: 45%;*/
+/*    position: absolute;*/
+/*    background: url("https://i.ytimg.com/vi_webp/K5IGqQmc-90/maxresdefault.webp") no-repeat center/cover;*/
+
+/*}*/

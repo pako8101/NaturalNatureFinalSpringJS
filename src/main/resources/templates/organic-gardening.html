@@ -1,0 +1,59 @@
+<!-- src/main/resources/templates/organic-gardening.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Organic Gardening - Eco Life</title>
+    <link rel="stylesheet" th:href="@{/css/organic-gardening.css}">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animated-title">Organic Gardening</h1>
+        <p class="hero-subtitle">Cultivate a Sustainable Future with Love for Nature</p>
+    </div>
+</header>
+
+<section class="gardening-section">
+    <h2 class="section-title">Discover Organic Gardening Tips</h2>
+    <button th:onclick="|window.location.href='/organic-gardening/toggle-tips?showAll=${!showAll}'|"
+            class="toggle-btn">Explore All Tips</button>
+
+    <div class="tips-gallery" th:each="tip : ${tips}">
+        <div class="tip-card" th:if="${showAll} or ${tipStat.first}">
+            <div class="tip-image-wrapper">
+                <img th:src="${tip.imagePath}" alt="Tip Image" class="tip-image">
+            </div>
+            <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>
+            <p th:text="${tip.description}" class="tip-description">Tip Description</p>
+            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>
+            <div class="tip-details" th:id="'details-' + ${tip.id}" th:style="'display: none;'">
+                <p th:text="'Additional Info for ' + ${tip.title} + ': Dive deeper into this technique with our detailed guide. For ' + ${tip.title} + ', consider joining local organic farming communities, using natural pest repellents like neem oil, and rotating crops annually to maintain soil health. Download our free eBook for more tips!'"></p>
+                <a th:href="'https://example.com/organic-' + ${tip.title.toLowerCase().replaceAll(' ', '-')}" target="_blank">Download eBook</a>
+                <br>
+                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<!-- JavaScript за управление на "Learn More" и "Less" -->
+<script>
+    function toggleDetails(tipId) {
+        const details = document.getElementById(`details-${tipId}`);
+        const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);
+        const isVisible = details.style.display === 'block';
+
+        if (isVisible) {
+            details.style.display = 'none';
+            learnMoreBtn.textContent = 'Learn More';
+        } else {
+            details.style.display = 'block';
+            learnMoreBtn.textContent = 'Learn More'; // Оставяме "Learn More" активен, но може да се промени на "Close" при желание
+        }
+    }
+</script>
+</body>
+</html>

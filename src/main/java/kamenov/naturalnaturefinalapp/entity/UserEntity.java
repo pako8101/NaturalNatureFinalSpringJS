@@ -3,6 +3,7 @@ package kamenov.naturalnaturefinalapp.entity;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -23,7 +24,8 @@ public class UserEntity {
     private String password;
     @Column(nullable = false)
     private String confirmPassword;
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Subscription> subscriptions;
     @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinTable(
 //            name = "users_roles",
@@ -50,6 +52,15 @@ public class UserEntity {
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.roles = roles;
+    }
+
+    public Set<Subscription> getSubscriptions() {
+        return subscriptions;
+    }
+
+    public UserEntity setSubscriptions(Set<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
+        return this;
     }
 
     public Long getId() {

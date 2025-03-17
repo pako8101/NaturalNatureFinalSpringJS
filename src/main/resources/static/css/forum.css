@@ -7,6 +7,7 @@ body {
     padding: 0;
     background: url('/images/green-life1.png') no-repeat center/cover fixed;
     color: #2d3436;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -14,35 +15,35 @@ body {
     padding: 1rem;
 
 }
-.dropdown li {
-    display: block;
-   /* Разположете подменюто вертикално */
-}
+/*.dropdown li {*/
+/*    display: block;*/
+/*   !* Разположете подменюто вертикално *!*/
+/*}*/
 
-.navbar ul li:hover .dropdown {
-    display: block; /* Покажете падащото меню при задържане с мишката върху родителя */
-}
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
+/*.navbar ul li:hover .dropdown {*/
+/*    display: block; !* Покажете падащото меню при задържане с мишката върху родителя *!*/
+/*}*/
+/*.navbar ul {*/
+/*    list-style: none;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    margin: 0;*/
+/*}*/
 
 
-.navbar li {
-    margin: 0 20px;
-}
+/*.navbar li {*/
+/*    margin: 0 20px;*/
+/*}*/
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-}
+/*.navbar a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    font-weight: 600;*/
+/*}*/
 
-.navbar a:hover {
-    color: #ffeaa7;
-}
+/*.navbar a:hover {*/
+/*    color: #ffeaa7;*/
+/*}*/
 
 .hero {
     /*background: rgba(0, 0, 0, 0.6) url('/images/oneWorld.jpg') no-repeat center/cover;*/

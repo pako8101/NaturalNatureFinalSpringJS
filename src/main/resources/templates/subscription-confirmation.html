@@ -1,0 +1,33 @@
+<!-- src/main/resources/templates/subscription-confirmation.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Subscription Confirmed - Eco Life</title>
+    <link rel="stylesheet" th:href="@{/css/subscription-confirmation.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animated-title">Welcome to Natural Ethos Premium!</h1>
+        <p class="hero-subtitle">Your Subscription is Confirmed</p>
+    </div>
+</header>
+
+<section class="confirmation-section">
+    <div class="confirmation-card">
+        <div class="confetti"></div>
+        <div class="stars"></div>
+        <h2 class="confirmation-title">🎉 Congratulations!</h2>
+        <p class="confirmation-message" th:text="${message}">Subscription successful!</p>
+        <p class="confirmation-details">You now have access to exclusive eco-friendly content, tutorials, and our private community.</p>
+        <a href="/premium-membership" class="explore-btn">Explore Your Benefits</a>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

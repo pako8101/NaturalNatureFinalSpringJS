@@ -1,0 +1,64 @@
+<!-- src/main/resources/templates/subscribe.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Subscribe to Eco Life Premium</title>
+    <link rel="stylesheet" th:href="@{/css/subscribe.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+        <h1 class="animated-title">Join Natural Ethos Premium</h1>
+        <p class="hero-subtitle">Unlock Exclusive Eco-Friendly Content for Only $9.99/Month</p>
+    </div>
+</header>
+
+<!-- src/main/resources/templates/subscribe.html (откъс) -->
+<section class="subscribe-section">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <div class="plan-card">
+        <h3 class="plan-title">Eco Life Premium Membership</h3>
+        <p class="plan-price">$9.99 / Month</p>
+        <ul class="plan-features">
+            <li><span class="feature-icon">🌱</span> Access to Exclusive Video Tutorials</li>
+            <li><span class="feature-icon">📋</span> Personalized Eco Tips & Guides</li>
+            <li><span class="feature-icon">🌍</span> Join Our Private Community</li>
+            <li><span class="feature-icon">📘</span> Downloadable eBooks & Templates</li>
+        </ul>
+        <form th:action="@{/create-checkout-session}" method="post">
+            <button type="submit" class="subscribe-btn">Subscribe Now</button>
+        </form>
+        <p class="error-message" th:if="${error}" th:text="${error}"></p>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<script>
+    // Инициализация на Particles.js
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: { onHover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+    });
+</script>
+</body>
+</html>
