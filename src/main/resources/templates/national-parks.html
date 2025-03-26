@@ -1,27 +1,31 @@
 <!-- src/main/resources/templates/national-parks.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head"></head>
+<div th:replace="~{fragments/head::head}"></div>
     <meta charset="UTF-8">
-    <title th:text="${pageTitle} + ' - Eco Life'">National Parks and Reserves - Eco Life</title>
-    <link rel="stylesheet" th:href="@{/css/journey.css}">
+    <title th:text="${pageTitle} + ' - Nat Ethos'">National Parks and Reserves - Natural Ethos</title>
+    <link rel="stylesheet" th:href="@{/css/nat-park.css}">
 
-<body>
+<body >
 <div th:replace="fragments/navbar :: navbar"></div>
-
+<div class="nat-park">
 <header class="hero">
     <div class="hero-content">
-        <h1 th:text="${pageTitle}">National Parks and Reserves</h1>
+        <h1>National Parks and Reserves in Environmental Conservation</h1>
+
     </div>
 </header>
 
 <section class="journey-sections">
     <div class="section-item">
-        <img th:src="${imagePath}" alt="National Parks Image" class="section-image">
+        <h2 th:text="${pageTitle}">National Parks and Reserves</h2>
+<!--        <img th:src="@{imagePath}" alt="National Parks Image" class="section-image">-->
+
         <p th:text="${content}">Content</p>
     </div>
 </section>
+</div>
 
-<footer th:replace="fragments/footer :: footer"></footer>
 </body>
+<footer th:replace="fragments/footer :: footer"></footer>
 </html>

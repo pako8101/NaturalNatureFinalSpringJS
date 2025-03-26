@@ -29,10 +29,140 @@
             <p th:text="${tip.description}" class="tip-description">Tip Description</p>
             <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>
             <div class="tip-details" th:id="'details-' + ${tip.id}" th:style="'display: none;'">
-                <p th:text="'Additional Info for ' + ${tip.title} + ': Dive deeper into this technique with our detailed guide. For ' + ${tip.title} + ', consider joining local organic farming communities, using natural pest repellents like neem oil, and rotating crops annually to maintain soil health. Download our free eBook for more tips!'"></p>
+                <p th:text="'Additional Info for ' + ${tip.title} + ': Dive deeper into this technique with our detailed guide. For ' + ${tip.title} + ', consider joining local organic farming communities, using natural pest repellents like neem oil, and rotating crops annually to maintain soil health. Download our free eBook for more insights!'"></p>
                 <a th:href="'https://example.com/organic-' + ${tip.title.toLowerCase().replaceAll(' ', '-')}" target="_blank">Download eBook</a>
                 <br>
                 <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Нова секция за статии -->
+<section class="articles-section">
+    <h2 class="section-title">Learn More About Organic Gardening</h2>
+
+    <!-- Статия 1 -->
+    <div class="article">
+        <h3 class="article-title">1. Start with Native Plants</h3>
+        <div class="article-content">
+            <img src="/images/garden-chicken.jpg"
+                 alt="Native Plants"
+                 class="article-image">
+            <p>
+                Native plants are adapted to your local climate and soil, making them low-maintenance and water-efficient. They also support local wildlife, like pollinators, which are crucial for a healthy ecosystem.
+            </p>
+            <p>
+                For example, if you live in a dry region, consider planting drought-tolerant species like lavender or sage. In wetter climates, ferns and mosses can thrive without much care. Choosing native plants reduces the need for chemical fertilizers and excessive watering.
+            </p>
+        </div>
+        <div class="article-video">
+            <div class="video-wrapper">
+                <iframe class="video-iframe" src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статия 2 -->
+    <div class="article">
+        <h3 class="article-title">2. Use Rainwater Harvesting</h3>
+        <div class="article-content">
+            <img src="/images/rain-barrel.jpg" alt="Rain Barrel" class="article-image article-image-right">
+            <p>
+                Collecting rainwater is a sustainable way to water your garden. It reduces your reliance on municipal water and helps conserve this precious resource.
+            </p>
+            <p>
+                Set up a rain barrel under your downspout to capture runoff. Use this water during dry spells to keep your plants hydrated without wasting resources. Rainwater is also free of chemicals like chlorine, making it better for your plants.
+            </p>
+        </div>
+        <div class="article-video">
+            <div class="video-wrapper">
+                <iframe class="video-iframe"
+                        width="560"
+                        height="315"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture"
+                        loading="lazy"
+                        src="https://www.youtube.com/embed/VIDEO_ID_2"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статия 3 -->
+    <div class="article">
+        <h3 class="article-title">3. Practice Companion Planting</h3>
+        <div class="article-content">
+            <img src="/images/companion-planting.jpg" alt="Companion Planting" class="article-image">
+            <p>
+                Companion planting involves growing plants together that benefit each other. For example, marigolds can repel pests when planted near vegetables like tomatoes.
+            </p>
+            <p>
+                This method reduces the need for chemical pesticides and enhances your garden’s productivity. It’s a natural way to create a balanced ecosystem. Other great pairs include basil with tomatoes to improve flavor and beans with corn for structural support.
+            </p>
+        </div>
+        <div class="article-video">
+            <div class="video-wrapper">
+                <iframe class="video-iframe" src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статия 4 -->
+    <div class="article">
+        <h3 class="article-title">4. Reduce Chemical Use</h3>
+        <div class="article-content">
+            <img src="/images/natural-pest-control.jpg" alt="Natural Pest Control" class="article-image article-image-right">
+            <p>
+                Chemical fertilizers and pesticides can harm the environment, killing beneficial insects and polluting water sources. Instead, opt for natural alternatives.
+            </p>
+            <p>
+                Use compost as a fertilizer and introduce natural pest control methods, like ladybugs for aphids or neem oil for other pests. These methods are safer for your garden and the planet.
+            </p>
+        </div>
+        <div class="article-video">
+            <div class="video-wrapper">
+                <iframe class="video-iframe"
+                        width="560"
+                        height="315"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture"
+                        loading="lazy"
+                        src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статия 5 -->
+    <div class="article">
+        <h3 class="article-title">5. Create a Wildlife-Friendly Garden</h3>
+        <div class="article-content">
+            <img src="/images/wildlife-garden.jpg" alt="Wildlife Garden" class="article-image">
+            <p>
+                A sustainable garden supports local wildlife. Add features like birdhouses, bee hotels, or a small pond to attract birds, bees, and frogs.
+            </p>
+            <p>
+                These creatures help with pollination, pest control, and maintaining a balanced ecosystem. Plus, they make your garden a lively, natural space. Planting flowers like sunflowers or lavender can also attract pollinators.
+            </p>
+        </div>
+        <div class="article-video">
+            <div class="video-wrapper">
+                <iframe class="video-iframe"
+                        width="560"
+                        height="315"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture"
+                        loading="lazy"
+                        src="https://www.youtube.com/embed/VIDEO_ID_5" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -55,5 +185,52 @@
         }
     }
 </script>
+<!--<header class="hero">-->
+<!--    <div class="hero-content">-->
+<!--        <h1 class="animated-title">Organic Gardening</h1>-->
+<!--        <p class="hero-subtitle">Cultivate a Sustainable Future with Love for Nature</p>-->
+<!--    </div>-->
+<!--</header>-->
+
+<!--<section class="gardening-section">-->
+<!--    <h2 class="section-title">Discover Organic Gardening Tips</h2>-->
+<!--    <button th:onclick="|window.location.href='/organic-gardening/toggle-tips?showAll=${!showAll}'|"-->
+<!--            class="toggle-btn">Explore All Tips</button>-->
+
+<!--    <div class="tips-gallery" th:each="tip : ${tips}">-->
+<!--        <div class="tip-card" th:if="${showAll} or ${tipStat.first}">-->
+<!--            <div class="tip-image-wrapper">-->
+<!--                <img th:src="${tip.imagePath}" alt="Tip Image" class="tip-image">-->
+<!--            </div>-->
+<!--            <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>-->
+<!--            <p th:text="${tip.description}" class="tip-description">Tip Description</p>-->
+<!--            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>-->
+<!--            <div class="tip-details" th:id="'details-' + ${tip.id}" th:style="'display: none;'">-->
+<!--                <p th:text="'Additional Info for ' + ${tip.title} + ': Dive deeper into this technique with our detailed guide. For ' + ${tip.title} + ', consider joining local organic farming communities, using natural pest repellents like neem oil, and rotating crops annually to maintain soil health. Download our free eBook for more tips!'"></p>-->
+<!--                <a th:href="'https://example.com/organic-' + ${tip.title.toLowerCase().replaceAll(' ', '-')}" target="_blank">Download eBook</a>-->
+<!--                <br>-->
+<!--                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<!--&lt;!&ndash; JavaScript за управление на "Learn More" и "Less" &ndash;&gt;-->
+<!--<script>-->
+<!--    function toggleDetails(tipId) {-->
+<!--        const details = document.getElementById(`details-${tipId}`);-->
+<!--        const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);-->
+<!--        const isVisible = details.style.display === 'block';-->
+
+<!--        if (isVisible) {-->
+<!--            details.style.display = 'none';-->
+<!--            learnMoreBtn.textContent = 'Learn More';-->
+<!--        } else {-->
+<!--            details.style.display = 'block';-->
+<!--            learnMoreBtn.textContent = 'Learn More'; // Оставяме "Learn More" активен, но може да се промени на "Close" при желание-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

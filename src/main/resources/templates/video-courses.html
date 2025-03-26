@@ -19,7 +19,7 @@
     <h2>Learn Eco-Friendly Living</h2>
     <div class="video-grid">
         <a th:each="course : ${videoCourses}" th:href="${course.videoUrl}"
-           target="_blank" class="video-card">
+           target="_blank"  class="video-card">
             <div class="video-overlay">
                 <h3 style="color: blanchedalmond" th:text="${course.title}"></h3>
             </div>
@@ -31,7 +31,7 @@
 <section class="image-section">
     <h2>Get Inspired</h2>
     <div class="image-grid">
-        <div class="image-card" style="background-image: url('/images/zero-waste.jpg');">
+        <div class="image-card" style="background-image: url('/images/plastic-beach.jpeg');">
             <div class="image-overlay">
                 <p>Master Zero Waste Living</p>
             </div>

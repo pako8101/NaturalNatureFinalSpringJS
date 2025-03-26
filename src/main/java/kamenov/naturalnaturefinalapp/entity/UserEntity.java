@@ -2,6 +2,7 @@ package kamenov.naturalnaturefinalapp.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -22,8 +23,7 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
-    private String confirmPassword;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Subscription> subscriptions;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -32,25 +32,27 @@ public class UserEntity {
 //            joinColumns = @JoinColumn(name = "user_id"),
 //            inverseJoinColumns = @JoinColumn(name = "role_id")
 //    )
-    private List<UserRoleEnt> roles ;
+    private List<UserRoleEnt> roles = new ArrayList<>(); ;
 
     public UserEntity() {
     }
 
-    public UserEntity(String username, String fullName, String email, String password, String confirmPassword) {
+    public UserEntity(String username, String fullName,
+                      String email, String password) {
         this.username = username;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.confirmPassword = confirmPassword;
+
     }
 
-    public UserEntity(String username, String fullName, String email, String password, String confirmPassword, List<UserRoleEnt> roles) {
+    public UserEntity(String username, String fullName, String email,
+                      String password,  List<UserRoleEnt> roles) {
         this.username = username;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.confirmPassword = confirmPassword;
+
         this.roles = roles;
     }
 
@@ -67,14 +69,7 @@ public class UserEntity {
         return id;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
 
-    public UserEntity setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-        return this;
-    }
 
     public UserEntity setId(Long id) {
         this.id = id;

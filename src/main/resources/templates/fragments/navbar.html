@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head::head"></head>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
     <link rel="stylesheet" href="/css/navbar.css">
-</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <body>
 <nav class="navbar" th:fragment="navbar">
 <!--    <a th:href="@{/}"><img src="/images/natureEthos-logo.jpg" alt="Eco Life Logo"></a>-->
@@ -15,55 +17,79 @@
     </div>
 <!--    <a th:href="@{/}" class="navbar-logo-title">&copy; NatureEthos</a>-->
 
-    <ul>
+    <ul class="menu">
         <li><a th:href="@{/about}">About</a></li>
-        <li><a th:href="@{/recycling}">Recycling Map</a></li>
+
         <li><a th:href="@{/journey}">Journey</a>
             <ul class="dropdown">
                 <li>   <a th:href="@{/eco-accommodations}">Eco-Friendly Accommodations</a></li>
                 <li><a th:href="@{/national-parks}">National Parks and Reserves</a></li>
+                <li><a th:href="@{/sustainable-transportation}">Sustainable transportation</a></li>
             </ul>
         </li>
-        <li><a href="#">Community</a>
+        <li><a href="#">
+            <a class="name">Community</a>
+            </a>
        <ul class="dropdown">
-        <li>   <a th:href="@{/blog}">Blog</a></li>
+        <li> <a th:href="@{/blog}">Blog</a></li>
         <li><a th:href="@{/forum}">Forum</a></li>
            <li><a th:href="@{/video-courses}">Video Courses</a></li>
 
+           <li>
+               <a th:href="@{/subscribe}">Premium Memberships</a>
+               <ul class="dropdown">
+                   <li> <a th:href="@{/subscribe}">Subscribe</a></li>
+
+               </ul>
+           </li>
        </ul>
+
         </li>
-        <li><a href="#">Premium Memberships</a>
+<!--        //////////////-->
+
+        <li><a style="color: aquamarine" href="#">Green lifestyle</a>
             <ul class="dropdown">
-                <li>   <a th:href="@{/subscribe}">Subscribe</a></li>
-                <li><a th:href="@{/forum}">Forum</a></li>
-                <li><a th:href="@{/video-courses}">Video Courses</a></li>
+                <li><a th:href="@{/compost}">Natural remedies</a></li>
+                <li><a th:href="@{/waste-management}">Responsible fashion</a></li>
+                <li><a th:href="@{/green-cooking}">Green Cooking</a></li>
 
             </ul>
         </li>
+<!--/////////////////-->
+        <li><a style="font-size: smaller" href="#">Zero Waste Life Style</a>
+        <ul class="dropdown">
+            <li><a th:href="@{/compost}">Composting</a></li>
+            <li><a th:href="@{/waste-management}">Waste Management</a></li>
+            <li><a th:href="@{/reducing-plastics}">Reducing Single-Use Plastics</a></li>
+
+        </ul>
+        </li>
+<!--        &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
         <li>
             <a href="#">Sustainability</a>
             <ul class="dropdown">
-                <li><a th:href="@{/green-cooking}">Green Cooking</a></li>
+                <li><a th:href="@{/recycling}">Recycling Map</a></li>
+
                 <li><a th:href="@{/organic-gardening}">Organic gardening</a></li>
-                <li><a th:href="@{/waste-management}">Waste Management</a></li>
+
             </ul>
         </li>
     </ul>
-
+<!-- -&#45;&#45;-->
     <div sec:authorize="isAuthenticated()">
         <span>Hello, <span sec:authentication="name"></span></span>
         <a th:href="@{/user/logout}" th:method="post">Logout</a>
     </div>
 
     <th:block sec:authorize="!isAuthenticated()">
-        <form class="navbar-link active">
+        <form style="padding-right: 10px;" class="navbar-link active">
             <button class="navbar-link">
-                <a th:href="@{/user/login}">LOGIN</a>
+                <a style="font-size: 0.75rem" th:href="@{/user/login}">LOGIN</a>
             </button>
         </form>
         <form class="navbar-link active-table-tab">
             <button class="navbar-link">
-                <a th:href="@{/user/register}">SUBSCRIBE</a>
+                <a style="font-size: 0.75rem" th:href="@{/user/register}">SUBSCRIBE</a>
             </button>
         </form>
     </th:block>

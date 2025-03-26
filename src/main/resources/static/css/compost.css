@@ -1,0 +1,195 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Основни стилове */
+body {
+    background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center/cover fixed;
+    /*background-image: url('/images/wood-texture.jpg'); !* Замени с твоя път или URL *!*/
+    /*background-size: cover;*/
+    /*background-attachment: fixed;*/
+    /*background-color: #f5f5dc; !* Бежов цвят като резервен *!*/
+    font-family: 'Roboto', sans-serif;
+    color: #3a2f1f; /* Тъмнокафяв текст */
+}
+
+/* Контейнер */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачен бял фон */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Заглавия */
+h1, h2, h3 {
+    font-family: 'Amatic SC', cursive;
+    color: #2e7d32; /* Тъмнозелено */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h1::before {
+    content: '🌿';
+    position: absolute;
+    left: -40px;
+    top: 0;
+    font-size: 2rem;
+    animation: sway 3s infinite ease-in-out;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Анимация за поклащане на листа */
+@keyframes sway {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Текст */
+.lead {
+    font-size: 1.25rem;
+    color: #4a3c31; /* Кафяв текст */
+    background-color: rgba(245, 245, 220, 0.7); /* Бежов фон */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Снимки */
+.img-fluid {
+    margin-bottom: 0.5rem;
+    max-width: 60%;
+    height: auto;
+    border: 5px solid #8d6e63; /* Кафява рамка */
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.img-fluid:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Декоративен елемент около снимките */
+.img-fluid::before {
+    content: '🍂';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 2rem;
+    color: #d4a017; /* Златист цвят */
+    animation: sway 4s infinite ease-in-out;
+}
+
+.img-fluid::after {
+    content: '🍃';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 2rem;
+    color: #d4a017;
+    animation: sway 4s infinite ease-in-out;
+}
+
+/* Видеа */
+.embed-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 съотношение */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    max-width: 60%;
+    border: 5px solid #6d4c41; /* Тъмнокафява рамка */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.embed-responsive .embed-responsive-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Секция със статии */
+.article {
+    background-color: #f5f5dc; /* Бежов цвят, наподобяващ пергамент */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 3px solid #8d6e63; /* Кафява рамка */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.article:hover {
+    background-color: #efebe9; /* Леко по-светъл бежов цвят */
+}
+
+/* Декоративен елемент за статиите */
+.article::before {
+    content: '🌱';
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: #2e7d32; /* Зелено */
+    background-color: #f5f5dc;
+    padding: 0 5px;
+}
+
+/* Текст в статиите */
+.article h3 {
+    color: #4a3c31; /* Тъмнокафяво */
+}
+
+.article p {
+    margin-bottom: 10px;
+    color: #3a2f1f;
+}
+
+/* Анимация за разширяване/свиване */
+.full-text, .short-text {
+    transition: opacity 0.3s ease;
+}
+
+.full-text[style*="display: none"], .short-text[style*="display: none"] {
+    opacity: 0;
+}
+
+.full-text[style*="display: block"], .short-text[style*="display: block"] {
+    opacity: 1;
+}
+
+/* Бутон за Read More/Read Less */
+.btn-link {
+    color: #2e7d32; /* Зелено */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: #1b5e20; /* По-тъмно зелено */
+    text-decoration: underline;
+}
+.col-md-6 p{
+    margin-bottom: 0.5rem;
+}

@@ -48,8 +48,12 @@ public class SecurityConfig {
                                         requestMatchers("/",
                                                 "/about",
                                                 "/subscribe",
-
+                                                "/compost",
+                                                "/reducing-plastics/**",
+                                                "/reducing-plastic-waste/**",
+                                                "/sustainable-transportation/**",
                                                 "/forum/**",
+                                                "/sustainable-transportation/articles/**",
                                                 "/forum/add-post/**",
                                                 "/video-courses/**",
                                                 "/eco-accommodations",

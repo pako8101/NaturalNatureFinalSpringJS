@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -37,28 +36,53 @@ public class UserServiceImpl implements UserService {
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
     @Override
-    public UserEntity registerUser(RegisterDto userRegisterDto, Consumer<Authentication> successfulRegister) {
+    public UserEntity registerUser(RegisterDto userRegisterDto) {
+        if (userRepository.findByUsername(userRegisterDto.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("Username already exists");
+        }
+        if (userRepository.findByEmail(userRegisterDto.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+        if (!userRegisterDto.getPassword().equals(userRegisterDto.getConfirmPassword())) {
+            throw new IllegalArgumentException("Passwords do not match");
+        }
+
         UserEntity user = modelMapper.map(userRegisterDto, UserEntity.class);
         user.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
-        user.setFullName(userRegisterDto.getFullName())
-                .setEmail(userRegisterDto.getEmail())
-                .setUsername(userRegisterDto.getUsername());
+
+        user.setFullName(userRegisterDto.getFullName());
+        user.setEmail(userRegisterDto.getEmail());
+        user.setUsername(userRegisterDto.getUsername());
 
         // Добавяне на роля по подразбиране
         UserRoleEnt userRole = userRoleRepository.findByRole(UserRoleEnum.USER)
                 .orElseThrow(() -> new IllegalStateException("USER role not found in database"));
         user.setRoles(Collections.singletonList(userRole));
 
-        userRepository.save(user);
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null) {
-            successfulRegister.accept(authentication);
-        }
-        return user;
+        return userRepository.save(user);
     }
+//    @Override
+//    public UserEntity registerUser(RegisterDto userRegisterDto, Consumer<Authentication> successfulRegister) {
+//        UserEntity user = modelMapper.map(userRegisterDto, UserEntity.class);
+//        user.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
+//        user.setFullName(userRegisterDto.getFullName())
+//                .setEmail(userRegisterDto.getEmail())
+//                .setUsername(userRegisterDto.getUsername());
+//
+//        // Добавяне на роля по подразбиране
+//        UserRoleEnt userRole = userRoleRepository.findByRole(UserRoleEnum.USER)
+//                .orElseThrow(() -> new IllegalStateException("USER role not found in database"));
+//        user.setRoles(Collections.singletonList(userRole));
+//
+//        userRepository.save(user);
+//
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication != null) {
+//            successfulRegister.accept(authentication);
+//        }
+//        return user;
+//    }
 
     @Override
     public UserEntity findByName(String username) {

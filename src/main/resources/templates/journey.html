@@ -1,8 +1,7 @@
 <!-- src/main/resources/templates/journey.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head">
-</head>
+<div th:replace="~{fragments/head::head}"></div>
     <meta charset="UTF-8">
     <title>Journey - Nature Ethos</title>
     <link rel="stylesheet" th:href="@{/css/journey.css}">
@@ -14,6 +13,8 @@
     <div class="hero-content">
         <h1 th:text="${journey.title}">Journey Title</h1>
         <p th:text="${journey.description}">Journey Description</p>
+        <p th:text="${journey.sections}"></p>
+
         <div class="content-container">
         <div class="text-content">
 

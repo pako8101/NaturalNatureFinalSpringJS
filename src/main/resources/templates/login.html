@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head">
-</head>
+<div th:replace="~{fragments/head::head}"></div>
     <meta charset="UTF-8">
     <title>Login - EcoLife</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
     <link rel="stylesheet" href="/css/login.css">
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <body>
-<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<nav class="navbar" th:replace="~{fragments/navbar :: navbar}"></nav>
 <div class="container">
     <h1>Login</h1>
-    <form th:action="@{/login}" th:object="${user}" method="post">
+    <form th:action="@{/user/login}" th:object="${user}" method="post">
         <div class="form-group">
             <label for="username"><i class="fas fa-user"></i>Username</label>
             <input type="text" id="username" autocomplete="username" th:field="*{username}" required>
@@ -23,13 +23,23 @@
             <label for="password"><i class="fas fa-lock"></i>Password</label>
             <input type="password" id="password" autocomplete="current-password" th:field="*{password}" required>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LcrsOAqAAAAAOpY4fcfSfn5pjd1EkwSdFlR97ET"></div>
-        <input type="hidden" name="g-recaptcha-response">
+        <div class="g-recaptcha" data-sitekey="6Ld9SPcqAAAAAHkFKu_gFZC9VzzWFYmBIbkxMDZP"></div>
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
         <div class="error" th:if="${error}" th:text="${error}"></div>
         <button type="submit"><i class="fas fa-sign-in-alt"></i>Login</button>
     </form>
     <p>Don't have an account? <a th:href="@{/user/register}">Register here</a></p>
 </div>
 <footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    function setRecaptchaToken() {
+        const recaptchaResponse = document.getElementById('g-recaptcha-response').value = grecaptcha.getResponse();
+        if (!recaptchaResponse) {
+            alert('Please complete the reCAPTCHA.');
+            return false;
+        }
+        return true;
+    }
+</script>
 </body>
 </html>

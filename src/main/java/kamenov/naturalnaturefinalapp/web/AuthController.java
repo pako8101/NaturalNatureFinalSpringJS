@@ -13,6 +13,7 @@ import kamenov.naturalnaturefinalapp.repositories.UserRepository;
 import kamenov.naturalnaturefinalapp.service.JwtService;
 import kamenov.naturalnaturefinalapp.service.RecaptchaService;
 import kamenov.naturalnaturefinalapp.service.UserService;
+import kamenov.naturalnaturefinalapp.user.AppUserDetails;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextHolderStrategy;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Controller;
@@ -76,125 +78,208 @@ public class AuthController {
             model.addAttribute("recaptchaSiteKey", recaptchaSiteKey);
             return "register";
         }
+    @PostMapping("/register")
+    public String registerUser(@Valid @ModelAttribute("user") RegisterDto userRegisterDto,
+                               BindingResult bindingResult,
+                               HttpServletRequest request,
+                               HttpServletResponse response,
+                               RedirectAttributes redirectAttributes,
+                               @RequestParam(value = "g-recaptcha-response",required = false) String recaptchaResponse,
+                               Model model) {
+        logger.info("Received registration request for username: {}", userRegisterDto.getUsername());
 
-        @PostMapping("/register")
-        public String registerUser(@Valid @ModelAttribute("user") @RequestBody RegisterDto userRegisterDto,
-                                   BindingResult bindingResult,
-                                   HttpServletRequest request,
-                                   HttpServletResponse response,
-                                   RedirectAttributes redirectAttributes,
-                                   @ModelAttribute("g-recaptcha-response") String recaptchaResponse,
-                                   Model model) {
-//            if (bindingResult.hasErrors()) {
-//                return "register";
-//            }
-            if (bindingResult.hasErrors() || !userRegisterDto.getPassword()
-                    .equals(userRegisterDto.getConfirmPassword())) {
-                redirectAttributes.addFlashAttribute("userRegisterDto", userRegisterDto);
-                redirectAttributes.addFlashAttribute(
-                        "org.springframework.validation.BindingResult.userRegisterDto", bindingResult);
-                return "redirect:/user/register";
-            }
-            if (userService.findByName(userRegisterDto.getUsername()) != null) {
-                model.addAttribute("error", "Username already exists");
-                return "register";
-            }
-            if (userService.findByEmail(userRegisterDto.getEmail()) != null) {
-                model.addAttribute("error", "Email already exists");
-                return "register";
-            }
-            if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
-                model.addAttribute("error", "Invalid reCAPTCHA");
-                return "register";
-            }
-            UserEntity user =
-                    userService.registerUser(userRegisterDto, successfulAuth -> {
-                        SecurityContextHolderStrategy strategy = SecurityContextHolder.getContextHolderStrategy();
-
-                        SecurityContext context = strategy.createEmptyContext();
-                        context.setAuthentication(successfulAuth);
-
-                        strategy.setContext(context);
-                        securityContextRepository.saveContext(context, request, response);
-
-                    });
-            Cookie cookie = new Cookie("jwt", jwtService.generateToken(user));
-            cookie.setPath("/");
-            cookie.setMaxAge(60 * 60 * 24);
-            cookie.setHttpOnly(true);
-            response.addCookie(cookie);
-            String token = jwtService.generateToken(user);
-//            userService.registerUser(userRegisterDto);
-            return "redirect:/login?registered=true";
+        if (bindingResult.hasErrors()) {
+            logger.warn("Validation errors for username: {}. Errors: {}", userRegisterDto.getUsername(), bindingResult.getAllErrors());
+            redirectAttributes.addFlashAttribute("userRegisterDto", userRegisterDto);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDto", bindingResult);
+            return "redirect:/user/register";
         }
 
-        @GetMapping("/login")
-        public String showLoginForm(Model model) {
-            model.addAttribute("user", new LoginDto());
+        if (!userRegisterDto.getPassword().equals(userRegisterDto.getConfirmPassword())) {
+            logger.warn("Passwords do not match for username: {}. Password: {}, Confirm Password: {}",
+                    userRegisterDto.getUsername(), userRegisterDto.getPassword(), userRegisterDto.getConfirmPassword());
+            redirectAttributes.addFlashAttribute("userRegisterDto", userRegisterDto);
+            redirectAttributes.addFlashAttribute("error", "Passwords do not match");
+            return "redirect:/user/register";
+        }
+        if (userService.findByName(userRegisterDto.getUsername()) != null) {
+            logger.warn("Username already exists: {}", userRegisterDto.getUsername());
+            model.addAttribute("error", "Username already exists");
+            return "register";
+        }
+        if (userService.findByEmail(userRegisterDto.getEmail()) != null) {
+            logger.warn("Email already exists: {}", userRegisterDto.getEmail());
+            model.addAttribute("error", "Email already exists");
+            return "register";
+        }
+        if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
+            logger.warn("Invalid reCAPTCHA for username: {}", userRegisterDto.getUsername());
+            model.addAttribute("error", "Invalid reCAPTCHA");
+            return "register";
+        }
+
+        try {
+            logger.info("Registering user: {}", userRegisterDto.getUsername());
+            UserEntity user = userService.registerUser(userRegisterDto);
+            authenticateAndSetJwt(user, request, response);
+            logger.info("User registered successfully: {}", user.getUsername());
+            return "redirect:/";
+        } catch (Exception e) {
+            logger.error("Error during registration for username: {}", userRegisterDto.getUsername(), e);
+            model.addAttribute("error", "An error occurred during registration: " + e.getMessage());
+            return "register";
+        }
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm(Model model) {
+        logger.info("Showing login form");
+        model.addAttribute("user", new LoginDto());
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@ModelAttribute("user") LoginDto loginDto,
+                            @RequestParam("g-recaptcha-response") String recaptchaResponse,
+                            HttpServletRequest request,
+                            HttpServletResponse response,
+                            Model model) {
+        logger.info("Received login request for username: {}", loginDto.getUsername());
+
+        if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
+            logger.warn("Invalid reCAPTCHA for username: {}", loginDto.getUsername());
+            model.addAttribute("error", "Invalid reCAPTCHA");
             return "login";
         }
-//    @PostMapping("/login")
-//    public String loginUser(@ModelAttribute("user") LoginDto user,
-//                            @RequestParam("g-recaptcha-response") String recaptchaResponse,
-//                            HttpServletRequest request,
-//                            HttpServletResponse response,
-//                            Model model) {
-//        // Проверка на reCAPTCHA
-//        if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
-//            model.addAttribute("error", "Invalid reCAPTCHA");
-//            return "login";
-//        }
+
+        try {
+            logger.info("Authenticating user: {}", loginDto.getUsername());
+            Authentication auth = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword())
+            );
+            SecurityContextHolder.getContext().setAuthentication(auth);
+            UserEntity user = userRepository.findByUsername(loginDto.getUsername().toString())
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+            authenticateAndSetJwt(user, request, response);
+            logger.info("User logged in successfully: {}", user.getUsername());
+            return "redirect:/";
+        } catch (Exception e) {
+            logger.error("Error during login for username: {}", loginDto.getUsername(), e);
+            model.addAttribute("error", "Invalid username or password: " + e.getMessage());
+            return "login";
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        logger.info("Logging out user");
+        SecurityContextHolder.clearContext();
+        Cookie cookie = new Cookie("jwt", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/user/login?logout=true";
+    }
+
+    private void authenticateAndSetJwt(UserEntity user, HttpServletRequest request, HttpServletResponse response) {
+        logger.info("Setting JWT for user: {}", user.getUsername());
+        AppUserDetails appUserDetails = new AppUserDetails(user);
+        Authentication auth = new UsernamePasswordAuthenticationToken(appUserDetails, user.getPassword(), appUserDetails.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        securityContextRepository.saveContext(SecurityContextHolder.getContext(), request, response);
+
+        String token = jwtService.generateToken(user);
+        Cookie cookie = new Cookie("jwt", token);
+        cookie.setPath("/");
+        cookie.setMaxAge(60 * 60 * 24); // 24 часа
+        cookie.setHttpOnly(true);
+        response.addCookie(cookie);
+        response.setHeader("Authorization", "Bearer " + token); // Добавяме "Bearer" в заглавието
+        logger.info("JWT set successfully for user: {}", user.getUsername());
+    }
+
+//        @PostMapping("/register")
+//        public String registerUser(@Valid @ModelAttribute("user") @RequestBody RegisterDto userRegisterDto,
+//                                   BindingResult bindingResult,
+//                                   HttpServletRequest request,
+//                                   HttpServletResponse response,
+//                                   RedirectAttributes redirectAttributes,
+//                                   @ModelAttribute("g-recaptcha-response") String recaptchaResponse,
+//                                   Model model) {
+////            if (bindingResult.hasErrors()) {
+////                return "register";
+////            }
+//            if (bindingResult.hasErrors() || !userRegisterDto.getPassword()
+//                    .equals(userRegisterDto.getConfirmPassword())) {
+//                redirectAttributes.addFlashAttribute("userRegisterDto", userRegisterDto);
+//                redirectAttributes.addFlashAttribute(
+//                        "org.springframework.validation.BindingResult.userRegisterDto", bindingResult);
+//                return "redirect:/user/register";
+//            }
+//            if (userService.findByName(userRegisterDto.getUsername()) != null) {
+//                model.addAttribute("error", "Username already exists");
+//                return "register";
+//            }
+//            if (userService.findByEmail(userRegisterDto.getEmail()) != null) {
+//                model.addAttribute("error", "Email already exists");
+//                return "register";
+//            }
+//            if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
+//                model.addAttribute("error", "Invalid reCAPTCHA");
+//                return "register";
+//            }
+//            UserEntity user =
+//                    userService.registerUser(userRegisterDto, successfulAuth -> {
+//                        SecurityContextHolderStrategy strategy = SecurityContextHolder.getContextHolderStrategy();
 //
-//        try {
-//            // Аутентикация
-//            Authentication auth = authenticationManager.authenticate(
-//                    new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
-//            );
-//            SecurityContextHolder.getContext().setAuthentication(auth);
-//            securityContextRepository.saveContext(SecurityContextHolder.getContext(), request, response);
+//                        SecurityContext context = strategy.createEmptyContext();
+//                        context.setAuthentication(successfulAuth);
 //
-//            // Генериране на JWT токен
-//            UserEntity userEntity = userService.findByName(user.getUsername().toString());
-//            String token = jwtService.generateToken(userEntity);
-//            Cookie cookie = new Cookie("jwt", token);
+//                        strategy.setContext(context);
+//                        securityContextRepository.saveContext(context, request, response);
+//
+//                    });
+//            Cookie cookie = new Cookie("jwt", jwtService.generateToken(user));
 //            cookie.setPath("/");
 //            cookie.setMaxAge(60 * 60 * 24);
 //            cookie.setHttpOnly(true);
 //            response.addCookie(cookie);
+//            String token = jwtService.generateToken(user);
+////            userService.registerUser(userRegisterDto);
+//            return "redirect:/login?registered=true";
+//        }
 //
-//            return "redirect:/green-cooking";
-//        } catch (Exception e) {
-//            logger.error("Login failed for user: " + user.getUsername(), e);
-//            model.addAttribute("error", "Invalid username or password");
+//        @GetMapping("/login")
+//        public String showLoginForm(Model model) {
+//            model.addAttribute("user", new LoginDto());
 //            return "login";
 //        }
-//    }
-
-        @PostMapping("/login")
-        public String loginUser(@ModelAttribute("user") LoginDto user,
-                                @ModelAttribute("g-recaptcha-response") String recaptchaResponse,
-                                Model model) {
-            if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
-                model.addAttribute("error", "Invalid reCAPTCHA");
-                return "login";
-            }
-            try {
-                Authentication auth = authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
-                );
-                SecurityContextHolder.getContext().setAuthentication(auth);
-                return "redirect:/";
-            } catch (Exception e) {
-                model.addAttribute("error", "Invalid username or password");
-                return "login";
-            }
-        }
-
-        @GetMapping("/logout")
-        public String logout() {
-            SecurityContextHolder.clearContext();
-            return "redirect:/login?logout=true";
-        }
+//
+//        @PostMapping("/login")
+//        public String loginUser(@ModelAttribute("user") LoginDto user,
+//                                @ModelAttribute("g-recaptcha-response") String recaptchaResponse,
+//                                Model model) {
+//            if (!recaptchaService.validateRecaptcha(recaptchaResponse)) {
+//                model.addAttribute("error", "Invalid reCAPTCHA");
+//                return "login";
+//            }
+//            try {
+//                Authentication auth = authenticationManager.authenticate(
+//                        new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
+//                );
+//                SecurityContextHolder.getContext().setAuthentication(auth);
+//                return "redirect:/";
+//            } catch (Exception e) {
+//                model.addAttribute("error", "Invalid username or password");
+//                return "login";
+//            }
+//        }
+//
+//        @GetMapping("/logout")
+//        public String logout() {
+//            SecurityContextHolder.clearContext();
+//            return "redirect:/login?logout=true";
+//        }
 
 
 //    @PostMapping("/login-error")

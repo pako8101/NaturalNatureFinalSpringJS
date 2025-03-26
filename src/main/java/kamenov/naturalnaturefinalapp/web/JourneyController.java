@@ -126,10 +126,31 @@ public String getJourneyPage(Model model) {
     @Transactional()
     public String getNationalParksPage(Model model) {
         Journey journey = journeyService.getAllJourneys().get(0);
-        model.addAttribute("pageTitle", "National Parks and Reserves");
-        model.addAttribute("content", "Embark on a journey through ancient landscapes preserved in national parks and reserves. Picture towering mountains, lush forests, and hidden valleys teeming with prehistoric wildlife. These protected areas offer hiking trails with panoramic views, educational programs on conservation, and opportunities to spot rare species. Ideal for adventurers who want to connect with nature’s raw beauty and contribute to its preservation.");
+
+        model.addAttribute("pageTitle", "The Key Role of National Parks and Reserves");
+        model.addAttribute("content", "Our planet’s national parks and reserves are like the heartbeats of nature, " +
+                "essential for keeping our environment healthy. They act as safe havens for a wide variety of plants and animals," +
+                " protecting endangered species from dangers like habitat loss and poaching.\n" +
+                "\n" +
+                "These special places also help to shield wildlife from human activities," +
+                " giving them space to live freely without interference from cities or industries.\n" +
+                "When you step into a national park, it feels like traveling back in time to an ancient world untouched by modern life.\n" +
+                "\n" +
+                "Here, old forests share stories of their strength, clear streams hold mysteries untold," +
+                " and powerful predators move through their habitats with grace. " +
+                "The sights, sounds, and smells all around you awaken a primal connection to nature that reminds us we are just visitors " +
+                "in this vast web of life.\n" +
+                "\n" +
+                "By supporting eco-friendly practices such as proper waste disposal and using sustainable transportation options within these " +
+                "protected areas, we can ensure that future generations inherit thriving ecosystems full of diverse plant and animal life. " +
+                "Every choice we make—like switching to reusable water bottles instead of " +
+                "disposable ones or sticking to marked trails to avoid damaging the soil—has a positive impact on these delicate environments."+
+                "\n");
+
         model.addAttribute("imagePath", "/images/national-park.jpg");
         model.addAttribute("journey", journey);
+
+
         return "national-parks";
     }
 

@@ -116,6 +116,9 @@ h1 {
     background: #F5F5DC;
     text-align: center;
 }
+.nat-park{
+    background: url('/images/nat-park.jpg') no-repeat center/cover;
+}
 
 .journey-sections h2 {
     font-size: 2em;

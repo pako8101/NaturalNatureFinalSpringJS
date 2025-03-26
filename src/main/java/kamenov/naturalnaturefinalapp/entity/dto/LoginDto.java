@@ -12,7 +12,7 @@ public class LoginDto {
     @NotBlank(message = "Username must not be empty!")
     @UniqueUsername
     private UserEntity username;
-    @Size(min = 3,max = 20,message = "Password must be between 3 and 20 symbols!")
+    @Size(min = 6,max = 20,message = "Password must be between 6 and 20 symbols!")
     @NotBlank(message = "Password must not be empty!")
     private String password;
 
@@ -28,11 +28,11 @@ public class LoginDto {
         return this;
     }
 
-    public @Size(min = 3, max = 20, message = "Password must be between 3 and 20 symbols!") @NotNull(message = "Password must not be empty!") String getPassword() {
+    public @Size(min = 6, max = 20, message = "Password must be between 6 and 20 symbols!") @NotBlank(message = "Password must not be empty!") String getPassword() {
         return password;
     }
 
-    public LoginDto setPassword(@Size(min = 3, max = 20, message = "Password must be between 3 and 20 symbols!") @NotNull(message = "Password must not be empty!") String password) {
+    public LoginDto setPassword(@Size(min = 6, max = 20, message = "Password must be between 6 and 20 symbols!") @NotBlank(message = "Password must not be empty!") String password) {
         this.password = password;
         return this;
     }

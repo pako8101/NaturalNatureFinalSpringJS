@@ -1,0 +1,10 @@
+INSERT INTO article (title, content, image_path, category) VALUES
+#                                                                ('The Rise of Electric Vehicles', 'Electric vehicles (EVs) are transforming the transportation industry.', '/images/electric-vehicles.jpg', 'Sustainable Transport'),
+                                                               ('Why Biking is the Future of Urban Mobility', 'Biking is not only eco-friendly but also improves health.', '/images/biking-future.jpg', 'Sustainable Transport'),
+                                                               ('Public Transport: A Sustainable Choice', 'Public transport systems can lower your carbon footprint.', '/images/public-transport.jpg', 'Sustainable Transport'),
+                                                               ('Walking: The Simplest Way to Go Green', 'Walking is a zero-emission way to travel.', '/images/walking-green.jpg', 'Sustainable Transport'),
+                                                               ('Hybrid Cars: Bridging the Gap', 'Hybrid cars offer a balance between fuel efficiency and performance.', '/images/hybrid-cars.jpg', 'Sustainable Transport'),
+                                                               ('The Impact of Carpooling on the Environment', 'Carpooling reduces the number of vehicles on the road.', '/images/carpooling-impact.jpg', 'Sustainable Transport'),
+                                                               ('Sustainable Transportation Policies', 'Governments are implementing policies to promote sustainable transportation.', '/images/transport-policies.jpg', 'Sustainable Transport'),
+                                                               ('The Role of Technology in Green Transport', 'Technology is making transportation more sustainable.', '/images/tech-transport.jpg', 'Sustainable Transport'),
+                                                               ('E-Scooters: A New Trend in Urban Travel', 'Electric scooters are gaining popularity in cities.', '/images/e-scooters.jpg', 'Sustainable Transport');

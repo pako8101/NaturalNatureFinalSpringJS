@@ -20,33 +20,38 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class JwtServiceImpl implements JwtService {
     private final String jwtSecret;
 
-    public JwtServiceImpl(@Value("${jwt.secret}")
-                          String jwtSecret) {
+    public JwtServiceImpl(@Value("${jwt.secret}") String jwtSecret) {
         this.jwtSecret = jwtSecret;
     }
+
     @Override
     public UserDetails extractUserFromToken(String token) {
         Claims claims = extractClaims(token);
-
-        String userName = getUserName(claims);
+        String username = getUserName(claims);
         List<String> roles = getRoles(claims);
 
-        return new User(userName, "", roles
-                .stream()
-                .map(SimpleGrantedAuthority::new)
-                .toList()
-        );
+        return new User(username, "", // Паролата не се използва при валидация на токена
+                roles.stream()
+                        .map(SimpleGrantedAuthority::new)
+                        .collect(Collectors.toList()));
     }
+
     @Override
     public String generateToken(UserEntity user) {
-        return "Bearer" + generateTokenValue(new HashMap<>(), user.getUsername());
+        Map<String, Object> claims = new HashMap<>();
+        List<String> roles = user.getRoles().stream()
+                .map(role -> "ROLE_" + role.getRole().name())
+                .collect(Collectors.toList());
+        claims.put("roles", roles);
+        return generateTokenValue(claims, user.getUsername());
     }
-//    @SuppressWarnings("unchecked")
+
     @SuppressWarnings("unchecked")
     private static List<String> getRoles(Claims claims) {
         return claims.get("roles", List.class);
@@ -56,18 +61,17 @@ public class JwtServiceImpl implements JwtService {
         return claims.getSubject();
     }
 
-    private Claims extractClaims(String jwtToken) {
-        return Jwts
-                .parserBuilder()
+    private Claims extractClaims(String token) {
+        return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
                 .build()
-                .parseClaimsJws(jwtToken)
+                .parseClaimsJws(token)
                 .getBody();
     }
+
     @Override
     public String generateTokenValue(Map<String, Object> claims, String username) {
-        return Jwts
-                .builder()
+        return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
@@ -75,6 +79,7 @@ public class JwtServiceImpl implements JwtService {
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
+
     private Key getSigningKey() {
         byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);

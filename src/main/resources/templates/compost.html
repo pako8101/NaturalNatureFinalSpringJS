@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head :: head}"></div>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Composting - Natural Ethos</title>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"-->
+<!--          rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
+    <link rel="stylesheet" href="/css/compost.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+<nav class="navbar" th:replace="~{fragments/navbar :: navbar}"></nav>
+
+<!-- Главна секция -->
+<div class="compost-page">
+<div class="container mt-5">
+    <h1 class="text-center mb-4"><i class="fas fa-leaf"></i> Composting: Turn Waste into Gold</h1>
+    <p class="lead text-center mb-5">
+        Composting is a natural process that transforms organic waste into nutrient-rich soil. It’s an eco-friendly way to reduce waste, enrich your garden, and contribute to a healthier planet. Let’s explore how you can start composting today!
+    </p>
+
+    <!-- Секция с текст и снимка -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-md-6">
+            <h2>Why Composting Matters</h2>
+            <p>
+                Composting reduces the amount of waste sent to landfills, lowers greenhouse gas emissions, and provides a natural fertilizer for your plants. By composting, you’re not only helping the environment but also creating a sustainable cycle for your garden.
+            </p>
+            <p>
+                Did you know that nearly 30% of household waste can be composted? From kitchen scraps like vegetable peels to yard waste like leaves and grass clippings, composting is a simple way to make a big impact.
+            </p>
+        </div>
+        <div class="col-md-6">
+<!--            <img src="/images/compost-pile.jpg" alt="Compost Pile" class="img-fluid rounded shadow">-->
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Compost Pile" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- YouTube видео 1 -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h3>How to Start Composting</h3>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        src="https://www.youtube.com/embed/egyNJ7xPyoQ" allowfullscreen
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
+                <!--                        src="https://www.youtube.com/embed/sO76q932VOo" allowfullscreen -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция с текст и снимка -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-md-6 order-md-2">
+            <h2>What Can You Compost?</h2>
+            <p>
+                Composting is all about balance. You’ll need a mix of "greens" (nitrogen-rich materials like fruit scraps, coffee grounds, and grass clippings) and "browns" (carbon-rich materials like dry leaves, cardboard, and straw).
+            </p>
+            <p>
+                Avoid composting meat, dairy, or oily foods, as they can attract pests and create odors. With the right mix, your compost will break down efficiently and smell earthy, not unpleasant.
+            </p>
+        </div>
+        <div class="col-md-6 order-md-1">
+<!--            <img src="/images/compost-materials.jpg" alt="Compost Materials" class="img-fluid rounded shadow">-->
+
+            <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b"
+                 alt="Compost Materials" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- YouTube видео 2 -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h3>Composting Tips for Beginners</h3>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/oFlsjRXbnSk"
+                        title="YouTube video player"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция със статии -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Learn More About Composting</h2>
+            <div class="article">
+                <h3>5 Common Composting Mistakes to Avoid</h3>
+                <p class="short-text">
+                    Composting is easy, but there are a few pitfalls to watch out for.
+                    Here are five common mistakes beginners make and how to avoid them...
+                </p>
+                <p class="full-text" style="display: none;">
+                    Composting is easy, but there are a few pitfalls to watch out for.
+                    First, many people add too many "greens" without balancing them with "browns,"
+                    which can lead to a smelly, soggy pile. Second, not turning the compost regularly can slow down decomposition.
+                    Third, adding meat or dairy products can attract pests. Fourth, placing the compost bin in a shady,
+                    damp area can prevent it from heating up properly. Finally, not chopping materials into smaller
+                    pieces can make the process take longer. By avoiding these mistakes, you’ll have rich compost in no time!
+                </p>
+                <button class="btn btn-link read-more">Read More</button>
+            </div>
+            <div class="article">
+                <h3>The Benefits of Composting for Your Garden</h3>
+                <p class="short-text">
+                    Compost is often called "black gold" for a reason. It improves soil structure, retains moisture, and provides essential nutrients...
+                </p>
+                <p class="full-text" style="display: none;">
+                    Compost is often called "black gold" for a reason. It improves soil structure, making it easier for roots to grow. It also helps retain moisture, reducing the need for frequent watering. Additionally, compost provides essential nutrients like nitrogen, phosphorus, and potassium, which plants need to thrive. Unlike chemical fertilizers, compost releases these nutrients slowly, ensuring long-term soil health. Plus, it encourages beneficial microorganisms that help suppress plant diseases. Start composting today and watch your garden flourish!
+                </p>
+                <button class="btn btn-link read-more">Read More</button>
+            </div>
+            <div class="article">
+                <h3>Composting Methods</h3>
+                <p class="short-text">
+                    Introduction to Composting Methods
+                    An enlightening journey into composting methods unveils a variety of unique strategies for recycling organic matter and food waste. There’s a wondrous harmony between nature’s inherent intricacies and our human endeavors in this arena, with two processes that especially stand out: worm composting, also known as vermicomposting, and the Bokashi method. Worm composting leverages the problem-solving capabilities of compost worms and their talent at transforming food scraps into nutrient-rich worm castings, perfect for being used as a soil amendment to fertilize your garden. The process involves housing the worms in a specially designed worm bin, feeding them kitchen scraps and other organic waste, and letting these diligent creatures get to work. The result is an exceptional, natural fertilizer that is guaranteed to foster growth in your garden.
+
+                    On the other hand, the Bokashi compost system offers an alternative but equally fascinating method to handle kitchen waste. This technique is actually an anaerobic process, where kitchen scraps avoid exposure to oxygen, instead fermenting in a Bokashi bin. A special Bokashi bran inoculated with beneficial microbes is used to kick-start the fermentation process. Even the likes of meat and dairy scraps, which are typically a no-go area for regular compost heaps, can be safely composted using this method.
+
+                    Furthermore, Bokashi composting is lauded for its efficiency, yielding ready-to-use compost in just a fraction of the time it takes traditional composting methods. It’s regarded as a game-changer among Bokashi experts, transforming kitchen scraps into a fermented, pickled Bokashi mix that can be added to a compost bin or worm farm for additional decomposition, eventually producing an enriched compost pile, that’s bursting with essential nitrogen. The finished compost from both vermicomposting and Bokashi methods is teeming with beneficial microorganisms and nutrients, posing as a fertile amendment for all soil types and plants.
+                    ...
+                </p>
+                <p class="full-text" style="display: none;">
+
+                    The Fundamentals of Vermicomposting
+                    vermicompostingVermiculture and vermicomposting form the cornerstone of sustainable waste management,
+                    turning organic waste into a valuable resource.
+
+                    The process revolves around utilizing certain species of worms, usually red wigglers, white worms,
+                    and earthworms, to consume organic waste such as food scraps.
+
+                    These worms digest the waste, excreting a nutrient-rich mixture known as worm castings or vermicast,
+                    which constitutes a high-grade natural fertilizer. Traditional composting methods also serve the same purpose,
+                    but vermicomposting is an aerobic process. This means that it is carried out in the presence of oxygen and does not
+                    produce methane, a potent greenhouse gas. This particular method of composting offers a stark contrast against
+                    bokashi composting, which is an anaerobic process that employs fermentation.
+
+                    In the case of bokashi, a bokashi bucket and bokashi bran mixture are used to ferment organic waste,
+                    which forms a bokashi pre-compost that can later be added to the compost pile.
+                    Bokashi composting versus vermicomposting is an ongoing discussion among gardening enthusiasts.
+                    Both methods have their unique merits. Bokashi composting,
+                    for example, includes wheat bran mixed with a selection of microorganisms that ferment the waste in a bokashi bucket.
+                    The fermented bokashi is then added to a compost pile or can be used directly as worm food for vermicomposting.
+                    The bokashi process produces bokashi tea, which can also be used as a natural fertilizer.
+
+                    On the other hand, vermicomposting involves feeding the compost food waste directly to the worms in a
+                    worm compost or worm factory trays. One downside of vermicomposting is the presence of acidic food waste
+                    as many informed users advise, don’t use acidic waste as it might harm the worms. When the worm food is
+                    digested and turned into usable compost, it is safe to use for gardening purposes. Despite the differences,
+                    many gardeners often combine bokashi vermicomposting by starting with a bokashi fermentation method to compost
+                    the waste before feeding it to the worms in the vermiculture setup. This can yield excellent results,
+                    contributing nutrient-rich compost tea and a constant supply of worm feed for the vermiculture process.
+
+                    A Crucial Component in Vermicomposting
+                    A vital part of the vermicomposting process is understanding and acknowledging the contrast between it
+                    and other traditional methods, such as bokashi composting. Vermicomposting involves aerobic composting,
+                    proving it to be an intricate system of recycling organic materials into a rich soil conditioner or mulch.
+                    Unlike bokashi, which is predominantly an anaerobic process and suitable for transforming kitchen waste into a
+                    fermented pre-compost, vermicomposting demands a compendium of elements that work hand in hand; these include
+                    your worm bucket, the feed you provide for the worms, the right amount of moisture, oxygen, and temperature control.
+                    It’s not just about adding bokashi scraps to feed the worms, but more about nurturing an ecosystem that allows for
+                    efficient and effective conversion of organic waste into premium, nutrient-rich worm castings.
+
+                    Bokashi composting is an anaerobic process often referred to as a fermentation technique. While some may
+                    claim that “bokashi is an anaerobic process”, the technical term for worm composting – vermicomposting –
+                    is different because it relies on oxygen. Many use bokashi to kick-start their composting process and then
+                    move to the more traditional bokashi method, which involves layering bokashi waste or scraps with a specific
+                    bokashi mixture to facilitate the composting process. In order to set the temperature to 0.5,
+                    one may add commercial bokashi to the mix.
+
+                    Unlike composting which may result in a compost pile without much bokashi, the proper blending of organic
+                    kitchen waste with a bokashi mixture advances composting in a more efficient way. The way to compost using these methods is largely dependent on the type of composting system you use, the waste materials at your disposal, and your composting goals.
+
+                    Unveiling Bokashi Composting
+                    bokashi composting setupThe concept of Bokashi composting is steadily gaining recognition among gardening
+                    enthusiasts and environmentalists alike.
+
+                    Originating from Japan, the word ‘Bokashi’ literally translates to ‘fermented organic matter,’
+                    denoting the unique process in which kitchen waste is transformed.
+
+                    Unlike vermiculture or ‘vermicomposting,’ Bokashi composting is an anaerobic process,
+                    which means it happens in the absence of air. This technique utilizes a special inoculant to expedite the
+                    composting process and suppress harmful pathogens. The inoculant often consists of beneficial microorganisms
+                    such as yeasts, photosynthetic organisms, and lactic acid bacteria that break down organic matter efficiently.
+
+                    To use the Bokashi composting method, one needs to put kitchen waste in a Bokashi bin,
+                    alternating layers of waste with Bokashi bran, which is fermented with Effective Microorganisms.
+                    The Bokashi fermented waste is then sealed in the bin, with no exposure to air, triggering an acidic
+                    fermentation process. Over a span of two weeks, the organic waste is converted into nutrient-rich compost,
+                    which can be used to enrich soil fertility and boost plant growth. Some benefits of using Bokashi composting include:
+
+                    Faster composting process as compared to traditional methods.
+                    Lower greenhouse gas emissions.
+                    Efficient recycling of kitchen waste.
+                    Production of a nutrient-rich compost beneficial to plant health.
+                    In summary, utilizing Bokashi composting helps you turn waste into wealth whilst simultaneously minimizing
+                    your carbon footprint.
+
+                    Traditional Composting vs Vermicomposting and Bokashi Composting
+                    When it comes to organic waste disposal options, traditional composting, vermicomposting,
+                    and Bokashi composting emerge as the three trending strategies. The traditional composting process employs
+                    organic waste materials such as vegetable peels, grass clippings, and leaves which, when mixed together,
+                    decompose naturally to produce nutrient-rich soil. The time and space requirement for traditional composting tends to be a limiting factor, especially for those living in urban areas. Unlike this method, vermicomposting and Bokashi composting present alternative, compact, and quicker composting methods.
+
+                    Vermicomposting vs Bokashi composting offers some interesting comparisons. In vermicomposting,
+                    specifically selected species of earthworms accelerate the composting process by consuming organic waste
+                    and excreting worm castings – a rich soil additive. Bokashi composting, on the other hand,
+                    employs a specific microbial inoculant to ferment organic waste materials in a sealed bucket.
+                    This process excludes oxygen, which reduces odor and minimizes leaching.
+
+                    Some of the primary distinctions between the two methods are:
+
+                    Vermicomposting is aerobic while Bokashi is anaerobic.
+                    Vermicomposting suits a continuous addition of waste while Bokashi requires waste to be added in one batch.
+                    With vermicomposting, it’s possible to compost directly in the soil, unlike Bokashi composting,
+                    which proceeds in a container before being put or ‘buried’ in the soil.
+                    Each method has its unique merits depending upon the resource availability, waste type,
+                    and desired composting speed. The choice between them usually depends on the individual’s circumstances and preferences.
+
+                    Combining Bokashi and Vermicomposting for Optimal Results
+                    In the world of organic waste management, the harvesting of natural processes is no new phenomenon.
+                    Indeed, combining Bokashi and Vermicomposting methods has shown tremendous potential in achieving optimal results for waste transformation and resource recovery. Used in conjunction, these techniques offer an effective and sustainable approach to organic waste breakdown and soil revitalization.
+
+                    combining bokashi and vermicompostingAt the onset,
+                    it’s important to understand the distinctions between the two methods—vermicomposting vs Bokashi.
+                    Vermicomposting involves the use of specific species of earthworms to convert organic waste into nutrient-rich compost.
+                    On the other hand, Bokashi composting incorporates effective microorganisms to ferment organic
+                    waste in an anaerobic environment.
+
+                    To put Bokashi and vermicomposting into practice, a few essential steps are as follows:
+
+                    Begin with the Bokashi composting system by collecting your kitchen waste in a Bokashi bucket, and adding in Bokashi bran (infused with beneficial microorganisms) at intervals.
+                    Once full, allow the contents to ferment for around two weeks, during which time, the microorganisms will break down the waste.
+                    Following the Bokashi process, transfer the fermented waste into a vermicomposting system where earthworms will consume the decomposed matter and produce rich, healthy compost.
+                    This symbiotic relationship between the two provides a powerful solution to organic waste disposal and soil rejuvenation. Besides, it promotes an eco-friendly approach that reduces waste and contributes to the health of our planet.
+
+                    Choosing the Right Composter according to Your Composting Method
+                    Choosing the right composter can largely depend on your chosen composting method.
+                    Whether your preference leans towards vermicicoming or bokashi,
+                    each method requires a distinct kind of composter that harmonizes with the inherent processes.
+                    For instance, vermicomposting, a process that utilizes earthworms to break down organic waste,
+                    necessitates a worm bin designed to regulate moisture and provide a hospitable environment for your
+                    earthworms’s activities. In contrast, the bokashi process, an anaerobic method involving special bokashi
+                    bran to ferment kitchen waste, calls for airtight containers to initiate the fermentation process and control smells.
+
+                    To ascertain that you select the most adequate composter for your needs, it’s essential to factor in the following:
+
+                    Your composting method: As aforementioned,
+                    vermicomposting requires worm-friendly composters while bokashi n necessitates an airtight container.
+                    Material type: Your composter should be sturdy and durable. Composters are often made from recycled plastics,
+                    wood, or metal.
+                    The available space: If you have a large outdoor space, a large bin or rotating drum would be ideal.
+                    However, if you’re short on space, a small indoor composter might be a suitable pick.- The volume of waste generated:
+                    Your composting habits are hugely dependent on your lifestyle. If you produce a considerable amount of waste,
+                    you would want a larger capacity composter.
+
+                    Whichever method you settle on, choosing the appropriate composter can optimize the composting process,
+                    making it more effective and productive. As composting gains traction as a sustainable and eco-friendly waste management method,
+                    ensure that you make an informed decision that best suits your specific needs and constraints.
+                    Consider the frequency and volume of composting you’ll be doing, and ensure your composter is compatible with both the quantity of
+                    organic waste you produce and the physical space available for composting. Remember,
+                    the right composter will not only streamline your composting process but also significantly enhance the quality of the compost produced,
+                    contributing to a more sustainable and fruitful gardening experience.
+
+
+
+                    Conclusion
+                    In conclusion, both vermicomposting and bokashi offer unique methodologies for organic waste management and soil
+                    enrichment.
+                    Vermicomposting, which utilizes earthworms for the breakdown of organic matter,
+                    is a slow process but is appreciated for its ability to produce nutrient-rich compost that enhances soil fertility.
+                    It’s predominant for green waste materials and is highly efficient in converting
+                    kitchen waste into a rich soil supplement. Bokashi, on the other hand, works with a wider variety of
+                    waste including meat and dairy products which are usually not recommended for vermicomposting.
+                    It uses a method of fermentation and anaerobic processing to break down organic matter.
+                    This method may seem more controlled and quicker but requires a two-step process to fully complete.
+
+                    The eventual products are a type of pickled compost, and “bokashi tea,”
+                    a liquid that can also be used as a fertilizer,
+                    making it a potentially more versatile system.
+                    Both vermicicompsting and bokashi work towards the same goal of waste reduction and soil augmenting
+                    and their use may be decided by one’s preference, available resources, and waste composition. Overall,
+                    the debate between vermicomposting and bokashi is more about choosing a method that fits your needs and lifestyle,
+                    rather than which one is empirically the best.
+                </p>
+                <button class="btn btn-link read-more">Read More</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<!-- JavaScript за Read More/Read Less -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const readMoreButtons = document.querySelectorAll('.read-more');
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const article = this.parentElement;
+                const shortText = article.querySelector('.short-text');
+                const fullText = article.querySelector('.full-text');
+
+                if (fullText.style.display === 'none') {
+                    fullText.style.display = 'block';
+                    shortText.style.display = 'none';
+                    this.textContent = 'Read Less';
+                } else {
+                    fullText.style.display = 'none';
+                    shortText.style.display = 'block';
+                    this.textContent = 'Read More';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

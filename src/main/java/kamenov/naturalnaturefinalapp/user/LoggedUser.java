@@ -9,55 +9,49 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-@Service
-
+@Component
 public class LoggedUser {
 
- private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public LoggedUser(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-
-    public boolean isLogged() {
-        return !hasRole(UserRoleEnum.USER);
+    public boolean isAuthenticated() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal());
     }
 
     public boolean isAdmin() {
-        return hasRole(UserRoleEnum.ADMIN);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication != null && authentication.getAuthorities().stream()
+                .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
     }
 
-
-
     public boolean isOnlyUser() {
-        return getAuthentication().getAuthorities().stream()
-                .allMatch(role -> role.getAuthority().equals("ROLE_" + UserRoleEnum.USER));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication != null && authentication.getAuthorities().stream()
+                .allMatch(role -> role.getAuthority().equals("ROLE_USER"));
     }
 
     public String getUsername() {
-        return getUserDetails().getUsername();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() instanceof AppUserDetails) {
+            return ((AppUserDetails) authentication.getPrincipal()).getUsername();
+        }
+        return null;
     }
 
-    public boolean hasRole(UserRoleEnum userRoles) {
-        return getAuthentication().getAuthorities().stream()
-                .anyMatch(role -> role.getAuthority().equals("ROLE_" + userRoles));
-    }
-
-    private UserDetails getUserDetails() {
-        return (UserDetails) getAuthentication().getPrincipal();
-    }
-
-    private Authentication getAuthentication() {
-        return SecurityContextHolder.getContext().getAuthentication();
-    }
-    public UserEntity get(){
+    public UserEntity getCurrentUser() {
         String username = getUsername();
-       return userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User with username: " + username + " was not found!"));
-
+        if (username != null) {
+            return userRepository.findByUsername(username)
+                    .orElseThrow(() -> new UsernameNotFoundException("User with username: " + username + " was not found!"));
+        }
+        return null;
     }
 
 }

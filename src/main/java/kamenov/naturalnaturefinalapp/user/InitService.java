@@ -1,3 +1,11 @@
+package kamenov.naturalnaturefinalapp.user;
+
+import jakarta.annotation.PostConstruct;
+import kamenov.naturalnaturefinalapp.entity.UserRoleEnt;
+import kamenov.naturalnaturefinalapp.entity.enums.UserRoleEnum;
+import kamenov.naturalnaturefinalapp.repositories.UserRoleRepository;
+import org.springframework.stereotype.Component;
+
 //package kamenov.naturalnaturefinalapp.user;
 //
 //
@@ -15,8 +23,29 @@
 //
 //import java.util.List;
 //
-//@Service
-//public class InitService {
+@Component
+public class InitService {
+    private final UserRoleRepository userRoleRepository;
+
+    public InitService(UserRoleRepository userRoleRepository) {
+        this.userRoleRepository = userRoleRepository;
+    }
+
+
+
+    @PostConstruct
+    public void init() {
+        if (userRoleRepository.count() == 0) {
+            UserRoleEnt userRole = new UserRoleEnt();
+            userRole.setRole(UserRoleEnum.USER);
+            userRoleRepository.save(userRole);
+
+            UserRoleEnt adminRole = new UserRoleEnt();
+            adminRole.setRole(UserRoleEnum.ADMIN);
+            userRoleRepository.save(adminRole);
+        }
+    }
+}
 //    private final UserRoleRepository userRoleRepository;
 //    private final UserRepository userRepository;
 //    private final PasswordEncoder passwordEncoder;

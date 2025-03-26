@@ -67,7 +67,7 @@ public class NaturalNatureFinalAppApplication {
                         .setFullName("Admin")
                         .setEmail("admin@example.com")
                         .setPassword(passwordEncoder.encode("pako"))
-                        .setConfirmPassword(passwordEncoder.encode("pako"))
+
                         .setRoles(Collections.singletonList(adminRole));
                 userRepository.save(admin);
 
@@ -77,7 +77,7 @@ public class NaturalNatureFinalAppApplication {
                         .setFullName("User")
                         .setEmail("user@example.com")
                         .setPassword(passwordEncoder.encode("pako"))
-                        .setConfirmPassword(passwordEncoder.encode("pako"))
+
                         .setRoles(Collections.singletonList(userRole));
                 userRepository.save(user);
             }

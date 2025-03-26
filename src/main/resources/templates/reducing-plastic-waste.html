@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title>Reducing Plastic Waste At Home - Nat Ethos</title>
+<link rel="stylesheet" th:href="@{/css/reducing-plastic-waste.css}">
+<link rel="stylesheet" href="/css/reset-css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- Хедър -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animated-title">Reducing Plastic Waste At Home</h1>
+        <p class="hero-subtitle">Practical Steps For A Greener Household</p>
+    </div>
+</header>
+
+<!-- Секция: Въведение -->
+<section class="section intro-section">
+    <h2 class="section-title">Introduction to the Current State of Plastic Use and Waste</h2>
+    <div class="section-content">
+        <img src="/images/plastic-pile.jpg" alt="Plastic Pile" class="section-image">
+        <p>
+            Plastic waste has become a global crisis, with over 300 million tons produced annually, much of which ends up in landfills or the environment. Single-use plastics, like bags, bottles, and packaging, are major contributors, often used for mere minutes before being discarded. At home, we unknowingly generate significant plastic waste through everyday habits. Addressing this issue starts with understanding the scale of the problem and taking actionable steps to reduce our plastic footprint.
+        </p>
+    </div>
+</section>
+
+<!-- Секция: Защо е важно -->
+<section class="section importance-section">
+    <h2 class="section-title">Why It’s Important to Reduce Plastic Use at Home</h2>
+    <div class="section-content">
+        <div class="video-wrapper section-video-left">
+            <iframe class="video-iframe"
+                    width="560"
+                    height="315"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture"
+                    loading="lazy"
+                    src="https://www.youtube.com/embed/TclQBPRsNGk" allowfullscreen></iframe>
+        </div>
+        <p>
+            Reducing plastic use at home is crucial for several reasons. It minimizes the amount of waste that ends up in landfills and oceans, protecting wildlife and ecosystems. It also reduces the demand for new plastic production, which relies on fossil fuels and contributes to climate change. Additionally, cutting down on plastic use at home can improve your health by reducing exposure to harmful chemicals like BPA. Small changes in your household can lead to a big impact on the planet.
+        </p>
+    </div>
+</section>
+
+<!-- Секция: 10 практически начина (таблица) -->
+<section class="section practical-ways-section">
+    <h2 class="section-title">10 Practical Ways to Reduce Plastic Waste and Adopt a Greener Lifestyle</h2>
+    <table class="practical-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Action</th>
+            <th>Description</th>
+            <th>Impact</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Use Reusable Bags</td>
+            <td>Switch to cloth or canvas bags for shopping.</td>
+            <td>Eliminates hundreds of plastic bags per year.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Buy in Bulk</td>
+            <td>Purchase items like grains and snacks in bulk to avoid plastic packaging.</td>
+            <td>Reduces packaging waste significantly.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Switch to Bar Soap</td>
+            <td>Use bar soap instead of liquid soap in plastic bottles.</td>
+            <td>Cuts down on plastic bottle waste.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Avoid Plastic Wrap</td>
+            <td>Use beeswax wraps or silicone lids for food storage.</td>
+            <td>Prevents plastic wrap from ending up in landfills.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Choose Wooden Utensils</td>
+            <td>Replace plastic cutlery with wooden or bamboo alternatives.</td>
+            <td>Reduces single-use plastic waste at picnics or parties.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Use a Reusable Water Bottle</td>
+            <td>Carry a stainless steel or glass bottle instead of buying plastic ones.</td>
+            <td>Saves thousands of plastic bottles over time.</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Opt for Glass Containers</td>
+            <td>Store leftovers in glass jars instead of plastic containers.</td>
+            <td>Reduces exposure to harmful chemicals in plastics.</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Make Your Own Cleaners</td>
+            <td>Create cleaning solutions with vinegar and baking soda to avoid plastic bottles.</td>
+            <td>Decreases plastic waste from cleaning products.</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Use Cloth Diapers</td>
+            <td>Switch to cloth diapers instead of disposable ones for babies.</td>
+            <td>Prevents tons of plastic waste from diapers.</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Shop at Zero-Waste Stores</td>
+            <td>Visit stores that allow you to bring your own containers for purchases.</td>
+            <td>Supports a plastic-free lifestyle.</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Секция: Проблеми с пластмасовите бутилки -->
+<section class="section water-bottles-section">
+    <h2 class="section-title">The Problems with Plastic Water Bottles and the Benefits of a Reusable Water Bottle</h2>
+    <div class="section-content">
+        <img src="/images/plasticVsnature.png" alt="Plastic Bottles" class="section-image section-image-right">
+        <p>
+            Plastic water bottles are a major source of waste, with billions discarded each year. They often end up in landfills or oceans, taking hundreds of years to decompose. Additionally, they can leach harmful chemicals into the water, posing health risks. Switching to a reusable water bottle, such as one made of stainless steel or glass, eliminates this waste, saves money in the long run, and ensures you’re drinking safer, chemical-free water.
+        </p>
+    </div>
+</section>
+
+<!-- Секция: Устойчиви алтернативи -->
+<section class="section alternatives-section">
+    <h2 class="section-title">Choosing Sustainable Alternatives: From Plastic Wrap to Recycled Plastic Products</h2>
+    <div class="section-content">
+        <div class="video-wrapper section-video-left">
+            <iframe class="video-iframe" src="https://www.youtube.com/embed6jkN50X9gZc" allowfullscreen></iframe>
+        </div>
+        <p>
+            Sustainable alternatives can significantly reduce plastic waste at home. Instead of plastic wrap, use beeswax wraps or silicone lids to store food. Opt for products made from recycled plastic, such as storage bins or outdoor furniture, to support a circular economy. Choosing biodegradable or compostable materials for everyday items, like trash bags or packaging, can also make a big difference in reducing your household’s plastic footprint.
+        </p>
+    </div>
+</section>
+
+<!-- Секция: Лесни замени -->
+<section class="section swaps-section">
+    <h2 class="section-title">From Plastic Straws to Cloth Napkins: Easy Swaps for a More Eco-friendly Home</h2>
+    <div class="section-content">
+        <img src="/images/cloth-napkins.jpg" alt="Cloth Napkins" class="section-image">
+        <p>
+            Making simple swaps can transform your home into an eco-friendly haven. Replace plastic straws with metal or bamboo ones, which are reusable and stylish. Swap paper towels and plastic-lined napkins for cloth napkins, which can be washed and reused for years. These small changes not only reduce plastic waste but also add a touch of sustainability and charm to your daily routines.
+        </p>
+    </div>
+</section>
+
+<!-- Секция: Заключение -->
+<section class="section conclusion-section">
+    <h2 class="section-title">Conclusion</h2>
+    <div class="section-content">
+        <div class="video-wrapper section-video-left">
+            <iframe class="video-iframe"
+
+                    width="560"
+                    height="315"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture"
+                    loading="lazy"
+                    src="https://www.youtube.com/embed/9q29nu2T0Ko" allowfullscreen></iframe>
+        </div>
+        <p>
+            In conclusion, adopting a plastic-free lifestyle at home is not only achievable but also incredibly rewarding. By implementing these practical steps, you can significantly reduce your plastic waste, protect the environment, and create a healthier living space for your family. Every small change counts, and together, we can build a greener, more sustainable future for generations to come.
+        </p>
+    </div>
+</section>
+
+<!-- Секция: Динамични съвети -->
+<section class="section tips-section">
+    <h2 class="section-title">More Tips to Get Started</h2>
+    <div class="tips-gallery" th:each="tip : ${tips}">
+        <div class="tip-card">
+            <img th:src="${tip.imagePath}" alt="Tip Image" class="tip-image" onerror="this.src='/images/valubleEarth.jpg'">
+            <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>
+            <p th:text="${tip.description}" class="tip-description">Tip Description</p>
+            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>
+            <div class="tip-details" th:id="'details-' + ${tip.id}" style="display: none;">
+                <p th:text="'Additional Info for ' + ${tip.title} + ': This tip can save you money and reduce waste. For example, using ' + ${tip.title.toLowerCase()} + ' can prevent dozens of plastic items from entering landfills each year. Start today and share your progress with friends!'"></p>
+                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- JavaScript за интерактивност -->
+<script>
+    // Toggle за "Learn More"
+    function toggleDetails(tipId) {
+        const details = document.getElementById(`details-${tipId}`);
+        const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);
+        const isVisible = details.style.display === 'block';
+
+        if (isVisible) {
+            details.style.display = 'none';
+            learnMoreBtn.textContent = 'Learn More';
+        } else {
+            details.style.display = 'block';
+            learnMoreBtn.textContent = 'Less';
+        }
+    }
+
+    // Анимация при скрол
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    });
+</script>
+</body>
+</html>

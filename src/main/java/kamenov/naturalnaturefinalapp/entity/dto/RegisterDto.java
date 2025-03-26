@@ -35,11 +35,10 @@ public class RegisterDto {
     @Length(min = 6, max = 20, message = "The password must be between 6 and 20 characters")
     @NotBlank(message = "The field must not be empty")
     private String password;
-    @Length(min = 3, max = 20, message = "The password length must be between 3 and 20 characters")
+    @Length(min = 6, max = 20, message = "The password length must be between 6 and 20 characters")
     @NotBlank
     private String confirmPassword;
-@NotNull
-    public String recaptchaToken;
+
 
     public RegisterDto() {
     }
@@ -61,11 +60,11 @@ public class RegisterDto {
         return this;
     }
 
-    public @Size(min = 2, max = 200) @NotBlank(message = "First name cannot be empty!") String getFullName() {
+    public @Size(min = 2, max = 200) @NotBlank(message = "Name cannot be empty!") String getFullName() {
         return fullName;
     }
 
-    public RegisterDto setFullName(@Size(min = 2, max = 200) @NotBlank(message = "First name cannot be empty!") String fullName) {
+    public RegisterDto setFullName(@Size(min = 2, max = 200) @NotBlank(message = "Name cannot be empty!") String fullName) {
         this.fullName = fullName;
         return this;
     }
@@ -79,30 +78,22 @@ public class RegisterDto {
         return this;
     }
 
-    public @Length(min = 3, max = 20, message = "The password must be between 3 and 20 characters") @NotBlank(message = "The field must not be empty") String getPassword() {
+    public @Length(min = 6, max = 20, message = "The password must be between 6 and 20 characters") @NotBlank(message = "The field must not be empty") String getPassword() {
         return password;
     }
 
-    public RegisterDto setPassword(@Length(min = 3, max = 20, message = "The password must be between 3 and 20 characters") @NotBlank(message = "The field must not be empty") String password) {
+    public RegisterDto setPassword(@Length(min = 6, max = 20, message = "The password must be between 6 and 20 characters") @NotBlank(message = "The field must not be empty") String password) {
         this.password = password;
         return this;
     }
 
-    public @Length(min = 3, max = 20, message = "The password length must be between 3 and 20 characters") @NotBlank String getConfirmPassword() {
+    public @Length(min = 6, max = 20, message = "The password length must be between 6 and 20 characters") @NotBlank String getConfirmPassword() {
         return confirmPassword;
     }
 
-    public RegisterDto setConfirmPassword(@Length(min = 3, max = 20, message = "The password length must be between 3 and 20 characters") @NotBlank String confirmPassword) {
+    public RegisterDto setConfirmPassword(@Length(min = 6, max = 20, message = "The password length must be between 6 and 20 characters") @NotBlank String confirmPassword) {
         this.confirmPassword = confirmPassword;
         return this;
     }
 
-    public @NotNull String getRecaptchaToken() {
-        return recaptchaToken;
-    }
-
-    public RegisterDto setRecaptchaToken(@NotNull String recaptchaToken) {
-        this.recaptchaToken = recaptchaToken;
-        return this;
-    }
 }

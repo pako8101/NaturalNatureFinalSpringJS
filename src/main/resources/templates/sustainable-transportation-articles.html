@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<meta charset="UTF-8">
+<title>Sustainable Transport Articles - Natural Ethos</title>
+<link rel="stylesheet" th:href="@{/css/transport-articles.css}">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- Хедър -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animated-title">Sustainable Transport Articles</h1>
+        <p class="hero-subtitle">Explore More About Eco-Friendly Transportation</p>
+    </div>
+</header>
+
+<!-- Секция: Всички статии -->
+<section class="section articles-section">
+    <h2 class="section-title">All Articles</h2>
+    <div class="articles-gallery">
+        <div class="article-card" th:each="article : ${articles}">
+            <img th:src="${article.imagePath}" alt="Article Image" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+            <h3 th:text="${article.title}" class="article-title">Article Title</h3>
+            <p th:text="${article.content}" class="article-content">Article Content</p>
+        </div>
+    </div>
+
+    <!-- Пагинация -->
+    <div class="pagination" th:if="${totalPages > 1}">
+        <a th:href="@{/sustainable-transportation/articles(page=${currentPage - 1})}"
+           th:class="${currentPage == 0 ? 'disabled' : ''}"
+           class="pagination-btn">Previous</a>
+        <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+            <a th:href="@{/sustainable-transportation/articles(page=${i})}"
+               th:class="${i == currentPage ? 'active' : ''}"
+               th:text="${i + 1}" class="pagination-btn"></a>
+        </span>
+        <a th:href="@{/sustainable-transportation/articles(page=${currentPage + 1})}"
+           th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}"
+           class="pagination-btn">Next</a>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
