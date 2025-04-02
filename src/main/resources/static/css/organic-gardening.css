@@ -410,7 +410,7 @@ body {
 
 /* Хедър */
 .hero {
-    background: url('/images/future-garden-anime.jpeg') no-repeat center/cover;
+    background: url('/images/gardening.jpg') no-repeat fixed center/cover;
     height: 500px;
     display: flex;
     justify-content: center;

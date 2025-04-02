@@ -112,20 +112,20 @@ public String getJourneyPage(Model model) {
     }
 
     @GetMapping("/eco-accommodations")
-    @Transactional()
+    @Transactional
     public String getEcoAccommodationsPage(Model model) {
-        Journey journey = journeyService.getAllJourneys().get(0);
+
         model.addAttribute("pageTitle", "Eco-Friendly Accommodations");
         model.addAttribute("content", "Discover sustainable stays that blend luxury with nature. Imagine eco-lodges nestled along pristine coastlines, built with recycled materials, and powered by solar energy. These accommodations offer breathtaking ocean views, organic dining, and guided tours to local marine reserves, all while minimizing your carbon footprint. Perfect for travelers seeking a guilt-free escape with the sound of waves as your lullaby.");
         model.addAttribute("imagePath", "/images/eco-lodge.jpg");
-        model.addAttribute("journey", journey);
+        model.addAttribute("journey", journeyService.getAllJourneys());
         return "eco-accommodations";
     }
 
     @GetMapping("/national-parks")
     @Transactional()
     public String getNationalParksPage(Model model) {
-        Journey journey = journeyService.getAllJourneys().get(0);
+
 
         model.addAttribute("pageTitle", "The Key Role of National Parks and Reserves");
         model.addAttribute("content", "Our planet’s national parks and reserves are like the heartbeats of nature, " +
@@ -148,7 +148,7 @@ public String getJourneyPage(Model model) {
                 "\n");
 
         model.addAttribute("imagePath", "/images/national-park.jpg");
-        model.addAttribute("journey", journey);
+        model.addAttribute("journey", journeyService.getAllJourneys());
 
 
         return "national-parks";

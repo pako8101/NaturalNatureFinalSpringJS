@@ -1,34 +1,49 @@
 package kamenov.naturalnaturefinalapp.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "herbal_remedy")
-public class HerbalRemedy extends BaseEntity{
-    @Column(name = "name",nullable = false,unique = true)
+public class HerbalRemedy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
-
-    @Column(columnDefinition = "TEXT",nullable = false)
     private String description;
-
-    @Column(name = "image_path",nullable = false)
     private String imagePath;
-    @Column(name = "benefits",nullable = false)
     private String benefits;
-    @Column(name = "usage",nullable = false)
-    private String usage;
+    private String usageInstructions;
 
     public HerbalRemedy() {
     }
 
-    public HerbalRemedy(String name, String description, String imagePath, String benefits, String usage) {
+    public HerbalRemedy(String name, String description, String imagePath, String benefits, String usageInstructions) {
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
         this.benefits = benefits;
-        this.usage = usage;
+        this.usageInstructions = usageInstructions;
+    }
+
+    public String getUsageInstructions() {
+        return usageInstructions;
+    }
+
+    public HerbalRemedy setUsageInstructions(String usageInstructions) {
+        this.usageInstructions = usageInstructions;
+        return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public HerbalRemedy setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public String getName() {
@@ -67,12 +82,5 @@ public class HerbalRemedy extends BaseEntity{
         return this;
     }
 
-    public String getUsage() {
-        return usage;
-    }
 
-    public HerbalRemedy setUsage(String usage) {
-        this.usage = usage;
-        return this;
-    }
 }

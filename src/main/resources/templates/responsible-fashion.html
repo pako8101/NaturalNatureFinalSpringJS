@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+    <title>Responsible Fashion</title>
+    <link rel="stylesheet" href="/css/responsible-fashion.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<header>
+    <h1>Responsible Fashion: Sustainable Style</h1>
+    <p>Explore the world of ethical fashion and make a difference with every choice.</p>
+</header>
+
+<!-- Introduction Section -->
+<section class="chapter" id="introduction">
+    <h2>Introduction: Embracing Ethical Fashion for Eco-friendly Living</h2>
+    <div th:if="${introduction != null and !introduction.isEmpty()}">
+        <div class="content" th:each="item : ${introduction}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Ethical fashion intro" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${introduction == null or introduction.isEmpty()}">
+        <p>No content available for Introduction.</p>
+    </div>
+</section>
+
+<!-- Sustainable Brands Section -->
+<section class="chapter" id="sustainable-brands">
+    <h2>Discover Sustainable Clothing Brands: Ethical Practices and Eco-friendly Materials</h2>
+    <div th:if="${sustainableBrands != null and !sustainableBrands.isEmpty()}">
+        <div class="content" th:each="item : ${sustainableBrands}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Sustainable brands" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${sustainableBrands == null or sustainableBrands.isEmpty()}">
+        <p>No content available for Sustainable Brands.</p>
+    </div>
+</section>
+
+<!-- Fast Fashion Impact Section (с таблица) -->
+<section class="chapter" id="fast-fashion-impact">
+    <h2>The Environmental Impact of Fast Fashion: Making Smarter Shopping Decisions</h2>
+    <div th:if="${fastFashionImpact != null and !fastFashionImpact.isEmpty()}">
+        <div class="content" th:each="item : ${fastFashionImpact}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Fast fashion impact" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="impact-table">
+                    <h4>Environmental Impact of Fast Fashion</h4>
+                    <table class="techniques-table">
+                        <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Impact</th>
+                            <th>Solution</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Water Usage</td>
+                            <td>10,000 liters per kg of cotton</td>
+                            <td>Choose organic cotton or recycled materials</td>
+                        </tr>
+                        <tr>
+                            <td>CO2 Emissions</td>
+                            <td>1.2 billion tons annually</td>
+                            <td>Support brands with low-carbon practices</td>
+                        </tr>
+                        <tr>
+                            <td>Waste</td>
+                            <td>85% of textiles end up in landfills</td>
+                            <td>Upcycle and thrift to reduce waste</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${fastFashionImpact == null or fastFashionImpact.isEmpty()}">
+        <p>No content available for Fast Fashion Impact.</p>
+    </div>
+</section>
+
+<!-- Practical Tips Section -->
+<section class="chapter" id="practical-tips">
+    <h2>Practical Tips for Integrating Ethical Fashion Into Your Daily Style Choices</h2>
+    <div th:if="${practicalTips != null and !practicalTips.isEmpty()}">
+        <div class="content" th:each="item : ${practicalTips}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Ethical fashion tips" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${practicalTips == null or practicalTips.isEmpty()}">
+        <p>No content available for Practical Tips.</p>
+    </div>
+</section>
+
+<!-- Conclusion Section -->
+<section class="chapter" id="conclusion">
+    <h2>Conclusion: Supporting a Greener Future Through Ethical Fashion</h2>
+    <div th:if="${conclusion != null and !conclusion.isEmpty()}">
+        <div class="content" th:each="item : ${conclusion}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Ethical fashion conclusion" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${conclusion == null or conclusion.isEmpty()}">
+        <p>No content available for Conclusion.</p>
+    </div>
+</section>
+
+<!-- Articles Section with Vertical Layout and Pagination -->
+<section class="articles-section">
+    <h2>Related Articles</h2>
+    <div th:if="${articles != null and !articles.isEmpty()}">
+        <div class="articles">
+            <div class="article-card" th:each="article : ${articles}">
+                <img th:src="${article.imagePath}" alt="Article image" class="article-image">
+                <div class="article-content">
+                    <h3 th:text="${article.title}"></h3>
+                    <p th:text="${article.content}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${articles == null or articles.isEmpty()}">
+        <p>No articles available at the moment.</p>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" th:if="${totalPages != null and totalPages > 1}">
+        <a th:if="${hasPrevious}" th:href="@{/responsible-fashion(page=${currentPage - 1})}" class="pagination-link">Previous</a>
+        <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                <a th:href="@{/responsible-fashion(page=${i})}" th:class="${i == currentPage} ? 'pagination-link active' : 'pagination-link'" th:text="${i + 1}"></a>
+            </span>
+        <a th:if="${hasNext}" th:href="@{/responsible-fashion(page=${currentPage + 1})}" class="pagination-link">Next</a>
+    </div>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script src="/js/responsible-fashion.js"></script>
+</body>
+</html>

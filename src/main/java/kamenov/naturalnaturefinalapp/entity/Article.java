@@ -3,11 +3,12 @@ package kamenov.naturalnaturefinalapp.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "article")
+@Table(name = "article",uniqueConstraints = @UniqueConstraint(columnNames = {"title", "category"}))
 public class Article extends BaseEntity {
-    @Column(name = "title",nullable = false,unique = true)
+    @Column(name = "title",nullable = false)
     private String title;
 
     @Column(columnDefinition = "TEXT")

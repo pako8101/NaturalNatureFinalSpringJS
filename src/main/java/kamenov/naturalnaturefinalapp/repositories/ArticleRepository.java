@@ -12,4 +12,6 @@ import java.util.List;
 public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByCategory(String category);
     Page<Article> findByCategory(String category, Pageable pageable);
+    boolean existsByTitleAndCategory(String title, String category);
+    boolean existsByTitle(String title);
 }

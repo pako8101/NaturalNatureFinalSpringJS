@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<meta charset="UTF-8">
+<title>Herbal Remedies - Natural Ethos</title>
+<link rel="stylesheet" th:href="@{/css/herbal-remedies.css}">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- Хедър -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animated-title">Herbal Remedies</h1>
+        <p class="hero-subtitle">Discover Nature’s Healing Power</p>
+    </div>
+    <div class="flower-overlay"></div>
+</header>
+
+<!-- Секция 1: The Power of Herbal Remedies in Modern Healing -->
+<section class="section intro-section">
+    <h2 class="section-title">The Power of Herbal Remedies in Modern Healing</h2>
+    <div class="content-wrapper">
+        <div class="text-content">
+            <p>Herbal remedies have been used for centuries to heal and nurture the body naturally. From ancient civilizations to modern holistic practices, herbs like chamomile, peppermint, and echinacea offer powerful benefits without the side effects of synthetic drugs.</p>
+            <p>Today, science is catching up with tradition, proving the efficacy of these natural solutions in treating everything from stress to infections. Join the movement to embrace nature’s pharmacy!</p>
+        </div>
+        <div class="media-content">
+            <img src="/images/herbal-healing.jpg" alt="Herbal Healing" class="float-image">
+        </div>
+    </div>
+</section>
+
+<!-- Секция 2: Herbal Remedies for Common Ailments (Таблична) -->
+<section class="section table-section">
+    <h2 class="section-title">Herbal Remedies for Common Ailments: A Research Approach</h2>
+    <table class="remedy-table">
+        <thead>
+        <tr>
+            <th>Herb</th>
+            <th>Ailment</th>
+            <th>Benefits</th>
+            <th>Usage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="remedy : ${remedies}">
+            <td th:text="${remedy.name}"></td>
+            <td th:text="${remedy.description}"></td>
+            <td th:text="${remedy.benefits}"></td>
+            <td th:text="${remedy.usageInstructions}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Секция 3: Types of Herbal Remedies (с видео и анимации) -->
+<section class="section types-section">
+    <h2 class="section-title">Types of Herbal Remedies: Teas, Tinctures, Oils, and More</h2>
+    <div class="content-wrapper">
+        <div class="media-content">
+            <video autoplay muted loop class="herbal-video">
+                <source src="/videos/herbal-preparation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="text-content">
+            <p>Herbal remedies come in many forms, each with unique preparation methods and uses:</p>
+            <ul class="herbal-list">
+                <li class="herbal-item">Teas: Steep herbs like chamomile or peppermint in hot water for a soothing drink.</li>
+                <li class="herbal-item">Tinctures: Concentrated extracts like echinacea, taken in small doses.</li>
+                <li class="herbal-item">Oils: Essential oils like lavender, used for aromatherapy or topical application.</li>
+                <li class="herbal-item">Salves: Herbal balms for skin healing, such as calendula salve.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Секция 4: Growing Your Own Medicinal Herbs (с интерактивност) -->
+<section class="section growing-section">
+    <h2 class="section-title">Growing Your Own Medicinal Herbs</h2>
+    <div class="content-wrapper">
+        <div class="text-content">
+            <p>Creating your own herbal garden is easier than you think! Start with these beginner-friendly herbs:</p>
+            <div class="herb-card" onclick="toggleHerbInfo(this)">
+                <img src="/images/mint-plant.jpg" alt="Mint Plant" class="herb-image">
+                <h3>Mint</h3>
+                <p class="herb-info">Grows easily in pots, great for digestion.</p>
+            </div>
+            <div class="herb-card" onclick="toggleHerbInfo(this)">
+                <img src="/images/lavender-plant.jpg" alt="Lavender Plant" class="herb-image">
+                <h3>Lavender</h3>
+                <p class="herb-info">Loves sun, perfect for relaxation.</p>
+            </div>
+        </div>
+        <div class="media-content">
+            <img src="/images/herbal-garden.jpg" alt="Herbal Garden" class="float-image">
+        </div>
+    </div>
+</section>
+
+<!-- Секция 5: Conclusion -->
+<section class="section conclusion-section">
+    <h2 class="section-title">Conclusion: Embracing Nature’s Pharmacy</h2>
+    <p>Herbal remedies offer a sustainable, natural way to support your health and well-being. By growing your own herbs and incorporating them into your daily routine, you can reconnect with nature and harness its healing power. Start your herbal journey today!</p>
+</section>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<script>
+    // GSAP анимации
+    gsap.from(".animated-title", { duration: 1.5, y: -50, opacity: 0, ease: "bounce" });
+    gsap.from(".hero-subtitle", { duration: 1.5, y: 50, opacity: 0, delay: 0.5 });
+    gsap.from(".section-title", { duration: 1, y: 30, opacity: 0, stagger: 0.3, scrollTrigger: { trigger: ".section-title", start: "top 80%" } });
+    gsap.from(".herbal-item", { duration: 0.8, x: -50, opacity: 0, stagger: 0.2, scrollTrigger: { trigger: ".herbal-list", start: "top 80%" } });
+    gsap.from(".herb-card", { duration: 1, scale: 0.8, opacity: 0, stagger: 0.3, scrollTrigger: { trigger: ".herb-card", start: "top 80%" } });
+
+    // Интерактивност за herb cards
+    function toggleHerbInfo(card) {
+        const info = card.querySelector('.herb-info');
+        info.style.display = info.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<title>Sustainable Transportation - Natural Ethos</title>
+<link rel="stylesheet" th:href="@{/css/passive-houses.css}">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<header>
+    <h1>Passive Houses: Sustainable Living</h1>
+    <p>Discover the future of eco-friendly homes with innovative design and technology.</p>
+</header>
+<section class="chapter">
+    <h2>Energy Efficiency</h2>
+    <div th:if="${energyEfficiency != null and !energyEfficiency.isEmpty()}">
+        <div class="content" th:each="item : ${energyEfficiency}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Eco-friendly home" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${energyEfficiency == null or energyEfficiency.isEmpty()}">
+        <p>No content available for Energy Efficiency.</p>
+    </div>
+</section>
+
+<!-- Solar Power Systems Section -->
+<section class="chapter">
+    <h2>Solar Power Systems</h2>
+    <div th:if="${solarPowerSystems != null and !solarPowerSystems.isEmpty()}">
+        <div class="content" th:each="item : ${solarPowerSystems}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Solar panels" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${solarPowerSystems == null or solarPowerSystems.isEmpty()}">
+        <p>No content available for Solar Power Systems.</p>
+    </div>
+</section>
+
+<!-- Water Conservation Section (с таблица) -->
+<section class="chapter">
+    <h2>Water Conservation</h2>
+    <div th:if="${waterConservation != null and !waterConservation.isEmpty()}">
+        <div class="content" th:each="item : ${waterConservation}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Rainwater collection" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Добавяне на таблица за "Popular Sustainable Living Techniques" -->
+                <div th:if="${item.title == 'Popular Sustainable Living Techniques: Energy Efficient Appliances, Rainwater Collection, and Renewable Energy Use in Homes'}">
+                    <h4>Comparison of Water Conservation Techniques</h4>
+                    <table class="techniques-table">
+                        <thead>
+                        <tr>
+                            <th>Technique</th>
+                            <th>Description</th>
+                            <th>Water Savings</th>
+                            <th>Cost</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Rainwater Collection</td>
+                            <td>Collecting rainwater in barrels for garden use.</td>
+                            <td>Up to 50% reduction in water usage.</td>
+                            <td>Low ($100-$500)</td>
+                        </tr>
+                        <tr>
+                            <td>Low-Flow Fixtures</td>
+                            <td>Installing low-flow showerheads and faucets.</td>
+                            <td>30-40% reduction in water usage.</td>
+                            <td>Moderate ($50-$200)</td>
+                        </tr>
+                        <tr>
+                            <td>Greywater Recycling</td>
+                            <td>Reusing water from sinks and showers for irrigation.</td>
+                            <td>Up to 60% reduction in water usage.</td>
+                            <td>High ($1,000-$5,000)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${waterConservation == null or waterConservation.isEmpty()}">
+        <p>No content available for Water Conservation.</p>
+    </div>
+</section>
+
+<!-- Wind Turbines Section -->
+<section class="chapter">
+    <h2>Wind Turbines</h2>
+    <div th:if="${windTurbines != null and !windTurbines.isEmpty()}">
+        <div class="content" th:each="item : ${windTurbines}">
+            <div class="content-item">
+                <h3 th:text="${item.title}"></h3>
+                <div class="content-body">
+                    <img th:src="${item.imageUrl}" alt="Wind turbine" class="content-image">
+                    <p th:text="${item.description}"></p>
+                    <div th:if="${item.videoUrl != null}" class="video-container">
+                        <iframe th:src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${windTurbines == null or windTurbines.isEmpty()}">
+        <p>No content available for Wind Turbines.</p>
+    </div>
+</section>
+
+<!-- Articles Section with Vertical Layout and Pagination -->
+<section class="articles-section">
+    <h2>Related Articles</h2>
+    <div th:if="${articles != null and !articles.isEmpty()}">
+        <div class="articles">
+            <div class="article-card" th:each="article : ${articles}">
+                <img th:src="${article.imagePath}" alt="Article image" class="article-image">
+                <div class="article-content">
+                    <h3 th:text="${article.title}"></h3>
+                    <p th:text="${article.content}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${articles == null or articles.isEmpty()}">
+        <p>No articles available at the moment.</p>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" th:if="${totalPages != null and totalPages > 1}">
+        <a th:if="${hasPrevious}" th:href="@{/passive-houses(page=${currentPage - 1})}" class="pagination-link">Previous</a>
+        <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                <a th:href="@{/passive-houses(page=${i})}" th:class="${i == currentPage} ? 'pagination-link active' : 'pagination-link'" th:text="${i + 1}"></a>
+            </span>
+        <a th:if="${hasNext}" th:href="@{/passive-houses(page=${currentPage + 1})}" class="pagination-link">Next</a>
+    </div>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="/js/passive-houses.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+/* Общи стилове */
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e0f7fa 100%);
+    color: #2e2e2e;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Хедър */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('/images/herbs-garden.jpg') no-repeat fixed center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.animated-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.flower-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/flower-overlay.png') repeat;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* Общи стилове за секции */
+.section {
+    padding: 80px 20px;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 3em;
+    color: #6a1b9a;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Секция 1: Intro */
+.intro-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-content {
+    flex: 1;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+
+.media-content {
+    flex: 1;
+}
+
+.float-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.float-image:hover {
+    transform: scale(1.05);
+}
+
+/* Секция 2: Таблична */
+.table-section {
+    background: #f3e5f5;
+}
+
+.remedy-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.remedy-table th, .remedy-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.remedy-table th {
+    background: #ab47bc;
+    color: #fff;
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5em;
+}
+
+.remedy-table td {
+    font-size: 1em;
+    color: #4a4a4a;
+}
+
+.remedy-table tr:hover {
+    background: #f3e5f5;
+}
+
+/* Секция 3: Types (с видео) */
+.types-section {
+    background: #e1f5fe;
+}
+
+.types-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.herbal-video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.herbal-list {
+    list-style: none;
+    padding: 0;
+}
+
+.herbal-item {
+    font-size: 1.1em;
+    margin: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #4a4a4a;
+}
+
+.herbal-item::before {
+    content: '🌿';
+    position: absolute;
+    left: 0;
+    font-size: 1.5em;
+}
+
+/* Секция 4: Growing (интерактивна) */
+.growing-section {
+    background: #f1f8e9;
+}
+
+.growing-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.growing-section .text-content {
+    flex: 1;
+}
+
+.herb-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.herb-card:hover {
+    transform: translateY(-10px);
+}
+
+.herb-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.herb-card h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.8em;
+    color: #388e3c;
+    margin: 10px 0;
+}
+
+.herb-info {
+    display: none;
+    font-size: 1em;
+    color: #4a4a4a;
+}
+
+/* Секция 5: Conclusion */
+.conclusion-section {
+    background: #e0f7fa;
+    text-align: center;
+}
+
+.conclusion-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+
+/* Отзивчивост */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .media-content, .float-image, .herbal-video {
+        max-width: 100%;
+    }
+
+    .animated-title {
+        font-size: 3em;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .remedy-table th, .remedy-table td {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
