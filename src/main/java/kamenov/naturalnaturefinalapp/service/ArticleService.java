@@ -20,4 +20,8 @@ public interface ArticleService {
     void saveArticle(Article article);
 
     boolean existsByTitle(String title);
+
+    Article getArticleById(Long id);
+
+    void updateArticle(Article responsibleFashion);
 }

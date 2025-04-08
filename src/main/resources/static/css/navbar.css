@@ -1,24 +1,201 @@
-/* src/main/resources/static/css/navbar.css */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+/*!* src/main/resources/static/css/navbar.css *!*/
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');*/
 
+/*!*.navbar {*!*/
+/*!*    background: linear-gradient(90deg, #004d40, #00695c);*!*/
+/*!*    padding: 15px 20px;*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: space-between;*!*/
+/*!*    align-items: center;*!*/
+/*!*    position: fixed;*!*/
+/*!*    width: 100%;*!*/
+/*!*    top: 0;*!*/
+/*!*    z-index: 1000;*!*/
+/*!*    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);*!*/
+/*!*    margin-bottom: 2rem;*!*/
+/*!*}*!*/
 /*.navbar {*/
-/*    background: linear-gradient(90deg, #004d40, #00695c);*/
-/*    padding: 15px 20px;*/
+/*    background: linear-gradient(90deg, #2e7d32, #4caf50);*/
+/*    padding: 20px;*/
 /*    display: flex;*/
-/*    justify-content: space-between;*/
+/*    justify-content: space-around;*/
 /*    align-items: center;*/
-/*    position: fixed;*/
-/*    width: 100%;*/
+/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+/*    position: sticky;*/
 /*    top: 0;*/
 /*    z-index: 1000;*/
-/*    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);*/
-/*    margin-bottom: 2rem;*/
+/*    width: 100%;*/
 /*}*/
+
+/*.logo {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.logo-img {*/
+/*    width: 60px; !* Намаляваме ширината на логото *!*/
+/*    height: 50px; !* Запазваме пропорциите *!*/
+/*    object-fit: contain; !* Увери се, че изображението не се изкривява *!*/
+/*    transition: transform 0.3s ease; !* Добавяме анимация при hover *!*/
+/*}*/
+
+/*.logo-img:hover {*/
+/*    transform: scale(1.5); !* Леко увеличение при hover *!*/
+/*    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); !* Лъскав ефект *!*/
+/*}*/
+
+/*.nav-links {*/
+/*    list-style: none;*/
+/*    display: flex;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.nav-links li {*/
+/*    margin-left: 30px;*/
+/*}*/
+
+/*.nav-item {*/
+/*    font-family: 'Montserrat', sans-serif;*/
+/*    color: #ffffff;*/
+/*    text-decoration: none;*/
+/*    font-size: 1.1em;*/
+/*    padding: 8px 15px;*/
+/*    border-radius: 25px;*/
+/*    transition: all 0.3s ease;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.nav-item::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: -100%;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);*/
+/*    transition: 0.5s;*/
+/*    z-index: 0;*/
+/*}*/
+
+/*.nav-item:hover::before {*/
+/*    left: 100%;*/
+/*}*/
+
+/*.nav-item:hover {*/
+/*    color: #e0f7fa;*/
+/*    transform: translateY(-2px);*/
+/*    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);*/
+/*}*/
+
+
+
+
+
+/*@media (max-width: 768px) {*/
+/*    .nav-links {*/
+/*        display: none;*/
+/*        position: absolute;*/
+/*        top: 60px;*/
+/*        left: 0;*/
+/*        width: 100%;*/
+/*        background: linear-gradient(90deg, #004d40, #00695c);*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*        padding: 20px 0;*/
+/*        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);*/
+/*    }*/
+
+/*    .nav-links.active {*/
+/*        display: flex;*/
+/*    }*/
+
+/*    .nav-links li {*/
+/*        margin: 15px 0;*/
+/*    }*/
+
+/*    .hamburger {*/
+/*        display: flex;*/
+/*    }*/
+
+/*    .logo-img {*/
+/*        width: 40px; !* Още по-малко за мобилни устройства *!*/
+/*        height: 40px;*/
+/*    }*/
+/*}*/
+
+/*!*.nav-logo {*!*/
+/*!*    width: 50px; !* Задайте желаната ширина *!*!*/
+/*!*    height: auto; !* Автоматична височина за запазване на пропорциите *!*!*/
+/*!*    margin-right: 20px; !* Отстъп между логото и менюто *!*!*/
+/*!*}*!*/
+/*.navbar a, .navbar span {*/
+
+/*    text-decoration: none;*/
+/*    font-family: 'Indie Flower', cursive;*/
+/*    color: #355e3b;*/
+/*    font-weight: 600;*/
+/*    padding: 12px 25px;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*.navbar a:hover {*/
+/*    background-color: #388e3c;*/
+/*    border-radius: 25px;*/
+/*}*/
+
+/*.navbar span {*/
+/*    font-size: 16px;*/
+/*}*/
+
+
+/*.navbar ul {*/
+/*    list-style-type: none; !* Премахване на булетите *!*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.navbar ul li {*/
+/*    position: relative; !* Позволява позициониране на подменюто *!*/
+/*    display: inline-block; !* Разположете елементите в ред *!*/
+/*}*/
+
+/*.navbar ul li a {*/
+/*    display: block; !* Показва линковете като блокови елементи *!*/
+/*    color: white; !* Цвят на текста *!*/
+/*    padding: 15px 20px; !* Отстъпи около линковете *!*/
+/*    text-decoration: none; !* Премахнете подчертаването *!*/
+/*    margin: auto -10px auto -10px ;*/
+/*}*/
+
+/*.navbar ul li a:hover {*/
+/*    background-color: #575757; !* Цвят при задържане с мишката *!*/
+/*}*/
+
+/*.dropdown {*/
+/*    display: none; !* Скрива падащото меню по подразбиране *!*/
+/*    position: absolute; !* Абсолютно позициониране спрямо родителя *!*/
+/*    background-color: #333; !* Фон на падащото меню *!*/
+/*    min-width: 160px; !* Минимална ширина на падащото меню *!*/
+/*    z-index: 1; !* Задайте z-index, за да бъде над другите елементи *!*/
+/*}*/
+
+/*.dropdown li {*/
+/*    display: block; !* Разположете подменюто вертикално *!*/
+/*}*/
+
+/*.navbar ul li:hover .dropdown {*/
+/*    display: block; !* Покажете падащото меню при задържане с мишката върху родителя *!*/
+/*}*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .navbar {
     background: linear-gradient(90deg, #2e7d32, #4caf50);
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -33,41 +210,44 @@
 }
 
 .logo-img {
-    width: 60px; /* Намаляваме ширината на логото */
-    height: 50px; /* Запазваме пропорциите */
-    object-fit: contain; /* Увери се, че изображението не се изкривява */
-    transition: transform 0.3s ease; /* Добавяме анимация при hover */
+    width: 60px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.5); /* Леко увеличение при hover */
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); /* Лъскав ефект */
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
+.menu {
+    list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
-.nav-links li {
-    margin-left: 30px;
+.menu li {
+    position: relative;
+    display: inline-block;
 }
 
-.nav-item {
-    font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
+.menu li a {
+    display: block;
+    color: white;
+    padding: 15px 20px;
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
-    padding: 8px 15px;
-    border-radius: 25px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-.nav-item::before {
+.menu li a::before {
     content: '';
     position: absolute;
     top: 0;
@@ -79,112 +259,184 @@
     z-index: 0;
 }
 
-.nav-item:hover::before {
+.menu li a:hover::before {
     left: 100%;
 }
 
-.nav-item:hover {
+.menu li a:hover {
     color: #e0f7fa;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
-
-
-
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(90deg, #004d40, #00695c);
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .logo-img {
-        width: 40px; /* Още по-малко за мобилни устройства */
-        height: 40px;
-    }
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/*.nav-logo {*/
-/*    width: 50px; !* Задайте желаната ширина *!*/
-/*    height: auto; !* Автоматична височина за запазване на пропорциите *!*/
-/*    margin-right: 20px; !* Отстъп между логото и менюто *!*/
-/*}*/
-.navbar a, .navbar span {
+.dropdown li {
+    display: block;
+}
 
-    text-decoration: none;
+.dropdown li a {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    color: #e0f7fa;
+}
+
+.dropdown li a:hover {
+    background-color: #575757;
+}
+
+.menu li:hover .dropdown {
+    display: block;
+}
+
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-section span {
     font-family: 'Indie Flower', cursive;
     color: #355e3b;
+    font-size: 16px;
     font-weight: 600;
-    padding: 12px 25px;
+}
+
+.auth-section a {
+    font-family: 'Indie Flower', cursive;
+    color: #355e3b;
+    text-decoration: none;
+    padding: 8px 15px;
     transition: all 0.3s ease;
 }
 
-.navbar a:hover {
+.auth-section a:hover {
     background-color: #388e3c;
     border-radius: 25px;
 }
 
-.navbar span {
-    font-size: 16px;
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
 }
 
-
-.navbar ul {
-    list-style-type: none; /* Премахване на булетите */
-    margin: 0;
-    padding: 0;
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
 }
 
-.navbar ul li {
-    position: relative; /* Позволява позициониране на подменюто */
-    display: inline-block; /* Разположете елементите в ред */
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #2e7d32, #4caf50);
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 20px 20px;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .menu li a {
+        font-size: 1.2rem;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .dropdown {
+        position: static;
+        background-color: #444;
+        min-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        display: none;
+    }
+
+    .menu li:hover .dropdown {
+        display: none; /* Скриваме ховър ефекта на мобилни устройства */
+    }
+
+    .menu li.active .dropdown {
+        display: block; /* Показваме подменюто, когато родителят е активен */
+    }
+
+    .auth-section {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Анимация за хамбургер иконата */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 }
 
-.navbar ul li a {
-    display: block; /* Показва линковете като блокови елементи */
-    color: white; /* Цвят на текста */
-    padding: 15px 20px; /* Отстъпи около линковете */
-    text-decoration: none; /* Премахнете подчертаването */
-    margin: auto -10px auto -10px ;
-}
+@media (max-width: 480px) {
+    .logo-img {
+        width: 30px;
+        height: 30px;
+    }
 
-.navbar ul li a:hover {
-    background-color: #575757; /* Цвят при задържане с мишката */
-}
+    .menu li a {
+        font-size: 1rem;
+    }
 
-.dropdown {
-    display: none; /* Скрива падащото меню по подразбиране */
-    position: absolute; /* Абсолютно позициониране спрямо родителя */
-    background-color: #333; /* Фон на падащото меню */
-    min-width: 160px; /* Минимална ширина на падащото меню */
-    z-index: 1; /* Задайте z-index, за да бъде над другите елементи */
-}
+    .hamburger .bar {
+        width: 20px;
+        height: 2px;
+        margin: 4px 0;
+    }
 
-.dropdown li {
-    display: block; /* Разположете подменюто вертикално */
-}
-
-.navbar ul li:hover .dropdown {
-    display: block; /* Покажете падащото меню при задържане с мишката върху родителя */
+    .auth-section a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
 }

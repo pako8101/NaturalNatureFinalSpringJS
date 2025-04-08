@@ -9,4 +9,6 @@ public interface ResponsibleFashionService {
     List<ResponsibleFashion> getResponsibleFashionsByCategory(String category);
     void saveResponsibleFashion(ResponsibleFashion responsibleFashion);
     boolean existsByTitle(String title);
+
+    void updateResponsibleFashion(ResponsibleFashion responsibleFashion);
 }

@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -111,6 +113,19 @@ public class ArticleServiceImpl implements ArticleService {
     public long getTotalSustainableTransportArticles() {
         return articleRepository.findByCategory("Sustainable Transport").size();
     }
+    @Override
+    public void updateArticle(Article article) {
+        Optional<Article> existingArticle = articleRepository.findByTitle(article.getTitle());
+        if (existingArticle.isPresent()) {
+            Article updatedArticle = existingArticle.get();
+            updatedArticle.setContent(article.getContent());
+            updatedArticle.setCategory(article.getCategory());
+            updatedArticle.setImagePath(article.getImagePath());
+            articleRepository.save(updatedArticle);
+        } else {
+            articleRepository.save(article);
+        }
+    }
 
     @Override
     public Page<Article> getArticlesByCategory(String category, Pageable pageable) {
@@ -129,6 +144,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public boolean existsByTitle(String title) {
         return articleRepository.existsByTitle(title);
+    }
+
+    @Override
+    public Article getArticleById(Long id) {
+        return articleRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 //    @Override
 //    public void initEcoHouses() {

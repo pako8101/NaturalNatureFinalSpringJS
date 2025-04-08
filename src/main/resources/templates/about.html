@@ -1,10 +1,10 @@
-<!-- src/main/resources/templates/about.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head::head"></head>
-    <meta charset="UTF-8">
-    <title th:text="${pageTitle}"></title>
-    <link rel="stylesheet" th:href="@{/css/about.css}">
+<meta charset="UTF-8">
+<title th:text="${pageTitle}"></title>
+<link rel="stylesheet" th:href="@{/css/about.css}">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 <body>
 <!-- Navbar -->
@@ -12,63 +12,64 @@
 
 <header class="hero">
     <h1 class="about-title">About</h1>
-
+    <p class="hero-subtitle">Discover Our Journey Towards a Greener Tomorrow!</p>
 </header>
-<h1 class="title-2">Join us in building a sustainable future!</h1>
-<section class="about-section">
 
+<h1 class="title-2">Join us in building a sustainable future!</h1>
+<p class="intro-text">In our journey towards a sustainable future: We actively collaborate with leading environmental experts, innovators, and grassroots organizations to stay at the forefront of ecological advancements. This partnership allows us to bring you the latest in sustainable technology, practices, and insights, ensuring that you are always a step ahead in your eco-friendly endeavors. By choosing us, you’re not just making a choice for today; you’re investing in a greener, more sustainable tomorrow for generations to come.</p>
+
+<section class="about-section">
     <div class="mission-card">
-        <h2>Our Mission at Nature Ethos</h2>
-        <p>At Nature Ethos, we are deeply committed to guiding you towards environmentally conscious and sustainable choices. We empower you with reliable information to embrace a lifestyle that benefits our planet.</p>
-        <button class="learn-more-btn" onclick="toggleLearnMore('mission-more')">Learn More</button>
+        <div class="card-content">
+            <h2>Our Mission at Nature Ethos</h2>
+            <p>At Nature Ethos, we are deeply committed to guiding you towards environmentally conscious and sustainable choices. We empower you with reliable information to embrace a lifestyle that benefits our planet.</p>
+        </div>
+
         <div id="mission-more" class="more-info">
             <p>We tailor solutions to your sustainability goals, ensuring impactful decisions that align with your values. Our mission is to make eco-friendly living accessible and effective for everyone.</p>
+
         </div>
+        <button class="learn-more-btn" onclick="toggleLearnMore('mission-more', this)">More</button>
     </div>
 
     <div class="future-card">
-        <h2>A Sustainable Future</h2>
-        <p>We collaborate with environmental experts and innovators to bring you the latest in sustainable technology and practices, ensuring a greener tomorrow.</p>
-        <button class="learn-more-btn" onclick="toggleLearnMore('future-more')">Learn More</button>
+        <div class="card-content">
+            <h2>A Sustainable Future</h2>
+            <p>We collaborate with environmental experts and innovators to bring you the latest in sustainable technology and practices, ensuring a greener tomorrow.</p>
+        </div>
+
         <div id="future-more" class="more-info">
             <p>By partnering with grassroots organizations and pioneers, we stay ahead in ecological advancements, offering you cutting-edge insights for a sustainable lifestyle.</p>
         </div>
+        <button class="learn-more-btn" onclick="toggleLearnMore('future-more', this)">More</button>
     </div>
 
     <div class="think-card">
-        <h2>Think To The Future NOW!</h2>
-        <p>An initiative where today’s actions pave the way for a flourishing environment for future generations.</p>
-        <button class="learn-more-btn" onclick="toggleLearnMore('think-more')">Learn More</button>
+        <div class="card-content">
+            <h2>Think To The Future NOW!</h2>
+            <p>An initiative where today’s actions pave the way for a flourishing environment for future generations.</p>
+        </div>
+
         <div id="think-more" class="more-info">
             <p>Every step you take today—recycling, reducing waste, or learning new skills—builds a legacy of sustainability for the planet and those who will inherit it.</p>
         </div>
+        <button class="learn-more-btn" onclick="toggleLearnMore('think-more', this)">More</button>
     </div>
 </section>
 
 <!-- Секция със снимка -->
 <section class="office-section">
-    <div class="office-image" style="background-image: url('/images/office-ecolife.jpg');">
+    <div class="office-image" style="background-image: url('/images/natureEthos-logo.jpg');">
         <div class="image-overlay">
-            <h3>Our Eco Life Office</h3>
+            <h3>Natural Ethos space</h3>
             <p>A space designed with sustainability in mind.</p>
         </div>
     </div>
 </section>
 
-
 <footer th:replace="fragments/footer :: footer"></footer>
-<script>
-    function toggleLearnMore(id) {
-        const element = document.getElementById(id);
-        if (element.style.maxHeight) {
-            element.style.maxHeight = null;
-            element.style.opacity = "0";
-        } else {
-            element.style.maxHeight = element.scrollHeight + "px";
-            element.style.opacity = "1";
-        }
-    }
-</script>
 
+<script src="/js/about.js"></script>
 </body>
+
 </html>

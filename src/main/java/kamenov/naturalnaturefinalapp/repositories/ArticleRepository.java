@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface ArticleRepository extends JpaRepository<Article, Long> {
@@ -14,4 +15,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     Page<Article> findByCategory(String category, Pageable pageable);
     boolean existsByTitleAndCategory(String title, String category);
     boolean existsByTitle(String title);
+
+    Optional<Article> findByTitle(String title);
 }

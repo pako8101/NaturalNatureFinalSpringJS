@@ -1,128 +1,180 @@
-/* src/main/resources/static/css/about.css */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: url('/images/eco-about-bg.jpg') no-repeat center/cover fixed; /* Уникален фон */
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.2), rgba(76, 175, 80, 0.2)), url('/images/eco-about-bg.jpg') no-repeat center/cover fixed;
     color: #333;
+    overflow-x: hidden;
 }
 
-.navbar {
-    background: linear-gradient(90deg, #2ecc71, #3498db);
-    padding: 1rem;
-}
-
-/*.navbar ul {*/
-/*    list-style: none;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    margin: 0;*/
-/*}*/
-
-/*.navbar li {*/
-/*    margin: 0 2px;*/
-/*}*/
-
-/*.navbar a {*/
-/*    color: white;*/
-/*    text-decoration: none;*/
-/*    font-weight: bold;*/
-/*}*/
-
-.navbar a:hover {
-    color: #f1c40f;
-}
-.title-2{
-    font-family: "Book Antiqua", sans-serif;
-    padding: 20px 30px;
-    font-size: large;
-}
-.about-title{
-
-        display: flex;
-        justify-content: flex-start; /* Подравнява по хоризонталата */
-        align-items: flex-start; /* Подравнява по вертикалата */
-        height: 100%; /* Задайте височина на контейнера */
-
-    font-size: xxx-large;
-    color: papayawhip!important;
-   margin: 40px;
-
-}
+/* Hero Section */
 .hero {
-    background: url('/images/nature-ethos.jpeg') no-repeat center/cover;
-    background-blend-mode: overlay;
+    background: linear-gradient(45deg, rgba(46, 125, 50, 0.7), rgba(76, 175, 80, 0.7)), url('/images/nature-ethos.jpeg') no-repeat center/cover;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.about-section {
-    max-width: 1000px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.mission-card, .future-card, .think-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.mission-card:hover, .future-card:hover, .think-card:hover {
-    transform: translateY(-5px);
-}
-
-.mission-card h2 { color: #2ecc71; }
-.future-card h2 { color: #3498db; }
-.think-card h2 { color: #e74c3c; }
-
-.learn-more-btn {
-    background: #2ecc71;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s;
-}
-
-.learn-more-btn:hover {
-    background: #27ae60;
-}
-
-.more-info {
-    max-height: 0;
-    opacity: 0;
+    position: relative;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-    background: #ecf0f1;
-    padding: 0 10px;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 0 0 30px 30px;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shine 3s infinite;
+}
+
+.about-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    margin: 0;
+    animation: wave 2s infinite;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    animation: fadeInUp 1.5s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Title and Intro Text */
+.title-2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #2e7d32;
+    text-align: center;
+    margin: 40px 20px;
+    animation: wave 2s infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* About Section */
+/*.about-section {*/
+/*    max-width: 1200px;*/
+/*    margin: 40px auto;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+/*    gap: 30px;*/
+/*    padding: 20px;*/
+/*}*/
+
+/*.mission-card, .future-card, .think-card {*/
+/*    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(76, 175, 80, 0.2));*/
+/*    padding: 30px;*/
+/*    border-radius: 20px;*/
+/*    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.5s ease, box-shadow 0.5s ease;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.mission-card:hover, .future-card:hover, .think-card:hover {*/
+/*    transform: translateY(-10px) rotate(2deg);*/
+/*    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.5);*/
+/*}*/
+
+/*.mission-card h2, .future-card h2, .think-card h2 {*/
+/*    font-family: 'Dancing Script', cursive;*/
+/*    font-size: 2.5rem;*/
+/*    margin-bottom: 15px;*/
+/*    text-align: center;*/
+/*    animation: wave 2s infinite;*/
+/*    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*.mission-card h2 { color: #2e7d32; }*/
+/*.future-card h2 { color: #4caf50; }*/
+/*.think-card h2 { color: #388e3c; }*/
+
+/*.mission-card p, .future-card p, .think-card p {*/
+/*    font-size: 1.1rem;*/
+/*    line-height: 1.6;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.learn-more-btn {*/
+/*    background: linear-gradient(90deg, #2e7d32, #4caf50);*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 12px 25px;*/
+/*    border-radius: 25px;*/
+/*    cursor: pointer;*/
+/*    font-family: 'Montserrat', sans-serif;*/
+/*    font-size: 1rem;*/
+/*    font-weight: bold;*/
+/*    margin-top: 10px;*/
+/*    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+/*    animation: pulse 2s infinite;*/
+/*    display: block;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+/*.learn-more-btn:hover {*/
+/*    transform: scale(1.1);*/
+/*    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);*/
+/*}*/
+
+/*.more-info {*/
+/*    max-height: 0;*/
+/*    opacity: 0;*/
+/*    overflow: hidden;*/
+/*    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;*/
+/*    background: rgba(236, 240, 241, 0.8);*/
+/*    padding: 0 10px;*/
+/*    border-radius: 10px;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.more-info p {*/
+/*    font-size: 1rem;*/
+/*    line-height: 1.6;*/
+/*    padding: 10px 0;*/
+/*}*/
+
+/* Office Section */
 .office-section {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
 }
 
 .office-image {
     position: relative;
-    height: 300px;
+    height: 400px;
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.office-image:hover {
+    transform: scale(1.05);
 }
 
 .image-overlay {
@@ -131,7 +183,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, rgba(46, 125, 50, 0.7), rgba(76, 175, 80, 0.7));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,16 +191,302 @@ body {
     color: white;
     text-align: center;
     padding: 20px;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
+}
+
+.image-overlay h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: wave 2s infinite;
+}
+
+.image-overlay p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
 }
 
 .office-image:hover .image-overlay {
-    background: rgba(46, 204, 113, 0.8);
+    background: linear-gradient(45deg, rgba(46, 125, 50, 0.9), rgba(76, 175, 80, 0.9));
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #2ecc71;
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
     color: white;
+    border-radius: 20px 20px 0 0;
 }
+
+/* Анимации */
+@keyframes wave {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+/* About Section */
+.about-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.mission-card, .future-card, .think-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(76, 175, 80, 0.2));
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.mission-card.visible, .future-card.visible, .think-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.mission-card:hover, .future-card:hover, .think-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.5);
+}
+
+.card-content {
+    flex-grow: 1; /* Заема свободното пространство, избутвайки бутона надолу */
+}
+
+.mission-card h2, .future-card h2, .think-card h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: wave 2s infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mission-card h2 { color: #2e7d32; }
+.future-card h2 { color: #4caf50; }
+.think-card h2 { color: #388e3c; }
+
+.mission-card p, .future-card p, .think-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
+    align-self: center; /* Центрира бутона хоризонтално */
+    margin-top: 20px; /* Отстояние от текста */
+    margin-bottom: 10px; /* Отстояние от дъното */
+}
+
+.learn-more-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+}
+
+.more-info {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    background: rgba(236, 240, 241, 0.8);
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.more-info.expanded {
+    padding: 10px;
+}
+/*!* src/main/resources/static/css/about.css *!*/
+/*body {*/
+/*    font-family: Arial, sans-serif;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background: url('/images/eco-about-bg.jpg') no-repeat center/cover fixed; !* Уникален фон *!*/
+/*    color: #333;*/
+/*}*/
+
+/*.navbar {*/
+/*    background: linear-gradient(90deg, #2ecc71, #3498db);*/
+/*    padding: 1rem;*/
+/*}*/
+
+/*!*.navbar ul {*!*/
+/*!*    list-style: none;*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: center;*!*/
+/*!*    margin: 0;*!*/
+/*!*}*!*/
+
+/*!*.navbar li {*!*/
+/*!*    margin: 0 2px;*!*/
+/*!*}*!*/
+
+/*!*.navbar a {*!*/
+/*!*    color: white;*!*/
+/*!*    text-decoration: none;*!*/
+/*!*    font-weight: bold;*!*/
+/*!*}*!*/
+
+/*.navbar a:hover {*/
+/*    color: #f1c40f;*/
+/*}*/
+/*.title-2{*/
+/*    font-family: "Book Antiqua", sans-serif;*/
+/*    padding: 20px 30px;*/
+/*    font-size: large;*/
+/*}*/
+/*.about-title{*/
+
+/*        display: flex;*/
+/*        justify-content: flex-start; !* Подравнява по хоризонталата *!*/
+/*        align-items: flex-start; !* Подравнява по вертикалата *!*/
+/*        height: 100%; !* Задайте височина на контейнера *!*/
+
+/*    font-size: xxx-large;*/
+/*    color: papayawhip!important;*/
+/*   margin: 40px;*/
+
+/*}*/
+/*.hero {*/
+/*    background: url('/images/nature-ethos.jpeg') no-repeat center/cover;*/
+/*    background-blend-mode: overlay;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 100px 20px;*/
+/*    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+/*.about-section {*/
+/*    max-width: 1000px;*/
+/*    margin: 40px auto;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+/*    gap: 20px;*/
+/*    padding: 20px;*/
+/*}*/
+
+/*.mission-card, .future-card, .think-card {*/
+/*    background: rgba(255, 255, 255, 0.9);*/
+/*    padding: 20px;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s;*/
+/*}*/
+
+/*.mission-card:hover, .future-card:hover, .think-card:hover {*/
+/*    transform: translateY(-5px);*/
+/*}*/
+
+/*.mission-card h2 { color: #2ecc71; }*/
+/*.future-card h2 { color: #3498db; }*/
+/*.think-card h2 { color: #e74c3c; }*/
+
+/*.learn-more-btn {*/
+/*    background: #2ecc71;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    margin-top: 10px;*/
+/*    transition: background 0.3s;*/
+/*}*/
+
+/*.learn-more-btn:hover {*/
+/*    background: #27ae60;*/
+/*}*/
+
+/*.more-info {*/
+/*    max-height: 0;*/
+/*    opacity: 0;*/
+/*    overflow: hidden;*/
+/*    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;*/
+/*    background: #ecf0f1;*/
+/*    padding: 0 10px;*/
+/*    border-radius: 5px;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.office-section {*/
+/*    max-width: 1000px;*/
+/*    margin: 40px auto;*/
+/*    padding: 20px;*/
+/*}*/
+
+/*.office-image {*/
+/*    position: relative;*/
+/*    height: 300px;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    border-radius: 10px;*/
+/*    overflow: hidden;*/
+/*    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.image-overlay {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: rgba(0, 0, 0, 0.5);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+/*    transition: background 0.3s;*/
+/*}*/
+
+/*.office-image:hover .image-overlay {*/
+/*    background: rgba(46, 204, 113, 0.8);*/
+/*}*/
+
+/*footer {*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+/*    background: #2ecc71;*/
+/*    color: white;*/
+/*}*/

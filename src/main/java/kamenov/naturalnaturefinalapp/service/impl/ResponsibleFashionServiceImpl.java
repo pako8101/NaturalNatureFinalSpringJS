@@ -5,9 +5,6 @@ import kamenov.naturalnaturefinalapp.repositories.ResponsibleFashionRepository;
 import kamenov.naturalnaturefinalapp.service.ResponsibleFashionService;
 
 
-
-
-import kamenov.naturalnaturefinalapp.service.ResponsibleFashionService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,5 +42,19 @@ public class ResponsibleFashionServiceImpl implements ResponsibleFashionService 
     @Override
     public boolean existsByTitle(String title) {
         return responsibleFashionRepository.existsByTitle(title);
+    }
+    @Override
+    public void updateResponsibleFashion(ResponsibleFashion responsibleFashion) {
+        ResponsibleFashion existingFashion = responsibleFashionRepository.findByTitle(responsibleFashion.getTitle());
+        if (existingFashion != null) {
+            existingFashion.setTitle(responsibleFashion.getTitle());
+            existingFashion.setDescription(responsibleFashion.getDescription());
+            existingFashion.setCategory(responsibleFashion.getCategory());
+            existingFashion.setImageUrl(responsibleFashion.getImageUrl());
+            existingFashion.setVideoUrl(responsibleFashion.getVideoUrl());
+            responsibleFashionRepository.save(existingFashion);
+        } else {
+            responsibleFashionRepository.save(responsibleFashion);
+        }
     }
 }

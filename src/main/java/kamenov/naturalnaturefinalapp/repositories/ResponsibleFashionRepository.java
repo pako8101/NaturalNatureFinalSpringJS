@@ -10,4 +10,6 @@ import java.util.List;
 public interface ResponsibleFashionRepository extends JpaRepository<ResponsibleFashion, Long> {
     List<ResponsibleFashion> findByCategory(String category);
     boolean existsByTitle(String title);
+
+    ResponsibleFashion findByTitle(String title);
 }

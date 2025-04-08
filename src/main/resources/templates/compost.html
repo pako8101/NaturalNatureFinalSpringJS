@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <div th:replace="~{fragments/head :: head}"></div>
 <head>
 
@@ -74,7 +74,7 @@
         <div class="col-md-6 order-md-1">
 <!--            <img src="/images/compost-materials.jpg" alt="Compost Materials" class="img-fluid rounded shadow">-->
 
-            <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b"
+            <img th:src="@{/images/compost.jpg}"
                  alt="Compost Materials" class="img-fluid rounded shadow">
         </div>
     </div>

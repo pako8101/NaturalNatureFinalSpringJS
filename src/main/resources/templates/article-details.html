@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<title th:text="${article.title} + ' | Natural Ethos'"></title>
+<link rel="stylesheet" href="/css/responsible-fashion.css">
+<link rel="stylesheet" href="/css/reset-css.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- Article Details Section -->
+<section class="article-details">
+    <div class="article-details-container">
+        <h1 th:text="${article.title}"></h1>
+        <div class="article-image-container">
+            <img th:src="${article.imagePath}" alt="Article image" class="article-image">
+        </div>
+        <div class="article-content" th:utext="${article.content}"></div>
+        <a href="/responsible-fashion" class="back-link">Back to Responsible Fashion</a>
+    </div>
+</section>
+
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="/js/responsible-fashion.js"></script>
+</body>
+</html>

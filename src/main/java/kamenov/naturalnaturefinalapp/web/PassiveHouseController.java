@@ -34,36 +34,41 @@ public class PassiveHouseController {
             System.out.println("PassiveHouseController: Initializing Passive Houses...");
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Understanding Eco-Friendly Homes: A Comprehensive Guide",
-                    "Eco-friendly homes are designed to minimize environmental impact through energy efficiency," +
-                            " sustainable materials, and renewable energy sources. Learn the basics of passive house design.",
-                    "Energy Efficiency",
-                    "/images/house-5.jpg", "https://www.youtube.com/embed/eRBNnfXXF4w"
+                    "<p class=\"highlight\"Eco-friendly homes are designed to minimize environmental impact " +
+                            "through energy efficiency</p>," +
+                            " <p>sustainable materials, and renewable energy sources. Learn the basics of passive house design.</p>",
+                    "/images/house-5.jpg",
+                     "Energy Efficiency","https://www.youtube.com/embed/eRBNnfXXF4w"
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Principles of Sustainable Home Design for Your Next Home Improvement",
                     "Sustainable home design focuses on reducing energy consumption, using natural light, and incorporating eco-friendly materials. Discover key principles to apply in your next project.",
-                    "Energy Efficiency",
+
                     "/images/home-design.jpg",
+                    "Energy Efficiency",
                     "https://www.youtube.com/embed/oIddRKVH6H0"));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Building the Passive House: Steps to Achieve an Eco-Friendly House",
                     "Building a passive house involves careful planning, from site selection to insulation. Follow these steps to create an energy-efficient home.",
-                    "Energy Efficiency",
+
                     "/images/passive-house-build.jpg",
+                    "Energy Efficiency",
                     "https://www.youtube.com/embed/passive-house-build-video"
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "An Insight into Green Home: Environmentally Friendly Approaches in House Construction",
                     "Solar power systems are a cornerstone of green homes. Learn how to integrate solar panels into your home for sustainable energy.",
+
+                    "/images/solar-city-anime.jpeg",
                     "Solar Power Systems",
-                    "/images/passive-house-build.jpg",
                     "https://www.youtube.com/embed/Fezmkc9X3eE"
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Going Beyond the Basics: Insulation, Energy Efficiency, and Ways to Heat and Cool Your Eco-Home",
                     "Solar energy can be used for heating and cooling. Explore advanced techniques to maximize energy efficiency in your eco-home.",
-                    "Solar Power Systems",
+
                     "/images/solar-city-2.jpeg",
+                    "Solar Power Systems",
                     "https://www.youtube.com/embed/Bx0aDeru_Xw"
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
@@ -76,29 +81,32 @@ public class PassiveHouseController {
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Transition into an Eco-Friendly Building: Make Your Home More Sustainable with Energy Star-rated Appliances and Fixtures",
                     "Water-saving fixtures and Energy Star-rated appliances can transform your home into a sustainable haven. Discover the best options.",
-                    "Water Conservation","/images/water-anime-2.jpg",
+                    "/images/water-anime-2.jpg",
+                    "Water Conservation",
                     "https://www.youtube.com/embed/V9ODb6YAeFc"
 
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Making the Smart Choice: Leverage Prefab Homes and Eco-Friendly Building Materials for Reduced Energy Use",
                     "Wind turbines can provide renewable energy for prefab homes. Learn how to integrate them into your eco-friendly design.",
-                    "Wind Turbines",
+
                     "/images/wind-1.jpg",
+                    "Wind Turbines",
                             "https://www.youtube.com/embed/itd5kg7GsfA"
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Reconfiguring Existing Homes: Ideas to Transform Your Home into an Energy-Efficient One",
                     "Retrofitting your home with wind turbines and other renewable energy sources can make it more sustainable. Get practical ideas here.",
-                    "Wind Turbines",
                     "/images/wind-2.jpg",
+                    "Wind Turbines",
                     "https://www.youtube.com/embed/nPvTH7Siclg"
             ));
             passiveHouseService.savePassiveHouse(new PassiveHouse(
                     "Earth-friendly Materials for Friendly Homes: Natural Materials in the Construction of Environmentally Friendly Homes",
                     "Using natural materials alongside wind energy can create a truly eco-friendly home. Explore the best materials to use.",
-                    "Wind Turbines",
+
                     "/images/wind-anime.jpg",
+                    "Wind Turbines",
                     "https://www.youtube.com/embed/Fezmkc9X3eE"
             ));
             System.out.println("PassiveHouseController: Passive Houses initialized.");
