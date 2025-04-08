@@ -205,32 +205,438 @@ public class NutritionController {
         ));
         articles.put(4L, Map.of(
                 "title", "Hydration And Whole Foods | The Connection Between Water And Health",
-                "content", "<p>Whole foods like fruits and vegetables are naturally high in water content, helping you stay hydrated. Proper hydration supports digestion, skin health, and cognitive function...</p>",
+                "content", "<p>Whole foods like fruits and vegetables are naturally high in water content, helping you stay hydrated." +
+                        " Proper hydration supports digestion, skin health, and cognitive function..." +
+                        "The Vital Role of Hydration in Maintaining Optimal Health\n" +
+                        "Understanding Hydration Fundamentals\n" +
+                        "Proper fluid balance is crucial for sustaining life and supporting all bodily functions. As the primary component of human physiology, water constitutes about 60% of our body composition, varying slightly based on individual characteristics. This essential nutrient facilitates numerous critical processes including nutrient transport, temperature regulation, waste removal, and cellular function. Maintaining adequate hydration supports cognitive performance, physical endurance, digestive health, and metabolic efficiency.\n" +
+                        "\n" +
+                        "Daily Hydration Requirements\n" +
+                        "While individual needs vary, general guidelines suggest:\n" +
+                        "\n" +
+                        "Adult men: Approximately 3.7 liters daily (including fluids from food)\n" +
+                        "\n" +
+                        "Adult women: Roughly 2.7 liters daily (including food sources)\n" +
+                        "Key factors influencing requirements:\n" +
+                        "✔ Physical activity levels\n" +
+                        "✔ Climate and environmental conditions\n" +
+                        "✔ Health status and special physiological needs\n" +
+                        "\n" +
+                        "Hydration Beyond Plain Water\n" +
+                        "Many foods contribute significantly to daily fluid intake:\n" +
+                        "\n" +
+                        "Fruits: Watermelon (92% water), strawberries (91%), oranges (88%)\n" +
+                        "\n" +
+                        "Vegetables: Cucumber (96% water), lettuce (95%), zucchini (94%)\n" +
+                        "\n" +
+                        "Other sources: Soups, herbal teas, and dairy products\n" +
+                        "\n" +
+                        "Recognizing Dehydration Risks\n" +
+                        "Early warning signs include:\n" +
+                        "• Fatigue and reduced energy\n" +
+                        "• Headaches and dizziness\n" +
+                        "• Dark-colored urine\n" +
+                        "• Dry mouth and skin\n" +
+                        "• Impaired concentration\n" +
+                        "\n" +
+                        "Chronic dehydration may contribute to more serious health complications including kidney stones, urinary tract infections, and impaired cognitive function.\n" +
+                        "\n" +
+                        "Water Intoxication: The Overhydration Hazard\n" +
+                        "While rare, excessive water consumption can disrupt electrolyte balance, potentially causing:\n" +
+                        "\n" +
+                        "Hyponatremia (dangerously low sodium levels)\n" +
+                        "\n" +
+                        "Nausea and vomiting\n" +
+                        "\n" +
+                        "Confusion or disorientation\n" +
+                        "\n" +
+                        "Muscle weakness\n" +
+                        "\n" +
+                        "Practical Hydration Strategies\n" +
+                        "Morning routine: Begin each day with 1-2 glasses of water\n" +
+                        "\n" +
+                        "Mealtime hydration: Consume fluids with each meal\n" +
+                        "\n" +
+                        "Activity adjustment: Increase intake before, during, and after exercise\n" +
+                        "\n" +
+                        "Visual reminders: Keep a water bottle accessible throughout the day\n" +
+                        "\n" +
+                        "Monitor indicators: Use urine color (pale yellow = optimal) as a guide\n" +
+                        "\n" +
+                        "Special Considerations\n" +
+                        "Athletes: Require additional electrolytes during prolonged activity\n" +
+                        "\n" +
+                        "Older adults: Often experience diminished thirst sensation\n" +
+                        "\n" +
+                        "Pregnancy/breastfeeding: Increased fluid needs for maternal and fetal health\n" +
+                        "\n" +
+                        "Hydration and Whole Body Health\n" +
+                        "Adequate fluid intake supports:\n" +
+                        "✅ Cardiovascular function\n" +
+                        "✅ Joint lubrication\n" +
+                        "✅ Skin health and elasticity\n" +
+                        "✅ Digestive regularity\n" +
+                        "✅ Detoxification processes\n" +
+                        "\n" +
+                        "Conclusion\n" +
+                        "Maintaining proper hydration is one of the simplest yet most powerful ways to support overall health. " +
+                        "By combining conscious water consumption with water-rich foods and paying attention to your body's signals," +
+                        " you can optimize hydration status. Remember that individual needs vary—adjust your intake based on activity level, " +
+                        "environment, and personal health factors. " +
+                        "Making hydration a daily priority contributes significantly to both immediate wellbeing and long-term health outcomes.</p>",
                 "image", "/images/hydration.jpg"
         ));
         articles.put(5L, Map.of(
                 "title", "Cooking Techniques For Preserving Nutrients In Whole Foods",
-                "content", "<p>Steaming, sautéing, and roasting are great techniques for preserving nutrients in whole foods. Avoid overcooking vegetables to retain their vitamins and minerals...</p>",
-                "image", "/images/cooking-techniques.jpg"
+                "content", "<p>Steaming, sautéing, and roasting are great techniques for preserving nutrients in whole foods. " +
+                        "Avoid overcooking vegetables to retain their vitamins and minerals..." +
+                        "Maximizing Nutritional Value in Whole Foods Through Proper Preparation\n" +
+                        "The Science of Nutrient Preservation\n" +
+                        "The way we prepare whole foods significantly impacts their nutritional profile. Cooking methods can either enhance or diminish the availability of essential vitamins, minerals, and antioxidants. Research shows that gentle cooking techniques help preserve heat-sensitive nutrients like vitamin C and B vitamins, which are crucial for immune function and energy metabolism.\n" +
+                        "\n" +
+                        "Optimal Cooking Methods for Nutrient Retention\n" +
+                        "Steaming\n" +
+                        "\n" +
+                        "Preserves up to 90% of water-soluble vitamins\n" +
+                        "\n" +
+                        "Ideal for delicate vegetables (broccoli, spinach, asparagus)\n" +
+                        "\n" +
+                        "Cooks food quickly without water immersion\n" +
+                        "\n" +
+                        "Roasting/Baking\n" +
+                        "\n" +
+                        "Enhances flavor through caramelization\n" +
+                        "\n" +
+                        "Best for root vegetables and lean proteins\n" +
+                        "\n" +
+                        "Maintains mineral content when done at moderate temperatures\n" +
+                        "\n" +
+                        "Sautéing/Stir-frying\n" +
+                        "\n" +
+                        "Quick cooking preserves texture and nutrients\n" +
+                        "\n" +
+                        "Uses minimal oil at high heat\n" +
+                        "\n" +
+                        "Excellent for colorful vegetables\n" +
+                        "\n" +
+                        "Raw Preparation\n" +
+                        "\n" +
+                        "Retains all heat-sensitive nutrients\n" +
+                        "\n" +
+                        "Perfect for salads and fresh fruits\n" +
+                        "\n" +
+                        "Increases enzyme activity beneficial for digestion\n" +
+                        "\n" +
+                        "Key Factors Affecting Nutrient Retention\n" +
+                        "✔ Temperature Control: Lower temperatures (below 100°C) preserve delicate nutrients\n" +
+                        "✔ Cooking Duration: Shorter cooking times minimize nutrient breakdown\n" +
+                        "✔ Food Preparation: Leaving skins on and cutting into larger pieces reduces surface area exposure\n" +
+                        "✔ Liquid Utilization: Reusing cooking water in soups or sauces recaptures leached nutrients\n" +
+                        "\n" +
+                        "Special Considerations for Frozen Foods\n" +
+                        "Steam directly from frozen to prevent nutrient loss from thawing\n" +
+                        "\n" +
+                        "Quick-cook methods like stir-frying work well for frozen vegetables\n" +
+                        "\n" +
+                        "Avoid overcooking - frozen foods often cook faster than fresh\n" +
+                        "\n" +
+                        "Practical Tips for Nutrient-Dense Meals\n" +
+                        "Combine raw and cooked vegetables for balanced nutrient intake\n" +
+                        "\n" +
+                        "Use cooking liquids (like vegetable steaming water) in sauces or soups\n" +
+                        "\n" +
+                        "Pair fat-soluble vitamins (A,D,E,K) with healthy fats for better absorption\n" +
+                        "\n" +
+                        "Store produce properly to maintain pre-cooking nutrient levels\n" +
+                        "\n" +
+                        "Common Mistakes to Avoid\n" +
+                        "✖ Boiling vegetables excessively (can lose up to 50% of vitamin C)\n" +
+                        "✖ Peeling nutrient-rich skins from fruits and vegetables\n" +
+                        "✖ Using high heat for delicate oils (can create harmful compounds)\n" +
+                        "✖ Overcooking proteins (reduces digestibility and nutrient availability)\n" +
+                        "\n" +
+                        "The Balanced Approach\n" +
+                        "While cooking can reduce certain nutrients, it also:\n" +
+                        "\n" +
+                        "Enhances bioavailability of some antioxidants (lycopene in tomatoes)\n" +
+                        "\n" +
+                        "Improves digestibility of proteins and complex carbohydrates\n" +
+                        "\n" +
+                        "Kills potential foodborne pathogens\n" +
+                        "\n" +
+                        "Aim for variety in preparation methods - include raw, lightly cooked, " +
+                        "and fermented foods in your diet to maximize nutritional benefits.</p>",
+                "image", "/images/cooking-techniques-2.jpg"
         ));
         articles.put(6L, Map.of(
                 "title", "Family Nutrition | Tips For Raising Healthy Eaters With Whole Foods",
-                "content", "<p>Involve kids in meal prep, offer a variety of whole foods, and make healthy eating fun to encourage lifelong healthy habits...</p>",
+                "content", "<p>Involve kids in meal prep, offer a variety of whole foods, " +
+                        "and make healthy eating fun to encourage lifelong healthy habits..." +
+                        "25 Practical Tips for Raising Healthy Eaters with Whole Foods\n" +
+                        "\n" +
+                        "Lead by Example – Children mimic eating habits; enjoy whole foods together as a family.\n" +
+                        "\n" +
+                        "Start Early – Introduce diverse fruits, vegetables, and whole grains during infancy.\n" +
+                        "\n" +
+                        "Make Meals Colorful – Use vibrant produce to make plates visually appealing and nutrient-rich.\n" +
+                        "\n" +
+                        "Involve Kids in Cooking – Let them wash veggies or stir ingredients to build interest.\n" +
+                        "\n" +
+                        "Grow a Kitchen Garden – Teach kids where food comes from by planting herbs or veggies.\n" +
+                        "\n" +
+                        "Offer Choices – Let them pick between two healthy options (e.g., carrots or cucumbers).\n" +
+                        "\n" +
+                        "Limit Processed Snacks – Replace chips with whole-food alternatives like apple slices or nuts.\n" +
+                        "\n" +
+                        "Use Creative Names – Call broccoli \"dinosaur trees\" or smoothies \"magic potions.\"\n" +
+                        "\n" +
+                        "Family Mealtime – Eat together without screens to encourage mindful eating.\n" +
+                        "\n" +
+                        "Batch Prep Healthy Snacks – Keep cut veggies, hummus, or yogurt cups ready to grab.\n" +
+                        "\n" +
+                        "Sneak in Nutrients – Blend spinach into smoothies or add grated zucchini to muffins.\n" +
+                        "\n" +
+                        "Educate Playfully – Use books or games to teach about nutrition (e.g., \"Eating the Alphabet\").\n" +
+                        "\n" +
+                        "Avoid Food Battles – Pressuring kids backfires; reintroduce rejected foods later.\n" +
+                        "\n" +
+                        "Shop Together – Let kids select a new whole food to try each week.\n" +
+                        "\n" +
+                        "Make Whole Foods Convenient – Keep washed fruit on the counter for easy access.\n" +
+                        "\n" +
+                        "Celebrate Food Diversity – Explore global cuisines with natural ingredients.\n" +
+                        "\n" +
+                        "Hydrate Wisely – Offer water or infused fruit instead of sugary drinks.\n" +
+                        "\n" +
+                        "DIY Versions – Make homemade pizza or oatmeal bars with whole ingredients.\n" +
+                        "\n" +
+                        "Teach Portion Awareness – Use hand measurements (e.g., palm-sized protein portions).\n" +
+                        "\n" +
+                        "Limit Added Sugars – Sweeten foods naturally with dates, bananas, or cinnamon.\n" +
+                        "\n" +
+                        "Pack Nutrient-Dense Lunches – Include whole-grain wraps, veggies, and lean proteins.\n" +
+                        "\n" +
+                        "Respect Appetites – Let kids stop eating when full to avoid overeating habits.\n" +
+                        "\n" +
+                        "Farmers’ Market Trips – Turn local, seasonal produce into a fun outing.\n" +
+                        "\n" +
+                        "Cookbooks for Kids – Pick age-appropriate recipes to spark kitchen curiosity.\n" +
+                        "\n" +
+                        "Celebrate Progress – Praise adventurous eating without using food as a reward.\n" +
+                        "\n" +
+                        "Why It Works:\n" +
+                        "Whole foods provide essential vitamins, fiber, and minerals for growing bodies while establishing lifelong healthy habits. " +
+                        "By making nutrition interactive and positive," +
+                        " families can reduce picky eating and foster a love for real, unprocessed foods.</p>",
                 "image", "/images/family-nutrition.jpg"
         ));
         articles.put(7L, Map.of(
                 "title", "Plant-Based Nutrition | A Comprehensive Guide To A Vegan Diet",
-                "content", "<p>A plant-based diet focuses on whole foods like vegetables, fruits, grains, and legumes. It’s rich in fiber, vitamins, and antioxidants, and can reduce the risk of chronic diseases...</p>",
+                "content", "<p>A plant-based diet focuses on whole foods like vegetables, fruits, grains, and legumes. " +
+                        "It’s rich in fiber, vitamins, and antioxidants, and can reduce the risk of chronic diseases..." +
+                        "The Essentials of Plant-Powered Eating: A Guide to Vegan Nutrition\n" +
+                        "Adopting a plant-based approach to eating centers on consuming wholesome, minimally processed foods from the earth while avoiding animal-derived products. This dietary pattern emphasizes an abundance of legumes, whole grains, nuts, seeds, fruits, and vegetables—all rich in fiber, vitamins, and antioxidants. Research consistently links plant-based diets to reduced risks of heart disease, diabetes, and certain cancers, thanks to their high nutrient density and absence of harmful saturated fats.\n" +
+                        "\n" +
+                        "While some worry about protein intake, plant-based sources like lentils, quinoa, tofu, and tempeh provide ample protein while also delivering beneficial phytonutrients. For optimal nutrition, incorporating fortified plant milks (with B12 and calcium) ensures no essential nutrients are missed. Transitioning to plant-based eating doesn’t have to be overwhelming—start by gradually replacing animal proteins with plant alternatives and exploring diverse, flavorful recipes.\n" +
+                        "\n" +
+                        "Why Choose Plant-Based? Key Health and Wellness Benefits\n" +
+                        "Switching to a whole-food, plant-based (WFPB) diet offers profound health advantages:\n" +
+                        "\n" +
+                        "✔ Heart Health – Lower cholesterol and blood pressure due to reduced saturated fat intake\n" +
+                        "✔ Weight Management – Higher fiber content promotes satiety and healthy weight\n" +
+                        "✔ Disease Prevention – Antioxidant-rich foods combat inflammation and oxidative stress\n" +
+                        "✔ Digestive Wellness – Increased fiber supports gut health and regularity\n" +
+                        "\n" +
+                        "A well-planned vegan diet can meet all nutritional needs, but it’s important to focus on:\n" +
+                        "\n" +
+                        "Protein diversity (beans, lentils, edamame, seitan)\n" +
+                        "\n" +
+                        "Iron absorption (pair iron-rich foods like spinach with vitamin C sources)\n" +
+                        "\n" +
+                        "Omega-3s (flaxseeds, chia seeds, walnuts)\n" +
+                        "\n" +
+                        "Vitamin B12 (supplementation or fortified foods)\n" +
+                        "\n" +
+                        "For beginners, a gradual shift—such as starting with Meatless Mondays—can make the transition smoother.\n" +
+                        "\n" +
+                        "Making the Switch: How to Transition to a Plant-Based Diet\n" +
+                        "Moving toward plant-based eating is easier with these steps:\n" +
+                        "\n" +
+                        "Educate Yourself – Learn about plant protein sources and balanced meal planning.\n" +
+                        "\n" +
+                        "Experiment with Substitutes – Try tofu scrambles, lentil Bolognese, or chickpea curries.\n" +
+                        "\n" +
+                        "Meal Prep for Success – Batch-cook grains, beans, and roasted veggies for easy meals.\n" +
+                        "\n" +
+                        "Explore Global Cuisines – Mediterranean, Indian, and Asian diets offer delicious plant-based dishes.\n" +
+                        "\n" +
+                        "Listen to Your Body – Adjust fiber intake gradually to avoid digestive discomfort.\n" +
+                        "\n" +
+                        "Studies show that those who follow plant-based diets tend to have lower BMI and reduced chronic disease risk compared to meat-eaters. However, balance is key—processed vegan foods (like mock meats) should be enjoyed in moderation.\n" +
+                        "\n" +
+                        "Meal Planning Made Simple: Delicious & Nutritious Plant-Based Recipes\n" +
+                        "A well-structured vegan meal plan ensures nutrient adequacy and keeps meals exciting. Here’s a sample day:\n" +
+                        "\n" +
+                        "\uD83C\uDF31 Breakfast: Overnight oats with almond butter, chia seeds, and berries\n" +
+                        "\uD83C\uDF31 Lunch: Quinoa salad with chickpeas, roasted veggies, and tahini dressing\n" +
+                        "\uD83C\uDF31 Snack: Hummus with carrot sticks and whole-grain crackers\n" +
+                        "\uD83C\uDF31 Dinner: Lentil curry with brown rice and steamed broccoli\n" +
+                        "\uD83C\uDF31 Dessert: Dark chocolate-covered almonds\n" +
+                        "\n" +
+                        "Pro Tips:\n" +
+                        "\n" +
+                        "Use nutritional yeast for a cheesy, B12-boosting flavor\n" +
+                        "\n" +
+                        "Blend silken tofu into creamy sauces and desserts\n" +
+                        "\n" +
+                        "Soak nuts and seeds to enhance digestibility\n" +
+                        "\n" +
+                        "The Bigger Picture: Health for You and the Planet\n" +
+                        "Beyond personal wellness, plant-based eating supports environmental sustainability. Livestock farming contributes significantly to greenhouse gas emissions, deforestation, and water waste. By choosing plant foods, individuals can:\n" +
+                        "\n" +
+                        "✅ Reduce their carbon footprint\n" +
+                        "✅ Conserve water resources\n" +
+                        "✅ Promote ethical food systems\n" +
+                        "\n" +
+                        "Final Thoughts: A Sustainable, Nutrient-Packed Lifestyle\n" +
+                        "A plant-based diet isn’t just about removing animal products—it’s about embracing a diverse," +
+                        " colorful array of whole foods that nourish the body and protect long-term health." +
+                        " Whether motivated by wellness, ethics, or environmental concerns, " +
+                        "transitioning to plant-based eating can be a fulfilling and impactful choice.\n" +
+                        "\n" +
+                        "Start small, stay curious, and enjoy the journey toward vibrant health!</p>",
                 "image", "/images/plant-based.jpg"
         ));
         articles.put(8L, Map.of(
                 "title", "The Role Of Antioxidants In Whole Food Nutrition",
-                "content", "<p>Antioxidants in whole foods, such as berries, nuts, and leafy greens, protect your cells from damage and reduce inflammation...</p>",
+                "content", "<p>Antioxidants in whole foods, such as berries, nuts, and leafy greens, " +
+                        "protect your cells from damage and reduce inflammation..." +
+                        "The Power of Antioxidants: Nature's Defense Against Cellular Damage\n" +
+                        "What Are Antioxidants and Why Do We Need Them?\n" +
+                        "Antioxidants are protective compounds that neutralize harmful molecules called free radicals, which are produced naturally during metabolism and through exposure to environmental stressors like pollution and UV radiation. These unstable molecules can damage cells through oxidative stress, contributing to aging and various chronic conditions.\n" +
+                        "\n" +
+                        "Our bodies produce some antioxidants naturally, but we primarily obtain them through whole plant foods like fruits, vegetables, nuts, and spices. Key antioxidant compounds include:\n" +
+                        "\n" +
+                        "Vitamin C (citrus fruits, bell peppers)\n" +
+                        "\n" +
+                        "Vitamin E (nuts, seeds, leafy greens)\n" +
+                        "\n" +
+                        "Carotenoids (carrots, tomatoes, sweet potatoes)\n" +
+                        "\n" +
+                        "Flavonoids (berries, tea, dark chocolate)\n" +
+                        "\n" +
+                        "Polyphenols (olives, coffee, herbs)\n" +
+                        "\n" +
+                        "Top Antioxidant-Rich Foods to Include in Your Diet\n" +
+                        "Berries – Blueberries, strawberries, and raspberries contain anthocyanins\n" +
+                        "\n" +
+                        "Dark Leafy Greens – Spinach and kale provide lutein and zeaxanthin\n" +
+                        "\n" +
+                        "Nuts and Seeds – Almonds and sunflower seeds offer vitamin E\n" +
+                        "\n" +
+                        "Colorful Vegetables – Bell peppers and beets are packed with diverse antioxidants\n" +
+                        "\n" +
+                        "Herbs and Spices – Turmeric, cinnamon, and oregano have exceptionally high ORAC values\n" +
+                        "\n" +
+                        "Whole Foods vs. Supplements: What Research Shows\n" +
+                        "While antioxidant supplements are widely available, studies suggest they may not provide the same benefits as whole food sources:\n" +
+                        "\n" +
+                        "✔ Synergistic Effects – Whole foods contain complementary nutrients that enhance absorption\n" +
+                        "✔ Safety – High-dose supplements may cause imbalances (e.g., excess beta-carotene in smokers)\n" +
+                        "✔ Bioavailability – Food matrices improve antioxidant utilization compared to isolated compounds\n" +
+                        "\n" +
+                        "The National Institutes of Health recommends obtaining antioxidants primarily through a varied diet rather than supplements.\n" +
+                        "\n" +
+                        "Practical Tips for Maximizing Antioxidant Intake\n" +
+                        "Eat the Rainbow – Consume fruits/vegetables of different colors daily\n" +
+                        "\n" +
+                        "Choose Whole Over Processed – Opt for fresh or frozen produce instead of juices\n" +
+                        "\n" +
+                        "Smart Cooking Methods – Light steaming preserves more nutrients than boiling\n" +
+                        "\n" +
+                        "Pair Strategically – Combine vitamin C-rich foods with iron sources to boost absorption\n" +
+                        "\n" +
+                        "Special Considerations\n" +
+                        "Athletes – May have higher antioxidant needs due to increased oxidative stress\n" +
+                        "\n" +
+                        "Aging Populations – Antioxidant-rich diets may support cognitive function\n" +
+                        "\n" +
+                        "Chronic Conditions – Those with diabetes or heart disease may particularly benefit\n" +
+                        "\n" +
+                        "The Bottom Line\n" +
+                        "A diet abundant in colorful plant foods provides a spectrum of antioxidants that work synergistically to combat oxidative stress." +
+                        " While supplements may help in specific cases, they cannot replicate the complex nutritional matrix of whole foods. " +
+                        "For optimal health, " +
+                        "focus on consuming at least 5-9 servings of varied fruits and vegetables daily, along with nuts, seeds, and herbs.</p>",
                 "image", "/images/antioxidants.jpg"
         ));
         articles.put(9L, Map.of(
                 "title", "The Gut-Brain Connection | How Whole Foods Impact Mental Health",
-                "content", "<p>The gut-brain connection highlights how whole foods rich in fiber, probiotics, and omega-3s can improve mood, reduce anxiety, and support mental clarity...</p>",
+                "content", "<p>The gut-brain connection highlights how whole foods rich in fiber, probiotics, and omega-3s can improve mood," +
+                        " reduce anxiety, and support mental clarity..." +
+                        "The Gut-Brain Axis: How Your Digestive Health Shapes Mental Wellbeing\n" +
+                        "The Vital Communication Network Between Gut and Brain\n" +
+                        "Emerging research reveals a profound bidirectional relationship between our digestive system and cognitive function, known as the gut-brain axis. This complex communication network involves:\n" +
+                        "\n" +
+                        "The vagus nerve – A direct neural pathway transmitting signals between gut and brain\n" +
+                        "\n" +
+                        "Neurotransmitter production – 90% of serotonin (the \"feel-good\" chemical) originates in the gut\n" +
+                        "\n" +
+                        "Microbial influence – Trillions of gut bacteria produce compounds affecting mood and cognition\n" +
+                        "\n" +
+                        "Nutritional Strategies for Optimal Gut-Brain Health\n" +
+                        "1. Feed Your Microbiome\n" +
+                        "\n" +
+                        "Prebiotic foods: Garlic, onions, bananas (fuel beneficial bacteria growth)\n" +
+                        "\n" +
+                        "Probiotic foods: Yogurt, kefir, sauerkraut (introduce helpful microbes)\n" +
+                        "\n" +
+                        "Polyphenol-rich foods: Berries, dark chocolate, green tea (support microbial diversity)\n" +
+                        "\n" +
+                        "2. Reduce Inflammatory Triggers\n" +
+                        "\n" +
+                        "Limit processed foods, refined sugars, and artificial additives\n" +
+                        "\n" +
+                        "Identify and manage food sensitivities\n" +
+                        "\n" +
+                        "Choose anti-inflammatory fats (omega-3s from fish, walnuts, flaxseeds)\n" +
+                        "\n" +
+                        "3. Support Gut Barrier Function\n" +
+                        "\n" +
+                        "Bone broth (rich in gut-healing collagen)\n" +
+                        "\n" +
+                        "Fiber-rich vegetables (promote mucus production)\n" +
+                        "\n" +
+                        "Fermented foods (enhance gut lining integrity)\n" +
+                        "\n" +
+                        "The Mental Health Connection\n" +
+                        "Clinical studies demonstrate:\n" +
+                        "✔ Mediterranean diet adherents show 35% lower depression risk\n" +
+                        "✔ Probiotic supplementation can reduce anxiety symptoms\n" +
+                        "✔ Gut dysbiosis is linked to higher rates of ADHD and autism spectrum disorders\n" +
+                        "\n" +
+                        "Practical Dietary Adjustments\n" +
+                        "Morning routine: Start with warm lemon water + flaxseed\n" +
+                        "\n" +
+                        "Meal composition: 50% colorful vegetables, 25% quality protein, 25% whole grains\n" +
+                        "\n" +
+                        "Snack smart: Raw nuts, sliced veggies with hummus\n" +
+                        "\n" +
+                        "Hydration: Herbal teas (chamomile, ginger) support digestion\n" +
+                        "\n" +
+                        "When to Seek Professional Guidance\n" +
+                        "Consult a functional medicine practitioner if experiencing:\n" +
+                        "\n" +
+                        "Persistent digestive issues with mood changes\n" +
+                        "\n" +
+                        "Unexplained anxiety or brain fog\n" +
+                        "\n" +
+                        "Food sensitivities impacting quality of life\n" +
+                        "\n" +
+                        "The Bottom Line\n" +
+                        "Nourishing your gut microbiome through targeted nutrition offers a powerful avenue for enhancing mental wellbeing." +
+                        " By prioritizing whole, fiber-rich foods and minimizing processed items," +
+                        " we cultivate an internal ecosystem that supports both cognitive function and emotional resilience.</p>",
                 "image", "/images/gut-brain.jpg"
         ));
     }

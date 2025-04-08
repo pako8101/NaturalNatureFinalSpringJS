@@ -30,9 +30,12 @@ body {
     max-width: 400px;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
-
+.article-image:hover {
+    transform: scale(1.35); /* Леко увеличаване при ховър */
+}
 .article-text {
     font-size: 1.1rem;
     line-height: 1.8;
