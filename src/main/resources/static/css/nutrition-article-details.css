@@ -24,17 +24,17 @@ body {
 }
 
 .article-image {
-    width: 60%;
+    width: 50%;
     aspect-ratio: 16 / 9;
     position: relative;
     max-width: 400px;
-    height: auto;
+    height: 260px;
     border-radius: 10px;
     margin-bottom: 30px;
     margin-top: 30px;
 }
 .article-image:hover {
-    transform: scale(1.35); /* Леко увеличаване при ховър */
+    transform: scale(1.30); /* Леко увеличаване при ховър */
 }
 .article-text {
     font-size: 1.1rem;
