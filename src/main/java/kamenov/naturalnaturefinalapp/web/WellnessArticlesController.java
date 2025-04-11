@@ -58,7 +58,7 @@ public class WellnessArticlesController {
                 "title", "Building a Sustainable Self-Care Routine",
                 "content", "<p>A sustainable self-care routine includes eco-friendly " +
                         "products and practices that nurture both you and the environment...</p>",
-                "image", "/images/wellness/self-care.jpg"
+                "image", "/images/wellness/self-care-2.jpg"
         ));
     }
 
