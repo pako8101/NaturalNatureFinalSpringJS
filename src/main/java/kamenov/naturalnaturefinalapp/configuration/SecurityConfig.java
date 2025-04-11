@@ -53,6 +53,7 @@ public class SecurityConfig {
                                                 "/passive-houses/**",
                                                 "/responsible-fashion/**",
                                                 "/article-details/**",
+                                                "/error/**",
                                                 "/nutrition/**",
                                                 "/wellness/**",
                                                 "/animal-tourism/**",

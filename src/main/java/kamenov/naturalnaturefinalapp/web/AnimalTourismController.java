@@ -2,11 +2,17 @@ package kamenov.naturalnaturefinalapp.web;
 
 
 
+import jakarta.validation.Valid;
+import kamenov.naturalnaturefinalapp.entity.TestForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.nio.file.AccessDeniedException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,6 +74,36 @@ public class AnimalTourismController {
         model.addAttribute("pageTitle", "Ethical Animal Tourism");
         return "animal-tourism";
     }
+//    errortesting
+    @GetMapping("/test-null-error")
+    public String testNullError() {
+        String test = null;
+        test.length(); // Това ще хвърли NullPointerException
+        return "animal-tourism";
+    }
+    @GetMapping("/test-error")
+    public String testError() {
+        throw new RuntimeException("This is a test error!");
+    }
+    @GetMapping("/test-form")
+    public String showTestForm(Model model) {
+        model.addAttribute("testForm", new TestForm());
+        return "test-form";
+    }
+
+    @PostMapping("/submit-test-form")
+    public String submitTestForm(@Valid TestForm testForm, BindingResult result) throws MethodArgumentNotValidException {
+        if (result.hasErrors()) {
+            throw new MethodArgumentNotValidException(null, result);
+        }
+        return "redirect:/animal-tourism";
+    }
+    @GetMapping("/test-access-denied")
+    public String testAccessDenied() throws AccessDeniedException {
+        throw new AccessDeniedException("You do not have permission to access this resource.");
+    }
+
+//    ---------------
 
     @GetMapping("/animal-tourism-article-details")
     public String animalTourismArticleDetails(@RequestParam("id") Long id, Model model) {

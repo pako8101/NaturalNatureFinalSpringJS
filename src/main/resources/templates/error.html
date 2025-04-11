@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+<!-- Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header class="hero">
+    <h1 class="error-title">Oops! Something Went Wrong</h1>
+    <p class="hero-subtitle">Let’s get you back on track.</p>
+</header>
+
+<main class="error-content">
+    <section class="section error-details">
+        <h2>Error Details</h2>
+        <p><strong>Status Code:</strong> <span th:text="${statusCode}"></span></p>
+        <p><strong>Message:</strong> <span th:text="${errorMessage}"></span></p>
+        <p><strong>Request URI:</strong> <span th:text="${requestUri}"></span></p>
+        <a href="/" class="back-home">Back to Home</a>
+    </section>
+
+    <section class="section error-image">
+        <div class="media-container">
+            <img src="/images/errors/error-image.jpg" alt="Error Image" class="section-image">
+        </div>
+    </section>
+</main>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

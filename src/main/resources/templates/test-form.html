@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head">
+    <meta charset="UTF-8">
+    <title>Test Form</title>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<main>
+    <h2>Test Form</h2>
+    <form th:action="@{/submit-test-form}" th:object="${testForm}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}">
+        <button type="submit">Submit</button>
+    </form>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
