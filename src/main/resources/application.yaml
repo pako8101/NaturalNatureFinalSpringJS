@@ -16,16 +16,16 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
 
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://pako-naturalethos.b.aivencloud.com:28158/defaultdb?ssl-mode=REQUIRED}
-    username: ${SPRING_DATASOURCE_USERNAME:avnadmin}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+#    url: jdbc:mysql://avnadmin:AVNS_1LFLjST1e1VuH4euryo@pako-naturalethos.b.aivencloud.com:28158/defaultdb?ssl-mode=REQUIRED
+#    username: avnadmin
+#    password: AVNS_1LFLjST1e1VuH4euryo
 
     hikari:
       connection-timeout: 20000
       maximum-pool-size: 5
-#    password: ${db_password}
-#    username: ${db_username}
-#    url: ${DATABASE_URL}
+    password: ${db_password}
+    username: ${db_username}
+    url: ${DATABASE_URL}
 
   thymeleaf:
     prefix: classpath:/templates/
