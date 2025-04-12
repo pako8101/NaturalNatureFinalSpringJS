@@ -15,9 +15,13 @@ spring:
         enabled: 'true'
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    password: ${db_password}
-    username: ${db_username}
-    url: ${DATABASE_URL}
+
+#    password: ${db_password}
+#    username: ${db_username}
+#    url: ${DATABASE_URL}
+    password: ${MYSQLPASSWORD}
+    username: ${MYSQLUSER}
+    url: ${MYSQL_URL}
   thymeleaf:
     prefix: classpath:/templates/
     cache: false
@@ -30,7 +34,7 @@ spring:
     allow-circular-references: true
 server:
   address: 0.0.0.0
-  port: ${PORT:8029}
+  port: ${PORT:8080}
 logging:
   level:
     org.springframework: TRACE
