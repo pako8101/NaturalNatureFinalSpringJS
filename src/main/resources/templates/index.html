@@ -1,58 +1,134 @@
 <!DOCTYPE html>
-<html  lang="en"
-       xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragments/head::head">
-</head>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
     <title>Natural Ethos - Sustainable Living</title>
-<meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset-css.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <body>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
 <div class="home-container">
+    <!-- Фонови елементи -->
     <div class="background-elements">
         <div class="earth"></div>
-        <div class="sun"></div>
-        <div class="wave-container">
-            <div class="waves"></div>
-            <div class="shark"></div>
-            <div class="whale"></div>
-        </div>
-        <div class="clouds">
-            <div class="cloud"></div>
-            <div class="cloud"></div>
-            <div class="cloud"></div>
-        </div>
-        <div class="birds">
-            <div class="bird"></div>
-            <div class="bird"></div>
-            <div class="bird"></div>
-        </div>
-        <div class="trees">
-            <div class="tree"></div>
-            <div class="tree"></div>
-            <div class="tree"></div>
-        </div>
-        <div class="leaves">
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-        </div>
+        <div class="eco-particles"></div>
     </div>
+
+    <!-- Главна секция -->
     <div class="hero-section">
-        <h1><i class="fas fa-globe"></i> Welcome to Nature Ethos - Rooted in Nature</h1>
-        <p>Embrace a greener world with sustainable living, recycling, and eco-friendly cooking.</p>
-        <a th:href="@{/green-cooking}" class="cta-button"><i class="fas fa-seedling"></i> Start Your Journey</a>
+        <h1><i class="fas fa-leaf"></i> Natural Ethos – Live Sustainably, Thrive Naturally</h1>
+        <p>Join us on a journey to a greener future through sustainable living, ethical animal tourism, and eco-friendly practices.</p>
+        <div class="cta-buttons">
+            <a th:href="@{/green-cooking}" class="cta-button"><i class="fas fa-seedling"></i> Explore Green Cooking</a>
+            <a th:href="@{/animal-tourism}" class="cta-button secondary"><i class="fas fa-paw"></i> Discover Ethical Tourism</a>
+        </div>
     </div>
+
+    <!-- Секция за мисията -->
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+        <p>At Natural Ethos, we’re committed to fostering a deeper connection with nature. From sustainable cooking to ethical animal tourism, we inspire and empower you to live in harmony with the planet.</p>
+        <div class="mission-icons">
+            <div class="icon-card">
+                <i class="fas fa-recycle"></i>
+                <p>Recycle & Reuse</p>
+            </div>
+            <div class="icon-card">
+                <i class="fas fa-tree"></i>
+                <p>Protect Nature</p>
+            </div>
+            <div class="icon-card">
+                <i class="fas fa-globe"></i>
+                <p>Global Impact</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция за бърз достъп -->
+    <section class="quick-links">
+        <h2>Start Your Eco Journey</h2>
+        <div class="links-container">
+            <a th:href="@{/green-cooking}" class="link-card">
+                <img src="/images/green-cooking.jpg" alt="Green Cooking">
+                <h3>Green Cooking</h3>
+                <p>Discover sustainable recipes and cooking tips.</p>
+            </a>
+            <a th:href="@{/animal-tourism}" class="link-card">
+                <img src="/images/animal-tourism.jpg" alt="Ethical Animal Tourism">
+                <h3>Ethical Animal Tourism</h3>
+                <p>Explore wildlife responsibly with our guides.</p>
+            </a>
+            <a th:href="@{/wellness}" class="link-card">
+                <img src="/images/wellness.jpg" alt="Wellness">
+                <h3>Wellness</h3>
+                <p>Embrace holistic health with nature-inspired practices.</p>
+            </a>
+        </div>
+    </section>
 </div>
-</body>
+
 <footer th:replace="fragments/footer :: footer"></footer>
+<script src="/js/index.js"></script>
+</body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html  lang="en"-->
+<!--       xmlns="http://www.w3.org/1999/xhtml"-->
+<!--       xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<head th:replace="fragments/head::head">-->
+<!--</head>-->
+
+<!--    <title>Natural Ethos - Sustainable Living</title>-->
+<!--<meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="/css/style.css">-->
+<!--    <link rel="stylesheet" href="/css/reset-css.css">-->
+<!--    <link rel="stylesheet" href="/css/index.css">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
+
+<!--<body>-->
+<!--<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>-->
+<!--<div class="home-container">-->
+<!--    <div class="background-elements">-->
+<!--        <div class="earth"></div>-->
+<!--        <div class="sun"></div>-->
+<!--        <div class="wave-container">-->
+<!--            <div class="waves"></div>-->
+<!--            <div class="shark"></div>-->
+<!--            <div class="whale"></div>-->
+<!--        </div>-->
+<!--        <div class="clouds">-->
+<!--            <div class="cloud"></div>-->
+<!--            <div class="cloud"></div>-->
+<!--            <div class="cloud"></div>-->
+<!--        </div>-->
+<!--        <div class="birds">-->
+<!--            <div class="bird"></div>-->
+<!--            <div class="bird"></div>-->
+<!--            <div class="bird"></div>-->
+<!--        </div>-->
+<!--        <div class="trees">-->
+<!--            <div class="tree"></div>-->
+<!--            <div class="tree"></div>-->
+<!--            <div class="tree"></div>-->
+<!--        </div>-->
+<!--        <div class="leaves">-->
+<!--            <div class="leaf"></div>-->
+<!--            <div class="leaf"></div>-->
+<!--            <div class="leaf"></div>-->
+<!--            <div class="leaf"></div>-->
+<!--            <div class="leaf"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="hero-section">-->
+<!--        <h1><i class="fas fa-globe"></i> Welcome to Nature Ethos - Rooted in Nature</h1>-->
+<!--        <p>Embrace a greener world with sustainable living, recycling, and eco-friendly cooking.</p>-->
+<!--        <a th:href="@{/green-cooking}" class="cta-button"><i class="fas fa-seedling"></i> Start Your Journey</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<!--</html>-->

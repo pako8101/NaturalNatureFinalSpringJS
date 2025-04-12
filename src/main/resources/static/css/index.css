@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #c8e6c9, #80deea, #b2dfdb);
+    background: linear-gradient(135deg, #d4e157, #81c784, #4caf50);
     overflow-x: hidden;
 }
 
@@ -13,62 +13,13 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
     padding: 80px 20px;
     overflow: hidden;
 }
 
-.hero-section {
-    position: relative;
-    z-index: 10;
-    max-width: 900px;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 40px;
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-.hero-section h1 {
-    font-size: 52px;
-    font-weight: 700;
-    color: #1b5e20;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    animation: slideIn 1s ease-out;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.hero-section p {
-    font-size: 22px;
-    color: #388e3c;
-    line-height: 1.7;
-    margin-bottom: 50px;
-    animation: fadeIn 1.5s ease-in;
-}
-
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(90deg, #ffca28, #ffb300);
-    color: #1a3c34;
-    padding: 18px 50px;
-    border-radius: 35px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    box-shadow: 0 5px 20px rgba(255, 202, 40, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: scale(1.15);
-    box-shadow: 0 8px 25px rgba(255, 202, 40, 0.6);
-}
-
-/* Еко анимация с реалистични елементи */
+/* Фонови елементи */
 .background-elements {
     position: absolute;
     top: 0;
@@ -93,154 +44,204 @@ body {
     z-index: 8;
 }
 
-.sun {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, #fffde7, #ffca28);
-    border-radius: 50%;
-    top: 10%;
-    right: 10%;
-    box-shadow: 0 0 50px rgba(255, 202, 40, 0.9);
-    animation: pulse 3s infinite ease-in-out;
-    z-index: 3;
-}
-
-/* Реалистични вълни с акула и кит */
-.wave-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 250px;
-    z-index: 4;
-}
-
-.waves {
+.eco-particles {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/wavey-fingerprint.png'), linear-gradient(to bottom, rgba(33, 150, 243, 0.7), rgba(3, 169, 244, 1));
-    background-size: 400px, cover;
-    clip-path: polygon(
-            0% 80%, 5% 70%, 10% 75%, 15% 65%, 20% 70%, 25% 60%, 30% 65%, 35% 55%,
-            40% 60%, 45% 50%, 50% 55%, 55% 45%, 60% 50%, 65% 40%, 70% 45%, 75% 35%,
-            80% 40%, 85% 30%, 90% 35%, 95% 25%, 100% 30%, 100% 100%, 0% 100%
-    );
-    animation: realisticWaves 12s infinite linear;
+    background: url('https://www.transparenttextures.com/patterns/leaves.png') repeat;
+    opacity: 0.2;
+    animation: drift 50s infinite linear;
 }
 
-.shark {
-    position: absolute;
-    width: 80px;
-    height: 40px;
-    background: url('https://cdn-icons-png.flaticon.com/512/3069/3069170.png') no-repeat center;
-    background-size: contain;
-    top: 60%;
-    left: -10%;
-    animation: swimShark 15s infinite linear;
-    z-index: 5;
+/* Главна секция */
+.hero-section {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
 }
 
-.whale {
-    position: absolute;
-    width: 120px;
-    height: 60px;
-    background: url('https://cdn-icons-png.flaticon.com/512/3069/3069172.png') no-repeat center;
-    background-size: contain;
-    top: 40%;
-    left: -20%;
-    animation: swimWhale 20s infinite linear;
-    z-index: 5;
+.hero-section h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1b5e20;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideIn 1s ease-out;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.clouds {
-    position: absolute;
+.hero-section h1 i {
+    margin-right: 10px;
+    color: #388e3c;
+}
+
+.hero-section p {
+    font-size: 20px;
+    color: #2e7d32;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #a5d6a7, #4caf50);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button i {
+    margin-right: 8px;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+}
+
+.cta-button.secondary {
+    background: linear-gradient(90deg, #81d4fa, #0288d1);
+    box-shadow: 0 5px 20px rgba(2, 136, 209, 0.4);
+}
+
+.cta-button.secondary:hover {
+    box-shadow: 0 8px 25px rgba(2, 136, 209, 0.6);
+}
+
+/* Секция за мисията */
+.mission-section {
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    z-index: 10;
+}
+
+.mission-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1b5e20;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.mission-section p {
+    font-size: 18px;
+    color: #388e3c;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.mission-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.icon-card {
+    text-align: center;
+    padding: 20px;
+    background: rgba(139, 195, 74, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.icon-card i {
+    font-size: 40px;
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+.icon-card p {
+    font-size: 16px;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.icon-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Секция за бърз достъп */
+.quick-links {
+    max-width: 1200px;
+    padding: 40px 20px;
+    z-index: 10;
+}
+
+.quick-links h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1b5e20;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.link-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-card img {
     width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 6;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-.cloud {
-    position: absolute;
-    width: 250px;
-    height: 80px;
-    background: url('https://www.transparenttextures.com/patterns/soft-pad.png'), rgba(255, 255, 255, 0.8);
-    border-radius: 100px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
-    animation: drift 25s infinite linear;
+.link-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 10px;
 }
 
-.cloud:nth-child(1) { top: 15%; left: -20%; animation-delay: 0s; }
-.cloud:nth-child(2) { top: 25%; left: -40%; animation-delay: 5s; }
-.cloud:nth-child(3) { top: 10%; left: -60%; animation-delay: 10s; }
-
-.birds {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 7;
+.link-card p {
+    font-size: 16px;
+    color: #388e3c;
+    line-height: 1.5;
 }
 
-.bird {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: url('https://cdn-icons-png.flaticon.com/512/3669/3669900.png') no-repeat center;
-    background-size: contain;
-    animation: fly 15s infinite ease-in-out;
+.link-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-
-.bird:nth-child(1) { top: 20%; left: -10%; animation-delay: 0s; }
-.bird:nth-child(2) { top: 30%; left: -20%; animation-delay: 3s; }
-.bird:nth-child(3) { top: 25%; left: -30%; animation-delay: 6s; }
-
-.trees {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 8;
-}
-
-.tree {
-    position: absolute;
-    width: 120px;
-    height: 200px;
-    background: url('https://cdn-icons-png.flaticon.com/512/489/489984.png') no-repeat bottom;
-    background-size: contain;
-    bottom: 150px;
-}
-
-.tree:nth-child(1) { left: 10%; }
-.tree:nth-child(2) { left: 40%; transform: scale(0.8); }
-.tree:nth-child(3) { right: 10%; }
-
-.leaves {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9;
-}
-
-.leaf {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: url('https://cdn-icons-png.flaticon.com/512/2909/2909778.png') no-repeat center;
-    background-size: contain;
-    opacity: 0.9;
-    animation: fall 12s infinite ease-in-out;
-}
-
-.leaf:nth-child(1) { left: 15%; animation-delay: 0s; }
-.leaf:nth-child(2) { left: 35%; animation-delay: 2s; }
-.leaf:nth-child(3) { left: 55%; animation-delay: 4s; }
-.leaf:nth-child(4) { left: 75%; animation-delay: 6s; }
-.leaf:nth-child(5) { left: 95%; animation-delay: 8s; }
 
 /* Анимации */
 @keyframes slideIn {
@@ -258,41 +259,305 @@ body {
     to { transform: rotate(360deg); }
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-@keyframes realisticWaves {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@keyframes swimShark {
-    0% { transform: translateX(-100%) translateY(0); }
-    50% { transform: translateX(50vw) translateY(-20px); }
-    100% { transform: translateX(150vw) translateY(0); }
-}
-
-@keyframes swimWhale {
-    0% { transform: translateX(-100%) translateY(0); }
-    50% { transform: translateX(40vw) translateY(20px); }
-    100% { transform: translateX(150vw) translateY(0); }
-}
-
 @keyframes drift {
     0% { transform: translateX(-100%); }
-    100% { transform: translateX(150vw); }
+    100% { transform: translateX(100%); }
 }
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');*/
 
-@keyframes fly {
-    0% { transform: translateX(-100%) translateY(0); }
-    50% { transform: translateX(50vw) translateY(-20px); }
-    100% { transform: translateX(150vw) translateY(0); }
-}
+/*body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    background: linear-gradient(135deg, #c8e6c9, #80deea, #b2dfdb);*/
+/*    overflow-x: hidden;*/
+/*}*/
 
-@keyframes fall {
-    0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
-    20% { opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
+/*.home-container {*/
+/*    position: relative;*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    text-align: center;*/
+/*    padding: 80px 20px;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.hero-section {*/
+/*    position: relative;*/
+/*    z-index: 10;*/
+/*    max-width: 900px;*/
+/*    background: rgba(255, 255, 255, 0.3);*/
+/*    padding: 40px;*/
+/*    border-radius: 25px;*/
+/*    backdrop-filter: blur(10px);*/
+/*    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.hero-section h1 {*/
+/*    font-size: 52px;*/
+/*    font-weight: 700;*/
+/*    color: #1b5e20;*/
+/*    margin-bottom: 25px;*/
+/*    text-transform: uppercase;*/
+/*    letter-spacing: 3px;*/
+/*    animation: slideIn 1s ease-out;*/
+/*    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.hero-section p {*/
+/*    font-size: 22px;*/
+/*    color: #388e3c;*/
+/*    line-height: 1.7;*/
+/*    margin-bottom: 50px;*/
+/*    animation: fadeIn 1.5s ease-in;*/
+/*}*/
+
+/*.cta-button {*/
+/*    display: inline-block;*/
+/*    background: linear-gradient(90deg, #ffca28, #ffb300);*/
+/*    color: #1a3c34;*/
+/*    padding: 18px 50px;*/
+/*    border-radius: 35px;*/
+/*    text-decoration: none;*/
+/*    font-size: 20px;*/
+/*    font-weight: 600;*/
+/*    box-shadow: 0 5px 20px rgba(255, 202, 40, 0.4);*/
+/*    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+/*}*/
+
+/*.cta-button:hover {*/
+/*    transform: scale(1.15);*/
+/*    box-shadow: 0 8px 25px rgba(255, 202, 40, 0.6);*/
+/*}*/
+
+/*!* Еко анимация с реалистични елементи *!*/
+/*.background-elements {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 1;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.earth {*/
+/*    position: absolute;*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1024px-The_Earth_seen_from_Apollo_17.jpg') no-repeat center;*/
+/*    background-size: cover;*/
+/*    border-radius: 50%;*/
+/*    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(66, 165, 245, 0.7);*/
+/*    animation: rotateEarth 30s linear infinite;*/
+/*    top: 2%;*/
+/*    left: 1%;*/
+/*    z-index: 8;*/
+/*}*/
+
+/*.sun {*/
+/*    position: absolute;*/
+/*    width: 180px;*/
+/*    height: 180px;*/
+/*    background: radial-gradient(circle, #fffde7, #ffca28);*/
+/*    border-radius: 50%;*/
+/*    top: 10%;*/
+/*    right: 10%;*/
+/*    box-shadow: 0 0 50px rgba(255, 202, 40, 0.9);*/
+/*    animation: pulse 3s infinite ease-in-out;*/
+/*    z-index: 3;*/
+/*}*/
+
+/*!* Реалистични вълни с акула и кит *!*/
+/*.wave-container {*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    width: 200%;*/
+/*    height: 250px;*/
+/*    z-index: 4;*/
+/*}*/
+
+/*.waves {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: url('https://www.transparenttextures.com/patterns/wavey-fingerprint.png'), linear-gradient(to bottom, rgba(33, 150, 243, 0.7), rgba(3, 169, 244, 1));*/
+/*    background-size: 400px, cover;*/
+/*    clip-path: polygon(*/
+/*            0% 80%, 5% 70%, 10% 75%, 15% 65%, 20% 70%, 25% 60%, 30% 65%, 35% 55%,*/
+/*            40% 60%, 45% 50%, 50% 55%, 55% 45%, 60% 50%, 65% 40%, 70% 45%, 75% 35%,*/
+/*            80% 40%, 85% 30%, 90% 35%, 95% 25%, 100% 30%, 100% 100%, 0% 100%*/
+/*    );*/
+/*    animation: realisticWaves 12s infinite linear;*/
+/*}*/
+
+/*.shark {*/
+/*    position: absolute;*/
+/*    width: 80px;*/
+/*    height: 40px;*/
+/*    background: url('https://cdn-icons-png.flaticon.com/512/3069/3069170.png') no-repeat center;*/
+/*    background-size: contain;*/
+/*    top: 60%;*/
+/*    left: -10%;*/
+/*    animation: swimShark 15s infinite linear;*/
+/*    z-index: 5;*/
+/*}*/
+
+/*.whale {*/
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 60px;*/
+/*    background: url('https://cdn-icons-png.flaticon.com/512/3069/3069172.png') no-repeat center;*/
+/*    background-size: contain;*/
+/*    top: 40%;*/
+/*    left: -20%;*/
+/*    animation: swimWhale 20s infinite linear;*/
+/*    z-index: 5;*/
+/*}*/
+
+/*.clouds {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    pointer-events: none;*/
+/*    z-index: 6;*/
+/*}*/
+
+/*.cloud {*/
+/*    position: absolute;*/
+/*    width: 250px;*/
+/*    height: 80px;*/
+/*    background: url('https://www.transparenttextures.com/patterns/soft-pad.png'), rgba(255, 255, 255, 0.8);*/
+/*    border-radius: 100px;*/
+/*    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);*/
+/*    animation: drift 25s infinite linear;*/
+/*}*/
+
+/*.cloud:nth-child(1) { top: 15%; left: -20%; animation-delay: 0s; }*/
+/*.cloud:nth-child(2) { top: 25%; left: -40%; animation-delay: 5s; }*/
+/*.cloud:nth-child(3) { top: 10%; left: -60%; animation-delay: 10s; }*/
+
+/*.birds {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    pointer-events: none;*/
+/*    z-index: 7;*/
+/*}*/
+
+/*.bird {*/
+/*    position: absolute;*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*    background: url('https://cdn-icons-png.flaticon.com/512/3669/3669900.png') no-repeat center;*/
+/*    background-size: contain;*/
+/*    animation: fly 15s infinite ease-in-out;*/
+/*}*/
+
+/*.bird:nth-child(1) { top: 20%; left: -10%; animation-delay: 0s; }*/
+/*.bird:nth-child(2) { top: 30%; left: -20%; animation-delay: 3s; }*/
+/*.bird:nth-child(3) { top: 25%; left: -30%; animation-delay: 6s; }*/
+
+/*.trees {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    pointer-events: none;*/
+/*    z-index: 8;*/
+/*}*/
+
+/*.tree {*/
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 200px;*/
+/*    background: url('https://cdn-icons-png.flaticon.com/512/489/489984.png') no-repeat bottom;*/
+/*    background-size: contain;*/
+/*    bottom: 150px;*/
+/*}*/
+
+/*.tree:nth-child(1) { left: 10%; }*/
+/*.tree:nth-child(2) { left: 40%; transform: scale(0.8); }*/
+/*.tree:nth-child(3) { right: 10%; }*/
+
+/*.leaves {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    pointer-events: none;*/
+/*    z-index: 9;*/
+/*}*/
+
+/*.leaf {*/
+/*    position: absolute;*/
+/*    width: 60px;*/
+/*    height: 60px;*/
+/*    background: url('https://cdn-icons-png.flaticon.com/512/2909/2909778.png') no-repeat center;*/
+/*    background-size: contain;*/
+/*    opacity: 0.9;*/
+/*    animation: fall 12s infinite ease-in-out;*/
+/*}*/
+
+/*.leaf:nth-child(1) { left: 15%; animation-delay: 0s; }*/
+/*.leaf:nth-child(2) { left: 35%; animation-delay: 2s; }*/
+/*.leaf:nth-child(3) { left: 55%; animation-delay: 4s; }*/
+/*.leaf:nth-child(4) { left: 75%; animation-delay: 6s; }*/
+/*.leaf:nth-child(5) { left: 95%; animation-delay: 8s; }*/
+
+/*!* Анимации *!*/
+/*@keyframes slideIn {*/
+/*    from { transform: translateY(-50px); opacity: 0; }*/
+/*    to { transform: translateY(0); opacity: 1; }*/
+/*}*/
+
+/*@keyframes fadeIn {*/
+/*    from { opacity: 0; }*/
+/*    to { opacity: 1; }*/
+/*}*/
+
+/*@keyframes rotateEarth {*/
+/*    from { transform: rotate(0deg); }*/
+/*    to { transform: rotate(360deg); }*/
+/*}*/
+
+/*@keyframes pulse {*/
+/*    0%, 100% { transform: scale(1); }*/
+/*    50% { transform: scale(1.05); }*/
+/*}*/
+
+/*@keyframes realisticWaves {*/
+/*    0% { transform: translateX(0); }*/
+/*    100% { transform: translateX(-50%); }*/
+/*}*/
+
+/*@keyframes swimShark {*/
+/*    0% { transform: translateX(-100%) translateY(0); }*/
+/*    50% { transform: translateX(50vw) translateY(-20px); }*/
+/*    100% { transform: translateX(150vw) translateY(0); }*/
+/*}*/
+
+/*@keyframes swimWhale {*/
+/*    0% { transform: translateX(-100%) translateY(0); }*/
+/*    50% { transform: translateX(40vw) translateY(20px); }*/
+/*    100% { transform: translateX(150vw) translateY(0); }*/
+/*}*/
+
+/*@keyframes drift {*/
+/*    0% { transform: translateX(-100%); }*/
+/*    100% { transform: translateX(150vw); }*/
+/*}*/
+
+/*@keyframes fly {*/
+/*    0% { transform: translateX(-100%) translateY(0); }*/
+/*    50% { transform: translateX(50vw) translateY(-20px); }*/
+/*    100% { transform: translateX(150vw) translateY(0); }*/
+/*}*/
+
+/*@keyframes fall {*/
+/*    0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }*/
+/*    20% { opacity: 1; }*/
+/*    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }*/
+/*}*/
