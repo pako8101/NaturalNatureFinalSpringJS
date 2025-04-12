@@ -16,6 +16,11 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
+repositories {
+    mavenCentral()
+    // Добави за toolchain изтегляне
+    maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+}
 
 configurations {
     compileOnly {
