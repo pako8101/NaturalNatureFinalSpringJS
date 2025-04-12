@@ -13,8 +13,8 @@ services:
     runtime: docker
     envVars:
       - key: JAVA_VERSION
-        value: 17
+        value: 21
       - key: PORT
-        value: 8029
+        value: 8080
       - key: JAVA_HOME
         value: "/opt/render/project/.jdk"
