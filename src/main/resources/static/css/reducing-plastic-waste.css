@@ -212,10 +212,11 @@ body {
 }
 
 .tips-section .tip-image {
-    width: 100%;
-    height: 200px;
+    width: 60%;
+    height: 250px;
     object-fit: cover;
     transition: transform 0.5s ease;
+    border-radius: 30px;
 }
 
 .tips-section .tip-card:hover .tip-image {

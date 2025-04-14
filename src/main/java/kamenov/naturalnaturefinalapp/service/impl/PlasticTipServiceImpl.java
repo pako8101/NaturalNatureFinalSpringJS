@@ -25,7 +25,7 @@ private final PlasticTipRepository plasticTipRepository;
             plasticTipRepository.save(new PlasticTip(
                     "Use Reusable Bags",
                     "Switch to reusable bags instead of plastic ones to reduce waste.",
-                    "/resources/static/images/reusable-bag.jpeg"
+                    "/images/reusable-bag.jpeg"
             ));
             plasticTipRepository.save(new PlasticTip(
                     "Choose Metal Straws",

@@ -28,17 +28,17 @@ public class GreenTipServiceImpl implements GreenTipService {
             greenTipRepository.save(new GreenTip(
                     "Use Reusable Containers",
                     "Store food in glass or stainless steel containers instead of plastic ones.",
-                    "/images/reusable-container.jpg"
+                    "/images/greentips/reusable-container.jpg"
             ));
             greenTipRepository.save(new GreenTip(
                     "Switch to Bar Soap",
                     "Replace liquid soap in plastic bottles with bar soap to reduce waste.",
-                    "/images/bar-soap.jpg"
+                    "/images/greentips/bar-soap.jpg"
             ));
             greenTipRepository.save(new GreenTip(
                     "Avoid Plastic Wrap",
                     "Use beeswax wraps or silicone lids to cover food instead of plastic wrap.",
-                    "/images/beeswax-wrap.jpg"
+                    "/images/greentips/beeswax-wrap.jpg"
             ));
             logger.info("Green tips initialized successfully.");
         } else {

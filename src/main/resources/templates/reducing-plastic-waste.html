@@ -203,7 +203,9 @@
     <h2 class="section-title">More Tips to Get Started</h2>
     <div class="tips-gallery" th:each="tip : ${tips}">
         <div class="tip-card">
-            <img th:src="${tip.imagePath}" alt="Tip Image" class="tip-image" onerror="this.src='/images/valubleEarth.jpg'">
+            <img th:src="@{images/greentips/reusable-container.jpg}"
+            alt="Tip Image" class="tip-image"
+                 onerror="this.src='/images/valubleEarth.jpg'">
             <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>
             <p th:text="${tip.description}" class="tip-description">Tip Description</p>
             <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>
