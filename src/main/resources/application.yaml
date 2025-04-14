@@ -20,12 +20,13 @@ spring:
 #    username: avnadmin
 #    password: AVNS_1LFLjST1e1VuH4euryo
 
-  url: ${SPRING_DATASOURCE_URL}
-  username: ${SPRING_DATASOURCE_USERNAME}
-  password: ${SPRING_DATASOURCE_PASSWORD}
-#    hikari:
-#      connection-timeout: 20000
-#      maximum-pool-size: 5
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+
+      username: ${SPRING_DATASOURCE_USERNAME}
+      password: ${SPRING_DATASOURCE_PASSWORD}
+      url: ${SPRING_DATASOURCE_URL}
 #    password: ${db_password}
 #    username: ${db_username}
 #    url: ${DATABASE_URL}
