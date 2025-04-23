@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/recipe.css">
 
 <body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <div class="container">
     <h1 th:text="${recipe.title}"></h1>

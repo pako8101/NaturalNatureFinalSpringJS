@@ -1,5 +1,6 @@
 package kamenov.naturalnaturefinalapp.service;
 
+import kamenov.naturalnaturefinalapp.entity.ContactMessage;
 import kamenov.naturalnaturefinalapp.repositories.DailyVisitorCountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -30,6 +31,18 @@ public class VisitorReportService {
         message.setTo("pako810129@gmail.com"); // Замени с твоя имейл
         message.setSubject("Daily Visitor Report for " + today);
         message.setText("Hello,\n\nToday, " + today + ", your website had " + uniqueVisitors + " unique visitors.\n\nBest regards,\nYour Website Team");
+        mailSender.send(message);
+    }
+    public void sendContactMessageNotification(ContactMessage contactMessage) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo("pako810129@gmail.com");
+        message.setSubject("New Contact Message from " + contactMessage.getName());
+        message.setText("Hello,\n\nYou have received a new message from your website:\n\n" +
+                "Name: " + contactMessage.getName() + "\n" +
+                "Email: " + contactMessage.getEmail() + "\n" +
+                "Message: " + contactMessage.getMessage() + "\n" +
+                "Sent at: " + contactMessage.getCreatedAt() + "\n\n" +
+                "Best regards,\nYour Website Team");
         mailSender.send(message);
     }
 }

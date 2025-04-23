@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');">
 
 <body>
-
+<div th:replace="fragments/preloader :: preloader"></div>
 <footer class="footer"
         style=":before {
         content: '';
@@ -77,6 +77,12 @@
         display: flex;
         align-items: center;
         transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/}">Home</a></li>
+                <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease, padding-left 0.3s ease;" th:href="@{/contact}">Contact</a></li>
                 <li style="margin-bottom: 12px;"><a style=" color: #e0f7fa;
         text-decoration: none;
         font-size: 16px;

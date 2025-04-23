@@ -24,12 +24,12 @@ spring:
       connection-timeout: 20000
       maximum-pool-size: 5
 
-      username: ${SPRING_DATASOURCE_USERNAME}
-      password: ${SPRING_DATASOURCE_PASSWORD}
-      url: ${SPRING_DATASOURCE_URL}
-#    password: ${db_password}
-#    username: ${db_username}
-#    url: ${DATABASE_URL}
+#      username: ${SPRING_DATASOURCE_USERNAME}
+#      password: ${SPRING_DATASOURCE_PASSWORD}
+#      url: ${SPRING_DATASOURCE_URL}
+    password: ${db_password}
+    username: ${db_username}
+    url: ${DATABASE_URL}
 
   thymeleaf:
     prefix: classpath:/templates/
