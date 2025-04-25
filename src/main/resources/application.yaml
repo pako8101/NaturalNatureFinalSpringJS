@@ -173,6 +173,10 @@ stripe:
   api:
     key: ${stripe.api.key}
 
+  openai:
+    api:
+     key: ${openai_api_key_2}
+
 NaturalNatureApp:
   default.admin.pass: ${default.admin.pass}
   remember.me.key: ${remember.me.key}

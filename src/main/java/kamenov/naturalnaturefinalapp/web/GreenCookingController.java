@@ -3,26 +3,29 @@ package kamenov.naturalnaturefinalapp.web;
 import kamenov.naturalnaturefinalapp.entity.Order;
 import kamenov.naturalnaturefinalapp.entity.Recipe;
 import kamenov.naturalnaturefinalapp.entity.UserEntity;
+import kamenov.naturalnaturefinalapp.service.AiRecipeService;
+import kamenov.naturalnaturefinalapp.service.AiService;
 import kamenov.naturalnaturefinalapp.service.OrderService;
 import kamenov.naturalnaturefinalapp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Controller
 public class GreenCookingController {
 
     private  final RecipeService recipeService;
-
+private final AiService aiService;
     private final OrderService orderService;
     @Autowired
-    public GreenCookingController(RecipeService recipeService, OrderService orderService) {
+    public GreenCookingController(RecipeService recipeService,
+                                  AiService aiService, OrderService orderService) {
         this.recipeService = recipeService;
+        this.aiService = aiService;
         this.orderService = orderService;
     }
 
@@ -73,4 +76,6 @@ public class GreenCookingController {
         }
         return "redirect:/green-cooking";
     }
+
+
 }

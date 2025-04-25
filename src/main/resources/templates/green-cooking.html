@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/css/reset-css.css">
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" th:href="@{/css/green-cooking.css}">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <body>
@@ -103,6 +104,52 @@
     <div class="ingredient-decor tomato"></div>
     <div class="ingredient-decor leaf"></div>
 </div>
+
+<!--ai-->
+<div class="ai-cooking-container">
+    <h2>AI Рецепти от това, което имаш вкъщи</h2>
+    <input type="text" id="ingredients" placeholder="въведи продукти: домат, лук, ориз..." />
+    <button onclick="getRecipe()">Генерирай рецепта</button>
+    <div id="recipe-response"></div>
+    <a href="/api/ai-recipes" class="btn-view-all-recipes">Виж всички AI рецепти</a>
+
+</div>
+
+<script>
+    async function getRecipe() {
+        const input = document.getElementById("ingredients").value;
+        const responseDiv = document.getElementById("recipe-response");
+        responseDiv.innerText = "Генерирам рецепта...";
+
+        try {
+            const response = await fetch("/api/ai-recipe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ ingredients: input })
+            });
+
+            if (!response.ok) {
+                if (response.status === 429) {
+                    responseDiv.innerText = "⚠️ Прекалено много заявки към AI! Моля, изчакай малко и опитай отново.";
+                } else {
+                    responseDiv.innerText = "🚫 Възникна грешка. Опитай пак по-късно.";
+                }
+                return;
+            }
+
+            const data = await response.json();
+            responseDiv.innerText = data.recipe;
+        } catch (error) {
+            responseDiv.innerText = "❌ Проблем с мрежата или сървъра.";
+            console.error("AI error:", error);
+        }
+    }
+</script>
+
+
+
 <!--<div class="container">-->
 <!--    <h1>Green Cooking</h1>-->
 <!--    <div th:each="recipe : ${recipes}" class="card">-->

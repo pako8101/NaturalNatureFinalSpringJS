@@ -1,0 +1,33 @@
+<!-- src/main/resources/templates/forum.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title>Forum - Eco Life</title>
+<link rel="stylesheet" th:href="@{/css/recycling-bot.css}">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<!-- Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header class="hero">
+    <h1>Nature Ethos Forum</h1>
+    <p>Share your eco ideas and connect with the community!</p>
+</header>
+
+<form th:action="@{/ask-recycling-bot}" method="post">
+    <label for="question">Задай въпрос за рециклиране:</label>
+    <input type="text" id="question" name="question" required />
+    <button type="submit">Питай</button>
+</form>
+
+<div th:if="${answer}">
+    <h3>Отговор от бота:</h3>
+    <p th:text="${answer}"></p>
+</div>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

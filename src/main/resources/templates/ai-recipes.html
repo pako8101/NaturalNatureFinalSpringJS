@@ -1,0 +1,34 @@
+<!-- src/main/resources/templates/ai-recipes.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title>Всички AI рецепти</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/ai-cooking.css}">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<!-- Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<h1>Всички генерирани еко рецепти</h1>
+
+<div class="ai-recipes-container">
+    <h2>Всички AI Рецепти</h2>
+    <a href="/green-cooking" class="back-link">← Обратно към Зелено Готвене</a>
+
+    <div th:each="recipe : ${allRecipes}" class="recipe-box">
+        <p><strong>Съставки:</strong> <span th:text="${recipe.ingredients}"></span></p>
+        <p><strong>Рецепта:</strong></p>
+        <pre th:text="${recipe.recipe}"></pre>
+        <p class="date" th:text="${#temporals.format(recipe.generatedAt, 'dd.MM.yyyy HH:mm')}"></p>
+    </div>
+</div>
+
+<a href="/" class="btn">⬅ Обратно</a>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

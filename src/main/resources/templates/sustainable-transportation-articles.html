@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
+<head th:replace="~{fragments/head :: head}"></head>
 <meta charset="UTF-8">
 <title>Sustainable Transport Articles - Natural Ethos</title>
 <link rel="stylesheet" th:href="@{/css/transport-articles.css}">
-
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <!-- Хедър -->
 <header class="hero">
@@ -21,29 +21,387 @@
 <section class="section articles-section">
     <h2 class="section-title">All Articles</h2>
     <div class="articles-gallery">
-        <div class="article-card" th:each="article : ${articles}">
-            <img th:src="${article.imagePath}" alt="Article Image" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
-            <h3 th:text="${article.title}" class="article-title">Article Title</h3>
-            <p th:text="${article.content}" class="article-content">Article Content</p>
+        <!-- Страница 1: Biking -->
+        <div th:if="${currentPage == 0}">
+            <!-- Статия 1: Biking Infrastructure -->
+            <div class="article-card">
+                <h3 class="article-title">Biking Infrastructure: Building the Cities of Tomorrow</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/biking-infrastructure.jpg" alt="Biking infrastructure in Copenhagen" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Global Trends in Bike-Friendly Cities</h4>
+                    <p>
+                        By 2025, biking infrastructure has become a priority for urban planners worldwide. Cities like Copenhagen and Amsterdam lead the way, with over 60% of daily commutes done by bike, thanks to dedicated lanes, bike-sharing programs, and traffic-calming measures. In 2024, Copenhagen added 50 km of new bike lanes, reducing car usage by 15%. The European Cycling Federation reports that bike commuting in the EU has cut CO2 emissions by 10 million tons annually.
+                    </p>
+                    <h4>Technological Innovations in Biking</h4>
+                    <p>
+                        Smart bike lanes equipped with sensors to monitor traffic flow and air quality are emerging. In Utrecht, a 2024 pilot project introduced heated bike lanes to prevent icing in winter, increasing winter ridership by 20%. Additionally, solar-powered e-bikes, such as those from VanMoof, are gaining traction, offering a range of up to 150 km on a single charge, making biking viable for longer commutes.
+                    </p>
+                    <h4>Watch: The Evolution of Bike-Friendly Cities</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/ycKXeKfu4lo" title="The Evolution of Bike-Friendly Cities" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 2: Biking and Health -->
+            <div class="article-card">
+                <h3 class="article-title">Biking and Health: A Win for Body and Planet</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/biking-health.jpg" alt="Cyclist exercising" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Physical and Mental Benefits</h4>
+                    <p>
+                        Biking offers unparalleled health benefits, reducing the risk of cardiovascular diseases by 46%, according to a 2024 study by the World Health Organization. Regular cyclists also report lower stress levels, with a 2025 survey in the UK showing that 78% of daily bike commuters feel more energized and focused at work. The mental health benefits are significant, as biking in green spaces has been linked to a 30% reduction in anxiety.
+                    </p>
+                    <h4>Economic and Environmental Impact</h4>
+                    <p>
+                        Economically, biking saves individuals thousands annually on fuel and car maintenance. Environmentally, replacing a 10 km car commute with biking can save up to 2 tons of CO2 per person yearly. In 2025, cities like Bogotá have reported a 25% drop in air pollution in areas with high bike adoption, thanks to initiatives like car-free Sundays.
+                    </p>
+                    <h4>Watch: How Biking Boosts Health and Sustainability</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/24OEW2jEBgk" title="How Biking Boosts Health and Sustainability" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 3: Biking Communities -->
+            <div class="article-card">
+                <h3 class="article-title">Biking Communities: Fostering a Culture of Sustainability</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/biking-community.jpg" alt="Biking community event" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>The Rise of Biking Advocacy</h4>
+                    <p>
+                        Biking communities have grown significantly by 2025, with advocacy groups pushing for better infrastructure and policies. Organizations like the World Cycling Alliance have mobilized millions globally, hosting events like the 2024 Global Bike Summit in Paris, which drew 10,000 attendees. These communities also promote inclusivity, with programs for low-income families to access bikes through subsidies.
+                    </p>
+                    <h4>Social and Cultural Impact</h4>
+                    <p>
+                        Biking fosters social connections, with group rides and community events becoming more popular. In 2025, cities like Portland, USA, host monthly “Bike to Work Days,” where local businesses offer discounts to cyclists. Culturally, biking is reshaping urban identity—cities are now branding themselves as “bike capitals,” attracting eco-conscious tourists and residents alike.
+                    </p>
+                    <h4>Watch: The Power of Biking Communities</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/DS5DJxZLLKk" title="The Power of Biking Communities" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Страница 2: Electric and Hybrid Cars -->
+        <div th:if="${currentPage == 1}">
+            <!-- Статия 1: EV Market Growth -->
+            <div class="article-card">
+                <h3 class="article-title">Electric Vehicles: Market Growth and Adoption in 2025</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/ev-market.jpg" alt="Electric vehicle showroom" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Global Sales and Policy Support</h4>
+                    <p>
+                        By 2025, the electric vehicle (EV) market has exploded, with global sales surpassing 28 million units, according to the International Energy Agency. Norway leads with 95% of new car sales being electric, driven by tax incentives and a ban on new fossil fuel cars starting in 2025. The EU has followed suit, with a 2035 deadline for phasing out internal combustion engines, pushing manufacturers to innovate rapidly.
+                    </p>
+                    <h4>Leading Manufacturers and Models</h4>
+                    <p>
+                        Tesla remains a market leader, but competition is fierce. Rivian’s R1T electric truck, with a range of 400 miles, has become a favorite in North America, while BYD in China dominates the Asian market with affordable models like the Han EV. Luxury brands like BMW and Mercedes have also entered the fray, with the BMW iX and Mercedes EQS offering cutting-edge battery technology and autonomous driving features.
+                    </p>
+                    <h4>Watch: The Electric Vehicle Boom in 2025</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/jT_x9TLa_-Q" title="The Electric Vehicle Boom in 2025" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 2: EV Charging Infrastructure -->
+            <div class="article-card">
+                <h3 class="article-title">Charging Infrastructure: Powering the EV Revolution</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/ev-charging.jpg" alt="EV charging station" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Expansion of Charging Networks</h4>
+                    <p>
+                        Charging infrastructure has kept pace with EV adoption. By 2025, there are over 3 million public charging points globally, with the EU alone adding 500,000 in 2024. Ultra-fast chargers, capable of delivering 350 kW, can now charge a vehicle to 80% in under 20 minutes. Companies like ChargePoint and Electrify America dominate in the US, while China’s State Grid operates the largest network worldwide.
+                    </p>
+                    <h4>Innovations in Charging Technology</h4>
+                    <p>
+                        Wireless charging is becoming a reality, with Sweden testing dynamic charging roads in 2024, allowing EVs to charge while driving. Battery swapping stations, popularized by NIO in China, offer a quick alternative, reducing downtime to under 5 minutes. Additionally, solar-powered charging stations are on the rise, with Tesla’s Supercharger network now 30% solar-powered as of 2025.
+                    </p>
+                    <h4>Watch: The Future of EV Charging</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/6aqfUmBdQlY" title="The Future of EV Charging" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 3: Hybrid Cars as a Transition -->
+            <div class="article-card">
+                <h3 class="article-title">Hybrid Cars: Bridging the Gap to Full Electrification</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/hybrid-cars.jpg" alt="Hybrid car on the road" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>The Role of Hybrids in 2025</h4>
+                    <p>
+                        Hybrid cars remain a vital transition tool for regions not yet ready for full EV adoption. In 2025, hybrids account for 20% of global car sales, offering a balance of fuel efficiency and reduced emissions. Toyota’s Prius Prime, with a 50-mile electric range, and Honda’s Clarity Plug-In Hybrid are popular choices, especially in rural areas with limited charging infrastructure.
+                    </p>
+                    <h4>Environmental and Economic Benefits</h4>
+                    <p>
+                        Hybrids emit 30% less CO2 than traditional gas cars, according to a 2024 study by the US Department of Energy. They’re also more affordable upfront than EVs, with an average price of $35,000 compared to $50,000 for EVs in 2025. Government subsidies in countries like Japan and Canada, offering up to $5,000 for hybrid purchases, have further boosted their appeal.
+                    </p>
+                    <h4>Watch: Hybrids as a Stepping Stone to EVs</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/jkswsDecPfY" title="Hybrids as a Stepping Stone to EVs" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Страница 3: Public Transport -->
+        <div th:if="${currentPage == 2}">
+            <!-- Статия 1: Electric Buses -->
+            <div class="article-card">
+                <h3 class="article-title">Electric Buses: Transforming Urban Public Transport</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/electric-buses.jpg" alt="Electric bus in city" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Global Adoption of Electric Buses</h4>
+                    <p>
+                        By 2025, electric buses have become the backbone of urban public transport. China leads with over 500,000 electric buses in operation, accounting for 80% of its fleet. In Europe, cities like London and Madrid have electrified 60% of their buses, reducing emissions by 25% since 2020. The transition is driven by falling battery costs, down 40% since 2019, according to BloombergNEF.
+                    </p>
+                    <h4>Technological Advancements</h4>
+                    <p>
+                        Modern electric buses, like those from BYD and Proterra, offer ranges of up to 300 miles on a single charge. Fast-charging depots, using 600 kW chargers, can fully charge a bus in under an hour. In 2024, Los Angeles introduced hydrogen-electric hybrid buses, combining zero-emission tech with longer ranges, ideal for sprawling cities.
+                    </p>
+                    <h4>Watch: The Rise of Electric Buses</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/94Kf1Yuq_94" title="The Rise of Electric Buses" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 2: High-Speed Rail -->
+            <div class="article-card">
+                <h3 class="article-title">High-Speed Rail: Sustainable Long-Distance Travel</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/high-speed-rail.jpg" alt="High-speed train" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Expansion of High-Speed Networks</h4>
+                    <p>
+                        High-speed rail (HSR) is a game-changer for sustainable long-distance travel in 2025. China’s HSR network spans 45,000 km, carrying 3 billion passengers annually with trains like the Fuxing, which run at 350 km/h. In Europe, the EU’s Trans-European Transport Network (TEN-T) added 5,000 km of HSR in 2024, connecting cities like Paris and Berlin with zero-emission travel.
+                    </p>
+                    <h4>Environmental and Economic Impact</h4>
+                    <p>
+                        HSR emits 90% less CO2 per passenger than air travel, according to a 2025 report by the International Union of Railways. It’s also cost-competitive, with tickets often 30% cheaper than flights. Japan’s Shinkansen, now powered entirely by renewables, has reduced the country’s transport emissions by 15% since its full electrification in 2023.
+                    </p>
+                    <h4>Watch: High-Speed Rail and Sustainability</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/dummy-high-speed-rail" title="High-Speed Rail and Sustainability" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 3: Smart Public Transport Systems -->
+            <div class="article-card">
+                <h3 class="article-title">Smart Public Transport: Efficiency Through Technology</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/smart-public-transport.jpg" alt="Smart ticketing system" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>AI and IoT in Public Transport</h4>
+                    <p>
+                        By 2025, AI and IoT have revolutionized public transport efficiency. Singapore’s MRT system uses AI to predict passenger demand, reducing wait times by 20%. IoT-enabled buses in Seoul provide real-time occupancy data, helping commuters avoid crowded routes. These technologies have increased ridership by 15% in tech-forward cities, according to a 2025 McKinsey report.
+                    </p>
+                    <h4>Integrated Mobility Solutions</h4>
+                    <p>
+                        Integrated apps like Germany’s DB Navigator now combine train, bus, and bike-sharing bookings in one platform. In 2024, London’s Transport for London launched a “Mobility as a Service” (MaaS) program, offering subscription-based access to all public transport modes, reducing private car use by 10%. Such systems make public transport more accessible and convenient.
+                    </p>
+                    <h4>Watch: The Future of Smart Public Transport</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/dummy-smart-public-transport" title="The Future of Smart Public Transport" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Страница 4: Pedestrian -->
+        <div th:if="${currentPage == 3}">
+            <!-- Статия 1: Walkable Cities -->
+            <div class="article-card">
+                <h3 class="article-title">Walkable Cities: Redesigning Urban Spaces for Pedestrians</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/walkable-cities.jpg" alt="Pedestrian zone in Barcelona" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>The 15-Minute City Concept</h4>
+                    <p>
+                        The “15-minute city” concept has taken off by 2025, with cities like Paris and Melbourne ensuring all essential services are within a 15-minute walk or bike ride. Paris’s 2024 “Plan Piéton” expanded pedestrian zones by 30%, reducing traffic-related emissions by 18%. This model not only cuts pollution but also fosters community engagement and local economies.
+                    </p>
+                    <h4>Infrastructure for Pedestrians</h4>
+                    <p>
+                        Urban design now prioritizes pedestrians with wider sidewalks, more crosswalks, and green spaces. In 2025, Barcelona’s “Superblocks” initiative, which restricts car access in certain areas, has lowered noise pollution by 12 decibels and improved air quality by 25%. Shaded walkways and pedestrian bridges, like those in Singapore, make walking viable even in hot climates.
+                    </p>
+                    <h4>Watch: Designing the 15-Minute City</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/NOSflLHuzDo" title="Designing the 15-Minute City" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 2: Pedestrian Safety -->
+            <div class="article-card">
+                <h3 class="article-title">Pedestrian Safety: Protecting Walkers in Urban Environments</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/pedestrian-safety.jpg" alt="Pedestrian crossing with safety features" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Technological Solutions for Safety</h4>
+                    <p>
+                        By 2025, pedestrian safety has improved through technology. Smart crosswalks with embedded sensors and LED lights, like those in Seoul, alert drivers to pedestrians, reducing accidents by 40%. Autonomous vehicles are now programmed to prioritize pedestrian safety, with 2024 EU regulations mandating advanced pedestrian detection systems in all new cars.
+                    </p>
+                    <h4>Policy and Urban Planning</h4>
+                    <p>
+                        Cities are adopting “Vision Zero” policies to eliminate pedestrian fatalities. Stockholm, a pioneer, has reduced pedestrian deaths to near zero by 2025 through lower speed limits (30 km/h in urban areas) and traffic calming measures like speed bumps. Community-led initiatives, such as school walking buses, also promote safe walking for children.
+                    </p>
+                    <h4>Watch: Innovations in Pedestrian Safety</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/Lsv1TSy8JbA" title="Innovations in Pedestrian Safety" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статия 3: Walking as a Lifestyle -->
+            <div class="article-card">
+                <h3 class="article-title">Walking as a Lifestyle: Health and Sustainability</h3>
+                <div class="article-image-placeholder">
+                    <img src="/images/walking-lifestyle.jpg" alt="People walking in park" class="article-image"
+                         onerror="this.src='/images/separate-all-3.jpg'">
+                </div>
+                <div class="article-content">
+                    <h4>Health Benefits of Walking</h4>
+                    <p>
+                        Walking is the simplest form of sustainable transport, with profound health benefits. A 2025 study by the American Heart Association found that walking 30 minutes daily reduces the risk of diabetes by 35%. It also improves mental health—cities with high walkability, like Vancouver, report 20% lower rates of depression among residents.
+                    </p>
+                    <h4>Cultural Shift Towards Walking</h4>
+                    <p>
+                        Walking has become a cultural movement by 2025, with initiatives like “Walk to Work Days” gaining popularity. Wearable tech, such as Fitbit’s 2024 smart shoes, tracks steps and encourages daily walking goals. In Japan, “forest bathing” walks in urban parks have surged, blending sustainability with wellness and reducing urban stress.
+                    </p>
+                    <h4>Watch: Walking as a Sustainable Lifestyle</h4>
+                    <div class="article-video">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/VeuL0eyyqUI" title="Walking as a Sustainable Lifestyle" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Пагинация -->
-    <div class="pagination" th:if="${totalPages > 1}">
+    <div class="pagination">
         <a th:href="@{/sustainable-transportation/articles(page=${currentPage - 1})}"
            th:class="${currentPage == 0 ? 'disabled' : ''}"
            class="pagination-btn">Previous</a>
-        <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+        <span th:each="i : ${#numbers.sequence(0, 3)}">
             <a th:href="@{/sustainable-transportation/articles(page=${i})}"
                th:class="${i == currentPage ? 'active' : ''}"
                th:text="${i + 1}" class="pagination-btn"></a>
         </span>
         <a th:href="@{/sustainable-transportation/articles(page=${currentPage + 1})}"
-           th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}"
+           th:class="${currentPage == 3 ? 'disabled' : ''}"
            class="pagination-btn">Next</a>
     </div>
 </section>
 
-<footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<!-- Добавяне на допълнителен CSS за новите елементи -->
+<style>
+    .article-content h4 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+    }
+
+    .article-image-placeholder {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+    .article-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .article-video {
+        margin-top: 1rem;
+        width: 100%;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .article-video iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+</style>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="fragments/head :: head"></head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Sustainable Transport Articles - Natural Ethos</title>-->
+<!--<link rel="stylesheet" th:href="@{/css/transport-articles.css}">-->
+<!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+<!--<body>-->
+<!--<div th:replace="~{fragments/preloader :: preloader}"></div>-->
+<!--<div th:replace="fragments/navbar :: navbar"></div>-->
+
+<!--&lt;!&ndash; Хедър &ndash;&gt;-->
+<!--<header class="hero">-->
+<!--    <div class="hero-content">-->
+<!--        <h1 class="animated-title">Sustainable Transport Articles</h1>-->
+<!--        <p class="hero-subtitle">Explore More About Eco-Friendly Transportation</p>-->
+<!--    </div>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Секция: Всички статии &ndash;&gt;-->
+<!--<section class="section articles-section">-->
+<!--    <h2 class="section-title">All Articles</h2>-->
+<!--    <div class="articles-gallery">-->
+<!--        <div class="article-card" th:each="article : ${articles}">-->
+<!--            <img th:src="${article.imagePath}" alt="Article Image" class="article-image" onerror="this.src='/images/separate-all-3.jpg'">-->
+<!--            <h3 th:text="${article.title}" class="article-title">Article Title</h3>-->
+<!--            <p th:text="${article.content}" class="article-content">Article Content</p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Пагинация &ndash;&gt;-->
+<!--    <div class="pagination" th:if="${totalPages > 1}">-->
+<!--        <a th:href="@{/sustainable-transportation/articles(page=${currentPage - 1})}"-->
+<!--           th:class="${currentPage == 0 ? 'disabled' : ''}"-->
+<!--           class="pagination-btn">Previous</a>-->
+<!--        <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">-->
+<!--            <a th:href="@{/sustainable-transportation/articles(page=${i})}"-->
+<!--               th:class="${i == currentPage ? 'active' : ''}"-->
+<!--               th:text="${i + 1}" class="pagination-btn"></a>-->
+<!--        </span>-->
+<!--        <a th:href="@{/sustainable-transportation/articles(page=${currentPage + 1})}"-->
+<!--           th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}"-->
+<!--           class="pagination-btn">Next</a>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<!--</body>-->
+<!--</html>-->

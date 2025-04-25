@@ -44,7 +44,8 @@ public class SecurityConfig {
                         authorizeHttpRequests ->
                                 authorizeHttpRequests.
                                         requestMatchers(PathRequest.toStaticResources().atCommonLocations())
-                                        .permitAll().
+                                        .permitAll()
+                                        .requestMatchers("/favicon.ico").permitAll().
                                         requestMatchers("/",
                                                 "/about",
                                                 "/subscribe",
@@ -53,9 +54,11 @@ public class SecurityConfig {
                                                 "/passive-houses/**",
                                                 "/responsible-fashion/**",
                                                 "/article-details/**",
+                                                "/recycling-bot",
                                                 "/error/**",
                                                 "/nutrition/**",
                                                 "/wellness/**",
+                                                "/api/ai-recipes/**",
                                                 "/animal-tourism/**",
                                                 "/animal-tourism-article-details/**",
                                                 "/wellness-article-details/**",

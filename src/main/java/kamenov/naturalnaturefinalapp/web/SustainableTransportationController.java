@@ -35,7 +35,7 @@ private final ArticleService articleService;
     @GetMapping("/articles")
     public String showSustainableTransportArticlesPage(@RequestParam(defaultValue = "0") int page, Model model) {
         logger.info("Showing sustainable transport articles page, page number: {}", page);
-        int pageSize = 6; // По 6 статии на страница
+        int pageSize = 3; // По 3 статии на страница
         Page<Article> articlePage = articleService.getSustainableTransportArticles(page, pageSize);
         model.addAttribute("articles", articlePage.getContent());
         model.addAttribute("currentPage", page);

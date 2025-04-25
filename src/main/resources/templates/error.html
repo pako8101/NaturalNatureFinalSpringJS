@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head"></head>
+<div th:insert="~{fragments/head::head}"></div>
     <meta charset="UTF-8">
     <title>Error</title>
     <link rel="stylesheet" th:href="@{/css/error.css}">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
 <!-- Navbar -->
-<div th:replace="fragments/navbar :: navbar"></div>
+
+<div th:insert="~{fragments/navbar::navbar}"></div>
+
 
 <header class="hero">
     <h1 class="error-title">Oops! Something Went Wrong</h1>
@@ -32,6 +35,6 @@
     </section>
 </main>
 
-<footer th:replace="fragments/footer :: footer"></footer>
+<div th:insert="~{fragments/footer::footer}"></div>
 </body>
 </html>

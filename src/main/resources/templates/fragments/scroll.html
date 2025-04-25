@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="scroll">
+<div id="scroll-arrow" class="scroll-arrow">
+    <i id="arrow-icon" class="fas fa-arrow-down"></i>
+</div>
+
+<!-- Включване на Font Awesome, ако още не е добавен -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+    .scroll-arrow {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #3498db;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: background-color 0.3s;
+    }
+
+    .scroll-arrow:hover {
+        background-color: #2980b9;
+    }
+
+    .scroll-arrow i {
+        font-size: 24px;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const arrow = document.getElementById("scroll-arrow");
+        const arrowIcon = document.getElementById("arrow-icon");
+
+        // Проверка на позицията на скрола
+        window.addEventListener("scroll", function () {
+            if (window.scrollY < window.innerHeight / 2) {
+                // Ако сме в горната част на страницата
+                arrowIcon.classList.remove("fa-arrow-up");
+                arrowIcon.classList.add("fa-arrow-down");
+            } else {
+                // Ако сме в долната част на страницата
+                arrowIcon.classList.remove("fa-arrow-down");
+                arrowIcon.classList.add("fa-arrow-up");
+            }
+        });
+
+        // Кликване върху стрелката
+        arrow.addEventListener("click", function () {
+            if (arrowIcon.classList.contains("fa-arrow-down")) {
+                // Скрол до долу
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: "smooth"
+                });
+            } else {
+                // Скрол до горе
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+</script>
+</div>
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+</html>

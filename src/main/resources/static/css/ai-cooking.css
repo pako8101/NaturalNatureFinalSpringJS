@@ -1,0 +1,30 @@
+.ai-recipes-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f5fff5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+}
+
+.recipe-box {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+}
+
+pre {
+    background-color: #eef;
+    padding: 0.5rem;
+    border-radius: 6px;
+    white-space: pre-wrap;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+}
