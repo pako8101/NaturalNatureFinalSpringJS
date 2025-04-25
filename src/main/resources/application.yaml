@@ -29,7 +29,7 @@ spring:
 #      url: ${SPRING_DATASOURCE_URL}
     password: ${db_password}
     username: ${db_username}
-    url: ${DATABASE_URL}
+    url: ${SPRING_DATASOURCE_URL}
 #        url=jdbc:postgresql://natureethos.flycast:5432/postgres
 #        username=postgres
 #        password=вашата_парола
