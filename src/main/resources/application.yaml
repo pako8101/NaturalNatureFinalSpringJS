@@ -2,15 +2,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        spring:
-          jpa:
-            properties:
-              hibernate:
-                dialect=org:
-                  hibernate:
-                    dialect:
-                      PostgreSQLDialect:
-        #        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: 'TRUE'
     hibernate:
       ddl-auto: update
@@ -22,8 +14,7 @@ spring:
       filter:
         enabled: 'true'
   datasource:
-    driverClassName:
-#    com.mysql.cj.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
 
 #    url: jdbc:mysql://avnadmin:AVNS_1LFLjST1e1VuH4euryo@pako-naturalethos.b.aivencloud.com:28158/defaultdb?ssl-mode=REQUIRED
 #    username: avnadmin
@@ -36,16 +27,12 @@ spring:
 #      username: ${SPRING_DATASOURCE_USERNAME}
 #      password: ${SPRING_DATASOURCE_PASSWORD}
 #      url: ${SPRING_DATASOURCE_URL}
-#    password: ${db_password}
-#    username: ${db_username}
-#    url: ${DATABASE_URL}
-
-
-      username: postgres
-      password: ${postgre_pass}
-      url: jdbc:postgresql://natureethos.flycast:5432/postgres
-
-
+    password: ${db_password}
+    username: ${db_username}
+    url: ${DATABASE_URL}
+#        url=jdbc:postgresql://natureethos.flycast:5432/postgres
+#        username=postgres
+#        password=вашата_парола
   thymeleaf:
     prefix: classpath:/templates/
     cache: false
