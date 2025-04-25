@@ -25,6 +25,9 @@ public class TransportTip extends BaseEntity{
         this.imagePath = imagePath;
     }
 
+    public TransportTip(String s) {
+    }
+
     public String getTitle() {
         return title;
     }

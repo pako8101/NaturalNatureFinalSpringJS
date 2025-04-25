@@ -17,4 +17,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     boolean existsByTitle(String title);
 
     Optional<Article> findByTitle(String title);
+
+    Object findTop3ByCategory(String sustainableTransport);
 }

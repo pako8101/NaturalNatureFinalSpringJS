@@ -203,7 +203,7 @@ cloudinary:
 
 
 jwt:
-  secret: ${jwt.secret}
+  secret: ${jwt_secret}
   expiration: ${jwt.expiration:58000}
 
 user.deletion: P300D

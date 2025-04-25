@@ -30,6 +30,12 @@ public class Article extends BaseEntity {
         this.category = category;
     }
 
+    public Article(String title, String content, String imagePath) {
+        this.title = title;
+        this.content = content;
+        this.imagePath = imagePath;
+    }
+
     public String getTitle() {
         return title;
     }

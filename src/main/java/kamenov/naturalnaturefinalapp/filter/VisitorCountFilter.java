@@ -20,7 +20,7 @@ public class VisitorCountFilter extends OncePerRequestFilter {
     private DailyVisitorCountRepository dailyVisitorCountRepository;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws IOException {
         HttpSession session = request.getSession(true);
         Boolean isNewVisitor = (Boolean) session.getAttribute("isNewVisitor");

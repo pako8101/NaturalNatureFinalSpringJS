@@ -45,4 +45,6 @@ public class VisitorReportService {
                 "Best regards,\nYour Website Team");
         mailSender.send(message);
     }
+
+
 }
