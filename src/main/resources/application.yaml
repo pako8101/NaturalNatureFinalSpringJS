@@ -27,9 +27,15 @@ spring:
 #      username: ${SPRING_DATASOURCE_USERNAME}
 #      password: ${SPRING_DATASOURCE_PASSWORD}
 #      url: ${SPRING_DATASOURCE_URL}
-    password: ${db_password}
-    username: ${db_username}
-    url: ${DATABASE_URL}
+#    password: ${db_password}
+#    username: ${db_username}
+#    url: ${DATABASE_URL}
+
+
+      username: postgres
+      password: ${postgre_pass}
+      url: jdbc:postgresql://natureethos.flycast:5432/postgres
+
 
   thymeleaf:
     prefix: classpath:/templates/
