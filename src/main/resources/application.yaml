@@ -2,7 +2,15 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        spring:
+          jpa:
+            properties:
+              hibernate:
+                dialect=org:
+                  hibernate:
+                    dialect:
+                      PostgreSQLDialect:
+        #        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: 'TRUE'
     hibernate:
       ddl-auto: update
@@ -14,7 +22,8 @@ spring:
       filter:
         enabled: 'true'
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driverClassName:
+#    com.mysql.cj.jdbc.Driver
 
 #    url: jdbc:mysql://avnadmin:AVNS_1LFLjST1e1VuH4euryo@pako-naturalethos.b.aivencloud.com:28158/defaultdb?ssl-mode=REQUIRED
 #    username: avnadmin
