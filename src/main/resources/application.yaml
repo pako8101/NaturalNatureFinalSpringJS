@@ -45,7 +45,7 @@ spring:
     allow-circular-references: true
 server:
   address: 0.0.0.0
-  port: ${PORT:8080}
+  port: ${PORT:8000}
 logging:
   level:
     org.springframework: TRACE
@@ -192,7 +192,7 @@ NaturalNatureApp:
 #site: ${site_key}
 
 brand-service:
-base-url: http://localhost:8080
+base-url: http://localhost:8000
 
 cloudinary:
   name: ${CLOUDINARY_NAME:dy2y8i2de}
