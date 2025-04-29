@@ -125,24 +125,30 @@
             const response = await fetch("/api/ai-recipe", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Accept": "application/json" // Указваме, че очакваме JSON отговор
                 },
-                body: JSON.stringify({ ingredients: input })
+                body: JSON.stringify({ ingredients: input }),
+                signal: AbortSignal.timeout(55000) // Добавяме таймаут от страна на клиента (55 секунди)
             });
 
             if (!response.ok) {
                 if (response.status === 429) {
                     responseDiv.innerText = "⚠️ Прекалено много заявки към AI! Моля, изчакай малко и опитай отново.";
                 } else {
-                    responseDiv.innerText = "🚫 Възникна грешка. Опитай пак по-късно.";
+                    const errorText = await response.text();
+                    responseDiv.innerText = `🚫 Грешка: ${response.status} - ${errorText}`;
                 }
                 return;
             }
-
             const data = await response.json();
-            responseDiv.innerText = data.recipe;
+            if (data.error) {
+                responseDiv.innerText = `⚠️ ${data.error}`;
+            } else {
+                responseDiv.innerText = data.recipe || "Няма рецепта в отговора.";
+            }
         } catch (error) {
-            responseDiv.innerText = "❌ Проблем с мрежата или сървъра.";
+            responseDiv.innerText = `❌ Проблем с мрежата или сървъра: ${error.message}`;
             console.error("AI error:", error);
         }
     }

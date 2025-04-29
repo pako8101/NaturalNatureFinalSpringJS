@@ -1,0 +1,52 @@
+<!-- src/main/resources/templates/ai-recipes.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title>Всички AI рецепти</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/article-garden.css}">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<!-- Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<header>
+    <h1>Urban Gardening: Article</h1>
+</header>
+<div class="container">
+    <div class="article" id="article-content">
+        <div th:if="${error}">
+            <p th:text="${error}"></p>
+            <a href="/urban-gardening" class="back-link"><i class="fas fa-arrow-left"></i> Back to All Articles</a>
+        </div>
+        <div th:if="${article}">
+            <h2><i class="fas fa-newspaper"></i> <span th:text="${article.title}"></span></h2>
+            <p th:text="${article.content}"></p>
+            <a href="/urban-gardening" class="back-link"><i class="fas fa-arrow-left"></i> Back to All Articles</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Scroll Animation
+    const article = document.querySelector('.article');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(article);
+</script>
+
+<a href="/" class="btn">⬅ Обратно</a>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

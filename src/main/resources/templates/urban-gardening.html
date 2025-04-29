@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title>Recycling Map - EcoLife</title>
+    <link rel="stylesheet" href="/css/urban-gardening.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+<header>
+    <h1>Urban Gardening: A Greener Future in Urban Settings</h1>
+</header>
+<div class="container">
+    <section id="introduction">
+        <h2><i class="fas fa-seedling"></i> Introduction: Embracing Urban Gardening for Sustainable Living</h2>
+        <p>Urban gardening is a growing trend that transforms city spaces into green havens. It allows residents to grow their own fruits, vegetables, and herbs, even in limited spaces. This practice promotes sustainability by reducing reliance on industrially produced food. Additionally, urban gardening improves air quality and mitigates heat islands in cities. It fosters communities that value nature and share resources. Urban gardens offer a simple way to connect with nature amidst a busy lifestyle. They inspire people to live more sustainably and care for the environment.</p>
+        <div class="media">
+            <img src="https://example.com/urban-garden-intro.jpg" alt="Urban Garden" onclick="openModal(this.src)">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/urban-gardening-intro-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="mastering-small-spaces">
+        <h2><i class="fas fa-leaf"></i> Mastering Small Spaces: Eco-friendly Gardening Techniques for Urban Dwellers</h2>
+        <p>Urban gardening requires creativity when space is limited. Vertical gardening is perfect for small balconies or walls, utilizing height instead of area. Container gardening allows growing plants in pots or recycled buckets. Composting kitchen scraps provides natural fertilizer for healthy growth. Hydroponics is an innovative technique that saves water and space. Choosing compact plant varieties maximizes yield in small areas. Sunlit spots should be fully utilized for optimal plant development.</p>
+        <button class="toggle-table" onclick="toggleTable('techniques-table')">Show/Hide Techniques</button>
+        <table id="techniques-table">
+            <tr>
+                <th>Technique</th>
+                <th>Description</th>
+                <th>Benefits</th>
+            </tr>
+            <tr>
+                <td>Vertical Gardening</td>
+                <td>Using walls or trellises to grow plants upwards</td>
+                <td>Saves space, enhances aesthetics</td>
+            </tr>
+            <tr>
+                <td>Container Gardening</td>
+                <td>Growing in pots or recycled containers</td>
+                <td>Mobility, easy maintenance</td>
+            </tr>
+            <tr>
+                <td>Hydroponics</td>
+                <td>Growing without soil using a nutrient solution</td>
+                <td>Saves water, faster growth</td>
+            </tr>
+        </table>
+        <div class="media">
+            <img src="https://example.com/vertical-garden.jpg" alt="Vertical Garden" onclick="openModal(this.src)">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/hydroponics-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="repurposing-creatively">
+        <h2><i class="fas fa-recycle"></i> Repurposing Creatively: Minimizing Waste and Maximizing Resources</h2>
+        <p>Repurposing materials is key to sustainable urban gardening. Old plastic bottles can be turned into planters or drip irrigation systems. Wooden pallets are perfect for creating vertical gardens or compost bins. Kitchen scraps like vegetable peels can be transformed into rich compost. Used tires can be painted and repurposed as decorative planters. Recycling household water helps irrigate plants efficiently. This practice reduces waste and conserves resources in urban settings.</p>
+        <button class="toggle-table" onclick="toggleTable('materials-table')">Show/Hide Materials</button>
+        <table id="materials-table">
+            <tr>
+                <th>Material</th>
+                <th>How to Use</th>
+                <th>Eco Benefit</th>
+            </tr>
+            <tr>
+                <td>Plastic Bottles</td>
+                <td>Planters or drip irrigation</td>
+                <td>Reduces plastic waste</td>
+            </tr>
+            <tr>
+                <td>Wooden Pallets</td>
+                <td>Vertical gardens or compost bins</td>
+                <td>Recycles wood, saves resources</td>
+            </tr>
+            <tr>
+                <td>Kitchen Scraps</td>
+                <td>Composting for natural fertilizer</td>
+                <td>Reduces organic waste</td>
+            </tr>
+        </table>
+        <div class="media">
+            <img src="https://example.com/recycled-planters.jpg" alt="Recycled Planters" onclick="openModal(this.src)">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/diy-planters-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <h2><i class="fas fa-heart"></i> The Benefits of Urban Gardening: Environmental Conservation and Health Wellness</h2>
+        <p>Urban gardening offers numerous benefits for both the environment and personal health. It reduces the carbon footprint by limiting food transportation. Green spaces improve air quality by absorbing pollutants. Gardening encourages physical activity, enhancing physical and mental well-being. Fresh produce from gardens is nutrient-rich and free from chemicals. It fosters communities that share knowledge and resources. Additionally, urban gardens attract bees and pollinators, supporting biodiversity.</p>
+        <div class="media">
+            <img src="https://example.com/urban-garden-benefits.jpg" alt="Benefits of Gardening" onclick="openModal(this.src)">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/benefits-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2><i class="fas fa-globe"></i> Conclusion: Growing a Greener Future in Urban Settings</h2>
+        <p>Urban gardening is a powerful tool for creating a sustainable future. It teaches us to value nature and use resources wisely. Through small actions, we can make a big difference in urban environments. Gardens inspire people to live more sustainably and care for their health. They transform concrete jungles into green sanctuaries for everyone. Let each of us plant a seed for a greener tomorrow. Together, we can grow a healthier and more eco-friendly world.</p>
+        <div class="media">
+            <img src="https://example.com/green-future.jpg" alt="Green Future" onclick="openModal(this.src)">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/green-future-video" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+<!--    <section id="articles">-->
+<!--        <h2><i class="fas fa-newspaper"></i> Articles on Urban Gardening</h2>-->
+<!--        <div class="article-list">-->
+<!--            <div th:each="article : ${articles}" class="article-preview">-->
+<!--                <h3><a th:href="@{/urban-gardening/article/{id}(id=${article.id})}" th:text="${article.title}"></a></h3>-->
+<!--                <p th:text="${#strings.substring(article.content, 0, #strings.indexOf(article.content, '.', 50) + 1)} + '...'"></p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="pagination">-->
+<!--            <a th:href="@{/urban-gardening(page=${currentPage - 1})}"-->
+<!--               th:classappend="${currentPage == 1} ? 'disabled'"-->
+<!--               href="#"><i class="fas fa-chevron-left"></i></a>-->
+<!--            <a th:each="i : ${#numbers.sequence(1, totalPages)}"-->
+<!--               th:href="@{/urban-gardening(page=${i})}"-->
+<!--               th:text="${i}"-->
+<!--               th:classappend="${i == currentPage} ? 'disabled'"></a>-->
+<!--            <a th:href="@{/urban-gardening(page=${currentPage + 1})}"-->
+<!--               th:classappend="${currentPage == totalPages} ? 'disabled'"-->
+<!--               href="#"><i class="fas fa-chevron-right"></i></a>-->
+<!--        </div>-->
+<!--    </section>-->
+    <section id="articles">
+        <h2><i class="fas fa-newspaper"></i> Articles on Urban Gardening</h2>
+        <div class="article-list" id="article-list"></div>
+        <div class="pagination" id="pagination"></div>
+    </section>
+</div>
+
+<div class="modal" id="image-modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-image" src="">
+</div>
+<!--<script>-->
+<!--    // Toggle Table Visibility-->
+<!--    function toggleTable(tableId) {-->
+<!--        const table = document.getElementById(tableId);-->
+<!--        table.classList.toggle('visible');-->
+<!--    }-->
+
+<!--    // Modal for Images-->
+<!--    function openModal(src) {-->
+<!--        const modal = document.getElementById('image-modal');-->
+<!--        const modalImage = document.getElementById('modal-image');-->
+<!--        modalImage.src = src;-->
+<!--        modal.style.display = 'flex';-->
+<!--    }-->
+
+<!--    function closeModal() {-->
+<!--        const modal = document.getElementById('image-modal');-->
+<!--        modal.style.display = 'none';-->
+<!--    }-->
+
+<!--    // Scroll Animation-->
+<!--    const sections = document.querySelectorAll('section');-->
+<!--    const observer = new IntersectionObserver((entries) => {-->
+<!--        entries.forEach(entry => {-->
+<!--            if (entry.isIntersecting) {-->
+<!--                entry.target.classList.add('visible');-->
+<!--            }-->
+<!--        });-->
+<!--    }, { threshold: 0.2 });-->
+
+<!--    sections.forEach(section => observer.observe(section));-->
+<!--</script>-->
+
+<script>
+    // Toggle Table Visibility
+    function toggleTable(tableId) {
+        const table = document.getElementById(tableId);
+        table.classList.toggle('visible');
+    }
+
+    // Modal for Images
+    function openModal(src) {
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        modalImage.src = src;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('image-modal');
+        modal.style.display = 'none';
+    }
+
+    // Scroll Animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Articles and Pagination
+    const articles = [
+        { id: 1, title: "How to Start an Urban Garden on Your Balcony", content: "Starting an urban garden on your balcony is easy and accessible for everyone. First, choose a sunny spot that gets at least 6 hours of light daily. Use pots or old buckets to plant vegetables like tomatoes and lettuce. Add compost from kitchen scraps for natural fertilizer. Water regularly but avoid overwatering to prevent root damage. Vertical racks can expand space for more plants. Opt for compact varieties suited for small spaces. Balcony gardening not only provides fresh produce but also enhances your home’s aesthetics. It reduces stress and connects you with nature. With a bit of creativity, your balcony can become a green oasis." },
+        { id: 2, title: "Vertical Gardens: A Solution for Small Spaces", content: "Vertical gardens are an ideal solution for urban dwellers with limited space. They utilize walls or trellises to grow plants upward. This technique is perfect for herbs, strawberries, or decorative flowers. You can use old wooden pallets or PVC pipes as a base. Install a drip irrigation system to simplify watering. Vertical gardens improve air quality and reduce noise in the city. They also add beauty to gray urban walls. Ensure you use sturdy structures to support the plants’ weight. Regularly check for pests and keep plants healthy. This method is sustainable and easy to maintain." },
+        { id: 3, title: "Composting in the City: How to Do It Easily", content: "Composting in an urban setting is a simple way to reduce waste and enrich your garden. Collect kitchen scraps like vegetable peels, coffee grounds, and eggshells. Use a small composter suitable for apartments or make one from a bucket. Add dry leaves or paper to balance moisture. Stir the mixture every few days to speed up decomposition. After 2–3 months, you’ll have rich compost for your plants. This process reduces landfill waste and saves money on fertilizers. It also teaches responsible resource management. Composting is a small step toward a more sustainable lifestyle. Start today and see the difference!" },
+        { id: 4, title: "Hydroponics for Urban Gardeners", content: "Hydroponics is an innovative technique for urban gardening without soil. Plants grow in a nutrient solution that provides all necessary elements. This system is ideal for small spaces like kitchens or balconies. You can grow lettuce, spinach, or herbs with minimal effort. Hydroponics saves up to 90% of water compared to traditional gardening. It also speeds up plant growth by up to 30%. Start with a simple hydroponic system or build your own using PVC pipes. Maintain a balance of nutrients in the solution. Regularly check the water’s pH level. Hydroponics is the future of sustainable urban agriculture." },
+        { id: 5, title: "Growing Herbs in an Apartment", content: "Growing herbs in an apartment is an easy way to add freshness to your meals. Basil, mint, and thyme are great for beginners as they grow quickly. Place pots on a windowsill with plenty of sunlight. Water regularly but avoid overwatering to prevent root rot. Use well-drained soil and add compost for better growth. Herbs not only enhance food flavor but also freshen indoor air. They’re easy to maintain and don’t require much space. You can repurpose old jars or cans as pots. This is an eco-friendly way to have fresh spices year-round. Start small and you’ll fall in love with gardening!" },
+        { id: 6, title: "The Benefits of Urban Gardens for Communities", content: "Urban gardens play a vital role in bringing communities together. They unite people of all ages who share knowledge and resources. Collaborative gardening fosters social bonds and reduces isolation. Community gardens often host workshops on sustainable farming. They provide fresh produce to low-income families, improving access to healthy food. Gardens also teach children responsibility and respect for nature. They reduce crime in neighborhoods by creating safe green spaces. Moreover, they attract pollinators, supporting the local ecosystem. Urban gardens are places for learning, sharing, and growth. Join a local garden and be part of the change!" },
+        { id: 7, title: "How to Attract Bees to Your Urban Garden", content: "Attracting bees to your urban garden is essential for pollination and biodiversity. Plant flowers like lavender, sunflowers, and basil that attract bees. Avoid using pesticides that harm pollinators. Leave shallow water with pebbles for bees to drink. Build small ‘bee hotels’ from bamboo or wood for shelter. A variety of plants ensures food throughout the season. Bees help increase yields of fruits and vegetables. They also support the local ecosystem in urban areas. Working with bees teaches patience and respect for nature. With small actions, we can make our gardens a haven for pollinators." },
+        { id: 8, title: "Recycling Water for Urban Gardens", content: "Recycling water is key to sustainable urban gardening. Collect rainwater in barrels or buckets placed under gutters. Use water from rinsing vegetables to irrigate plants. Install a drip irrigation system to conserve water. Filter household gray water for reuse in the garden. This practice reduces water usage and lowers bills. It also eases the burden on city sewage systems. Avoid using water with chemicals that could harm plants. Recycling water is an easy way to be more eco-friendly. Start today and see how much water you can save!" },
+        { id: 9, title: "Seasonal Gardening in the City", content: "Seasonal gardening in the city is a great way to make the most of the climate. Spring is perfect for planting lettuce, spinach, and radishes. In summer, grow tomatoes, cucumbers, and peppers that thrive in heat. Fall is ideal for root vegetables like carrots and beets. Winter can be used for indoor herbs. Planning by season increases yield and reduces the need for chemicals. Use a planting calendar to track the best times. It also teaches you to live in harmony with natural cycles. Seasonal gardening brings joy and fresh produce year-round. Try it and enjoy the results!" }
+    ];
+
+    const articlesPerPage = 3;
+    let currentPage = 1;
+
+    function displayArticles(page) {
+        const start = (page - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        const articleList = document.getElementById('article-list');
+        articleList.innerHTML = '';
+
+        const paginatedArticles = articles.slice(start, end);
+        paginatedArticles.forEach(article => {
+            const articleDiv = document.createElement('div');
+            articleDiv.className = 'article-preview';
+            articleDiv.innerHTML = `
+                    <h3 onclick="window.location.href='article.html?id=${article.id}'">${article.title}</h3>
+                    <p>${article.content.split('. ').slice(0, 2).join('. ')}...</p>
+                `;
+            articleList.appendChild(articleDiv);
+        });
+
+        updatePagination();
+    }
+
+    function updatePagination() {
+        const totalPages = Math.ceil(articles.length / articlesPerPage);
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
+
+        const prevButton = document.createElement('button');
+        prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevButton.disabled = currentPage === 1;
+        prevButton.onclick = () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayArticles(currentPage);
+            }
+        };
+        pagination.appendChild(prevButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            pageButton.disabled = i === currentPage;
+            pageButton.onclick = () => {
+                currentPage = i;
+                displayArticles(currentPage);
+            };
+            pagination.appendChild(pageButton);
+        }
+
+        const nextButton = document.createElement('button');
+        nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.onclick = () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayArticles(currentPage);
+            }
+        };
+        pagination.appendChild(nextButton);
+    }
+
+    displayArticles(currentPage);
+</script>
+
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

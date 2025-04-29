@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 public class AiRecipeController {
 
@@ -35,19 +35,28 @@ private final AiRecipeRepository recipeRepository;
     public List<AiRecipe> getLastFiveRecipes() {
         return recipeRepository.findTop5ByOrderByGeneratedAtDesc();
     }
-    @GetMapping("/ai-recipes")
-    public String showAiRecipesPage(Model model) {
-        List<AiRecipe> recentRecipes = recipeRepository.findTop5ByOrderByGeneratedAtDesc();
-        model.addAttribute("recentRecipes", recentRecipes);
-        return "ai-recipes"; // ai-recipes.html в templates/
-    }
-
+//    @GetMapping("/ai-recipes")
+//    public String showAiRecipesPage(Model model) {
+//        List<AiRecipe> recentRecipes = recipeRepository.findTop5ByOrderByGeneratedAtDesc();
+//        model.addAttribute("recentRecipes", recentRecipes);
+//        return "ai-recipes"; // ai-recipes.html в templates/
+//    }
     @PostMapping("/ai-recipe")
     public Mono<Map<String, String>> generateRecipe(@RequestBody Map<String, String> input) {
         String ingredients = input.get("ingredients");
+        if (ingredients == null || ingredients.trim().isEmpty()) {
+            return Mono.just(Map.of("error", "Моля, въведете продукти за рецептата."));
+        }
         return aiRecipeService.getRecipeSuggestion(ingredients)
                 .map(result -> Map.of("recipe", result));
     }
+
+//    @PostMapping("/ai-recipe")
+//    public Mono<Map<String, String>> generateRecipe(@RequestBody Map<String, String> input) {
+//        String ingredients = input.get("ingredients");
+//        return aiRecipeService.getRecipeSuggestion(ingredients)
+//                .map(result -> Map.of("recipe", result));
+//    }
 //    @PostMapping("/api/ai-recipe")
 //    @ResponseBody
 //    public Map<String, String> generateRecipe(@RequestBody Map<String, String> input) {

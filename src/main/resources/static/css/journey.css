@@ -32,7 +32,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 60vh; /* Увеличаваме височината, за да побере цялата снимка */
+    height: 800px; /* Увеличаваме височината, за да побере цялата снимка */
     min-height: 600px; /* Минимална височина за по-малки екрани */
     display: flex;
     align-items: center;
