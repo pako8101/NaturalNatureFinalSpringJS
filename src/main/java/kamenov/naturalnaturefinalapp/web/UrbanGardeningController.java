@@ -23,36 +23,26 @@ public class UrbanGardeningController {
         this.articleService = articleService;
     }
 
-
-    @GetMapping("/urban-gardening")
-    public String urban(Model model) {
-        model.addAttribute("pageTitle", "Urban Gardening | NatureEthos");
-        return "urban-gardening";
-    }
-
+//
 //    @GetMapping("/urban-gardening")
-//    public String urbanGardening(@RequestParam(defaultValue = "1") int page, Model model) {
-//        int articlesPerPage = 3;
-//        List<ArticleGarden> articles = articleService.getPaginatedArticles(page, articlesPerPage);
-//        long totalArticles = articleService.getTotalArticles(); // Поправка: Използваме getTotalArticles()
-//        int totalPages = (int) Math.ceil((double) totalArticles / articlesPerPage);
-//
-//        model.addAttribute("articles", articles);
-//        model.addAttribute("currentPage", page);
-//        model.addAttribute("totalPages", totalPages);
-//
+//    public String urban(Model model) {
+//        model.addAttribute("pageTitle", "Urban Gardening | NatureEthos");
 //        return "urban-gardening";
 //    }
+//    @GetMapping("/article-garden")
+//    public String showArticle() {
+//        return "article-garden";
+//    }
+@GetMapping("/urban-gardening")
+public String urban(Model model) {
+    model.addAttribute("pageTitle", "Urban Gardening | NatureEthos");
+    return "urban-gardening";
+}
 
-    @GetMapping("/urban-gardening/article{id}")
-    public String viewArticle(@PathVariable Long id, Model model) {
-        Optional<ArticleGarden> article = articleService.getArticleById(id);
-        if (article.isPresent()) {
-            model.addAttribute("article", article.get());
-            return "article-garden";
-        } else {
-            model.addAttribute("error", "Article not found.");
-            return "article-garden";
-        }
+    @GetMapping("/article-garden")
+    public String showArticle(@RequestParam("id") Long id, Model model) {
+        System.out.println("Received request for /article-garden with id: " + id);
+        model.addAttribute("articleId", id);
+        return "article-garden";
     }
 }

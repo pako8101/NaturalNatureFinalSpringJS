@@ -76,7 +76,7 @@ public class SecurityConfig {
                                                 "/urban-gardening/**",
                                                 "/article-garden/**",
                                                 "/admin/add-product",
-                                                "/journey/**",
+                                                "/journey",
                                                 "/waste-management/**",
                                                 "/green-cooking/**",
                                                 "/rec/**",

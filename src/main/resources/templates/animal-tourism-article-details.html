@@ -14,11 +14,28 @@
 
 <main class="article-content">
     <h1 th:text="${article.title}"></h1>
-    <img th:src="${article.image}" alt="Article Image" class="article-image">
+    <img th:src="${article.image}" onclick="openModal(this.src)"
+         alt="Article Image" class="article-image">
     <div th:utext="${article.content}" class="article-text"></div>
     <a th:href="@{/animal-tourism}" class="back-link">Back to Wildlife-friendly travel</a>
 </main>
-
+<div class="modal" id="image-modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-image" src="">
+</div>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
+<script>
+    function openModal(src) {
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        modalImage.src = src;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('image-modal');
+        modal.style.display = 'none';
+    }
+</script>
 </html>

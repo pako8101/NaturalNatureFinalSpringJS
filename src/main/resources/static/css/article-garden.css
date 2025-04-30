@@ -1,72 +1,212 @@
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e6f0da;
-    color: #2f4f2f;
+    background: linear-gradient(rgba(168, 213, 186, 0.8), rgba(168, 213, 186, 0.8)), url('https://www.transparenttextures.com/patterns/green-dust.png');
+    color: #355E3B;
     line-height: 1.6;
+    overflow-x: hidden;
 }
+
 header {
-    background: linear-gradient(45deg, #88b04b, #4a7b3f, #88b04b);
-    background-size: 200% 200%;
-    animation: gradientMove 10s ease infinite;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/urban/background.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 4rem 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/leaf.png');
+    opacity: 0.1;
+    z-index: 0;
 }
+
 header h1 {
     margin: 0;
     font-size: 2.5rem;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    animation: slideIn 1.5s ease-out;
 }
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(-60px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3rem;
 }
-.article {
-    background-color: #fff;
+
+.article-content {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px rgba(53, 94, 59, 0.15);
+    border: 2px solid #A8D5BA;
+    position: relative;
+}
+
+.article-content::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: url('https://www.transparenttextures.com/patterns/leaf.png');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.article-content h2 {
+    color: #355E3B;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 3px solid #F4E3A1;
+    padding-bottom: 0.7rem;
+}
+
+.article-content img {
+    width: 100%;
+    max-width: 600px;
     border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.4s ease;
 }
-.article.visible {
-    opacity: 1;
-    transform: translateY(0);
+
+.article-content img:hover {
+    transform: scale(1.05);
 }
-.article h2 {
-    color: #4a7b3f;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+
+.article-content p {
+    margin: 0.7rem 0;
+    color: #4A704A;
 }
-.article h2 i {
-    color: #88b04b;
-}
-.article p {
-    margin: 0.5rem 0;
-}
-.back-link {
+
+.back-button {
     display: inline-block;
-    margin-top: 1rem;
-    color: #88b04b;
+    background: #8B6F47;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-.back-link:hover {
-    color: #4a7b3f;
+
+.back-button:hover {
+    background: #A8D5BA;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-.back-link i {
-    margin-right: 0.5rem;
+
+.back-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
 }
+
+.back-button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/*body {*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background-color: #e6f0da;*/
+/*    color: #2f4f2f;*/
+/*    line-height: 1.6;*/
+/*}*/
+/*header {*/
+/*    background: linear-gradient(45deg, #88b04b, #4a7b3f, #88b04b);*/
+/*    background-size: 200% 200%;*/
+/*    animation: gradientMove 10s ease infinite;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 2rem;*/
+/*    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);*/
+/*}*/
+/*@keyframes gradientMove {*/
+/*    0% { background-position: 0% 50%; }*/
+/*    50% { background-position: 100% 50%; }*/
+/*    100% { background-position: 0% 50%; }*/
+/*}*/
+/*header h1 {*/
+/*    margin: 0;*/
+/*    font-size: 2.5rem;*/
+/*}*/
+/*.container {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    padding: 2rem;*/
+/*}*/
+/*.article {*/
+/*    background-color: #fff;*/
+/*    border-radius: 15px;*/
+/*    padding: 2rem;*/
+/*    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);*/
+/*    opacity: 0;*/
+/*    transform: translateY(50px);*/
+/*    transition: all 0.8s ease;*/
+/*}*/
+/*.article.visible {*/
+/*    opacity: 1;*/
+/*    transform: translateY(0);*/
+/*}*/
+/*.article h2 {*/
+/*    color: #4a7b3f;*/
+/*    font-size: 1.8rem;*/
+/*    margin-bottom: 1rem;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 0.5rem;*/
+/*}*/
+/*.article h2 i {*/
+/*    color: #88b04b;*/
+/*}*/
+/*.article p {*/
+/*    margin: 0.5rem 0;*/
+/*}*/
+/*.back-link {*/
+/*    display: inline-block;*/
+/*    margin-top: 1rem;*/
+/*    color: #88b04b;*/
+/*    text-decoration: none;*/
+/*    font-weight: bold;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
+/*.back-link:hover {*/
+/*    color: #4a7b3f;*/
+/*}*/
+/*.back-link i {*/
+/*    margin-right: 0.5rem;*/
+/*}*/

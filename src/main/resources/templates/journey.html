@@ -124,7 +124,7 @@
             </span>
         </div>
         <div class="image-container">
-            <img th:src="@{/images/planting.jpeg}" alt="img 1">
+            <img th:src="@{/images/planting.jpeg}" alt="img 1" onclick="openModal(this.src)">
             <img th:src="@{/images/reduce.jpeg}" alt="img 2">
             <img th:src="@{/images/future-1.jpeg}" alt="img 3">
 
@@ -132,7 +132,19 @@
         </div>
     </div>
 </header>
+<script>
+    function openModal(src) {
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        modalImage.src = src;
+        modal.style.display = 'flex';
+    }
 
+    function closeModal() {
+        const modal = document.getElementById('image-modal');
+        modal.style.display = 'none';
+    }
+</script>
 </body>
 <footer th:replace="fragments/footer :: footer"></footer>
 
