@@ -10,7 +10,8 @@ body {
 }
 
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/urban/background.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('/images/packing/background.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 4rem 2rem;
@@ -32,7 +33,8 @@ header::before {
 }
 
 header h1 {
-    margin: 0;
+    margin: 5rem auto 5rem auto;
+    color: lightgoldenrodyellow;
     font-size: 2.5rem;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -81,8 +83,7 @@ header h1 {
 }
 
 .article-content img {
-    width: 50%;
-    height: 50%;
+    width: 100%;
     max-width: 600px;
     border-radius: 15px;
     margin: 1.5rem 0;
@@ -139,77 +140,55 @@ header h1 {
     height: 300px;
 }
 
-/*pagination*/
-
-.article-preview h3 {
-    margin: 0;
-    color: #355E3B;
-    pointer-events: auto;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.article-preview h3:hover {
-    color: #8B6F47;
-}
-
-.article-preview p {
-    margin: 0.7rem 0;
-    color: #4A704A;
-}
-
 .pagination {
     display: flex;
     justify-content: center;
-    gap: 0.7rem;
-    margin: 2.5rem 0;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding: 1rem;
+    background: #E8F5E9;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(53, 94, 59, 0.1);
 }
 
 .pagination button {
-    padding: 0.7rem 1.2rem;
-    background: #355E3B;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    background: #355E3B;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.pagination button i {
+    font-size: 1rem;
 }
 
 .pagination button:hover {
     background: #A8D5BA;
-    transform: scale(1.15);
+    transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .pagination button:disabled {
-    background: #ccc;
+    background: #B0BEC5;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
 }
 
-.pagination button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transition: all 0.5s ease;
-    transform: translate(-50%, -50%);
-}
-
-.pagination button:hover::after {
-    width: 100%;
-    height: 100%;
-}
-.article-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.pagination span {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #355E3B;
+    background: #F4E3A1;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
 }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle != null} ? ${pageTitle} : 'Article Details'">Article Details</title>
+    <link rel="stylesheet" th:href="@{/css/article-packing.css}" />
+<link rel="stylesheet" href="/css/reset-css.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1 id="article-title">Article Details</h1>
+</header>
+
+<div class="container">
+    <div class="article-content" id="article-content">
+        <h2 id="article-heading"></h2>
+        <img id="article-image" src="" alt="Article Image">
+        <p id="article-text"></p>
+        <a href="/packing-light" class="back-button">Back to Packing Light</a>
+    </div>
+
+    <!-- Pagination for Articles -->
+    <div class="pagination">
+        <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+        <span id="page-info"></span>
+        <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+    </div>
+</div>
+
+
+
+<script>
+    const articles = [
+        { id: 1, title: "Packing Light for Long-Term Travel: Essentials for Nomadic Lifestyles", image: "/images/packing/nomadic-lifestyle.jpg", content: "Life as a digital nomad blends remote work with constant travel, requiring a minimalist packing approach. Focus on versatile clothing like organic cotton tees and quick-dry pants that suit various climates. A durable, eco-friendly backpack made from recycled materials keeps your essentials organized. Pack a solar-powered charger to stay connected sustainably while on the move. Reusable items like a stainless steel water bottle and bamboo utensils reduce waste during long journeys. Solid toiletries, such as shampoo bars, save space and eliminate plastic bottles. A packable rain jacket made from recycled polyester protects you without adding bulk. Choose accommodations that support sustainability, like eco-hostels, to align with your nomadic values. Public transport and walking let you explore destinations with a smaller carbon footprint. Packing light ensures you travel freely, focusing on experiences over possessions. This lifestyle teaches you to prioritize what truly matters on the road. Sustainable choices make long-term travel both practical and planet-friendly." },
+        { id: 2, title: "The Art of One-Bag Travel: Simplifying Your Journey for Maximum Freedom", image: "/images/packing/one-bag-travel.jpg", content: "One-bag travel is the ultimate minimalist approach, prioritizing freedom over excess baggage. Pack a single backpack with multi-purpose items like a reversible jacket and mix-and-match clothing. A bamboo toothbrush and solid toiletries keep your hygiene kit compact and eco-friendly. Use a reusable water bottle to stay hydrated without creating waste. Digital tools like e-books and maps reduce the need for heavy physical items. Opt for lightweight, sustainable fabrics like hemp or organic cotton for your wardrobe. A solar-powered charger ensures your devices stay powered without harming the environment. This method simplifies airport navigation, cutting down on fees and stress. Walking or biking to explore destinations becomes easier with less to carry. One-bag travel encourages you to live in the moment, unburdened by unnecessary belongings. It’s a liberating way to experience the world sustainably." },
+        { id: 3, title: "Capsule Wardrobe for Travel: Mixing and Matching for Endless Outfits", image: "/images/packing/capsule-wardrobe.jpg", content: "A travel capsule wardrobe is a curated collection of versatile pieces that create endless outfit combinations. Choose neutral colors like beige, green, and white for easy mixing and matching. Include a few organic cotton tops, a pair of durable pants, and a multi-use scarf. Layering options, like a lightweight cardigan, prepare you for changing weather without overpacking. Sustainable fabrics like bamboo are breathable and quick-drying, perfect for travel. This approach minimizes luggage weight, making your journey more eco-friendly. A capsule wardrobe also reduces laundry needs, saving water and energy on the road. Pack light accessories, like a recycled-material belt, to switch up your look. You’ll feel confident and stylish without the burden of excess clothing. This method proves that packing light can still mean packing smart and sustainably." },
+        { id: 4, title: "The Benefits of Packing Light: Traveling Smarter and More Sustainably", image: "/images/packing/benefits-packing.jpg", content: "Packing light offers both practical and environmental benefits for travelers. It reduces fuel consumption by lightening your load, lowering your carbon footprint. Versatile clothing and reusable items like a stainless steel straw cut down on waste. A smaller bag means less stress at airports and easier mobility on public transport. Eco-friendly toiletries, such as biodegradable soap sheets, support sustainability without taking up space. Packing light encourages you to focus on experiences, not material possessions. It also saves money on baggage fees, leaving more for meaningful adventures. Sustainable choices, like a recycled polyester backpack, ensure durability for future trips. This approach fosters a deeper connection to the places you visit. Traveling smarter through packing light is a win for both you and the planet." },
+        { id: 5, title: "Traveling Smart: How to Reduce Waste by Packing Light", image: "/images/packing/reduce-waste.jpg", content: "Packing light is a powerful way to reduce waste while traveling. Choose reusable essentials like silicone food bags and a bamboo cutlery set to avoid single-use plastics. A lightweight backpack made from recycled materials keeps your load minimal and sustainable. Opt for digital tickets and guides to eliminate paper waste. Versatile clothing reduces the need for excess items, cutting down on laundry waste. Solid shampoo bars and biodegradable toiletries minimize plastic packaging. Packing light also lowers your travel emissions by reducing luggage weight. Support local markets for food and souvenirs, avoiding plastic-heavy tourist shops. These small changes make a big difference in waste reduction. Traveling smart through packing light ensures your adventures leave a positive mark on the planet." },
+        { id: 6, title: "The Eco-Friendly Traveler’s Guide to Minimalist Packing", image: "/images/packing/eco-friendly-guide.jpg", content: "Minimalist packing is the cornerstone of eco-friendly travel, focusing on what you truly need. Start with a sustainable backpack made from hemp or recycled polyester for durability. Pack versatile clothing in earthy tones to create multiple outfits with fewer pieces. Reusable items like a stainless steel water bottle and bamboo utensils reduce waste on the go. Solid toiletries, such as a natural soap bar, save space and eliminate plastic bottles. A solar-powered charger keeps your devices running without environmental harm. Choose eco-friendly accommodations to complement your sustainable packing habits. Walking or using public transport further lowers your carbon footprint. Minimalist packing teaches you to travel with intention, not excess. This guide helps you explore the world while preserving it for future generations." },
+        { id: 7, title: "Sustainable Packing for Urban Adventures: Exploring Cities Lightly", image: "/images/packing/urban-adventures.jpg", content: "Urban adventures call for packing light with a sustainable twist to navigate cities effortlessly. A compact backpack made from recycled materials holds your essentials without weighing you down. Pack versatile outfits, like organic cotton tees and a packable rain jacket, for city exploration. Reusable items, such as a stainless steel water bottle, keep you hydrated without plastic waste. A bamboo utensil set lets you enjoy street food sustainably. Digital maps on your phone save paper and space while guiding you through urban streets. Support local artisans by buying handmade souvenirs instead of mass-produced items. Public transport and walking reduce your environmental impact in bustling cities. Packing light ensures you can move freely through crowded areas with ease. Sustainable urban travel blends practicality with a commitment to the planet." },
+        { id: 8, title: "Packing Light for Nature Getaways: Sustainable Travel in the Wild", image: "/images/packing/nature-getaways.jpg", content: "Packing light for nature getaways ensures you tread lightly on the environment while enjoying the outdoors. Choose a durable backpack made from recycled polyester to carry your essentials. Pack lightweight, sustainable clothing like bamboo shirts and quick-dry pants for hiking. A reusable water bottle and biodegradable soap sheets keep you clean without harming nature. A solar-powered charger powers your devices sustainably in remote areas. Avoid single-use plastics by using silicone containers for snacks on the trail. Follow the “leave no trace” principle, ensuring you don’t disturb wildlife or landscapes. A packable organic cotton towel dries quickly and serves multiple purposes. Packing light lets you immerse yourself in nature without the burden of excess gear. Sustainable choices ensure your nature getaways preserve the wild for future explorers." },
+        { id: 9, title: "Packing Light for Family Travel: Sustainable Tips for All Ages", image: "/images/packing/family-travel.jpg", content: "Packing light for family travel requires smart, sustainable choices to keep everyone happy. Choose a shared eco-friendly backpack made from recycled materials to minimize luggage. Pack versatile clothing for each family member, focusing on mix-and-match pieces in sustainable fabrics. Reusable water bottles and bamboo utensil sets for the family reduce waste on the go. Solid toiletries, like shampoo bars, save space and eliminate plastic bottles for all ages. A solar-powered charger keeps devices powered for kids and adults alike. Packable rain jackets made from recycled polyester protect everyone from unexpected weather. Digital entertainment, like e-books, keeps kids engaged without adding bulk. Support local experiences over material souvenirs to create lasting memories. Packing light ensures family travel is stress-free and sustainable for the planet." }
+    ];
+
+    const articlesPerPage = 1; // Display one article at a time
+    let currentPage = 1;
+
+    // Get the article ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    console.log("Article ID from URL:", articleId);
+
+    // Set the initial page based on the article ID
+    currentPage = articleId;
+
+    function displayArticle(page) {
+        const article = articles.find(a => a.id === page);
+        const articleContentDiv = document.getElementById('article-content');
+
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-heading').textContent = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-text').textContent = article.content;
+        } else {
+            articleContentDiv.innerHTML = '<p>Article not found.</p><a href="/packing-light" class="back-button">Back to Packing Light</a>';
+        }
+
+        // Update pagination
+        document.getElementById('page-info').textContent = `Article ${page} of ${articles.length}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === articles.length;
+
+        // Update URL without reloading the page
+        const newUrl = `/article-packing?id=${page}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticle(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < articles.length) {
+            currentPage++;
+            displayArticle(currentPage);
+        }
+    });
+
+    // Display the initial article
+    displayArticle(currentPage);
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
