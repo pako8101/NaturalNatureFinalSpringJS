@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle != null} ? ${pageTitle} : 'Article Details'">Article Details</title>
+    <link rel="stylesheet" th:href="@{/css/article-national.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1 id="article-title">Article Details</h1>
+</header>
+
+<div class="container">
+    <div class="article-content" id="article-content">
+        <h2 id="article-heading"></h2>
+        <img id="article-image" src="" alt="Article Image">
+        <p id="article-text"></p>
+        <a href="/national-parks" class="back-button">Back to National Parks</a>
+    </div>
+
+    <!-- Pagination for Articles -->
+    <div class="pagination">
+        <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+        <span id="page-info"></span>
+        <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+    </div>
+</div>
+
+
+<script>
+    const articles = [
+        {
+            id: 1,
+            title: "Sustainable Camping in National Parks: Tips for Eco-Friendly Adventures",
+            image: "/images/parks/camping.jpg",
+            content: "Camping sustainably in national parks enhances your adventure while protecting nature. Pack lightweight gear and leave no trace to preserve pristine landscapes. Use reusable cookware to minimize waste, blending seamlessly with the environment. Respect wildlife by avoiding food handouts, letting them thrive naturally. Choose eco-friendly campsites with solar power for a greener stay. Share your sustainable tips to inspire fellow campers. Every mindful choice keeps these parks thriving for future explorers."
+        },
+        {
+            id: 2,
+            title: "Wildlife Encounters: Observing Nature’s Marvels in National Parks",
+            image: "/images/parks/wildlife.jpg",
+            content: "Wildlife encounters in national parks offer a front-row seat to nature’s wonders. Watch majestic deer graze or eagles soar, keeping a respectful distance. Binoculars enhance your experience without disturbing habitats. Learn about local species through ranger-led tours for deeper insight. Avoid feeding animals to maintain their natural behaviors. Capture memories with photos, not interference, preserving their world. These moments fuel your passion for conservation."
+        },
+        {
+            id: 3,
+            title: "Conservation Vacations: Supporting Biodiversity in Protected Areas",
+            image: "/images/parks/conservation.jpeg",
+            content: "Conservation vacations let you protect biodiversity while exploring stunning landscapes. Volunteer to plant trees, directly aiding habitat restoration. Engage with rangers to learn sustainable park management techniques. Support local eco-projects with your visit, boosting conservation funds. Respect trails and wildlife to minimize your footprint. Share your journey to encourage others, creating a ripple effect for nature."
+        },
+        {
+            id: 4,
+            title: "Exploring National Parks and Reserves Globally",
+            image: "/images/parks/global-parks.jpeg",
+            content: "Global national parks are biodiversity havens, from African savannas to Asian jungles. Each reserve teaches visitors about unique ecosystems and conservation needs. Explore diverse landscapes, from mountains to coral reefs, with eco-tours. Support local guides to sustain community livelihoods. Learn global conservation challenges to advocate for change. These parks unite us in preserving Earth’s natural heritage."
+        },
+        {
+            id: 5,
+            title: "Hidden Treasures: Eco-Friendly Adventures in National Parks",
+            image: "/images/parks/hidden-treasures.jpeg",
+            content: "Discover hidden gems in national parks with eco-friendly adventures. Hike lesser-known trails to reduce overcrowding and protect ecosystems. Use biodegradable products to keep streams and forests pure. Join guided eco-tours to uncover secret wildlife spots responsibly. Support park conservation with your visit fees. Share these treasures to promote sustainable exploration worldwide."
+        },
+        {
+            id: 6,
+            title: "Exploring Nature’s Wonders: A Guide to National Parks and Reserves",
+            image: "/images/parks/natures-wonders.jpeg",
+            content: "National parks and reserves are gateways to nature’s wonders, brimming with biodiversity. Guided tours reveal hidden waterfalls and rare species, sparking awe. Practice leave-no-trace principles to protect these fragile areas. Learn about conservation through interactive exhibits at visitor centers. Encourage friends to join, spreading the love for these natural sanctuaries. Your visit helps preserve these wonders for all."
+        },
+        {
+            id: 7,
+            title: "Eco-Restoration Journeys: Reviving National Park Ecosystems",
+            image: "/images/parks/eco-restoration.jpeg",
+            content: "Eco-restoration journeys revive national park ecosystems with hands-on action. Plant native species to restore habitats devastated by past damage. Join ranger-led efforts to reintroduce endangered animals safely. Monitor water quality to support healthy ecosystems. Share success stories to motivate global restoration projects. Every effort rebuilds nature’s resilience beautifully."
+        },
+        {
+            id: 8,
+            title: "Cultural Connections in National Parks: Linking Heritage with Conservation",
+            image: "/images/parks/cultural-connections.jpg",
+            content: "Cultural connections in national parks blend heritage with conservation efforts. Engage with indigenous guides to learn traditional land stewardship. Purchase local crafts to support community sustainability. Participate in cultural festivals that celebrate nature’s role. Respect sacred sites to honor their ecological and historical value. These links strengthen conservation for future generations."
+        },
+        {
+            id: 9,
+            title: "Green Technology in Parks: Innovating for a Sustainable Future",
+            image: "/images/parks/green-tech.jpg",
+            content: "Green technology transforms national parks into sustainable havens. Solar panels power ranger stations, cutting carbon emissions. Smart sensors monitor wildlife to protect habitats efficiently. Water recycling systems preserve scarce resources in dry parks. Support these innovations with eco-friendly visits. Embrace tech to ensure parks thrive for centuries to come."
+        }
+    ];
+
+    const articlesPerPage = 1;
+    let currentPage = 1;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    currentPage = articleId;
+
+    function displayArticle(page) {
+        const article = articles.find(a => a.id === page);
+        const articleContentDiv = document.getElementById('article-content');
+
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-heading').textContent = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-text').textContent = article.content;
+        } else {
+            articleContentDiv.innerHTML = '<p>Article not found.</p><a href="/national-parks" class="back-button">Back to National Parks</a>';
+        }
+
+        document.getElementById('page-info').textContent = `Article ${page} of ${articles.length}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === articles.length;
+
+        const newUrl = `/article-national?id=${page}`;
+        window.history.pushState({path: newUrl}, '', newUrl);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticle(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < articles.length) {
+            currentPage++;
+            displayArticle(currentPage);
+        }
+    });
+
+    displayArticle(currentPage);
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class JourneyController {
@@ -122,37 +123,47 @@ public String getJourneyPage(Model model) {
         return "eco-accommodations";
     }
 
+//    @GetMapping("/national-parks")
+//    @Transactional()
+//    public String getNationalParksPage(Model model) {
+//
+//
+//        model.addAttribute("pageTitle", "The Key Role of National Parks and Reserves");
+//        model.addAttribute("content", "Our planet’s national parks and reserves are like the heartbeats of nature, " +
+//                "essential for keeping our environment healthy. They act as safe havens for a wide variety of plants and animals," +
+//                " protecting endangered species from dangers like habitat loss and poaching.\n" +
+//                "\n" +
+//                "These special places also help to shield wildlife from human activities," +
+//                " giving them space to live freely without interference from cities or industries.\n" +
+//                "When you step into a national park, it feels like traveling back in time to an ancient world untouched by modern life.\n" +
+//                "\n" +
+//                "Here, old forests share stories of their strength, clear streams hold mysteries untold," +
+//                " and powerful predators move through their habitats with grace. " +
+//                "The sights, sounds, and smells all around you awaken a primal connection to nature that reminds us we are just visitors " +
+//                "in this vast web of life.\n" +
+//                "\n" +
+//                "By supporting eco-friendly practices such as proper waste disposal and using sustainable transportation options within these " +
+//                "protected areas, we can ensure that future generations inherit thriving ecosystems full of diverse plant and animal life. " +
+//                "Every choice we make—like switching to reusable water bottles instead of " +
+//                "disposable ones or sticking to marked trails to avoid damaging the soil—has a positive impact on these delicate environments."+
+//                "\n");
+//
+//        model.addAttribute("imagePath", "/images/national-park.jpg");
+//        model.addAttribute("journey", journeyService.getAllJourneys());
+//
+//
+//        return "national-parks";
+//    }
     @GetMapping("/national-parks")
-    @Transactional()
-    public String getNationalParksPage(Model model) {
-
-
-        model.addAttribute("pageTitle", "The Key Role of National Parks and Reserves");
-        model.addAttribute("content", "Our planet’s national parks and reserves are like the heartbeats of nature, " +
-                "essential for keeping our environment healthy. They act as safe havens for a wide variety of plants and animals," +
-                " protecting endangered species from dangers like habitat loss and poaching.\n" +
-                "\n" +
-                "These special places also help to shield wildlife from human activities," +
-                " giving them space to live freely without interference from cities or industries.\n" +
-                "When you step into a national park, it feels like traveling back in time to an ancient world untouched by modern life.\n" +
-                "\n" +
-                "Here, old forests share stories of their strength, clear streams hold mysteries untold," +
-                " and powerful predators move through their habitats with grace. " +
-                "The sights, sounds, and smells all around you awaken a primal connection to nature that reminds us we are just visitors " +
-                "in this vast web of life.\n" +
-                "\n" +
-                "By supporting eco-friendly practices such as proper waste disposal and using sustainable transportation options within these " +
-                "protected areas, we can ensure that future generations inherit thriving ecosystems full of diverse plant and animal life. " +
-                "Every choice we make—like switching to reusable water bottles instead of " +
-                "disposable ones or sticking to marked trails to avoid damaging the soil—has a positive impact on these delicate environments."+
-                "\n");
-
-        model.addAttribute("imagePath", "/images/national-park.jpg");
-        model.addAttribute("journey", journeyService.getAllJourneys());
-
-
+    public String showNationalParks(Model model) {
+        model.addAttribute("pageTitle", "National Parks and Reserves: Guardians of Nature");
         return "national-parks";
     }
 
+    @GetMapping("/article-parks")
+    public String showArticle(@RequestParam("id") Long id, Model model) {
+        model.addAttribute("articleId", id);
+        return "article-national";
+    }
 
 }

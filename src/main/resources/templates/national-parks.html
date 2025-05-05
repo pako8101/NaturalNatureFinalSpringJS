@@ -1,32 +1,442 @@
-<!-- src/main/resources/templates/national-parks.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{fragments/head::head}"></div>
-    <meta charset="UTF-8">
-    <title th:text="${pageTitle} + ' - Nat Ethos'">National Parks and Reserves - Natural Ethos</title>
-    <link rel="stylesheet" th:href="@{/css/nat-park.css}">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<body >
-<div th:replace="~{fragments/preloader :: preloader}"></div>
-<div th:replace="fragments/navbar :: navbar"></div>
-<div class="nat-park">
-<header class="hero">
-    <div class="hero-content">
-        <h1>National Parks and Reserves in Environmental Conservation</h1>
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'National Parks and Reserves: Guardians of Nature'">National Parks
+    and Reserves: Guardians of Nature</title>
+<link rel="stylesheet" th:href="@{/css/nat-park.css}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    </div>
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1>NATIONAL PARKS AND RESERVES: GUARDIANS OF NATURE</h1>
 </header>
 
-<section class="journey-sections">
-    <div class="section-item">
-        <h2 th:text="${pageTitle}">National Parks and Reserves</h2>
-<!--        <img th:src="@{imagePath}" alt="National Parks Image" class="section-image">-->
+<div class="container">
+    <!-- Key Takeaways -->
+    <section class="section">
+        <h2>Key Takeaways</h2>
+        <ul class="takeaways-list">
+            <li>Discover how national parks and reserves serve as vital guardians of biodiversity and natural beauty.
+            </li>
+            <li>Learn practical ways to practice sustainable travel and support conservation efforts during your
+                visits.
+            </li>
+            <li>Understand the role of local communities in fostering a harmonious relationship with protected areas.
+            </li>
+            <li>Explore how eco-friendly initiatives enhance park operations and visitor experiences alike.</li>
+            <li>Empower yourself to contribute to environmental restoration through responsible engagement.</li>
+        </ul>
+    </section>
 
-        <p th:text="${content}">Content</p>
-    </div>
-</section>
+    <!-- Introduction -->
+    <section class="section">
+        <h2>Introduction: The Significance of National Parks and Reserves in Environmental Conservation</h2>
+        <p>National parks and reserves pulse like the lifeblood of our planet, safeguarding its wild essence. They offer
+            sanctuaries where endangered species thrive, shielded from habitat destruction and poaching threats.
+            Stepping into these realms feels like a journey to an ancient, untouched world, where ancient forests
+            whisper tales of resilience. Crystal-clear streams weave mysteries, while majestic predators roam with
+            elegance, rekindling our primal bond with nature. By adopting eco-conscious habits—like using reusable
+            bottles or staying on trails—you help preserve these ecosystems for generations to come. Lace up your hiking
+            boots, grab your binoculars, and become a steward of these sacred lands, championing sustainability hand in
+            hand with Mother Nature.</p>
+        <div class="media-container">
+            <img src="/images/parks/conservation.jpg" alt="Conservation" class="section-image">
+            <iframe src="https://www.youtube.com/embed/sample-video" title="National Parks Guide" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- The Key Role of National Parks -->
+    <section class="section">
+        <h2>The Key Role of National Parks and Reserves in Protecting Biodiversity</h2>
+        <p>National parks and reserves stand as guardians, preserving a rich tapestry of plant and animal life. They
+            provide safe havens where species flourish free from human disruption, ensuring their survival. These areas
+            connect habitats, enabling wildlife to migrate and thrive across ecosystems. By protecting biodiversity,
+            parks sustain vital processes like clean water supply, air purification, and climate regulation. Each park
+            is a unique puzzle piece, supporting the intricate balance of nature’s web. Responsible tourism within these
+            reserves educates visitors, inspiring them to protect this natural heritage for future enjoyment.</p>
+        <div class="media-container">
+            <img src="/images/parks/biodiversity.jpg" alt="Biodiversity" class="section-image">
+        </div>
+    </section>
+
+    <!-- Pros & Cons of Eco-Friendly Park Initiatives -->
+    <section class="section">
+        <h2>The Pros & Cons of Eco-Friendly Park Initiatives</h2>
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Pros</h3>
+                <ul>
+                    <li>Promotes environmental protection and fosters a sustainable lifestyle among visitors.</li>
+                    <li>Safeguards diverse wildlife and preserves pristine natural habitats for future generations.</li>
+                    <li>Reduces carbon footprints through green practices and renewable energy use.</li>
+                    <li>Enhances visitor experiences by deepening their connection to the natural world.</li>
+                    <li>Sets a global example, encouraging community involvement in conservation efforts.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Cons</h3>
+                <ul>
+                    <li>Initial setup costs for eco-friendly projects can strain park budgets.</li>
+                    <li>Ongoing funding is required to maintain sustainable initiatives effectively.</li>
+                    <li>Balancing conservation with visitor satisfaction poses ongoing challenges.</li>
+                    <li>Resistance may arise from those prioritizing profit over environmental care.</li>
+                    <li>Limited resources can hinder the full potential of green projects.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practicing Sustainable Travel -->
+    <section class="section">
+        <h2>Practicing Sustainable Travel in National Parks: Tips for Eco-friendly Explorations</h2>
+        <p>Tired of seeing litter mar the beauty of national parks? You can change that with sustainable travel! Travel
+            light, leaving no trace behind, turning your visit into a mission to preserve nature’s splendor. Resist
+            feeding wildlife—like that charming squirrel eyeing your snacks—to maintain their natural behaviors. Dance
+            lightly along marked trails, avoiding damage to soil and delicate plants, respecting nature’s home. Every
+            piece of trash you pick up or mindful step you take helps protect these treasures for tomorrow’s
+            explorers.</p>
+        <div class="media-container">
+            <iframe src="https://www.youtube.com/embed/another-video" title="Sustainable Travel Tips" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Engaging with Local Communities -->
+    <section class="section">
+        <h2>Engaging with Local Communities: Fostering Conservation Collaboration in Protected Areas</h2>
+        <p>Local communities are the heartbeat of protected areas, their ancestral ties enriching conservation efforts.
+            Partnering with them boosts wildlife protection while enhancing their quality of life. Trust and
+            collaboration, built through inclusive decision-making, create a shared stewardship of nature. Their
+            traditional knowledge blends with modern methods, offering innovative solutions for sustainable land
+            management. When tourists support local businesses or volunteer, they strengthen both conservation and
+            community vitality.</p>
+    </section>
+
+    <!-- Conservation Success: National Parks Impact Metrics -->
+    <section class="section">
+        <h2>Conservation Success: National Parks Impact Metrics</h2>
+        <table class="impact-table">
+            <thead>
+            <tr>
+                <th>National Park</th>
+                <th>Total Visitors (2020)</th>
+                <th>Endangered Species Protected</th>
+                <th>CO2 Emissions Reduced (tons)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Yellowstone</td>
+                <td>3,806,306</td>
+                <td>12</td>
+                <td>15,000</td>
+            </tr>
+            <tr>
+                <td>Yosemite</td>
+                <td>2,268,990</td>
+                <td>8</td>
+                <td>9,500</td>
+            </tr>
+            <tr>
+                <td>Grand Canyon</td>
+                <td>2,897,098</td>
+                <td>10</td>
+                <td>11,200</td>
+            </tr>
+            <tr>
+                <td>Great Smoky Mtns</td>
+                <td>12,095,720</td>
+                <td>15</td>
+                <td>18,500</td>
+            </tr>
+            <tr>
+                <td>Zion</td>
+                <td>3,591,254</td>
+                <td>6</td>
+                <td>7,800</td>
+            </tr>
+            <tr>
+                <td>Rocky Mountain</td>
+                <td>4,672,034</td>
+                <td>9</td>
+                <td>10,700</td>
+            </tr>
+            <tr>
+                <td>Acadia</td>
+                <td>2,669,034</td>
+                <td>5</td>
+                <td>6,400</td>
+            </tr>
+            <tr>
+                <td>Everglades</td>
+                <td>1,235,670</td>
+                <td>7</td>
+                <td>8,300</td>
+            </tr>
+            <tr>
+                <td>Olympic</td>
+                <td>3,432,901</td>
+                <td>11</td>
+                <td>13,600</td>
+            </tr>
+            <tr>
+                <td>Glacier</td>
+                <td>1,013,456</td>
+                <td>4</td>
+                <td>5,200</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Wildlife Conservation Initiatives -->
+    <section class="section">
+        <h2>Wildlife Conservation Initiatives: Safeguarding Endangered Species in Natural Habitats</h2>
+        <p>Embark on a thrilling quest to protect endangered species within natural habitats. Picture elephants roaming
+            freely under the African sun or sea turtles gliding through pristine waters—real scenes worth preserving.
+            Sustainable practices and ethical tourism ensure these species thrive for generations. Join this adventure
+            to defend biodiversity, creating a ripple effect of positive change across the globe. Every action you take
+            supports a harmonious coexistence with nature’s wonders.</p>
+    </section>
+
+    <!-- Preserving Natural Habitats -->
+    <section class="section">
+        <h2>Preserving Natural Habitats: The Importance of Responsible Stewardship in National Parks</h2>
+        <p>Protecting habitats in national parks is crucial for biodiversity and ecosystem health. Responsible
+            stewardship means minimizing waste, respecting wildlife, and promoting sustainable tourism. Dispose of trash
+            properly and observe animals from a distance to preserve their sanctity. Your small efforts, like supporting
+            eco-initiatives, help maintain these natural wonders for future visitors. Each step strengthens the legacy
+            of these pristine landscapes.</p>
+        <div class="media-container">
+            <img src="/images/parks/habitats.jpg" alt="Habitats" class="section-image">
+        </div>
+    </section>
+
+    <!-- Enchanting Tales of Eco Conservation -->
+    <section class="section">
+        <h2>Enchanting Tales of Eco Conservation in Parks</h2>
+        <ul class="eco-tales">
+            <li><strong>Fascinating Stories of Eco Conservation in Parks</strong><br>
+                <span><strong>The Tree Whisperer’s Tale:</strong> Yellowstone’s mystical tree shares ancient wisdom, inspiring sustainable living among visitors.</span><br>
+                <span><strong>Guardians of Glacier Bay Legends:</strong> Mythical sea creatures guide eco-conscious habits, rewarding mindful explorers.</span><br>
+                <span><strong>Hoh Rainforest’s Ghostly Whispers:</strong> Spirits of lost trees urge conservation, protecting Olympic’s old-growth forests.</span><br>
+                <span><strong>Coral Reef’s Melodic Symphony:</strong> Biscayne’s reefs sing of biodiversity, reminding us to act responsibly.</span><br>
+                <span><strong>Fireflies’ Enchanting Performance:</strong> Great Smoky’s fireflies signal the need for sustainable ecosystem care.</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Educational Programs -->
+    <section class="section">
+        <h2>Educational Programs in National Parks: Inspiring Awareness and Environmental Consciousness</h2>
+        <p>National parks offer engaging programs that awaken environmental awareness for all ages. Interactive
+            workshops and guided tours reveal the secrets of biodiversity and conservation. These experiences foster a
+            deep appreciation for ecosystems, empowering visitors to act sustainably. Learning about wildlife habitats
+            inspires a lifelong commitment to nature’s protection. Join these programs to become an advocate for our
+            planet’s future.</p>
+    </section>
+
+    <!-- Green Initiatives and Eco-friendly Practices -->
+    <section class="section">
+        <h2>Green Initiatives and Eco-friendly Practices: Promoting Sustainability Within Park Operations</h2>
+        <p>Imagine parks where every step celebrates nature’s beauty with zero harm. Reusable water bottles and
+            recycling bins become heroes of waste management in this vision. Choosing eco-friendly transport and
+            respecting wildlife distances maintain ecological balance. Park rangers lead with sustainable practices,
+            like energy-efficient buildings and water conservation. Supporting local communities and innovating with
+            solar power ensure a thriving, green future for these sanctuaries.</p>
+    </section>
+
+    <!-- Conservation Projects in Action -->
+    <section class="section">
+        <h2>Conservation Projects in Action: Success Stories of Environmental Restoration in National Parks</h2>
+        <p>Visualize a silent forest reborn with birdsong and rustling leaves through conservation triumphs. These
+            projects restore habitats, revive native species, and showcase nature’s resilience. Sustainable methods
+            rebuild ecosystems, offering hope for global restoration. From recovering wildlife populations to
+            revitalizing landscapes, these stories inspire action. Celebrate these successes as beacons for a healthier
+            planet.</p>
+    </section>
+
+    <!-- Inclusive Tourism Approaches -->
+    <section class="section">
+        <h2>Inclusive Tourism Approaches: Balancing Visitor Experience with Nature Conservation in Parks and
+            Reserves</h2>
+        <p>Inclusive tourism blends enjoyment with conservation, welcoming all to cherish nature. Deep connections with
+            the environment teach visitors to protect these habitats. Supporting local communities and eco-practices
+            enhance biodiversity while enriching experiences. Diverse engagement fosters responsibility, turning parks
+            into educational hubs. Collaborative efforts ensure a balance between enjoyment and preservation.</p>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+        <h2>Conclusion: Advancing Towards a Greener Future Through Ethical Engagement in National Parks</h2>
+        <p>Walk through lush forests, hearing birds and feeling the breeze, and commit to their preservation. Choosing
+            eco-friendly stays and guided tours supports conservation and biodiversity. Your actions today shape stories
+            of success for future generations. Every reusable bottle or volunteer hour builds a sustainable legacy.
+            Embrace this ethical path to ensure harmony between humanity and wilderness thrives.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <h3>1. How can visitors minimize their environmental impact when exploring national parks?</h3>
+                <p>Stick to trails, dispose of trash properly, and keep a safe distance from wildlife.</p>
+            </div>
+            <div class="faq-item">
+                <h3>2. What are some eco-friendly accommodation options within national park boundaries?</h3>
+                <p>Opt for sustainable lodges, eco-lodges, glamping sites, or off-grid cabins.</p>
+            </div>
+            <div class="faq-item">
+                <h3>3. Are there any volunteer programs available for individuals interested in conservation efforts in
+                    national parks?</h3>
+                <p>Yes, parks offer programs to help protect environments and wildlife.</p>
+            </div>
+            <div class="faq-item">
+                <h3>4. What initiatives are national parks implementing to promote sustainability and wildlife
+                    protection?</h3>
+                <p>Parks focus on sustainable tourism, habitat restoration, and wildlife safeguards.</p>
+            </div>
+            <div class="faq-item">
+                <h3>5. How can tourists support local communities while visiting national parks responsibly?</h3>
+                <p>Buy local goods, support businesses, and engage in cultural exchanges.</p>
+            </div>
+            <div class="faq-item">
+                <h3>6. What are some tips for reducing waste and plastic usage during a visit to a national park?</h3>
+                <p>Bring reusable bottles, use washable containers, and choose bamboo utensils.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section with Pagination -->
+    <section class="section articles-section">
+        <h2>Explore More on National Parks</h2>
+        <div id="articles-container"></div>
+        <div class="pagination">
+            <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+            <span id="page-info"></span>
+            <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+        </div>
+    </section>
 </div>
 
-</body>
+<script>
+    const articles = [
+        {
+            id: 1,
+            title: "Sustainable Camping in National Parks: Tips for Eco-Friendly Adventures",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Sustainable camping preserves the soul of national parks for all to enjoy. Pack light and leave no trace, turning your trip into a green mission."
+        },
+        {
+            id: 2,
+            title: "Wildlife Encounters: Observing Nature’s Marvels in National Parks",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Wildlife encounters in national parks offer a window into nature’s wonders. Watch elephants roam or birds soar, respecting their space from a distance."
+        },
+        {
+            id: 3,
+            title: "Conservation Vacations: Supporting Biodiversity in Protected Areas",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Conservation vacations blend travel with purpose, aiding biodiversity in parks. Volunteer to plant trees, directly supporting habitat restoration."
+        },
+        {
+            id: 4,
+            title: "Exploring National Parks and Reserves Globally",
+            date: "December 9, 2023",
+            author: "Sanela Isakov",
+            summary: "Global national parks are treasures of beauty and biodiversity. Visit diverse ecosystems, from African savannas to Asian rainforests, to appreciate nature’s variety."
+        },
+        {
+            id: 5,
+            title: "Hidden Treasures: Eco-Friendly Adventures in National Parks",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Discover hidden gems within national park systems through eco-adventures. Hike lesser-known trails to reduce overcrowding in popular areas."
+        },
+        {
+            id: 6,
+            title: "Exploring Nature’s Wonders: A Guide to National Parks and Reserves",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "This guide unlocks the wonders of national parks and reserves worldwide. Explore untouched landscapes to witness biodiversity in action."
+        },
+        {
+            id: 7,
+            title: "Eco-Trails: Sustainable Hiking in National Parks",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Eco-trails offer sustainable hiking experiences in national parks. Stick to marked paths to prevent soil erosion and plant damage."
+        },
+        {
+            id: 8,
+            title: "Wildlife Photography Ethics: Capturing Nature in National Parks",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Ethical wildlife photography respects nature in national parks. Use telephoto lenses to capture animals without intrusion."
+        },
+        {
+            id: 9,
+            title: "Community Conservation: Local Efforts in National Parks",
+            date: "April 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Community conservation strengthens national parks through local action. Organize tree-planting events with neighbors to restore habitats."
+        }
+    ];
+
+    const articlesPerPage = 3;
+    let currentPage = 1;
+
+    function displayArticles(page) {
+        const start = (page - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        const paginatedArticles = articles.slice(start, end);
+
+        const container = document.getElementById('articles-container');
+        container.innerHTML = '';
+
+        paginatedArticles.forEach(article => {
+            const articleDiv = document.createElement('div');
+            articleDiv.className = 'article';
+            articleDiv.innerHTML = `
+                <h3><a href="/article-parks?id=${article.id}">${article.title}</a></h3>
+                <p><strong>${article.date}</strong> by ${article.author}</p>
+                <p>${article.summary}</p>
+            `;
+            container.appendChild(articleDiv);
+        });
+
+        document.getElementById('page-info').textContent = `Page ${page} of ${Math.ceil(articles.length / articlesPerPage)}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === Math.ceil(articles.length / articlesPerPage);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticles(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
+            currentPage++;
+            displayArticles(currentPage);
+        }
+    });
+
+    displayArticles(currentPage);
+</script>
+
 <footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>
