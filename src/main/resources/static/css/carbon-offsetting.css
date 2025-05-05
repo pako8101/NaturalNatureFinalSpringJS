@@ -1,0 +1,242 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.3)), url('https://www.transparenttextures.com/patterns/leaf.png');
+    color: #795548;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/carbon/background.jpg') no-repeat center center/cover;
+    color: #FFC107;
+    text-align: center;
+    padding: 4rem 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 6px rgba(255, 87, 34, 0.5);
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.section {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(121, 85, 72, 0.1);
+    border: 2px solid #4CAF50;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+    color: #FF5722;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #FFC107;
+    padding-bottom: 0.5rem;
+}
+
+.section p {
+    color: #4CAF50;
+    margin: 0.5rem 0;
+}
+
+.takeaways-list, .eco-tales {
+    list-style: none;
+    padding: 0;
+}
+
+.takeaways-list li, .eco-tales li {
+    background: rgba(255, 87, 34, 0.1);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.takeaways-list li:hover, .eco-tales li:hover {
+    transform: scale(1.02);
+}
+
+.pros-cons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.pros, .cons {
+    flex: 1;
+    background: rgba(255, 193, 7, 0.1);
+    padding: 1.2rem;
+    border-radius: 10px;
+}
+
+.pros h3, .cons h3 {
+    color: #FF5722;
+    margin-bottom: 0.8rem;
+}
+
+.pros ul, .cons ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pros ul li, .cons ul li {
+    margin: 0.4rem 0;
+}
+
+.offset-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: #E0E0E0;
+}
+
+.offset-table th, .offset-table td {
+    padding: 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid #4CAF50;
+}
+
+.offset-table th {
+    background: #FF5722;
+    color: white;
+}
+
+.offset-table tr:nth-child(even) {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.faq-item {
+    background: rgba(255, 193, 7, 0.1);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateX(8px);
+}
+
+.faq-item h3 {
+    color: #FF5722;
+    margin-bottom: 0.5rem;
+}
+
+.media-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.section-image, .media-container iframe {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.section-image:hover, .media-container iframe:hover {
+    transform: scale(1.03);
+}
+
+.articles-section .article {
+    background: rgba(76, 175, 80, 0.1);
+    padding: 1.2rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.articles-section .article:hover {
+    transform: translateY(-5px);
+}
+
+.articles-section .article h3 {
+    color: #FF5722;
+    margin-bottom: 0.5rem;
+}
+
+.articles-section .article p {
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 193, 7, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(121, 85, 72, 0.1);
+}
+
+.pagination button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #4CAF50;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.pagination button i {
+    font-size: 1rem;
+}
+
+.pagination button:hover {
+    background: #FF5722;
+    transform: translateY(-3px);
+}
+
+.pagination button:disabled {
+    background: #B0BEC5;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #795548;
+    background: rgba(255, 87, 34, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+}

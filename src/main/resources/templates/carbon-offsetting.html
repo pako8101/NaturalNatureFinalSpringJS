@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'Carbon Offsetting: A Guide to Green Living'">Carbon Offsetting: A
+    Guide to Green Living</title>
+<link rel="stylesheet" th:href="@{/css/carbon-offsetting.css}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1>CARBON OFFSETTING: A GUIDE TO GREEN LIVING</h1>
+</header>
+
+<div class="container">
+    <!-- Key Takeaways -->
+    <section class="section">
+        <h2>Key Takeaways</h2>
+        <ul class="takeaways-list">
+            <li>Embrace carbon offsetting to transform your daily habits into powerful tools for reducing greenhouse gas
+                emissions.
+            </li>
+            <li>Discover how sustainable living choices, like renewable energy adoption, can balance your carbon
+                footprint effortlessly.
+            </li>
+            <li>Learn to calculate your environmental impact and take actionable steps toward a greener lifestyle
+                today.
+            </li>
+            <li>Small changes, such as supporting reforestation projects, create a ripple effect for a healthier
+                planet.
+            </li>
+            <li>Empower yourself to lead the charge in combating climate change with every eco-friendly decision you
+                make.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <h2>Introduction: Green Living and Carbon Footprint Offset</h2>
+        <p>Living sustainably is no longer a choice—it’s a vital mission in our fast-evolving world. Your carbon
+            footprint mirrors the environmental echo of every action, from driving to dining, following you like a
+            persistent shadow. The exciting part? Simple shifts in your routine can shrink that shadow, paving the way
+            for a lighter ecological touch. Imagine swapping heavy carbon boots for sleek, eco-friendly shoes, stepping
+            confidently toward a sustainable future. Balancing your emissions is like cultivating a personal forest of
+            change, where each tree—whether from biking or composting—restores harmony between humanity and nature.
+            Start this journey now, and let every green choice inspire a brighter tomorrow for our planet.</p>
+        <div class="media-container">
+            <img src="/images/carbon/green-living.jpg" alt="Green Living" class="section-image">
+            <iframe src="https://www.youtube.com/embed/iwQ9msRDbgU" title="Green Living Guide" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Why Sustainability Matters -->
+    <section class="section">
+        <h2>Why Sustainability Matters: Impact of Carbon Footprint</h2>
+        <p>Sustainability is our pledge to safeguard the Earth for generations yet to come. Reducing your carbon
+            footprint directly combats climate change, preserving air quality and biodiversity. Every commute choice or
+            purchase decision shapes the world’s future, making mindful actions essential. This isn’t just a
+            buzzword—it’s a lifeline for a thriving planet where all life flourishes. By prioritizing eco-friendly
+            habits today, you gift a cleaner, greener legacy to your children. Let’s unite in this cause, ensuring
+            nature’s beauty endures for years ahead.</p>
+        <div class="media-container">
+            <img src="/images/carbon/sustainability-impact.jpg" alt="Sustainability Impact" class="section-image">
+        </div>
+    </section>
+
+    <!-- Pros & Cons of Carbon Offsetting -->
+    <section class="section">
+        <h2>The Pros & Cons of Carbon Offsetting</h2>
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Pros</h3>
+                <ul>
+                    <li>Actively reduces greenhouse gases, strengthening the fight against global warming.</li>
+                    <li>Fuels renewable energy projects, driving sustainable development worldwide.</li>
+                    <li>Raises awareness, inspiring communities to prioritize environmental conservation.</li>
+                    <li>Encourages accountability, empowering individuals and businesses to own their emissions.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Cons</h3>
+                <ul>
+                    <li>Some offset projects may overpromise environmental benefits, risking credibility.</li>
+                    <li>Can be seen as a shortcut, avoiding the need for direct emission cuts.</li>
+                    <li>Effectiveness in long-term climate goals remains under debate among experts.</li>
+                    <li>Lack of uniform standards can cast doubt on the reliability of offset initiatives.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Understanding Your Carbon Footprint -->
+    <section class="section">
+        <h2>Understanding Your Carbon Footprint: Calculating Your Impact</h2>
+        <p>Calculating your carbon footprint is like embarking on an eco-detective adventure, revealing the hidden
+            impact of your lifestyle. It’s not about guilt—it’s about empowerment through knowledge of your daily
+            choices. Think of it as mapping your environmental trail, where every mile driven or meal eaten adds to the
+            story. Online tools simplify this process, turning complex data into actionable insights, much like decoding
+            a nature puzzle. Dive in with curiosity, and let each calculation guide you toward a more sustainable
+            path.</p>
+        <div class="media-container">
+            <iframe src="https://www.youtube.com/embed/Flo-4KaY9XY" title="Carbon Footprint Calculator"
+                    frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Carbon Offsetting Explained -->
+    <section class="section">
+        <h2>Carbon Offsetting Explained: Balancing Emissions with Positive Actions</h2>
+        <p>Carbon offsetting acts as a bridge, connecting your emissions to positive global change. By funding projects
+            like reforestation or methane capture, you neutralize your carbon trail with every contribution. Picture it
+            as a gift to Earth, countering the CO2 you leave behind on your journeys. It’s not a free pass to pollute
+            but a complement to reducing your footprint first. Think of it as planting seeds of hope, growing a
+            sustainable legacy for future generations to enjoy.</p>
+    </section>
+
+    <!-- Carbon Offset Impact Comparison by Method -->
+    <section class="section">
+        <h2>Carbon Offset Impact Comparison by Method</h2>
+        <table class="offset-table">
+            <thead>
+            <tr>
+                <th>Method</th>
+                <th>Cost per ton (USD)</th>
+                <th>CO2 Reduction per ton (metric tons)</th>
+                <th>Project Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Renewable Energy</td>
+                <td>$10</td>
+                <td>1</td>
+                <td>Wind Farm</td>
+            </tr>
+            <tr>
+                <td>Reforestation</td>
+                <td>$15</td>
+                <td>2</td>
+                <td>Forest Protection</td>
+            </tr>
+            <tr>
+                <td>Methane Capture</td>
+                <td>$20</td>
+                <td>3</td>
+                <td>Landfill Gas Collection</td>
+            </tr>
+            <tr>
+                <td>Energy Efficiency</td>
+                <td>$12</td>
+                <td>1.5</td>
+                <td>Building Retrofit</td>
+            </tr>
+            <tr>
+                <td>Ocean Sequestration</td>
+                <td>$25</td>
+                <td>2.5</td>
+                <td>Marine Conservation</td>
+            </tr>
+            <tr>
+                <td>Solar Energy</td>
+                <td>$18</td>
+                <td>1.8</td>
+                <td>Solar Farm</td>
+            </tr>
+            <tr>
+                <td>Biomass Conversion</td>
+                <td>$22</td>
+                <td>2.2</td>
+                <td>Sustainable Agriculture</td>
+            </tr>
+            <tr>
+                <td>Carbon Farming</td>
+                <td>$17</td>
+                <td>1.7</td>
+                <td>Soil Regeneration</td>
+            </tr>
+            <tr>
+                <td>Blue Carbon</td>
+                <td>$30</td>
+                <td>3.0</td>
+                <td>Mangrove Restoration</td>
+            </tr>
+            <tr>
+                <td>Urban Forestry</td>
+                <td>$14</td>
+                <td>1.4</td>
+                <td>City Tree Planting</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Practical Tips for Eco-friendly Habits -->
+    <section class="section">
+        <h2>Practical Tips for Eco-friendly Habits: Small Changes, Big Impact</h2>
+        <p>Small shifts in your routine can spark a green revolution for the planet. Ditch single-use plastics for
+            reusable bags, reducing waste with every shop. Embrace plant-based meals, like meatless Mondays, to lower
+            your dietary carbon footprint. Turn off unused lights and unplug devices to conserve energy effortlessly.
+            Shop at local farmers' markets to cut the carbon cost of imported goods. Each action builds a stronger,
+            healthier Earth for everyone to enjoy.</p>
+    </section>
+
+    <!-- Transitioning to Renewable Energy -->
+    <section class="section">
+        <h2>Transitioning to Renewable Energy: Harnessing the Power of Sustainable Sources</h2>
+        <p>Switching to renewable energy is like upgrading your life to a greener tune. Solar panels and wind turbines
+            harness nature’s power, cutting carbon emissions with style. This move fights climate change, securing a
+            vibrant planet for our kids. Imagine every home glowing with solar energy, reducing reliance on fossil
+            fuels. Start with an energy audit to spot savings, like swapping bulbs for LEDs, and watch your impact
+            shrink.</p>
+        <div class="media-container">
+            <img src="/images/carbon/renewable-energy.jpg" alt="Renewable Energy" class="section-image">
+        </div>
+    </section>
+
+    <!-- Green Tales and Eco Fables -->
+    <section class="section">
+        <h2>Green Tales and Eco Fables: Carbon Offsetting Unveiled</h2>
+        <ul class="eco-tales">
+            <li><strong>Unveiling the Mystery of Carbon Offsetting: A Green Adventure</strong><br>
+                <span><strong>Did You Know:</strong> Carbon offsetting reduces emissions by funding tree planting and renewable energy projects.</span><br>
+                <span><strong>Don’t Be Fooled:</strong> It’s not a license to pollute—pair it with reductions for real impact.</span><br>
+                <span><strong>Discover More:</strong> Use carbon calculators to track and offset your footprint smartly.</span><br>
+                <span><strong>Busting Myths:</strong> It’s not a solo fix, but with cuts, it boosts climate action.</span><br>
+                <span><strong>Exploring Beyond:</strong> Projects uplift communities and wildlife, amplifying your green efforts.</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Sustainable Transportation Choices -->
+    <section class="section">
+        <h2>Sustainable Transportation Choices: Reducing Emissions on the Move</h2>
+        <p>Opting for sustainable transport cuts emissions and boosts your health. Bike or walk short trips to shrink
+            your carbon trail naturally. Carpool or take public transit to share the load on the planet. Switch to an
+            electric vehicle for a cleaner ride when needed. These choices weave a greener future, one journey at a
+            time.</p>
+    </section>
+
+    <!-- Embracing a Green Diet -->
+    <section class="section">
+        <h2>Embracing a Green Diet: Plant-based Nutrition for the Planet</h2>
+        <p>A plant-based diet is a tasty step toward a healthier Earth. Fill your plate with fruits, veggies, and grains
+            to cut farming emissions. Locally grown organic produce reduces transport carbon costs. Seasonal eating
+            aligns you with nature, supporting biodiversity and curbing deforestation. Enjoy this shift as a delicious
+            way to nurture the planet.</p>
+    </section>
+
+    <!-- Sustainable Fashion -->
+    <section class="section">
+        <h2>Sustainable Fashion: Making Ethical Choices for a Stylish and Eco-friendly Wardrobe</h2>
+        <p>Sustainable fashion turns your closet into an eco-statement. Choose organic cotton tees or recycled jackets
+            to wear your values proudly. Every ethical garment supports fair wages and reduces industry waste. Shop with
+            intent, picking pieces that blend style with planet care, redefining beauty sustainably.</p>
+    </section>
+
+    <!-- Engaging in Community Sustainability -->
+    <section class="section">
+        <h2>Engaging in Community Sustainability: Collective Action for a Greener Future</h2>
+        <p>Community sustainability thrives on teamwork, like a garden growing together. Start a local clean-up or
+            composting project with neighbors. United efforts turn small actions into waves of change, influencing
+            policy and inspiring others. Partner with businesses for green initiatives, building bonds and a sustainable
+            tomorrow.</p>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+        <h2>Conclusion: Empowering Sustainable Living Through Carbon Footprint Offset</h2>
+        <p>Every green choice is a seed for a sustainable world. Support reforestation or renewable energy to offset
+            your carbon impact. Like drops filling a bucket, these actions build a legacy of care. Take charge today,
+            leaving handprints of hope for future generations to cherish.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <h3>1. What are some practical ways to reduce my carbon footprint in daily life?</h3>
+                <p>Use reusable bags, eat less meat, and opt for public transport to lower your impact.</p>
+            </div>
+            <div class="faq-item">
+                <h3>2. How can offsetting carbon emissions contribute to a more sustainable future?</h3>
+                <p>It balances emissions with projects that cut or capture carbon, aiding global sustainability.</p>
+            </div>
+            <div class="faq-item">
+                <h3>3. Are there any easy-to-implement strategies for living a more eco-friendly lifestyle?</h3>
+                <p>Yes, swap plastics for reusables, save water, and choose green transport options.</p>
+            </div>
+            <div class="faq-item">
+                <h3>4. What role does individual action play in combating climate change through carbon offsetting?</h3>
+                <p>Individual offsets and reductions amplify global efforts against climate change.</p>
+            </div>
+            <div class="faq-item">
+                <h3>5. Can you provide tips on how to calculate and offset my personal carbon footprint?</h3>
+                <p>Track energy use, travel, and waste with tools, then support trees or renewable projects.</p>
+            </div>
+            <div class="faq-item">
+                <h3>6. How do small changes in habits and choices impact the environment positively?</h3>
+                <p>Reducing plastics and choosing eco-transport lessen waste and emissions, healing the planet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section with Pagination -->
+    <section class="section articles-section">
+        <h2>Explore More on Carbon Offsetting</h2>
+        <div id="articles-container"></div>
+        <div class="pagination">
+            <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+            <span id="page-info"></span>
+            <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+        </div>
+    </section>
+</div>
+
+
+<script>
+    const articles = [
+        {
+            id: 1,
+            title: "Innovations in Carbon Offset Technologies: Pioneering a Greener Tomorrow",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "New carbon offset technologies are revolutionizing the fight against climate change. Innovations like carbon capture systems trap emissions at the source, offering hope for cleaner air."
+        },
+        {
+            id: 2,
+            title: "The Future of Carbon Offsetting in Travel: Trends and Challenges",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Carbon offsetting in travel is evolving with exciting trends and hurdles. Airlines now offer offset options at booking, making green travel accessible."
+        },
+        {
+            id: 3,
+            title: "Offsetting Air Travel Emissions: Strategies for Responsible Flyers",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Air travel emits significant carbon, but responsible flyers can offset it. Calculate your flight’s carbon cost using online tools for accuracy."
+        },
+        {
+            id: 4,
+            title: "Supporting Renewable Energy: Carbon Offsetting and Green Power Projects",
+            date: "December 9, 2023",
+            author: "Nina Jerkovic",
+            summary: "Renewable energy projects are key to carbon offsetting success. Wind farms harness nature’s power, cutting emissions with every turn."
+        },
+        {
+            id: 5,
+            title: "How to Offset Your Travel Carbon: Practical Steps for Eco-Friendly Journeys",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Offsetting travel carbon starts with understanding your footprint. Use online calculators to measure emissions from flights and drives."
+        },
+        {
+            id: 6,
+            title: "Carbon Offsetting Explained: Balancing Travel Emissions with Conservation",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Carbon offsetting balances travel emissions through conservation efforts. Reforestation projects absorb CO2, countering your flight’s impact."
+        },
+        {
+            id: 7,
+            title: "Carbon Offsetting for Business Travel: Corporate Sustainability Strategies",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Business travel can go green with carbon offsetting. Companies can fund wind farms to offset corporate flights."
+        },
+        {
+            id: 8,
+            title: "Community-Driven Carbon Offsetting: Local Solutions for Global Impact",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Communities lead carbon offsetting with local action. Neighborhood tree-planting days absorb CO2 collectively."
+        },
+        {
+            id: 9,
+            title: "The Role of Technology in Carbon Offsetting: Smart Solutions for a Green World",
+            date: "March 9, 2025",
+            author: "Plamen Kamenov",
+            summary: "Technology drives carbon offsetting with smart innovations. AI optimizes renewable energy use, maximizing emission cuts."
+        }
+    ];
+
+    const articlesPerPage = 3;
+    let currentPage = 1;
+
+    function displayArticles(page) {
+        const start = (page - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        const paginatedArticles = articles.slice(start, end);
+
+        const container = document.getElementById('articles-container');
+        container.innerHTML = '';
+
+        paginatedArticles.forEach(article => {
+            const articleDiv = document.createElement('div');
+            articleDiv.className = 'article';
+            articleDiv.innerHTML = `
+                <h3><a href="/article-carbon?id=${article.id}">${article.title}</a></h3>
+                <p><strong>${article.date}</strong> by ${article.author}</p>
+                <p>${article.summary}</p>
+            `;
+            container.appendChild(articleDiv);
+        });
+
+        document.getElementById('page-info').textContent = `Page ${page} of ${Math.ceil(articles.length / articlesPerPage)}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === Math.ceil(articles.length / articlesPerPage);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticles(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
+            currentPage++;
+            displayArticles(currentPage);
+        }
+    });
+
+    displayArticles(currentPage);
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

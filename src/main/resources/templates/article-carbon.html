@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'Article Details'">Article Details</title>
+<link rel="stylesheet" th:href="@{/css/article-carbon.css}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1 id="article-title">Article Details</h1>
+</header>
+
+<div class="container">
+    <div class="article-content" id="article-content">
+        <h2 id="article-heading"></h2>
+        <img id="article-image" src="" alt="Article Image">
+        <p id="article-text"></p>
+        <a href="/carbon-offsetting" class="back-button">Back to Carbon Offsetting</a>
+    </div>
+
+    <!-- Pagination for Articles -->
+    <div class="pagination">
+        <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+        <span id="page-info"></span>
+        <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+    </div>
+</div>
+
+
+<script>
+    const articles = [
+        {
+            id: 1,
+            title: "Innovations in Carbon Offset Technologies: Pioneering a Greener Tomorrow",
+            image: "/images/carbon/innovations.jpg",
+            content: "New carbon offset technologies are revolutionizing the fight against climate change. Innovations like carbon capture systems trap emissions at the source, offering hope for cleaner air. Solar-powered solutions power communities while slashing carbon footprints globally. These advancements create jobs, fueling a green economy with every project. Reforestation drones plant thousands of trees, accelerating nature’s recovery. Partnering with tech pioneers lets you offset travel emissions effortlessly. Each innovation builds a bridge to a sustainable future, inspiring global action. Start exploring these tools to amplify your eco-impact today."
+        },
+        {
+            id: 2,
+            title: "The Future of Carbon Offsetting in Travel: Trends and Challenges",
+            image: "/images/carbon/future-travel.jpg",
+            content: "Carbon offsetting in travel is evolving with exciting trends and hurdles. Airlines now offer offset options at booking, making green travel accessible. Challenges like verifying project impact test the industry’s credibility. Emerging tech, like blockchain, ensures transparent offset tracking. Travelers demand sustainable options, pushing companies to innovate. Balancing cost and effectiveness remains a key challenge to overcome. Embrace these trends to travel responsibly, shaping a greener aviation future."
+        },
+        {
+            id: 3,
+            title: "Offsetting Air Travel Emissions: Strategies for Responsible Flyers",
+            image: "/images/carbon/air-travel.jpg",
+            content: "Air travel emits significant carbon, but responsible flyers can offset it. Calculate your flight’s carbon cost using online tools for accuracy. Support reforestation projects to absorb CO2 from your journey. Choose airlines with renewable fuel initiatives for a greener flight. Pack light to reduce fuel needs, adding to your offset efforts. Educate yourself on offset programs to pick the best fit. Every flight can be a step toward sustainability with these strategies."
+        },
+        {
+            id: 4,
+            title: "Supporting Renewable Energy: Carbon Offsetting and Green Power Projects",
+            image: "/images/carbon/renewable-energy.jpg",
+            content: "Renewable energy projects are key to carbon offsetting success. Wind farms harness nature’s power, cutting emissions with every turn. Solar installations light homes sustainably, reducing fossil fuel use. Investing in these projects offsets your energy footprint effectively. They also create jobs, boosting local economies worldwide. Support green power to build a cleaner planet for future generations."
+        },
+        {
+            id: 5,
+            title: "How to Offset Your Travel Carbon: Practical Steps for Eco-Friendly Journeys",
+            image: "/images/carbon/travel-offset.png",
+            content: "Offsetting travel carbon starts with understanding your footprint. Use online calculators to measure emissions from flights and drives. Fund reforestation or renewable energy projects to balance your impact. Choose eco-hotels and public transport to minimize travel emissions. Share your offset journey to inspire others. These steps turn every trip into a sustainable adventure."
+        },
+        {
+            id: 6,
+            title: "Carbon Offsetting Explained: Balancing Travel Emissions with Conservation",
+            image: "/images/carbon/conservation.jpg",
+            content: "Carbon offsetting balances travel emissions through conservation efforts. Reforestation projects absorb CO2, countering your flight’s impact. Methane capture initiatives reduce emissions from waste, aiding global health. Pair these with personal reductions for maximum effect. It’s a commitment to preserving nature, ensuring a vibrant planet for all. Learn more to offset responsibly."
+        },
+        {
+            id: 7,
+            title: "Carbon Offsetting for Business Travel: Corporate Sustainability Strategies",
+            image: "/images/carbon/business-travel.jpg",
+            content: "Business travel can go green with carbon offsetting. Companies can fund wind farms to offset corporate flights. Employee training on sustainable travel reduces overall emissions. Partner with offset providers for verified projects. This boosts your brand’s eco-image while aiding the planet. Implement these strategies for a sustainable business future."
+        },
+        {
+            id: 8,
+            title: "Community-Driven Carbon Offsetting: Local Solutions for Global Impact",
+            image: "/images/carbon/community.jpg",
+            content: "Communities lead carbon offsetting with local action. Neighborhood tree-planting days absorb CO2 collectively. Shared electric vehicle programs cut emission per trip. Local leaders can fund solar projects, inspiring broader change. These efforts unite people for a global green goal. Join your community to make a lasting impact."
+        },
+        {
+            id: 9,
+            title: "The Role of Technology in Carbon Offsetting: Smart Solutions for a Green World",
+            image: "/images/carbon/technology.jpg",
+            content: "Technology drives carbon offsetting with smart innovations. AI optimizes renewable energy use, maximizing emission cuts. Blockchain ensures offset project transparency, building trust. Smart grids balance energy demand sustainably, reducing waste. These tools empower individuals to offset effectively. Embrace tech to lead a greener world."
+        }
+    ];
+
+    const articlesPerPage = 1;
+    let currentPage = 1;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    currentPage = articleId;
+
+    function displayArticle(page) {
+        const article = articles.find(a => a.id === page);
+        const articleContentDiv = document.getElementById('article-content');
+
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-heading').textContent = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-text').textContent = article.content;
+        } else {
+            articleContentDiv.innerHTML = '<p>Article not found.</p><a href="/carbon-offsetting" class="back-button">Back to Carbon Offsetting</a>';
+        }
+
+        document.getElementById('page-info').textContent = `Article ${page} of ${articles.length}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === articles.length;
+
+        const newUrl = `/article-carbon?id=${page}`;
+        window.history.pushState({path: newUrl}, '', newUrl);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticle(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < articles.length) {
+            currentPage++;
+            displayArticle(currentPage);
+        }
+    });
+
+    displayArticle(currentPage);
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

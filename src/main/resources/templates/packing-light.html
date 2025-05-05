@@ -1,288 +1,407 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head::head"></head>
-  <meta charset="UTF-8">
-  <title th:text="${pageTitle != null} ? ${pageTitle} : 'Packing Light: Sustainable Travel Guide'">Packing Light: Sustainable Travel Guide</title>
-  <link rel="stylesheet" th:href="@{/css/packing-light.css}" />
+<meta charset="UTF-8">
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'Packing Light: Sustainable Travel Guide'">Packing Light:
+    Sustainable Travel Guide</title>
+<link rel="stylesheet" th:href="@{/css/packing-light.css}"/>
 <link rel="stylesheet" href="/css/reset-css.css">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 
 <header>
-  <h1>PACKING LIGHT: A SUSTAINABLE TRAVEL GUIDE</h1>
+    <h1>PACKING LIGHT: A SUSTAINABLE TRAVEL GUIDE</h1>
 </header>
 
 <div class="container">
-  <!-- Key Takeaways -->
-  <section class="section">
-    <h2>Key Takeaways</h2>
-    <ul class="takeaways-list">
-      <li>Select a wardrobe with versatile pieces that mix and match effortlessly, ensuring you pack light while staying stylish on your journey.</li>
-      <li>Opt for eco-friendly travel essentials like reusable water bottles, bamboo utensils, and biodegradable toiletries to minimize waste.</li>
-      <li>Focus on compact, multi-purpose items such as a solar-powered charger or a sustainable backpack to simplify packing and support the planet.</li>
-      <li>Packing light reduces your travel stress and environmental impact, making every adventure more enjoyable.</li>
-      <li>Sustainable choices in packing reflect a commitment to preserving nature for future explorers.</li>
-    </ul>
-  </section>
-
-  <!-- Introduction -->
-  <section class="section">
-    <h2>Introduction: Setting the Stage for Sustainable Travel</h2>
-    <p>Imagine traveling the world with just a lightweight backpack, filled with eco-friendly essentials that honor the planet. Sustainable travel isn’t just a trend—it’s a mindful way to explore while reducing your carbon footprint. Packing light allows you to move freely, focusing on experiences rather than material burdens. By choosing reusable and versatile items, you contribute to a cleaner environment with every step. This journey is about embracing simplicity, ensuring your travels leave only footprints of joy, not waste. Let’s explore how to pack smart and green for a brighter, more sustainable adventure. Packing light is the first step toward a travel style that respects nature. Every eco-conscious choice you make helps protect the destinations you love. Sustainable packing also inspires others to adopt greener habits on their journeys.</p>
-    <div class="media-container">
-      <img src="/images/packing/sustainable-travel.jpg" alt="Sustainable Travel" class="section-image">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Sustainable Travel Tips" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <!-- Choosing a Sustainable Wardrobe -->
-  <section class="section">
-    <h2>Choosing a Sustainable Wardrobe: Mix and Match for Efficiency</h2>
-    <p>A sustainable wardrobe is key to packing light while keeping your style on point. Choose versatile clothing pieces that can be layered or styled in multiple ways for different occasions. Think of neutral tones and timeless designs that pair effortlessly, reducing the need for excess items. This approach not only saves space in your bag but also cuts down on the environmental cost of overpacking. For example, a single organic cotton scarf can be a headwrap, a shawl, or a belt. Mixing and matching ensures you’re ready for any event without overloading your luggage. Packing light with a sustainable wardrobe means less laundry and a smaller carbon footprint. It’s a practical way to travel while caring for the planet. Plus, you’ll feel liberated knowing you’re traveling with only what you truly need.</p>
-    <div class="media-container">
-      <img src="/images/packing/capsule-wardrobe.jpg" alt="Capsule Wardrobe" class="section-image">
-    </div>
-  </section>
-
-  <!-- Pros & Cons of Eco-Friendly Travel Gear -->
-  <section class="section">
-    <h2>The Pros & Cons of Eco-Friendly Travel Gear</h2>
-    <div class="pros-cons">
-      <div class="pros">
-        <h3>Pros</h3>
-        <ul>
-          <li>Reduces environmental harm by minimizing waste and pollution.</li>
-          <li>Supports sustainable practices, encouraging greener production methods.</li>
-          <li>Often made from durable, recycled materials that withstand travel demands.</li>
-          <li>Lightweight design makes it easier to pack light and move freely.</li>
-          <li>Promotes a mindful travel mindset, aligning with eco-conscious values.</li>
-          <li>Encourages long-term use, reducing the need for frequent replacements.</li>
+    <!-- Key Takeaways -->
+    <section class="section">
+        <h2>Key Takeaways</h2>
+        <ul class="takeaways-list">
+            <li>Select a wardrobe with versatile pieces that mix and match effortlessly, ensuring you pack light while
+                staying stylish on your journey.
+            </li>
+            <li>Opt for eco-friendly travel essentials like reusable water bottles, bamboo utensils, and biodegradable
+                toiletries to minimize waste.
+            </li>
+            <li>Focus on compact, multi-purpose items such as a solar-powered charger or a sustainable backpack to
+                simplify packing and support the planet.
+            </li>
+            <li>Packing light reduces your travel stress and environmental impact, making every adventure more
+                enjoyable.
+            </li>
+            <li>Sustainable choices in packing reflect a commitment to preserving nature for future explorers.</li>
         </ul>
-      </div>
-      <div class="cons">
-        <h3>Cons</h3>
-        <ul>
-          <li>Initial costs can be higher, though they save money over time.</li>
-          <li>Limited style options may require compromising on aesthetics.</li>
-          <li>Researching reliable eco-friendly brands can take extra effort.</li>
-          <li>Some products may not be as durable as traditional alternatives.</li>
-          <li>Availability can be limited in certain regions, requiring pre-planning.</li>
-          <li>Maintenance, like cleaning reusable items, may demand more time.</li>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <h2>Introduction: Setting the Stage for Sustainable Travel</h2>
+        <p>Imagine traveling the world with just a lightweight backpack, filled with eco-friendly essentials that honor
+            the planet. Sustainable travel isn’t just a trend—it’s a mindful way to explore while reducing your carbon
+            footprint. Packing light allows you to move freely, focusing on experiences rather than material burdens. By
+            choosing reusable and versatile items, you contribute to a cleaner environment with every step. This journey
+            is about embracing simplicity, ensuring your travels leave only footprints of joy, not waste. Let’s explore
+            how to pack smart and green for a brighter, more sustainable adventure. Packing light is the first step
+            toward a travel style that respects nature. Every eco-conscious choice you make helps protect the
+            destinations you love. Sustainable packing also inspires others to adopt greener habits on their
+            journeys.</p>
+        <div class="media-container">
+            <img src="/images/packing/sustainable-travel.jpg" alt="Sustainable Travel" class="section-image">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Sustainable Travel Tips" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Choosing a Sustainable Wardrobe -->
+    <section class="section">
+        <h2>Choosing a Sustainable Wardrobe: Mix and Match for Efficiency</h2>
+        <p>A sustainable wardrobe is key to packing light while keeping your style on point. Choose versatile clothing
+            pieces that can be layered or styled in multiple ways for different occasions. Think of neutral tones and
+            timeless designs that pair effortlessly, reducing the need for excess items. This approach not only saves
+            space in your bag but also cuts down on the environmental cost of overpacking. For example, a single organic
+            cotton scarf can be a headwrap, a shawl, or a belt. Mixing and matching ensures you’re ready for any event
+            without overloading your luggage. Packing light with a sustainable wardrobe means less laundry and a smaller
+            carbon footprint. It’s a practical way to travel while caring for the planet. Plus, you’ll feel liberated
+            knowing you’re traveling with only what you truly need.</p>
+        <div class="media-container">
+            <img src="/images/packing/capsule-wardrobe.jpg" alt="Capsule Wardrobe" class="section-image">
+        </div>
+    </section>
+
+    <!-- Pros & Cons of Eco-Friendly Travel Gear -->
+    <section class="section">
+        <h2>The Pros & Cons of Eco-Friendly Travel Gear</h2>
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Pros</h3>
+                <ul>
+                    <li>Reduces environmental harm by minimizing waste and pollution.</li>
+                    <li>Supports sustainable practices, encouraging greener production methods.</li>
+                    <li>Often made from durable, recycled materials that withstand travel demands.</li>
+                    <li>Lightweight design makes it easier to pack light and move freely.</li>
+                    <li>Promotes a mindful travel mindset, aligning with eco-conscious values.</li>
+                    <li>Encourages long-term use, reducing the need for frequent replacements.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Cons</h3>
+                <ul>
+                    <li>Initial costs can be higher, though they save money over time.</li>
+                    <li>Limited style options may require compromising on aesthetics.</li>
+                    <li>Researching reliable eco-friendly brands can take extra effort.</li>
+                    <li>Some products may not be as durable as traditional alternatives.</li>
+                    <li>Availability can be limited in certain regions, requiring pre-planning.</li>
+                    <li>Maintenance, like cleaning reusable items, may demand more time.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco-Friendly Essentials -->
+    <section class="section">
+        <h2>Eco-Friendly Essentials: Reduce Waste with Reusables</h2>
+        <p>Reusable items are your best allies for sustainable travel and packing light. Swap single-use plastics for a
+            sturdy stainless steel water bottle that keeps you hydrated without waste. A bamboo utensil set lets you
+            enjoy meals on the go while avoiding disposable cutlery. Pack collapsible silicone containers for snacks or
+            leftovers, perfect for spontaneous picnics without plastic wrappers. A recycled-material tote bag is ideal
+            for souvenirs, doubling as a daily bag back home. Multi-purpose products, like a natural soap bar for body
+            wash and laundry, save space and reduce your environmental impact. These essentials make packing light
+            effortless while supporting a cleaner planet. Small swaps like these can significantly cut down on travel
+            waste. Every reusable item you pack is a step toward more sustainable adventures.</p>
+        <div class="media-container">
+            <iframe src="https://www.youtube.com/embed/anotherEcoVideo" title="Eco-Friendly Travel Essentials"
+                    frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Compact and Versatile Picks -->
+    <section class="section">
+        <h2>Compact and Versatile Picks: Streamline Your Packing</h2>
+        <p>Packing light starts with choosing compact, versatile items that serve multiple purposes. Opt for clothing
+            made from sustainable fabrics like organic cotton or bamboo, which are lightweight and quick-drying. A
+            high-quality travel backpack made from recycled polyester keeps your essentials organized while meeting
+            carry-on size limits. Replace single-use plastics with reusable alternatives like silicone food bags and
+            bamboo straws to reduce waste. Solid shampoo and conditioner bars save space, eliminate plastic bottles, and
+            are TSA-friendly. These choices streamline your packing process while keeping sustainability at the
+            forefront. Compact picks ensure you travel with ease and a clear conscience. Versatile items mean fewer
+            belongings and less environmental strain. Packing light with these selections makes your journey smoother
+            and greener.</p>
+    </section>
+
+    <!-- Minimalist Eco-Friendly Travel Essentials Checklist -->
+    <section class="section">
+        <h2>Minimalist Eco-Friendly Travel Essentials Checklist</h2>
+        <table class="essentials-table">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Purpose</th>
+                <th>Eco-Friendly Material</th>
+                <th>Weight (oz)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Reusable Water Bottle</td>
+                <td>Stay hydrated on the go</td>
+                <td>Stainless Steel</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Bamboo Toothbrush</td>
+                <td>Oral hygiene</td>
+                <td>Bamboo</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Solar-Powered Charger</td>
+                <td>Charge devices sustainably</td>
+                <td>Recycled Plastic</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Organic Cotton Towel</td>
+                <td>Versatile and quick-drying</td>
+                <td>Organic Cotton</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Portable Cutlery Set</td>
+                <td>Avoid single-use plastics</td>
+                <td>Bamboo</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Biodegradable Soap Sheets</td>
+                <td>Cleanliness on the road</td>
+                <td>Plant-based Ingredients</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Packable Rain Jacket</td>
+                <td>Weather protection</td>
+                <td>Recycled Polyester</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Travel Size Shampoo Bar</td>
+                <td>Reduce plastic waste</td>
+                <td>Natural Ingredients</td>
+                <td>3</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Embracing Sustainable Travel -->
+    <section class="section">
+        <h2>Embracing Sustainable Travel: Impactful Choices for the Planet</h2>
+        <p>Sustainable travel begins with packing light to reduce fuel consumption and emissions. Choose versatile
+            clothing that creates multiple outfits, minimizing the items you need to pack. Stay at eco-friendly
+            accommodations that prioritize renewable energy and water conservation, supporting green practices. Use
+            reusable items like water bottles and shopping bags to cut down on single-use plastic waste. Explore
+            destinations on foot or via public transport to lower your carbon footprint while immersing yourself in
+            local culture. Support local artisans by purchasing handmade souvenirs, promoting sustainable tourism.
+            Always follow the “leave no trace” principle, ensuring you respect wildlife and natural landscapes. These
+            choices make packing light a powerful tool for planetary good. Every sustainable decision enhances your
+            travel experience while protecting the environment.</p>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+        <h2>Conclusion: Lighten Your Load for a Brighter, Greener Journey</h2>
+        <p>Packing light is more than convenience—it’s a commitment to sustainable travel. Each versatile item in your
+            bag reduces waste and energy use, benefiting the planet. Reusable essentials like water bottles and tote
+            bags help minimize plastic pollution while simplifying your journey. By choosing quality, eco-friendly
+            products, you ensure durability and less consumption over time. This mindful approach to packing light
+            leaves a positive legacy for future travelers. Embrace simplicity, and let every trip be a step toward a
+            greener world. Sustainable packing transforms your adventures into meaningful, earth-friendly
+            experiences.</p>
+    </section>
+
+    <!-- Green Tales -->
+    <section class="section">
+        <h2>Green Tales: Eco-Friendly Travel Tips</h2>
+        <ul class="tips-list">
+            <li><strong>Myth:</strong> You need a new outfit for every day of your trip.<br>
+                <strong>Fact:</strong> Pack versatile clothes to mix and match, reducing luggage weight and emissions.
+            </li>
+            <li><strong>Myth:</strong> Disposable travel-size toiletries are best for short trips.<br>
+                <strong>Fact:</strong> Use reusable silicone bottles to refill with your products, cutting plastic
+                waste.
+            </li>
+            <li><strong>Myth:</strong> Single-use water bottles are unavoidable when traveling.<br>
+                <strong>Fact:</strong> A refillable bottle and water stations help you stay hydrated sustainably.
+            </li>
+            <li><strong>Myth:</strong> Printed maps and guidebooks are a must for exploring.<br>
+                <strong>Fact:</strong> Digital maps on your phone save paper and space while keeping you on track.
+            </li>
+            <li><strong>Myth:</strong> You need to buy souvenirs at every stop.<br>
+                <strong>Fact:</strong> Focus on experiences like local tours, creating memories without adding waste.
+            </li>
         </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Eco-Friendly Essentials -->
-  <section class="section">
-    <h2>Eco-Friendly Essentials: Reduce Waste with Reusables</h2>
-    <p>Reusable items are your best allies for sustainable travel and packing light. Swap single-use plastics for a sturdy stainless steel water bottle that keeps you hydrated without waste. A bamboo utensil set lets you enjoy meals on the go while avoiding disposable cutlery. Pack collapsible silicone containers for snacks or leftovers, perfect for spontaneous picnics without plastic wrappers. A recycled-material tote bag is ideal for souvenirs, doubling as a daily bag back home. Multi-purpose products, like a natural soap bar for body wash and laundry, save space and reduce your environmental impact. These essentials make packing light effortless while supporting a cleaner planet. Small swaps like these can significantly cut down on travel waste. Every reusable item you pack is a step toward more sustainable adventures.</p>
-    <div class="media-container">
-      <iframe src="https://www.youtube.com/embed/anotherEcoVideo" title="Eco-Friendly Travel Essentials" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
+    <!-- FAQ -->
+    <section class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <h3>1. How can I pack light while staying eco-conscious?</h3>
+                <p>Focus on versatile, sustainable items like organic cotton clothes and reusable essentials to minimize
+                    both weight and waste.</p>
+            </div>
+            <div class="faq-item">
+                <h3>2. What are sustainable alternatives to single-use plastics for travel?</h3>
+                <p>Use stainless steel water bottles, bamboo utensils, silicone bags, and beeswax wraps to replace
+                    single-use plastics.</p>
+            </div>
+            <div class="faq-item">
+                <h3>3. What eco-friendly packing tips reduce waste on the go?</h3>
+                <p>Pack light with reusable containers, choose multi-purpose items, and opt for digital guides to cut
+                    down on waste.</p>
+            </div>
+            <div class="faq-item">
+                <h3>4. How can I choose environmentally friendly toiletries for travel?</h3>
+                <p>Select biodegradable, cruelty-free products in reusable containers, like solid shampoo bars, to
+                    reduce environmental impact.</p>
+            </div>
+            <div class="faq-item">
+                <h3>5. What are ways to offset my carbon footprint while traveling?</h3>
+                <p>Support renewable energy projects, join tree-planting initiatives, or contribute to carbon offset
+                    programs to balance your impact.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Compact and Versatile Picks -->
-  <section class="section">
-    <h2>Compact and Versatile Picks: Streamline Your Packing</h2>
-    <p>Packing light starts with choosing compact, versatile items that serve multiple purposes. Opt for clothing made from sustainable fabrics like organic cotton or bamboo, which are lightweight and quick-drying. A high-quality travel backpack made from recycled polyester keeps your essentials organized while meeting carry-on size limits. Replace single-use plastics with reusable alternatives like silicone food bags and bamboo straws to reduce waste. Solid shampoo and conditioner bars save space, eliminate plastic bottles, and are TSA-friendly. These choices streamline your packing process while keeping sustainability at the forefront. Compact picks ensure you travel with ease and a clear conscience. Versatile items mean fewer belongings and less environmental strain. Packing light with these selections makes your journey smoother and greener.</p>
-  </section>
-
-  <!-- Minimalist Eco-Friendly Travel Essentials Checklist -->
-  <section class="section">
-    <h2>Minimalist Eco-Friendly Travel Essentials Checklist</h2>
-    <table class="essentials-table">
-      <thead>
-      <tr>
-        <th>Item</th>
-        <th>Purpose</th>
-        <th>Eco-Friendly Material</th>
-        <th>Weight (oz)</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Reusable Water Bottle</td>
-        <td>Stay hydrated on the go</td>
-        <td>Stainless Steel</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>Bamboo Toothbrush</td>
-        <td>Oral hygiene</td>
-        <td>Bamboo</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Solar-Powered Charger</td>
-        <td>Charge devices sustainably</td>
-        <td>Recycled Plastic</td>
-        <td>8</td>
-      </tr>
-      <tr>
-        <td>Organic Cotton Towel</td>
-        <td>Versatile and quick-drying</td>
-        <td>Organic Cotton</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>Portable Cutlery Set</td>
-        <td>Avoid single-use plastics</td>
-        <td>Bamboo</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Biodegradable Soap Sheets</td>
-        <td>Cleanliness on the road</td>
-        <td>Plant-based Ingredients</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Packable Rain Jacket</td>
-        <td>Weather protection</td>
-        <td>Recycled Polyester</td>
-        <td>12</td>
-      </tr>
-      <tr>
-        <td>Travel Size Shampoo Bar</td>
-        <td>Reduce plastic waste</td>
-        <td>Natural Ingredients</td>
-        <td>3</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Embracing Sustainable Travel -->
-  <section class="section">
-    <h2>Embracing Sustainable Travel: Impactful Choices for the Planet</h2>
-    <p>Sustainable travel begins with packing light to reduce fuel consumption and emissions. Choose versatile clothing that creates multiple outfits, minimizing the items you need to pack. Stay at eco-friendly accommodations that prioritize renewable energy and water conservation, supporting green practices. Use reusable items like water bottles and shopping bags to cut down on single-use plastic waste. Explore destinations on foot or via public transport to lower your carbon footprint while immersing yourself in local culture. Support local artisans by purchasing handmade souvenirs, promoting sustainable tourism. Always follow the “leave no trace” principle, ensuring you respect wildlife and natural landscapes. These choices make packing light a powerful tool for planetary good. Every sustainable decision enhances your travel experience while protecting the environment.</p>
-  </section>
-
-  <!-- Conclusion -->
-  <section class="section">
-    <h2>Conclusion: Lighten Your Load for a Brighter, Greener Journey</h2>
-    <p>Packing light is more than convenience—it’s a commitment to sustainable travel. Each versatile item in your bag reduces waste and energy use, benefiting the planet. Reusable essentials like water bottles and tote bags help minimize plastic pollution while simplifying your journey. By choosing quality, eco-friendly products, you ensure durability and less consumption over time. This mindful approach to packing light leaves a positive legacy for future travelers. Embrace simplicity, and let every trip be a step toward a greener world. Sustainable packing transforms your adventures into meaningful, earth-friendly experiences.</p>
-  </section>
-
-  <!-- Green Tales -->
-  <section class="section">
-    <h2>Green Tales: Eco-Friendly Travel Tips</h2>
-    <ul class="tips-list">
-      <li><strong>Myth:</strong> You need a new outfit for every day of your trip.<br>
-        <strong>Fact:</strong> Pack versatile clothes to mix and match, reducing luggage weight and emissions.</li>
-      <li><strong>Myth:</strong> Disposable travel-size toiletries are best for short trips.<br>
-        <strong>Fact:</strong> Use reusable silicone bottles to refill with your products, cutting plastic waste.</li>
-      <li><strong>Myth:</strong> Single-use water bottles are unavoidable when traveling.<br>
-        <strong>Fact:</strong> A refillable bottle and water stations help you stay hydrated sustainably.</li>
-      <li><strong>Myth:</strong> Printed maps and guidebooks are a must for exploring.<br>
-        <strong>Fact:</strong> Digital maps on your phone save paper and space while keeping you on track.</li>
-      <li><strong>Myth:</strong> You need to buy souvenirs at every stop.<br>
-        <strong>Fact:</strong> Focus on experiences like local tours, creating memories without adding waste.</li>
-    </ul>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
-    <h2>FAQ</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <h3>1. How can I pack light while staying eco-conscious?</h3>
-        <p>Focus on versatile, sustainable items like organic cotton clothes and reusable essentials to minimize both weight and waste.</p>
-      </div>
-      <div class="faq-item">
-        <h3>2. What are sustainable alternatives to single-use plastics for travel?</h3>
-        <p>Use stainless steel water bottles, bamboo utensils, silicone bags, and beeswax wraps to replace single-use plastics.</p>
-      </div>
-      <div class="faq-item">
-        <h3>3. What eco-friendly packing tips reduce waste on the go?</h3>
-        <p>Pack light with reusable containers, choose multi-purpose items, and opt for digital guides to cut down on waste.</p>
-      </div>
-      <div class="faq-item">
-        <h3>4. How can I choose environmentally friendly toiletries for travel?</h3>
-        <p>Select biodegradable, cruelty-free products in reusable containers, like solid shampoo bars, to reduce environmental impact.</p>
-      </div>
-      <div class="faq-item">
-        <h3>5. What are ways to offset my carbon footprint while traveling?</h3>
-        <p>Support renewable energy projects, join tree-planting initiatives, or contribute to carbon offset programs to balance your impact.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Articles Section with Pagination -->
-  <section class="section articles-section">
-    <h2>Explore More on Packing Light</h2>
-    <div id="articles-container"></div>
-    <div class="pagination">
-      <button id="prev-page" disabled>Previous</button>
-      <span id="page-info"></span>
-      <button id="next-page">Next</button>
-    </div>
-  </section>
+    <!-- Articles Section with Pagination -->
+    <section class="section articles-section">
+        <h2>Explore More on Packing Light</h2>
+        <div id="articles-container"></div>
+        <div class="pagination">
+            <button id="prev-page" disabled>Previous</button>
+            <span id="page-info"></span>
+            <button id="next-page">Next</button>
+        </div>
+    </section>
 </div>
 
 
-
 <script>
-  const articles = [
-    { id: 1, title: "Packing Light for Long-Term Travel: Essentials for Nomadic Lifestyles", date: "December 9, 2023", author: "Nina Jerkovic", summary: "Life as a digital nomad blends remote work with constant travel, requiring a minimalist packing approach. Focus on versatile clothing like organic cotton tees and quick-dry pants that suit various climates." },
-    { id: 2, title: "The Art of One-Bag Travel: Simplifying Your Journey for Maximum Freedom", date: "December 9, 2023", author: "Sanela Isakov", summary: "One-bag travel is the ultimate minimalist approach, prioritizing freedom over excess baggage. Pack a single backpack with multi-purpose items like a reversible jacket and mix-and-match clothing." },
-    { id: 3, title: "Capsule Wardrobe for Travel: Mixing and Matching for Endless Outfits", date: "December 9, 2023", author: "Sanela Isakov", summary: "A travel capsule wardrobe is a curated collection of versatile pieces that create endless outfit combinations. Choose neutral colors like beige, green, and white for easy mixing and matching." },
-    { id: 4, title: "The Benefits of Packing Light: Traveling Smarter and More Sustainably", date: "December 9, 2023", author: "Sanela Isakov", summary: "Packing light offers both practical and environmental benefits for travelers. It reduces fuel consumption by lightening your load, lowering your carbon footprint." },
-    { id: 5, title: "Traveling Smart: How to Reduce Waste by Packing Light", date: "December 9, 2023", author: "Sanela Isakov", summary: "Packing light is a powerful way to reduce waste while traveling. Choose reusable essentials like silicone food bags and a bamboo cutlery set to avoid single-use plastics." },
-    { id: 6, title: "The Eco-Friendly Traveler’s Guide to Minimalist Packing", date: "December 9, 2023", author: "Sanela Isakov", summary: "Minimalist packing is the cornerstone of eco-friendly travel, focusing on what you truly need. Start with a sustainable backpack made from hemp or recycled polyester for durability." },
-    { id: 7, title: "Sustainable Packing for Urban Adventures: Exploring Cities Lightly", date: "December 9, 2023", author: "Sanela Isakov", summary: "Urban adventures call for packing light with a sustainable twist to navigate cities effortlessly. A compact backpack made from recycled materials holds your essentials without weighing you down." },
-    { id: 8, title: "Packing Light for Nature Getaways: Sustainable Travel in the Wild", date: "December 9, 2023", author: "Sanela Isakov", summary: "Packing light for nature getaways ensures you tread lightly on the environment while enjoying the outdoors. Choose a durable backpack made from recycled polyester to carry your essentials." },
-    { id: 9, title: "Packing Light for Family Travel: Sustainable Tips for All Ages", date: "December 9, 2023", author: "Sanela Isakov", summary: "Packing light for family travel requires smart, sustainable choices to keep everyone happy. Choose a shared eco-friendly backpack made from recycled materials to minimize luggage." }
-  ];
+    const articles = [
+        {
+            id: 1,
+            title: "Packing Light for Long-Term Travel: Essentials for Nomadic Lifestyles",
+            date: "December 9, 2023",
+            author: "Nina Jerkovic",
+            summary: "Life as a digital nomad blends remote work with constant travel, requiring a minimalist packing approach. Focus on versatile clothing like organic cotton tees and quick-dry pants that suit various climates."
+        },
+        {
+            id: 2,
+            title: "The Art of One-Bag Travel: Simplifying Your Journey for Maximum Freedom",
+            date: "December 9, 2023",
+            author: "Sanela Isakov",
+            summary: "One-bag travel is the ultimate minimalist approach, prioritizing freedom over excess baggage. Pack a single backpack with multi-purpose items like a reversible jacket and mix-and-match clothing."
+        },
+        {
+            id: 3,
+            title: "Capsule Wardrobe for Travel: Mixing and Matching for Endless Outfits",
+            date: "December 9, 2024",
+            author: "Plamen Kamenov",
+            summary: "A travel capsule wardrobe is a curated collection of versatile pieces that create endless outfit combinations. Choose neutral colors like beige, green, and white for easy mixing and matching."
+        },
+        {
+            id: 4,
+            title: "The Benefits of Packing Light: Traveling Smarter and More Sustainably",
+            date: "December 9, 2024",
+            author: "Plamen Kamenov",
+            summary: "Packing light offers both practical and environmental benefits for travelers. It reduces fuel consumption by lightening your load, lowering your carbon footprint."
+        },
+        {
+            id: 5,
+            title: "Traveling Smart: How to Reduce Waste by Packing Light",
+            date: "December 9, 2024",
+            author: "Plamen Kamenov",
+            summary: "Packing light is a powerful way to reduce waste while traveling. Choose reusable essentials like silicone food bags and a bamboo cutlery set to avoid single-use plastics."
+        },
+        {
+            id: 6,
+            title: "The Eco-Friendly Traveler’s Guide to Minimalist Packing",
+            date: "December 9, 2023",
+            author: "Sanela Isakov",
+            summary: "Minimalist packing is the cornerstone of eco-friendly travel, focusing on what you truly need. Start with a sustainable backpack made from hemp or recycled polyester for durability."
+        },
+        {
+            id: 7,
+            title: "Sustainable Packing for Urban Adventures: Exploring Cities Lightly",
+            date: "December 9, 2024",
+            author: "Plamen Kamenov",
+            summary: "Urban adventures call for packing light with a sustainable twist to navigate cities effortlessly. A compact backpack made from recycled materials holds your essentials without weighing you down."
+        },
+        {
+            id: 8,
+            title: "Packing Light for Nature Getaways: Sustainable Travel in the Wild",
+            date: "December 9, 2024",
+            author: "Plamen Kamenov",
+            summary: "Packing light for nature getaways ensures you tread lightly on the environment while enjoying the outdoors. Choose a durable backpack made from recycled polyester to carry your essentials."
+        },
+        {
+            id: 9,
+            title: "Packing Light for Family Travel: Sustainable Tips for All Ages",
+            date: "December 22, 2024",
+            author: "Plamen Kamenov",
+            summary: "Packing light for family travel requires smart, sustainable choices to keep everyone happy. Choose a shared eco-friendly backpack made from recycled materials to minimize luggage."
+        }
+    ];
 
-  const articlesPerPage = 3;
-  let currentPage = 1;
+    const articlesPerPage = 3;
+    let currentPage = 1;
 
-  function displayArticles(page) {
-    const start = (page - 1) * articlesPerPage;
-    const end = start + articlesPerPage;
-    const paginatedArticles = articles.slice(start, end);
+    function displayArticles(page) {
+        const start = (page - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        const paginatedArticles = articles.slice(start, end);
 
-    const container = document.getElementById('articles-container');
-    container.innerHTML = '';
+        const container = document.getElementById('articles-container');
+        container.innerHTML = '';
 
-    paginatedArticles.forEach(article => {
-      const articleDiv = document.createElement('div');
-      articleDiv.className = 'article';
-      articleDiv.innerHTML = `
+        paginatedArticles.forEach(article => {
+            const articleDiv = document.createElement('div');
+            articleDiv.className = 'article';
+            articleDiv.innerHTML = `
                 <h3><a href="/article-packing?id=${article.id}">${article.title}</a></h3>
                 <p><strong>${article.date}</strong> by ${article.author}</p>
                 <p>${article.summary}</p>
             `;
-      container.appendChild(articleDiv);
+            container.appendChild(articleDiv);
+        });
+
+        document.getElementById('page-info').textContent = `Page ${page} of ${Math.ceil(articles.length / articlesPerPage)}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === Math.ceil(articles.length / articlesPerPage);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticles(currentPage);
+        }
     });
 
-    document.getElementById('page-info').textContent = `Page ${page} of ${Math.ceil(articles.length / articlesPerPage)}`;
-    document.getElementById('prev-page').disabled = page === 1;
-    document.getElementById('next-page').disabled = page === Math.ceil(articles.length / articlesPerPage);
-  }
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
+            currentPage++;
+            displayArticles(currentPage);
+        }
+    });
 
-  document.getElementById('prev-page').addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      displayArticles(currentPage);
-    }
-  });
-
-  document.getElementById('next-page').addEventListener('click', () => {
-    if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
-      currentPage++;
-      displayArticles(currentPage);
-    }
-  });
-
-  displayArticles(currentPage);
+    displayArticles(currentPage);
 </script>
 
 <footer th:replace="fragments/footer :: footer"></footer>
