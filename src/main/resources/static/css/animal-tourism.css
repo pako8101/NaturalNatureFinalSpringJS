@@ -35,6 +35,10 @@ body {
     font-size: 4rem;
     margin: 0;
     animation: wave 2s infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #263238;
 }
 
 .hero-subtitle {

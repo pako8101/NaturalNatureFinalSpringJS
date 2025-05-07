@@ -66,7 +66,7 @@ public class SecurityConfig {
                                                 "/reducing-plastic-waste/**",
                                                 "/carbon-offsetting/**",
                                                 "/article-carbon/**",
-                                                "/article-national/**",
+                                                "/article-national",
                                                 "/packing-light/**",
                                                 "/article-packing/**",
                                                 "/sustainable-transportation/**",

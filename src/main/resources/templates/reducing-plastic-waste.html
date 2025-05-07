@@ -3,8 +3,8 @@
 <head th:replace="fragments/head::head"></head>
 <meta charset="UTF-8">
 <title>Reducing Plastic Waste At Home - Nat Ethos</title>
-<link rel="stylesheet" th:href="@{/css/reducing-plastic-waste.css}">
 <link rel="stylesheet" href="/css/reset-css.css">
+<link rel="stylesheet" th:href="@{/css/reducing-plastic-waste.css}">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -205,15 +205,29 @@
     <h2 class="section-title">More Tips to Get Started</h2>
     <div class="tips-gallery" th:each="tip : ${tips}">
         <div class="tip-card">
-            <img th:src="@{images/greentips/reusable-container.jpg}"
-            alt="Tip Image" class="tip-image"
+<!--            <img th:src="${tip.imagePath != null} ? ${tip.imagePath} : '/images/valubleEarth.jpg'"-->
+<!--                 alt="Tip Image" class="tip-image">-->
+<!--            th:src="@{/images/greentips/reusable-container.jpg}"-->
+
+            <img th:src="${tip.imagePath}"
+                 alt="Tip Image"
+                 class="tip-image"
                  onerror="this.src='/images/valubleEarth.jpg'">
+
             <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>
             <p th:text="${tip.description}" class="tip-description">Tip Description</p>
-            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>
+
+            <button class="learn-more-btn" th:attr="data-id=${tip.id}" onclick="toggleDetails(this)">Learn More</button>
+            <!--            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>-->
             <div class="tip-details" th:id="'details-' + ${tip.id}" style="display: none;">
-                <p th:text="'Additional Info for ' + ${tip.title} + ': This tip can save you money and reduce waste. For example, using ' + ${tip.title.toLowerCase()} + ' can prevent dozens of plastic items from entering landfills each year. Start today and share your progress with friends!'"></p>
-                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>
+
+                <p th:text="'Additional Info for ' + ${tip.title} + ': This tip can save you money and reduce waste. For example, using '
+                 + ${tip.title.toLowerCase()} + ' can prevent dozens of plastic items from entering landfills each year.
+                 Start today and share your progress with friends!'"></p>
+
+<!--                <button class="less-btn" onclick="toggleDetails(this)" th:attr="data-id=${tip.id}">Less</button>-->
+
+<!--                                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>-->
             </div>
         </div>
     </div>
@@ -224,19 +238,31 @@
 <!-- JavaScript за интерактивност -->
 <script>
     // Toggle за "Learn More"
-    function toggleDetails(tipId) {
+    function toggleDetails(button) {
+        const tipId = button.getAttribute('data-id');
         const details = document.getElementById(`details-${tipId}`);
-        const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);
         const isVisible = details.style.display === 'block';
 
-        if (isVisible) {
-            details.style.display = 'none';
-            learnMoreBtn.textContent = 'Learn More';
-        } else {
-            details.style.display = 'block';
-            learnMoreBtn.textContent = 'Less';
-        }
+        details.style.display = isVisible ? 'none' : 'block';
+        button.textContent = isVisible ? 'Learn More' : 'Less';
     }
+
+
+    // function toggleDetails(tipId) {
+    //     const details = document.getElementById(`details-${tipId}`);
+    //     const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);
+    //     const isVisible = details.style.display === 'block';
+    //
+    //     if (isVisible) {
+    //         details.style.display = 'none';
+    //         learnMoreBtn.textContent = 'Learn More';
+    //     } else {
+    //         details.style.display = 'block';
+    //         learnMoreBtn.textContent = 'Less';
+    //
+    //         details.scrollIntoView();
+    //     }
+    // }
 
     // Анимация при скрол
     document.addEventListener('DOMContentLoaded', () => {
