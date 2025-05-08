@@ -19,5 +19,51 @@
 </main>
 
 <footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    const articlesPerPage = 1;
+    let currentPage = 1;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    currentPage = articleId;
+
+    function displayArticle(page) {
+        const article = articles.find(a => a.id === page);
+        const articleContentDiv = document.getElementById('article-content');
+
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-heading').textContent = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-text').textContent = article.content;
+        } else {
+            articleContentDiv.innerHTML = '<p>Article not found.</p><a href="/herbal-remedies" class="back-button">Back to Herbal Remedies</a>';
+        }
+
+        document.getElementById('page-info').textContent = `Article ${page} of ${articles.length}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === articles.length;
+
+        const newUrl = `/article-herbal?id=${page}`;
+        window.history.pushState({path: newUrl}, '', newUrl);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticle(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < articles.length) {
+            currentPage++;
+            displayArticle(currentPage);
+        }
+    });
+
+    displayArticle(currentPage);
+</script>
 </body>
 </html>

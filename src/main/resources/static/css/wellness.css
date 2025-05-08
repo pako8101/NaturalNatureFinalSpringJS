@@ -179,8 +179,10 @@ body {
 }
 /* Hero Section */
 .hero {
-    background: linear-gradient(45deg, rgba(46, 125, 50, 0.7),
-    rgba(2, 136, 209, 0.7)), url('/images/wellness/wellness-hero.jpeg') no-repeat center/cover;
+    background:
+    /*        linear-gradient(45deg, rgba(46, 125, 50, 0.7),*/
+    /*rgba(2, 136, 209, 0.7)), */
+    url('/images/wellness/wellness-hero.jpeg') no-repeat center/cover;
     color: white;
     text-align: center;
     padding: 100px 20px;
@@ -205,6 +207,7 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
     margin: 0;
+    color: white;
     animation: wave 2s infinite;
 }
 

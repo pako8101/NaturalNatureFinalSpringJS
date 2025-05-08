@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle != null} ? ${pageTitle} : 'Article Details'">Article Details</title>
+    <link rel="stylesheet" th:href="@{/css/article-permaculture.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1 id="article-title">Article Details</h1>
+</header>
+
+<div class="container">
+    <div class="article-content" id="article-content">
+        <h2 id="article-heading"></h2>
+        <img id="article-image" src="" alt="Article Image">
+        <p id="article-text"></p>
+        <a href="/permaculture" class="back-button">Back to Permaculture</a>
+    </div>
+
+    <!-- Pagination for Articles -->
+    <div class="pagination">
+        <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+        <span id="page-info"></span>
+        <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+    </div>
+</div>
+
+
+
+<script>
+    const articles = [
+        { id: 1, title: "Urban Permaculture: Sustainable Gardening in the City", image: "https://images.unsplash.com/photo-1593005510329-8a5f1bc2f7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Urban permaculture brings sustainable gardening to city spaces, transforming concrete jungles into green havens. Imagine a balcony filled with pots of herbs, vegetables, and flowers, all working together to support each other. By using vertical gardening, you can maximize small spaces, growing tomatoes alongside basil for natural pest control. Rainwater harvesting with small barrels ensures your plants thrive without city water. This approach reduces waste by composting kitchen scraps, turning them into nutrient-rich soil. Permaculture in urban settings fosters biodiversity, attracting pollinators like bees to your mini-ecosystem. It’s a way to reconnect with nature, even in the heart of the city. Sharing your harvest with neighbors builds community ties, spreading sustainability. Urban permaculture proves that even small spaces can yield big environmental benefits. It’s a step toward a greener, more self-sufficient urban life." },
+        { id: 2, title: "Permaculture and Soil Health: Building Fertile, Resilient Soil", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Permaculture prioritizes soil health, creating fertile, resilient ground for sustainable growth. Healthy soil is the foundation of any permaculture system, teeming with microbes that nourish plants naturally. By composting organic waste, you enrich the soil with nutrients, avoiding synthetic fertilizers. Cover crops like clover add nitrogen, mimicking nature’s way of soil regeneration. Permaculture avoids tilling, preserving soil structure and preventing erosion. Imagine a garden where worms thrive, breaking down compost to feed your plants. This method ensures long-term fertility, making your garden more resilient to drought. Rotating crops further enhances soil health, preventing nutrient depletion. Sharing compost with your community spreads this sustainable practice. Permaculture’s focus on soil health creates a thriving ecosystem beneath your feet." },
+        { id: 3, title: "Seed Saving in Permaculture: Preserving Biodiversity and Self-Sufficiency", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Seed saving in permaculture preserves biodiversity and promotes self-sufficiency, ensuring a sustainable future. By collecting seeds from your healthiest plants, you maintain genetic diversity, vital for resilient ecosystems. Imagine saving seeds from your favorite heirloom tomatoes, knowing they’ll grow true next season. This practice reduces reliance on commercial seeds, empowering you to grow food independently. Permaculture encourages saving seeds from diverse crops, like beans or squash, to foster variety. It’s a way to honor traditional farming methods while adapting to local conditions. Sharing saved seeds with neighbors strengthens community resilience. Seed saving also saves money, making gardening more accessible. This simple act connects you to the cycle of life, from seed to harvest. Permaculture’s focus on seed saving ensures nature’s diversity thrives." },
+        { id: 4, title: "Permaculture Water Management: Harvesting, Storing, and Conserving Water", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Permaculture water management focuses on harvesting, storing, and conserving water sustainably. Imagine a garden where every raindrop is captured in a barrel, ready to nourish your plants. Swales—shallow trenches—slow runoff, allowing water to seep into the soil and recharge groundwater. Mulching with straw or leaves reduces evaporation, keeping soil moist during dry spells. Drip irrigation delivers water directly to roots, minimizing waste compared to sprinklers. This approach ensures your garden thrives even in droughts, reflecting permaculture’s resourcefulness. Conserving water reduces your environmental footprint, benefiting the planet. Sharing these techniques with friends spreads sustainable habits. Permaculture water management mimics nature’s cycles, ensuring abundance without depletion. It’s a vital step toward a water-wise future." },
+        { id: 5, title: "Companion Planting in Permaculture: Creating Natural Partnerships for Growth", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Companion planting in permaculture creates natural partnerships that boost growth and resilience. Picture marigolds and tomatoes growing side by side, where marigolds repel pests that harm tomatoes. This method mimics nature’s diversity, reducing the need for chemical pesticides. Basil planted near peppers enhances flavor and deters insects, creating a win-win partnership. Permaculture uses these pairings to improve soil health, as legumes fix nitrogen for neighboring plants. It’s a way to maximize space and yield in your garden sustainably. Companion planting fosters biodiversity, attracting beneficial insects like ladybugs. Sharing these pairings with your community encourages collaborative gardening. This practice reflects permaculture’s ethos of working with nature, not against it. It’s a simple yet powerful way to grow healthier plants." },
+        { id: 6, title: "Permaculture Design for Small Spaces: Maximizing Yield in Limited Areas", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Permaculture design for small spaces maximizes yield, even in limited areas like balconies or patios. Imagine a tiny urban garden with vertical planters growing strawberries and herbs together. By using companion planting, you can pair plants that support each other, saving space. Stacking functions—like using a trellis for beans that also shades lettuce—optimizes every inch. Small rain barrels collect water, ensuring sustainable irrigation in tight spaces. Permaculture in small areas reduces waste by composting scraps in a compact bin. It fosters biodiversity, attracting pollinators to your urban oasis. Sharing this approach with neighbors inspires more city dwellers to garden sustainably. This design proves that permaculture adapts to any space, big or small. It’s a practical way to grow food and connect with nature." },
+        { id: 7, title: "Food Forests: Growing Abundance with Permaculture Practices", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Food forests in permaculture create abundance by mimicking natural forest ecosystems. Imagine a backyard where fruit trees, shrubs, and herbs grow in layers, each supporting the other. Apple trees provide shade for berry bushes, while groundcovers like clover enrich the soil. This diverse system yields a variety of foods, from nuts to greens, without synthetic inputs. Permaculture food forests conserve water through mulching and natural irrigation methods. They attract wildlife, enhancing biodiversity with every buzzing bee. Harvesting fresh peaches or mint from your forest connects you to nature’s cycles. Sharing your bounty with neighbors fosters community ties. Food forests embody permaculture’s principle of abundance through diversity. They’re a sustainable way to grow food for generations." },
+        { id: 8, title: "Permaculture Zones and Sectors: Designing a Productive and Harmonious Garden", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Permaculture zones and sectors design gardens that are productive and harmonious with nature. Zones organize your garden based on usage—zone 1 might include daily herbs near your kitchen. Sectors consider external factors, like placing a windbreak to shield plants from harsh winds. Imagine a garden where every element is placed thoughtfully, maximizing efficiency and beauty. This design ensures you conserve energy, visiting high-maintenance areas more often. Zones and sectors also enhance biodiversity by creating diverse habitats within your garden. A pond in zone 3 attracts frogs, naturally controlling pests. Sharing this design method with friends helps them create their own harmonious spaces. Permaculture zones and sectors reflect nature’s balance, making gardening sustainable. It’s a strategic way to align your garden with the environment." },
+        { id: 9, title: "Permaculture Principles: Creating Sustainable Food Systems and Landscapes", image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", content: "Permaculture principles guide the creation of sustainable food systems and landscapes that thrive naturally. Principles like diversity and observation ensure your garden mirrors nature’s resilience, reducing the need for external inputs. Imagine a landscape where every plant, from sunflowers to beans, supports the ecosystem’s health. Recycling resources, such as composting, closes nutrient loops, minimizing waste. Energy efficiency, like using solar-powered lights, aligns with permaculture’s ethos of sustainability. These principles create food systems that are self-sustaining, yielding harvests year after year. They also foster biodiversity, supporting pollinators and wildlife. Sharing these principles with your community inspires collective action toward sustainability. Permaculture principles offer a blueprint for landscapes that heal the planet. They’re a foundation for a greener, more abundant future." }
+    ];
+
+    const articlesPerPage = 1;
+    let currentPage = 1;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    currentPage = articleId;
+
+    function displayArticle(page) {
+        const article = articles.find(a => a.id === page);
+        const articleContentDiv = document.getElementById('article-content');
+
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-heading').textContent = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-text').textContent = article.content;
+        } else {
+            articleContentDiv.innerHTML = '<p>Article not found.</p><a href="/permaculture" class="back-button">Back to Permaculture</a>';
+        }
+
+        document.getElementById('page-info').textContent = `Article ${page} of ${articles.length}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === articles.length;
+
+        const newUrl = `/article-permaculture?id=${page}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticle(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < articles.length) {
+            currentPage++;
+            displayArticle(currentPage);
+        }
+    });
+
+    displayArticle(currentPage);
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head">
-</head>
+<head th:replace="fragments/head::head"></head>
     <meta charset="UTF-8">
-    <title>Video Courses - EcoLife</title>
+    <title>Video Courses - Nature Ethos</title>
     <link rel="stylesheet" href="/css/video-courses.css">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
 <nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 <header class="hero">
-    <h1 style="color: gainsboro">Video Courses</h1>
+    <h1>Video Courses</h1>
     <p>Explore tutorials and guides for a sustainable lifestyle!</p>
 </header>
 
@@ -20,10 +20,22 @@
 <section class="video-section">
     <h2>Learn Eco-Friendly Living</h2>
     <div class="video-grid">
-        <a th:each="course : ${videoCourses}" th:href="${course.videoUrl}"
-           target="_blank"  class="video-card">
+        <a href="https://www.youtube.com/watch?v=J77PRZk_pjk" target="_blank" class="video-card">
+            <iframe src="https://www.youtube.com/embed/J77PRZk_pjk" title="Zero Waste Living for Beginners" frameborder="0" allowfullscreen></iframe>
             <div class="video-overlay">
-                <h3 style="color: blanchedalmond" th:text="${course.title}"></h3>
+                <h3>Zero Waste Living for Beginners</h3>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=29SPJxoXn7Y" target="_blank" class="video-card">
+            <iframe src="https://www.youtube.com/embed/29SPJxoXn7Y" title="Sustainable Gardening Tips" frameborder="0" allowfullscreen></iframe>
+            <div class="video-overlay">
+                <h3>Sustainable Gardening Tips</h3>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=92cfS_S9D_0" target="_blank" class="video-card">
+            <iframe src="https://www.youtube.com/embed/92cfS_S9D_0" title="DIY Natural Cleaning Products" frameborder="0" allowfullscreen></iframe>
+            <div class="video-overlay">
+                <h3>DIY Natural Cleaning Products</h3>
             </div>
         </a>
     </div>
@@ -33,31 +45,89 @@
 <section class="image-section">
     <h2>Get Inspired</h2>
     <div class="image-grid">
-        <div class="image-card" style="background-image: url('/images/plastic-beach.jpeg');">
+        <div class="image-card" style="background-image:
+        url('/images/video/zero.jpeg');">
             <div class="image-overlay">
                 <p>Master Zero Waste Living</p>
             </div>
         </div>
-        <div class="image-card" style="background-image: url('/images/oneWorld.jpg');">
+        <div class="image-card" style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
             <div class="image-overlay">
                 <p>Live Sustainably Every Day</p>
             </div>
         </div>
-        <div class="image-card" style="background-image: url('/images/comosterWood.jpg');">
+        <div class="image-card" style="background-image:
+        url('/images/video/compost.jpg');">
             <div class="image-overlay">
                 <p>Compost Like a Pro</p>
             </div>
         </div>
     </div>
 </section>
-<!--<div class="video-courses-container">-->
-<!--    <h1><i class="fas fa-video"></i> Video Courses</h1>-->
-<!--    <div th:each="course : ${courses}" class="course-card">-->
-<!--        <h3 th:text="${course.title}"></h3>-->
-<!--        <p th:text="${course.description}"></p>-->
-<!--        <a th:href="@{/video-courses/{id}(id=${course.id})}">Watch Now</a>-->
-<!--    </div>-->
-<!--</div>-->
+
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="fragments/head::head">-->
+<!--</head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Video Courses - Nature Ethos</title>-->
+<!--    <link rel="stylesheet" href="/css/video-courses.css">-->
+<!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
+
+<!--<body>-->
+<!--<div th:replace="~{fragments/preloader :: preloader}"></div>-->
+<!--<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>-->
+<!--<header class="hero">-->
+<!--    <h1 style="color: gainsboro">Video Courses</h1>-->
+<!--    <p>Explore tutorials and guides for a sustainable lifestyle!</p>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Секция за видеокурсове &ndash;&gt;-->
+<!--<section class="video-section">-->
+<!--    <h2>Learn Eco-Friendly Living</h2>-->
+<!--    <div class="video-grid">-->
+<!--        <a th:each="course : ${videoCourses}" th:href="${course.videoUrl}"-->
+<!--           target="_blank"  class="video-card">-->
+<!--            <div class="video-overlay">-->
+<!--                <h3 style="color: blanchedalmond" th:text="${course.title}"></h3>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Секция със снимки и текстови наслагвания &ndash;&gt;-->
+<!--<section class="image-section">-->
+<!--    <h2>Get Inspired</h2>-->
+<!--    <div class="image-grid">-->
+<!--        <div class="image-card" style="background-image: url('/images/plastic-beach.jpeg');">-->
+<!--            <div class="image-overlay">-->
+<!--                <p>Master Zero Waste Living</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="image-card" style="background-image: url('/images/oneWorld.jpg');">-->
+<!--            <div class="image-overlay">-->
+<!--                <p>Live Sustainably Every Day</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="image-card" style="background-image: url('/images/comosterWood.jpg');">-->
+<!--            <div class="image-overlay">-->
+<!--                <p>Compost Like a Pro</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash;<div class="video-courses-container">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1><i class="fas fa-video"></i> Video Courses</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div th:each="course : ${courses}" class="course-card">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h3 th:text="${course.title}"></h3>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p th:text="${course.description}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a th:href="@{/video-courses/{id}(id=${course.id})}">Watch Now</a>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<!--</body>-->
+<!--</html>-->

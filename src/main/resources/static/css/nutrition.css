@@ -2,14 +2,16 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(139, 195, 74, 0.1)), #f5f5f5;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.1),
+    rgba(139, 195, 74, 0.1)), url('/images/nutrition-conclusion.jpg');
     color: #333;
     overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(45deg, rgba(46, 125, 50, 0.7), rgba(139, 195, 74, 0.7)), url('/images/nutrition-hero.jpg') no-repeat center/cover;
+    /*background: linear-gradient(45deg, rgba(46, 125, 50, 0.7), rgba(139, 195, 74, 0.7)),*/
+    /*url('/images/nutrition-hero.jpg') no-repeat center/cover;*/
     color: white;
     text-align: center;
     padding: 100px 20px;
@@ -21,6 +23,7 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
     margin: 0;
+    color: #795548;
     animation: wave 2s infinite;
 }
 

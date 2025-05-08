@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(rgba(255, 235, 59, 0.1), rgba(255, 235, 59, 0.1)),
-    url('/images/herbs-garden.jpg');
+    url('/images/herbs/herb.jpg');
     color: #FF5722;
     line-height: 1.7;
     overflow-x: hidden;
@@ -12,7 +12,7 @@ body {
 
 header {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/images/herbs/header-bg.jpg') no-repeat center center/cover;
+    url('/images/herbs/herbs-cool.jpg') no-repeat center center/cover;
     color: #FFEB3B;
     text-align: center;
     padding: 5rem 2rem;

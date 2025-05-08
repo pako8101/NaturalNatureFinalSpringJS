@@ -1,0 +1,164 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(102, 187, 106, 0.1), rgba(102, 187, 106, 0.1)),
+    url('/images/ocean.jpg') no-repeat center center/cover;
+    color: sandybrown;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/images/permaculture/permaculture.jpg')
+    no-repeat center center/cover;
+    color: #FFCA28;
+    text-align: center;
+    padding: 5rem 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 2s ease-out;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    text-shadow: 3px 3px 8px rgba(233, 30, 99, 0.5);
+    animation: wave 3s infinite;
+    color: #d4e157;
+}
+
+@keyframes wave {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.article-content {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 20px rgba(240, 98, 146, 0.1);
+    border: 3px solid #66BB6A;
+    position: relative;
+    animation: slideIn 1.2s ease-out;
+}
+
+.article-content::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: url('https://www.transparenttextures.com/patterns/leaf.png');
+    opacity: 0.2;
+}
+
+.article-content h2 {
+    color: #F06292;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 4px wavy #FFCA28;
+    padding-bottom: 0.7rem;
+}
+
+.article-content img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease;
+}
+
+.article-content img:hover {
+    transform: scale(1.05);
+}
+
+.article-content p {
+    color: #66BB6A;
+    margin: 0.7rem 0;
+}
+
+.back-button {
+    display: inline-block;
+    background: #E91E63;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #F06292;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: rgba(255, 202, 40, 0.2);
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.1);
+}
+
+.pagination button {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #66BB6A;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.pagination button i {
+    font-size: 1.1rem;
+}
+
+.pagination button:hover {
+    background: #E91E63;
+    transform: scale(1.1);
+}
+
+.pagination button:disabled {
+    background: #B0BEC5;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: coral;
+    background: rgba(240, 98, 146, 0.1);
+    padding: 0.7rem 1.2rem;
+    border-radius: 20px;
+}

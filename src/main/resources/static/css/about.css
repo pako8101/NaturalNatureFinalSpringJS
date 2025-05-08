@@ -3,14 +3,16 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, rgba(46, 125, 50, 0.2), rgba(76, 175, 80, 0.2)), url('/images/eco-about-bg.jpg') no-repeat center/cover fixed;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.2), rgba(76, 175, 80, 0.2)),
+    url('/images/coral-2.jpg') no-repeat center/cover fixed;
     color: #333;
     overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(45deg, rgba(46, 125, 50, 0.7), rgba(76, 175, 80, 0.7)), url('/images/nature-ethos.jpeg') no-repeat center/cover;
+    background: linear-gradient(45deg, rgba(46, 125, 50, 0.7), rgba(76, 175, 80, 0.7)),
+    url('/images/nature-ethos.jpeg') no-repeat center/cover;
     color: white;
     text-align: center;
     padding: 120px 20px;
@@ -72,89 +74,6 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* About Section */
-/*.about-section {*/
-/*    max-width: 1200px;*/
-/*    margin: 40px auto;*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
-/*    gap: 30px;*/
-/*    padding: 20px;*/
-/*}*/
-
-/*.mission-card, .future-card, .think-card {*/
-/*    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(76, 175, 80, 0.2));*/
-/*    padding: 30px;*/
-/*    border-radius: 20px;*/
-/*    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);*/
-/*    transition: transform 0.5s ease, box-shadow 0.5s ease;*/
-/*    position: relative;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*.mission-card:hover, .future-card:hover, .think-card:hover {*/
-/*    transform: translateY(-10px) rotate(2deg);*/
-/*    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.5);*/
-/*}*/
-
-/*.mission-card h2, .future-card h2, .think-card h2 {*/
-/*    font-family: 'Dancing Script', cursive;*/
-/*    font-size: 2.5rem;*/
-/*    margin-bottom: 15px;*/
-/*    text-align: center;*/
-/*    animation: wave 2s infinite;*/
-/*    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);*/
-/*}*/
-
-/*.mission-card h2 { color: #2e7d32; }*/
-/*.future-card h2 { color: #4caf50; }*/
-/*.think-card h2 { color: #388e3c; }*/
-
-/*.mission-card p, .future-card p, .think-card p {*/
-/*    font-size: 1.1rem;*/
-/*    line-height: 1.6;*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.learn-more-btn {*/
-/*    background: linear-gradient(90deg, #2e7d32, #4caf50);*/
-/*    color: white;*/
-/*    border: none;*/
-/*    padding: 12px 25px;*/
-/*    border-radius: 25px;*/
-/*    cursor: pointer;*/
-/*    font-family: 'Montserrat', sans-serif;*/
-/*    font-size: 1rem;*/
-/*    font-weight: bold;*/
-/*    margin-top: 10px;*/
-/*    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
-/*    animation: pulse 2s infinite;*/
-/*    display: block;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*}*/
-
-/*.learn-more-btn:hover {*/
-/*    transform: scale(1.1);*/
-/*    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);*/
-/*}*/
-
-/*.more-info {*/
-/*    max-height: 0;*/
-/*    opacity: 0;*/
-/*    overflow: hidden;*/
-/*    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;*/
-/*    background: rgba(236, 240, 241, 0.8);*/
-/*    padding: 0 10px;*/
-/*    border-radius: 10px;*/
-/*    margin-top: 10px;*/
-/*}*/
-
-/*.more-info p {*/
-/*    font-size: 1rem;*/
-/*    line-height: 1.6;*/
-/*    padding: 10px 0;*/
-/*}*/
 
 /* Office Section */
 .office-section {
