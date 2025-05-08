@@ -22,7 +22,7 @@ public class WellnessArticlesController {
         wellnessArticles.put(11L, Map.of(
                 "title", "Herbal Remedies for Natural Healing",
                 "content", "<p>Herbs like chamomile, ginger, and turmeric have been used for centuries to treat various ailments naturally...</p>",
-                "image", "/images/wellness/herbal-remedies.jpg"
+                "image", "/images/wellness/herbs-remedies.jpg"
         ));
         wellnessArticles.put(12L, Map.of(
                 "title", "The Role of Nature Walks in Mental Health",

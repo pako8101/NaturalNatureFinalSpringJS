@@ -8,9 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/herbal-remedies")
+
 public class HerbalRemediesController {
 
     private static final Logger logger = LoggerFactory.getLogger(HerbalRemediesController.class);
@@ -20,10 +21,25 @@ public class HerbalRemediesController {
         this.herbalRemedyService = herbalRemedyService;
     }
 
-    @GetMapping
-    public String showHerbalRemediesPage(Model model) {
-        logger.info("Showing herbal remedies page");
-        model.addAttribute("remedies", herbalRemedyService.getAllRemedies());
-        return "herbal-remedies";
-    }
+//    @GetMapping
+//    public String showHerbalRemediesPage(Model model) {
+//        logger.info("Showing herbs remedies page");
+//        model.addAttribute("remedies", herbalRemedyService.getAllRemedies());
+//        return "herbs-remedies";
+//    }
+
+
+
+        @GetMapping("/herbal-remedies")
+        public String showHerbalRemedies(Model model) {
+            model.addAttribute("pageTitle", "Herbal Remedies: Healing with Nature’s Touch");
+            return "herbal-remedies";
+        }
+
+        @GetMapping("/article-herbal")
+        public String showArticle(@RequestParam("id") Long id, Model model) {
+            model.addAttribute("articleId", id);
+            return "article-herbal";
+        }
+
 }

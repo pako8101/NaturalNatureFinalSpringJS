@@ -229,7 +229,7 @@ public class NutritionController {
                         "\n" +
                         "Vegetables: Cucumber (96% water), lettuce (95%), zucchini (94%)\n" +
                         "\n" +
-                        "Other sources: Soups, herbal teas, and dairy products\n" +
+                        "Other sources: Soups, herbs teas, and dairy products\n" +
                         "\n" +
                         "Recognizing Dehydration Risks\n" +
                         "Early warning signs include:\n" +

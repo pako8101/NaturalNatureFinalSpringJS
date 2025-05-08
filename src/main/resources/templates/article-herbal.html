@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head::head"></head>
+<meta charset="UTF-8">
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'Article Details'">Article Details</title>
+<link rel="stylesheet" th:href="@{/css/article-herbal.css}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+<div th:replace="~{fragments/preloader :: preloader}"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
+
+<header>
+    <h1 id="article-title">Article Details</h1>
+</header>
+
+<div class="container">
+    <div class="article-content" id="article-content">
+        <h2 id="article-heading"></h2>
+        <img id="article-image" src="" alt="Article Image">
+        <p id="article-text"></p>
+        <a href="/herbal-remedies" class="back-button">Back to Herbal Remedies</a>
+    </div>
+
+    <!-- Pagination for Articles -->
+    <div class="pagination">
+        <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+        <span id="page-info"></span>
+        <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+    </div>
+</div>
+
+
+<script>
+    const articles = [
+        {
+            id: 1,
+            title: "Holistic Herbal Medicine: Balancing Mind, Body, and Spirit",
+            image: "/images/herbs/holistic.jpeg",
+            content: "Holistic herbal medicine nurtures your entire being, addressing mind, body, and spirit. Chamomile tea calms your mind after a stressful day. Peppermint oil soothes physical tension, easing headaches naturally. Lavender’s scent uplifts your spirit, fostering inner peace. This approach blends ancient wisdom with modern needs. It encourages a balanced lifestyle, free from synthetic drugs. Herbs like rosemary enhance mental clarity, supporting overall wellness. Growing your own herbs ensures purity and sustainability. Share these remedies with loved ones to spread holistic healing. Embrace this natural path for a harmonious life."
+        },
+        {
+            id: 2,
+            title: "Natural Pain Relief: Managing Discomfort with Herbal Solutions",
+            image: "/images/herbs/pain-relief.jpg",
+            content: "Herbal solutions offer gentle pain relief without harsh chemicals. Ginger tea reduces inflammation, easing joint pain naturally. Turmeric salve applied to sore muscles provides soothing comfort. Peppermint oil on temples can alleviate tension headaches. These remedies minimize environmental harm from pharmaceutical production. Willow bark, a natural aspirin, helps with chronic pain. Always research proper dosages to avoid side effects. Growing pain-relieving herbs like cayenne ensures sustainability. Share recipes with friends to promote natural healing. This approach supports your body and the planet."
+        },
+        {
+            id: 3,
+            title: "Boosting Immunity with Herbal Supplements: Strengthening Your Body’s Defenses",
+            image: "/images/herbs/immunity.jpg",
+            content: "Herbal supplements strengthen your immunity, protecting you naturally. Elderberry syrup boosts defenses against colds and flu. Echinacea tea enhances your body’s resistance to infections. Garlic, a powerful herb, fights off bacteria and viruses. These remedies reduce reliance on synthetic supplements, cutting waste. Growing herbs like astragalus ensures a sustainable supply. Incorporate them into daily teas or meals for consistent benefits. Share your knowledge to inspire others toward natural immunity. This practice fosters health while honoring the Earth. It’s a win-win for you and nature."
+        },
+        {
+            id: 4,
+            title: "Herbs for Stress Relief: Natural Remedies for Relaxation and Calm",
+            image: "/images/herbs/stress-relief.jpg",
+            content: "Herbs for stress relief bring calm to your busy life naturally. Lavender oil in a diffuser melts away anxiety effortlessly. Ashwagandha tea helps balance stress hormones, promoting relaxation. Lemon balm leaves brewed into tea soothe nervous tension. These remedies avoid the environmental impact of pharmaceuticals. Growing your own herbs ensures purity and sustainability. Incorporate them into evening rituals for better rest. Share calming recipes with friends to spread tranquility. This natural approach nurtures your peace of mind. It also supports a greener lifestyle."
+        },
+        {
+            id: 5,
+            title: "Herbal Healing for Skin: Nurturing Your Body’s Largest Organ Naturally",
+            image: "/images/herbs/skin-healing.jpg",
+            content: "Herbal healing for skin nurtures your body’s largest organ with care. Calendula salve heals cuts and soothes irritation gently. Tea tree oil fights acne without harsh chemicals. Aloe vera gel hydrates and repairs sun-damaged skin. These remedies reduce plastic waste from commercial products. Growing herbs like chamomile ensures a sustainable source. Craft DIY masks for a personalized, eco-friendly routine. Share your creations with others to inspire natural care. This approach enhances your skin’s glow naturally. It also protects the planet from harmful waste."
+        },
+        {
+            id: 6,
+            title: "The Art of Herbal Tinctures: Crafting Potent and Custom Remedies",
+            image: "/images/herbs/tinctures.jpg",
+            content: "Crafting herbal tinctures creates potent remedies tailored to your needs. Echinacea tincture boosts immunity during cold season. Valerian tincture promotes deep, restful sleep naturally. Nettle tincture helps with allergies, reducing sneezing. This method preserves herbs’ potency while minimizing waste. Use homegrown herbs for a sustainable process. Experiment with blends to suit your health goals. Share your tinctures with friends to spread wellness. This art connects you to ancient healing traditions. It also supports eco-friendly living beautifully."
+        },
+        {
+            id: 7,
+            title: "Creating Your Herbal First Aid Kit: Natural Solutions for Common Ailments",
+            image: "/images/herbs/first-aid.jpg",
+            content: "A herbal first aid kit offers natural solutions for everyday ailments. Aloe vera gel soothes burns and minor cuts quickly. Chamomile tea bags calm an upset stomach gently. Peppermint oil relieves headaches with a few drops. This kit reduces reliance on plastic-packaged pharmaceuticals. Grow your own herbs for a sustainable supply. Keep it handy for travel or home emergencies. Share your kit ideas with others to promote natural healing. This approach ensures quick, eco-friendly relief. It also deepens your connection to nature."
+        },
+        {
+            id: 8,
+            title: "The Benefits of Herbal Medicine: Traditional Wisdom Meets Modern Wellness",
+            image: "/images/herbs/herbal-medicine.jpg",
+            content: "Herbal medicine blends traditional wisdom with modern wellness seamlessly. Ginger root eases nausea, a remedy used for centuries. Rosemary tea improves focus, supporting today’s busy lifestyles. Chamomile soothes anxiety, bridging past and present healing. This practice reduces environmental harm from synthetic drugs. Growing herbs like sage ensures sustainability and purity. Incorporate them into daily routines for lasting benefits. Share these benefits with others to inspire change. This fusion nurtures your health naturally. It also honors the planet’s resources."
+        },
+        {
+            id: 9,
+            title: "Herbalism and Sustainability: Cultivating and Harvesting Medicinal Plants Responsibly",
+            image: "/images/herbs/sustainability.jpg",
+            content: "Herbalism and sustainability go hand in hand for a greener future. Harvest wild herbs like nettle responsibly to avoid overpicking. Grow chamomile at home to reduce commercial farming’s impact. Compost herb scraps to enrich your garden’s soil. This practice ensures plants thrive for future generations. Support local farmers who use organic methods. Share sustainable harvesting tips with your community. This approach preserves biodiversity while healing naturally. It fosters a deep respect for nature’s cycles. Together, we can cultivate a sustainable herbal legacy."
+        }
+    ];
+
+    const articlesPerPage = 1;
+    let currentPage = 1;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id'));
+    currentPage = articleId;
+
+    function displayArticle(page) {
+        const article = articles.find(a => a.id === page);
+        const articleContentDiv = document.getElementById('article-content');
+
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-heading').textContent = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('article-text').textContent = article.content;
+        } else {
+            articleContentDiv.innerHTML = '<p>Article not found.</p><a href="/herbal-remedies" class="back-button">Back to Herbal Remedies</a>';
+        }
+
+        document.getElementById('page-info').textContent = `Article ${page} of ${articles.length}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === articles.length;
+
+        const newUrl = `/article-herbal?id=${page}`;
+        window.history.pushState({path: newUrl}, '', newUrl);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticle(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < articles.length) {
+            currentPage++;
+            displayArticle(currentPage);
+        }
+    });
+
+    displayArticle(currentPage);
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

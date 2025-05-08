@@ -1,129 +1,541 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
+<head th:replace="fragments/head::head"></head>
 <meta charset="UTF-8">
-<title>Herbal Remedies - Natural Ethos</title>
-<link rel="stylesheet" th:href="@{/css/herbal-remedies.css}">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'Herbal Remedies: Healing with Nature’s Touch'">Herbal Remedies:
+    Healing with Nature’s Touch</title>
+<link rel="stylesheet" th:href="@{/css/herbal-remedies.css}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
-<div th:replace="fragments/navbar :: navbar"></div>
+<nav class="navbar" th:replace="fragments/navbar :: navbar"></nav>
 
-<!-- Хедър -->
-<header class="hero">
-    <div class="hero-content">
-        <h1 class="animated-title">Herbal Remedies</h1>
-        <p class="hero-subtitle">Discover Nature’s Healing Power</p>
-    </div>
-    <div class="flower-overlay"></div>
+<header>
+    <h1>HERBAL REMEDIES: HEALING WITH NATURE’S TOUCH</h1>
 </header>
 
-<!-- Секция 1: The Power of Herbal Remedies in Modern Healing -->
-<section class="section intro-section">
-    <h2 class="section-title">The Power of Herbal Remedies in Modern Healing</h2>
-    <div class="content-wrapper">
-        <div class="text-content">
-            <p>Herbal remedies have been used for centuries to heal and nurture the body naturally. From ancient civilizations to modern holistic practices, herbs like chamomile, peppermint, and echinacea offer powerful benefits without the side effects of synthetic drugs.</p>
-            <p>Today, science is catching up with tradition, proving the efficacy of these natural solutions in treating everything from stress to infections. Join the movement to embrace nature’s pharmacy!</p>
-        </div>
-        <div class="media-content">
-            <img src="/images/herbal-healing.jpg" alt="Herbal Healing" class="float-image">
-        </div>
-    </div>
-</section>
+<div class="container">
+    <!-- Key Takeaways -->
+    <section class="section">
+        <h2>Key Takeaways</h2>
+        <ul class="takeaways-list">
+            <li>Discover how herbal remedies align with sustainable living for a healthier planet.</li>
+            <li>Learn the benefits of growing your own medicinal herbs to reduce environmental impact.</li>
+            <li>Explore eco-friendly DIY skincare and healing solutions using natural herbs.</li>
+            <li>Understand the pros and cons of adopting an eco-herbal lifestyle.</li>
+            <li>Embrace holistic healing by connecting with nature through herbal practices.</li>
+        </ul>
+    </section>
 
-<!-- Секция 2: Herbal Remedies for Common Ailments (Таблична) -->
-<section class="section table-section">
-    <h2 class="section-title">Herbal Remedies for Common Ailments: A Research Approach</h2>
-    <table class="remedy-table">
-        <thead>
-        <tr>
-            <th>Herb</th>
-            <th>Ailment</th>
-            <th>Benefits</th>
-            <th>Usage</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="remedy : ${remedies}">
-            <td th:text="${remedy.name}"></td>
-            <td th:text="${remedy.description}"></td>
-            <td th:text="${remedy.benefits}"></td>
-            <td th:text="${remedy.usageInstructions}"></td>
-        </tr>
-        </tbody>
-    </table>
-</section>
-
-<!-- Секция 3: Types of Herbal Remedies (с видео и анимации) -->
-<section class="section types-section">
-    <h2 class="section-title">Types of Herbal Remedies: Teas, Tinctures, Oils, and More</h2>
-    <div class="content-wrapper">
-        <div class="media-content">
-            <video autoplay muted loop class="herbal-video">
-                <source src="/videos/herbal-preparation.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <!-- Introduction -->
+    <section class="section">
+        <h2>Introduction: Understanding the Intersection of Sustainability and Herbal Healing</h2>
+        <p>Herbal healing and sustainability intertwine like roots and soil, nurturing both our bodies and the Earth.
+            Using plant-based remedies reduces your ecological footprint while promoting personal wellness. Imagine
+            sipping a cup of homegrown chamomile tea, knowing it supports biodiversity and avoids harmful chemicals.
+            This journey invites you to honor nature’s gifts, fostering a balance between self-care and environmental
+            respect. By choosing ethically sourced herbs, you preserve ancient traditions and protect ecosystems. Let’s
+            weave sustainability into herbal practices, creating a harmonious future for all.</p>
+        <div class="media-container">
+            <img src="/images/herbs/intro.jpg" alt="Herbal Healing Intro" class="section-image">
+            <iframe src="https://www.youtube.com/embed/9tYuGCb5pS4"
+                    title="Herbal Remedies Guide" frameborder="0"
+                    allowfullscreen></iframe>
         </div>
-        <div class="text-content">
-            <p>Herbal remedies come in many forms, each with unique preparation methods and uses:</p>
-            <ul class="herbal-list">
-                <li class="herbal-item">Teas: Steep herbs like chamomile or peppermint in hot water for a soothing drink.</li>
-                <li class="herbal-item">Tinctures: Concentrated extracts like echinacea, taken in small doses.</li>
-                <li class="herbal-item">Oils: Essential oils like lavender, used for aromatherapy or topical application.</li>
-                <li class="herbal-item">Salves: Herbal balms for skin healing, such as calendula salve.</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Секция 4: Growing Your Own Medicinal Herbs (с интерактивност) -->
-<section class="section growing-section">
-    <h2 class="section-title">Growing Your Own Medicinal Herbs</h2>
-    <div class="content-wrapper">
-        <div class="text-content">
-            <p>Creating your own herbal garden is easier than you think! Start with these beginner-friendly herbs:</p>
-            <div class="herb-card" onclick="toggleHerbInfo(this)">
-                <img src="/images/mint-plant.jpg" alt="Mint Plant" class="herb-image">
-                <h3>Mint</h3>
-                <p class="herb-info">Grows easily in pots, great for digestion.</p>
+    <!-- Uncover the Benefits -->
+    <section class="section">
+        <h2>Uncover the Benefits of Adding Herbal Remedies to Your Sustainable Lifestyle</h2>
+        <p>Herbal remedies bring a wealth of benefits, blending wellness with eco-conscious living. They reduce reliance
+            on synthetic products, cutting down on pollution and waste. For instance, a lavender infusion can calm your
+            nerves while supporting sustainable farming practices. These natural solutions, like ginger for nausea or
+            calendula for skin, nurture your body without harming the planet. Incorporating herbs into your routine
+            fosters a deeper connection to nature’s cycles. It’s a simple yet profound step toward a greener, healthier
+            life.</p>
+        <div class="media-container">
+            <img src="/images/herbs/benefits.jpg" alt="Herbal Benefits" class="section-image">
+        </div>
+    </section>
+
+    <!-- Pros & Cons of Eco-Herbal Living -->
+    <section class="section">
+        <h2>The Pros & Cons of Eco-Herbal Living</h2>
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Pros</h3>
+                <ul>
+                    <li>Encourages sustainable practices that protect the environment.</li>
+                    <li>Offers gentle, natural healing with minimal side effects.</li>
+                    <li>Revives traditional herbal knowledge for modern wellness.</li>
+                    <li>Reduces exposure to toxic chemicals in commercial products.</li>
+                </ul>
             </div>
-            <div class="herb-card" onclick="toggleHerbInfo(this)">
-                <img src="/images/lavender-plant.jpg" alt="Lavender Plant" class="herb-image">
-                <h3>Lavender</h3>
-                <p class="herb-info">Loves sun, perfect for relaxation.</p>
+            <div class="cons">
+                <h3>Cons</h3>
+                <ul>
+                    <li>Limited scientific studies may leave some benefits unverified.</li>
+                    <li>Potential for allergic reactions or unexpected side effects.</li>
+                    <li>Preparing remedies can be time-intensive and labor-heavy.</li>
+                    <li>Sourcing rare herbs sustainably can be challenging and costly.</li>
+                </ul>
             </div>
         </div>
-        <div class="media-content">
-            <img src="/images/herbal-garden.jpg" alt="Herbal Garden" class="float-image">
+    </section>
+
+    <!-- Developing Skills -->
+    <section class="section">
+        <h2>Developing Skills: Growing Your Own Medicinal Herbs for Sustainability</h2>
+        <p>Cultivating your own medicinal herbs is a rewarding path to sustainability and self-sufficiency. Imagine a
+            garden blooming with lavender for relaxation, peppermint for digestion, and echinacea for immunity. These
+            plants not only beautify your space but also provide natural remedies at your fingertips. Growing herbs
+            reduces the need for packaged products, minimizing waste and carbon emissions. You’ll feel empowered
+            harvesting fresh leaves for teas or salves, knowing their origins. This hands-on approach deepens your bond
+            with nature while promoting eco-friendly living.</p>
+        <div class="media-container">
+            <iframe src="https://www.youtube.com/embed/YoaovZuonZs" title="Growing Medicinal Herbs" frameborder="0"
+                    allowfullscreen></iframe>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Секция 5: Conclusion -->
-<section class="section conclusion-section">
-    <h2 class="section-title">Conclusion: Embracing Nature’s Pharmacy</h2>
-    <p>Herbal remedies offer a sustainable, natural way to support your health and well-being. By growing your own herbs and incorporating them into your daily routine, you can reconnect with nature and harness its healing power. Start your herbal journey today!</p>
-</section>
+    <!-- Practical Advice -->
+    <section class="section">
+        <h2>Practical Advice: Incorporating Herbal Remedies Into Daily Life Sustainably</h2>
+        <p>Integrating herbal remedies into your daily routine can seamlessly align with sustainable living. Start by
+            brewing a cup of homegrown mint tea to refresh your senses while reducing packaging waste. Research local
+            herbs like basil or rosemary to grow, ensuring they thrive in your climate without excessive resources.
+            Support organic farmers by sourcing herbs from nearby markets, cutting transportation emissions. Add fresh
+            herbs to meals for flavor and health benefits, replacing chemical-laden condiments. Mindful use of herbs
+            ensures you honor nature’s abundance while nurturing your well-being.</p>
+    </section>
 
-<footer th:replace="fragments/footer :: footer"></footer>
+    <!-- Top 10 Eco-Friendly Herbal Remedies -->
+    <section class="section">
+        <h2>Top 10 Eco-Friendly Herbal Remedies for Wellness</h2>
+        <table class="herbal-table">
+            <thead>
+            <tr>
+                <th>Herb Name</th>
+                <th>Benefits</th>
+                <th>Usage</th>
+                <th>Precautions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Aloe Vera</td>
+                <td>Soothes skin, aids digestion</td>
+                <td>Topical, Oral</td>
+                <td>Avoid long-term internal use</td>
+            </tr>
+            <tr>
+                <td>Lavender</td>
+                <td>Calms nerves, improves sleep</td>
+                <td>Aromatherapy</td>
+                <td>Possible allergies</td>
+            </tr>
+            <tr>
+                <td>Echinacea</td>
+                <td>Boosts immunity</td>
+                <td>Tea, Capsules</td>
+                <td>Not for autoimmune conditions</td>
+            </tr>
+            <tr>
+                <td>Peppermint</td>
+                <td>Eases digestion, headaches</td>
+                <td>Tea, Oil</td>
+                <td>May interact with medications</td>
+            </tr>
+            <tr>
+                <td>Chamomile</td>
+                <td>Reduces anxiety, aids sleep</td>
+                <td>Tea, Tincture</td>
+                <td>Avoid if allergic to ragweed</td>
+            </tr>
+            <tr>
+                <td>Ginger</td>
+                <td>Reduces inflammation, nausea</td>
+                <td>Tea, Raw</td>
+                <td>High doses may cause heartburn</td>
+            </tr>
+            <tr>
+                <td>Calendula</td>
+                <td>Heals wounds, soothes skin</td>
+                <td>Salve, Tea</td>
+                <td>Avoid during pregnancy</td>
+            </tr>
+            <tr>
+                <td>Rosemary</td>
+                <td>Improves memory, scalp health</td>
+                <td>Oil, Tea</td>
+                <td>Not for high blood pressure</td>
+            </tr>
+            <tr>
+                <td>Nettle</td>
+                <td>Fights allergies, detoxifies</td>
+                <td>Tea, Tincture</td>
+                <td>May cause mild stomach upset</td>
+            </tr>
+            <tr>
+                <td>Elderberry</td>
+                <td>Boosts immunity, fights colds</td>
+                <td>Syrup, Tea</td>
+                <td>Raw berries can be toxic</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Nurturing Nature -->
+    <section class="section">
+        <h2>Nurturing Nature: Creating DIY Skincare Products with Herbal Remedies</h2>
+        <p>Crafting DIY skincare with herbal remedies lets you pamper yourself while caring for the planet. Imagine
+            blending calendula petals into a soothing face mask, free from plastic packaging. Herbs like tea tree for
+            acne or chamomile for irritation offer natural solutions without synthetic additives. This approach reduces
+            waste and connects you to nature’s healing power. You’ll glow with pride knowing each product is sustainable
+            and tailored to your needs. It’s a nurturing ritual that benefits both your skin and the environment.</p>
+        <div class="media-container">
+            <img src="/images/herbs/skincare.jpg" alt="DIY Herbal Skincare" class="section-image">
+        </div>
+    </section>
+
+    <!-- Holistic Healing -->
+    <section class="section">
+        <h2>Holistic Healing: Exploring Natural Solutions for Common Health Issues</h2>
+        <p>Holistic healing with herbs addresses common health issues gently and naturally. A cup of peppermint tea can
+            soothe a headache, avoiding the need for chemical painkillers. Chamomile’s calming properties help with
+            anxiety, promoting mental balance without pharmaceuticals. Ginger root tackles nausea, offering relief
+            during travel or illness. These remedies complement modern medicine, blending ancient wisdom with today’s
+            needs. By embracing holistic solutions, you foster overall well-being while respecting nature’s
+            resources.</p>
+    </section>
+
+    <!-- Eco Herbal Lore -->
+    <section class="section">
+        <h2>Eco Herbal Lore: Tales of Nature’s Remedies</h2>
+        <ul class="herbal-lore">
+            <li><strong>Stories of Nature’s Healing Remedies</strong><br>
+                <span><strong>Nettle Tea to Combat Allergies:</strong> Nettle’s antihistamine properties make it a go-to remedy for easing allergy symptoms naturally.</span><br>
+                <span><strong>Lavender for Relaxation:</strong> A few drops of lavender oil in a diffuser can melt away stress, a tradition passed down through generations.</span><br>
+                <span><strong>Peppermint for Improved Digestion:</strong> Chewing fresh peppermint leaves has long been a remedy for bloating and indigestion.</span><br>
+                <span><strong>Chamomile for Better Sleep:</strong> Chamomile tea before bed is a time-honored ritual for restful, natural sleep.</span><br>
+                <span><strong>Echinacea Boosts Immunity:</strong> Echinacea’s immune-boosting power has been celebrated in herbal lore as a cold-fighting ally.</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Strengthening the Connection -->
+    <section class="section">
+        <h2>Strengthening the Connection: Deepening Your Bond with Nature and Sustainability Principles Through Herbal
+            Remedies</h2>
+        <p>Herbal remedies deepen your connection to nature, grounding you in sustainable principles. Picture foraging
+            for wild nettles, feeling the Earth beneath your feet as you gather healing plants. Crafting remedies like
+            elderberry syrup ties you to centuries-old traditions of living in harmony with nature. Each herb you use
+            teaches respect for the planet’s resources, encouraging mindful consumption. This bond inspires sustainable
+            habits, from composting to growing your own herbs. It’s a sacred partnership that nurtures both you and the
+            environment.</p>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+        <h2>Conclusion: Embracing Sustainable Living with the Power of Herbal Remedies</h2>
+        <p>Sustainable living through herbal remedies is a transformative journey for you and the planet. Every rosemary
+            sprig you grow or lavender balm you craft supports eco-friendly practices. These natural allies, from
+            chamomile to ginger, heal your body while reducing environmental harm. Composting herb scraps creates a
+            cycle of renewal, giving back to the Earth. Embrace this path with open arms, letting herbs guide you toward
+            a greener, healthier future. Together, we can cultivate wellness and sustainability, one plant at a
+            time.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <h2>FAQ</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <h3>1. How can I incorporate herbal remedies into my sustainable lifestyle?</h3>
+                <p>Grow organic herbs, make homemade remedies, and support local herbalists.</p>
+            </div>
+            <div class="faq-item">
+                <h3>2. What are some eco-friendly alternatives to commercial skincare products using herbal
+                    ingredients?</h3>
+                <p>Use aloe vera, lavender oil, and calendula for natural, waste-free skincare.</p>
+            </div>
+            <div class="faq-item">
+                <h3>3. Are there any easy-to-grow herbs that I can cultivate at home for medicinal purposes?</h3>
+                <p>Yes, try peppermint, chamomile, and lavender for easy, healing herbs.</p>
+            </div>
+            <div class="faq-item">
+                <h3>4. Can you suggest ways to reduce waste while utilizing herbs for healing and wellness?</h3>
+                <p>Grow your own herbs, compost scraps, and use reusable containers.</p>
+            </div>
+            <div class="faq-item">
+                <h3>5. How can I create a green first aid kit using herbal remedies?</h3>
+                <p>Include aloe vera for burns, lavender for calm, and chamomile for digestion.</p>
+            </div>
+            <div class="faq-item">
+                <h3>6. What are some simple DIY recipes for household cleaning products using herbs?</h3>
+                <p>Mix vinegar, water, and tea tree oil for an eco-friendly cleaner.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section with Pagination -->
+    <section class="section articles-section">
+        <h2>Explore More on Herbal Remedies</h2>
+        <div id="articles-container"></div>
+        <div class="pagination">
+            <button id="prev-page" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+            <span id="page-info"></span>
+            <button id="next-page"><i class="fas fa-arrow-right"></i> Next</button>
+        </div>
+    </section>
+</div>
+
 
 <script>
-    // GSAP анимации
-    gsap.from(".animated-title", { duration: 1.5, y: -50, opacity: 0, ease: "bounce" });
-    gsap.from(".hero-subtitle", { duration: 1.5, y: 50, opacity: 0, delay: 0.5 });
-    gsap.from(".section-title", { duration: 1, y: 30, opacity: 0, stagger: 0.3, scrollTrigger: { trigger: ".section-title", start: "top 80%" } });
-    gsap.from(".herbal-item", { duration: 0.8, x: -50, opacity: 0, stagger: 0.2, scrollTrigger: { trigger: ".herbal-list", start: "top 80%" } });
-    gsap.from(".herb-card", { duration: 1, scale: 0.8, opacity: 0, stagger: 0.3, scrollTrigger: { trigger: ".herb-card", start: "top 80%" } });
+    const articles = [
+        {
+            id: 1,
+            title: "Holistic Herbal Medicine: Balancing Mind, Body, and Spirit",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Holistic herbal medicine nurtures your entire being, addressing mind, body, and spirit. Chamomile tea calms your mind after a stressful day."
+        },
+        {
+            id: 2,
+            title: "Natural Pain Relief: Managing Discomfort with Herbal Solutions",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Herbal solutions offer gentle pain relief without harsh chemicals. Ginger tea reduces inflammation, easing joint pain naturally."
+        },
+        {
+            id: 3,
+            title: "Boosting Immunity with Herbal Supplements: Strengthening Your Body’s Defenses",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Herbal supplements strengthen your immunity, protecting you naturally. Elderberry syrup boosts defenses against colds and flu."
+        },
+        {
+            id: 4,
+            title: "Herbs for Stress Relief: Natural Remedies for Relaxation and Calm",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Herbs for stress relief bring calm to your busy life naturally. Lavender oil in a diffuser melts away anxiety effortlessly."
+        },
+        {
+            id: 5,
+            title: "Herbal Healing for Skin: Nurturing Your Body’s Largest Organ Naturally",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Herbal healing for skin nurtures your body’s largest organ with care. Calendula salve heals cuts and soothes irritation gently."
+        },
+        {
+            id: 6,
+            title: "The Art of Herbal Tinctures: Crafting Potent and Custom Remedies",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Crafting herbal tinctures creates potent remedies tailored to your needs. Echinacea tincture boosts immunity during cold season."
+        },
+        {
+            id: 7,
+            title: "Creating Your Herbal First Aid Kit: Natural Solutions for Common Ailments",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "A herbal first aid kit offers natural solutions for everyday ailments. Aloe vera gel soothes burns and minor cuts quickly."
+        },
+        {
+            id: 8,
+            title: "The Benefits of Herbal Medicine: Traditional Wisdom Meets Modern Wellness",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Herbal medicine blends traditional wisdom with modern wellness seamlessly. Ginger root eases nausea, a remedy used for centuries."
+        },
+        {
+            id: 9,
+            title: "Herbalism and Sustainability: Cultivating and Harvesting Medicinal Plants Responsibly",
+            date: "May 5, 2025",
+            author: "Plamen Kamenov",
+            summary: "Herbalism and sustainability go hand in hand for a greener future. Harvest wild herbs like nettle responsibly to avoid overpicking."
+        }
+    ];
 
-    // Интерактивност за herb cards
-    function toggleHerbInfo(card) {
-        const info = card.querySelector('.herb-info');
-        info.style.display = info.style.display === 'block' ? 'none' : 'block';
+    const articlesPerPage = 3;
+    let currentPage = 1;
+
+    function displayArticles(page) {
+        const start = (page - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        const paginatedArticles = articles.slice(start, end);
+
+        const container = document.getElementById('articles-container');
+        container.innerHTML = '';
+
+        paginatedArticles.forEach(article => {
+            const articleDiv = document.createElement('div');
+            articleDiv.className = 'article';
+            articleDiv.innerHTML = `
+                <h3><a href="/article-herbal?id=${article.id}">${article.title}</a></h3>
+                <p><strong>${article.date}</strong> by ${article.author}</p>
+                <p>${article.summary}</p>
+            `;
+            container.appendChild(articleDiv);
+        });
+
+        document.getElementById('page-info').textContent = `Page ${page} of ${Math.ceil(articles.length / articlesPerPage)}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = page === Math.ceil(articles.length / articlesPerPage);
     }
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticles(currentPage);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
+            currentPage++;
+            displayArticles(currentPage);
+        }
+    });
+
+    displayArticles(currentPage);
 </script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="fragments/head :: head"></head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Herbal Remedies - Natural Ethos</title>-->
+<!--<link rel="stylesheet" th:href="@{/css/herbs-remedies.css}">-->
+<!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+<!--<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>-->
+
+<!--<body>-->
+<!--<div th:replace="~{fragments/preloader :: preloader}"></div>-->
+<!--<div th:replace="fragments/navbar :: navbar"></div>-->
+
+<!--&lt;!&ndash; Хедър &ndash;&gt;-->
+<!--<header class="hero">-->
+<!--    <div class="hero-content">-->
+<!--        <h1 class="animated-title">Herbal Remedies</h1>-->
+<!--        <p class="hero-subtitle">Discover Nature’s Healing Power</p>-->
+<!--    </div>-->
+<!--    <div class="flower-overlay"></div>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Секция 1: The Power of Herbal Remedies in Modern Healing &ndash;&gt;-->
+<!--<section class="section intro-section">-->
+<!--    <h2 class="section-title">The Power of Herbal Remedies in Modern Healing</h2>-->
+<!--    <div class="content-wrapper">-->
+<!--        <div class="text-content">-->
+<!--            <p>Herbal remedies have been used for centuries to heal and nurture the body naturally. From ancient civilizations to modern holistic practices, herbs like chamomile, peppermint, and echinacea offer powerful benefits without the side effects of synthetic drugs.</p>-->
+<!--            <p>Today, science is catching up with tradition, proving the efficacy of these natural solutions in treating everything from stress to infections. Join the movement to embrace nature’s pharmacy!</p>-->
+<!--        </div>-->
+<!--        <div class="media-content">-->
+<!--            <img src="/images/herbs-healing.jpg" alt="Herbal Healing" class="float-image">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Секция 2: Herbal Remedies for Common Ailments (Таблична) &ndash;&gt;-->
+<!--<section class="section table-section">-->
+<!--    <h2 class="section-title">Herbal Remedies for Common Ailments: A Research Approach</h2>-->
+<!--    <table class="remedy-table">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Herb</th>-->
+<!--            <th>Ailment</th>-->
+<!--            <th>Benefits</th>-->
+<!--            <th>Usage</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="remedy : ${remedies}">-->
+<!--            <td th:text="${remedy.name}"></td>-->
+<!--            <td th:text="${remedy.description}"></td>-->
+<!--            <td th:text="${remedy.benefits}"></td>-->
+<!--            <td th:text="${remedy.usageInstructions}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Секция 3: Types of Herbal Remedies (с видео и анимации) &ndash;&gt;-->
+<!--<section class="section types-section">-->
+<!--    <h2 class="section-title">Types of Herbal Remedies: Teas, Tinctures, Oils, and More</h2>-->
+<!--    <div class="content-wrapper">-->
+<!--        <div class="media-content">-->
+<!--            <video autoplay muted loop class="herbs-video">-->
+<!--                <source src="/videos/herbs-preparation.mp4" type="video/mp4">-->
+<!--                Your browser does not support the video tag.-->
+<!--            </video>-->
+<!--        </div>-->
+<!--        <div class="text-content">-->
+<!--            <p>Herbal remedies come in many forms, each with unique preparation methods and uses:</p>-->
+<!--            <ul class="herbs-list">-->
+<!--                <li class="herbs-item">Teas: Steep herbs like chamomile or peppermint in hot water for a soothing drink.</li>-->
+<!--                <li class="herbs-item">Tinctures: Concentrated extracts like echinacea, taken in small doses.</li>-->
+<!--                <li class="herbs-item">Oils: Essential oils like lavender, used for aromatherapy or topical application.</li>-->
+<!--                <li class="herbs-item">Salves: Herbal balms for skin healing, such as calendula salve.</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Секция 4: Growing Your Own Medicinal Herbs (с интерактивност) &ndash;&gt;-->
+<!--<section class="section growing-section">-->
+<!--    <h2 class="section-title">Growing Your Own Medicinal Herbs</h2>-->
+<!--    <div class="content-wrapper">-->
+<!--        <div class="text-content">-->
+<!--            <p>Creating your own herbs garden is easier than you think! Start with these beginner-friendly herbs:</p>-->
+<!--            <div class="herb-card" onclick="toggleHerbInfo(this)">-->
+<!--                <img src="/images/mint-plant.jpg" alt="Mint Plant" class="herb-image">-->
+<!--                <h3>Mint</h3>-->
+<!--                <p class="herb-info">Grows easily in pots, great for digestion.</p>-->
+<!--            </div>-->
+<!--            <div class="herb-card" onclick="toggleHerbInfo(this)">-->
+<!--                <img src="/images/lavender-plant.jpg" alt="Lavender Plant" class="herb-image">-->
+<!--                <h3>Lavender</h3>-->
+<!--                <p class="herb-info">Loves sun, perfect for relaxation.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="media-content">-->
+<!--            <img src="/images/herbs-garden.jpg" alt="Herbal Garden" class="float-image">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Секция 5: Conclusion &ndash;&gt;-->
+<!--<section class="section conclusion-section">-->
+<!--    <h2 class="section-title">Conclusion: Embracing Nature’s Pharmacy</h2>-->
+<!--    <p>Herbal remedies offer a sustainable, natural way to support your health and well-being. By growing your own herbs and incorporating them into your daily routine, you can reconnect with nature and harness its healing power. Start your herbs journey today!</p>-->
+<!--</section>-->
+
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+
+<!--<script>-->
+<!--    // GSAP анимации-->
+<!--    gsap.from(".animated-title", { duration: 1.5, y: -50, opacity: 0, ease: "bounce" });-->
+<!--    gsap.from(".hero-subtitle", { duration: 1.5, y: 50, opacity: 0, delay: 0.5 });-->
+<!--    gsap.from(".section-title", { duration: 1, y: 30, opacity: 0, stagger: 0.3, scrollTrigger: { trigger: ".section-title", start: "top 80%" } });-->
+<!--    gsap.from(".herbs-item", { duration: 0.8, x: -50, opacity: 0, stagger: 0.2, scrollTrigger: { trigger: ".herbs-list", start: "top 80%" } });-->
+<!--    gsap.from(".herb-card", { duration: 1, scale: 0.8, opacity: 0, stagger: 0.3, scrollTrigger: { trigger: ".herb-card", start: "top 80%" } });-->
+
+<!--    // Интерактивност за herb cards-->
+<!--    function toggleHerbInfo(card) {-->
+<!--        const info = card.querySelector('.herb-info');-->
+<!--        info.style.display = info.style.display === 'block' ? 'none' : 'block';-->
+<!--    }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

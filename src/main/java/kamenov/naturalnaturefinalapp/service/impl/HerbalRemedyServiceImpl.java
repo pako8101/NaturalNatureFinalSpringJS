@@ -25,10 +25,10 @@ public class HerbalRemedyServiceImpl implements HerbalRemedyService {
     @PostConstruct
     public void initRemedies() {
         if (herbalRemedyRepository.count() == 0) {
-            logger.info("Initializing herbal remedies...");
+            logger.info("Initializing herbs remedies...");
             herbalRemedyRepository.save(new HerbalRemedy(
                     "Chamomile Tea",
-                    "A soothing herbal tea made from chamomile flowers.",
+                    "A soothing herbs tea made from chamomile flowers.",
                     "/images/chamomile-tea.jpg",
                     "Reduces stress, promotes sleep, soothes stomach issues.",
                     "Steep 1-2 teaspoons of dried chamomile in hot water for 5-10 minutes."
@@ -62,7 +62,7 @@ public class HerbalRemedyServiceImpl implements HerbalRemedyService {
 @Override
     public List<HerbalRemedy> getAllRemedies() {
         List<HerbalRemedy> remedies = herbalRemedyRepository.findAll();
-        logger.info("Retrieved {} herbal remedies from the database.", remedies.size());
+        logger.info("Retrieved {} herbs remedies from the database.", remedies.size());
         return remedies;
     }
 

@@ -1,261 +1,525 @@
-/* Общи стилове */
+
 body {
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e0f7fa 100%);
-    color: #2e2e2e;
+    font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(rgba(255, 235, 59, 0.1), rgba(255, 235, 59, 0.1)),
+    url('/images/herbs-garden.jpg');
+    color: #FF5722;
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
-/* Хедър */
-.hero {
-    position: relative;
-    height: 80vh;
-    background: url('/images/herbs-garden.jpg') no-repeat fixed center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('/images/herbs/header-bg.jpg') no-repeat center center/cover;
+    color: #FFEB3B;
     text-align: center;
-    color: #fff;
-    overflow: hidden;
+    padding: 5rem 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 2s ease-out;
 }
 
-.hero-content {
-    z-index: 2;
+header h1 {
+    margin: 0;
+    color: #e0f7fa;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 5px rgba(255, 152, 0, 0.5);
+    animation: pulse 2s infinite;
 }
 
-.animated-title {
-    font-family: 'Amatic SC', cursive;
-    font-size: 5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-.hero-subtitle {
-    font-size: 1.5em;
-    margin-top: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.flower-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/images/flower-overlay.png') repeat;
-    opacity: 0.3;
-    z-index: 1;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Общи стилове за секции */
 .section {
-    padding: 80px 20px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.1);
+    border: 3px solid #4CAF50;
     position: relative;
+    animation: fadeInUp 1.2s ease-out;
 }
 
-.section-title {
-    font-family: 'Amatic SC', cursive;
-    font-size: 3em;
-    color: #6a1b9a;
-    text-align: center;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+.section::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: url('https://www.transparenttextures.com/patterns/leaves-pattern.png');
+    opacity: 0.2;
 }
 
-/* Секция 1: Intro */
-.intro-section .content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-.text-content {
-    flex: 1;
-    font-size: 1.1em;
-    line-height: 1.8;
-    color: #4a4a4a;
+.section h2 {
+    color: #FF9800;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 4px dotted #FFEB3B;
+    padding-bottom: 0.7rem;
 }
 
-.media-content {
-    flex: 1;
+.section p {
+    color: #4CAF50;
+    margin: 0.7rem 0;
 }
 
-.float-image {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.float-image:hover {
-    transform: scale(1.05);
-}
-
-/* Секция 2: Таблична */
-.table-section {
-    background: #f3e5f5;
-}
-
-.remedy-table {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.remedy-table th, .remedy-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.remedy-table th {
-    background: #ab47bc;
-    color: #fff;
-    font-family: 'Amatic SC', cursive;
-    font-size: 1.5em;
-}
-
-.remedy-table td {
-    font-size: 1em;
-    color: #4a4a4a;
-}
-
-.remedy-table tr:hover {
-    background: #f3e5f5;
-}
-
-/* Секция 3: Types (с видео) */
-.types-section {
-    background: #e1f5fe;
-}
-
-.types-section .content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.herbal-video {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.herbal-list {
+.takeaways-list, .herbal-lore {
     list-style: none;
     padding: 0;
 }
 
-.herbal-item {
-    font-size: 1.1em;
-    margin: 10px 0;
-    padding-left: 30px;
-    position: relative;
-    color: #4a4a4a;
-}
-
-.herbal-item::before {
-    content: '🌿';
-    position: absolute;
-    left: 0;
-    font-size: 1.5em;
-}
-
-/* Секция 4: Growing (интерактивна) */
-.growing-section {
-    background: #f1f8e9;
-}
-
-.growing-section .content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.growing-section .text-content {
-    flex: 1;
-}
-
-.herb-card {
-    background: #fff;
+.takeaways-list li, .herbal-lore li {
+    background: rgba(255, 152, 0, 0.1);
+    padding: 1.2rem;
+    margin: 0.7rem 0;
     border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.takeaways-list li:hover, .herbal-lore li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.2);
+}
+
+.pros-cons {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.pros, .cons {
+    flex: 1;
+    background: rgba(255, 235, 59, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-width: 300px;
+}
+
+.pros h3, .cons h3 {
+    color: #FF9800;
+    margin-bottom: 1rem;
+}
+
+.pros ul, .cons ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pros ul li, .cons ul li {
+    margin: 0.5rem 0;
+}
+
+.herbal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.2rem;
+    background: #F5F5F5;
+}
+
+.herbal-table th, .herbal-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.herbal-table th {
+    background: #FF5722;
+    color: white;
+}
+
+.herbal-table tr:nth-child(even) {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.faq-item {
+    background: rgba(255, 235, 59, 0.1);
+    padding: 1.2rem;
+    margin: 0.7rem 0;
+    border-radius: 15px;
     transition: transform 0.3s ease;
 }
 
-.herb-card:hover {
-    transform: translateY(-10px);
+.faq-item:hover {
+    transform: translateX(10px);
 }
 
-.herb-image {
+.faq-item h3 {
+    color: #FF9800;
+    margin-bottom: 0.7rem;
+}
+
+.media-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section-image, .media-container iframe {
     width: 100%;
-    max-width: 200px;
-    border-radius: 10px;
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-.herb-card h3 {
-    font-family: 'Amatic SC', cursive;
-    font-size: 1.8em;
-    color: #388e3c;
-    margin: 10px 0;
+.section-image:hover, .media-container iframe:hover {
+    transform: scale(1.05);
 }
 
-.herb-info {
-    display: none;
-    font-size: 1em;
-    color: #4a4a4a;
+.articles-section .article {
+    background: rgba(76, 175, 80, 0.1);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Секция 5: Conclusion */
-.conclusion-section {
-    background: #e0f7fa;
-    text-align: center;
+.articles-section .article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.2);
 }
 
-.conclusion-section p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.2em;
-    line-height: 1.8;
-    color: #4a4a4a;
+.articles-section .article h3 {
+    color: #FF9800;
+    margin-bottom: 0.7rem;
 }
 
-/* Отзивчивост */
-@media (max-width: 768px) {
-    .content-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .media-content, .float-image, .herbal-video {
-        max-width: 100%;
-    }
-
-    .animated-title {
-        font-size: 3em;
-    }
-
-    .section-title {
-        font-size: 2em;
-    }
-
-    .remedy-table th, .remedy-table td {
-        font-size: 0.9em;
-        padding: 10px;
-    }
+.articles-section .article p {
+    margin: 0;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: rgba(255, 235, 59, 0.2);
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.1);
+}
+
+.pagination button {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #4CAF50;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.pagination button i {
+    font-size: 1.1rem;
+}
+
+.pagination button:hover {
+    background: #FF5722;
+    transform: scale(1.1);
+}
+
+.pagination button:disabled {
+    background: #B0BEC5;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #FF5722;
+    background: rgba(255, 152, 0, 0.1);
+    padding: 0.7rem 1.2rem;
+    border-radius: 20px;
+}
+
+/*!* Общи стилове *!*/
+/*body {*/
+/*    font-family: 'Playfair Display', serif;*/
+/*    background: linear-gradient(135deg, #f5f7fa 0%, #e0f7fa 100%);*/
+/*    color: #2e2e2e;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+/*!* Хедър *!*/
+/*.hero {*/
+/*    position: relative;*/
+/*    height: 80vh;*/
+/*    background: url('/images/herbs-garden.jpg') no-repeat fixed center/cover;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    text-align: center;*/
+/*    color: #fff;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.hero-content {*/
+/*    z-index: 2;*/
+/*}*/
+
+/*.animated-title {*/
+/*    font-family: 'Amatic SC', cursive;*/
+/*    font-size: 5em;*/
+/*    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*.hero-subtitle {*/
+/*    font-size: 1.5em;*/
+/*    margin-top: 10px;*/
+/*    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*.flower-overlay {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: url('/images/flower-overlay.png') repeat;*/
+/*    opacity: 0.3;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*!* Общи стилове за секции *!*/
+/*.section {*/
+/*    padding: 80px 20px;*/
+/*    position: relative;*/
+/*}*/
+
+/*.section-title {*/
+/*    font-family: 'Amatic SC', cursive;*/
+/*    font-size: 3em;*/
+/*    color: #6a1b9a;*/
+/*    text-align: center;*/
+/*    margin-bottom: 40px;*/
+/*    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!* Секция 1: Intro *!*/
+/*.intro-section .content-wrapper {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 40px;*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.text-content {*/
+/*    flex: 1;*/
+/*    font-size: 1.1em;*/
+/*    line-height: 1.8;*/
+/*    color: #4a4a4a;*/
+/*}*/
+
+/*.media-content {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.float-image {*/
+/*    width: 100%;*/
+/*    max-width: 400px;*/
+/*    border-radius: 15px;*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
+/*.float-image:hover {*/
+/*    transform: scale(1.05);*/
+/*}*/
+
+/*!* Секция 2: Таблична *!*/
+/*.table-section {*/
+/*    background: #f3e5f5;*/
+/*}*/
+
+/*.remedy-table {*/
+/*    width: 100%;*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*    border-collapse: collapse;*/
+/*    background: #fff;*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.remedy-table th, .remedy-table td {*/
+/*    padding: 15px;*/
+/*    text-align: left;*/
+/*    border-bottom: 1px solid #e0e0e0;*/
+/*}*/
+
+/*.remedy-table th {*/
+/*    background: #ab47bc;*/
+/*    color: #fff;*/
+/*    font-family: 'Amatic SC', cursive;*/
+/*    font-size: 1.5em;*/
+/*}*/
+
+/*.remedy-table td {*/
+/*    font-size: 1em;*/
+/*    color: #4a4a4a;*/
+/*}*/
+
+/*.remedy-table tr:hover {*/
+/*    background: #f3e5f5;*/
+/*}*/
+
+/*!* Секция 3: Types (с видео) *!*/
+/*.types-section {*/
+/*    background: #e1f5fe;*/
+/*}*/
+
+/*.types-section .content-wrapper {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 40px;*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.herbs-video {*/
+/*    width: 100%;*/
+/*    max-width: 500px;*/
+/*    border-radius: 15px;*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*.herbs-list {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.herbs-item {*/
+/*    font-size: 1.1em;*/
+/*    margin: 10px 0;*/
+/*    padding-left: 30px;*/
+/*    position: relative;*/
+/*    color: #4a4a4a;*/
+/*}*/
+
+/*.herbs-item::before {*/
+/*    content: '🌿';*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    font-size: 1.5em;*/
+/*}*/
+
+/*!* Секция 4: Growing (интерактивна) *!*/
+/*.growing-section {*/
+/*    background: #f1f8e9;*/
+/*}*/
+
+/*.growing-section .content-wrapper {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 40px;*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.growing-section .text-content {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.herb-card {*/
+/*    background: #fff;*/
+/*    border-radius: 15px;*/
+/*    padding: 20px;*/
+/*    text-align: center;*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);*/
+/*    cursor: pointer;*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
+/*.herb-card:hover {*/
+/*    transform: translateY(-10px);*/
+/*}*/
+
+/*.herb-image {*/
+/*    width: 100%;*/
+/*    max-width: 200px;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.herb-card h3 {*/
+/*    font-family: 'Amatic SC', cursive;*/
+/*    font-size: 1.8em;*/
+/*    color: #388e3c;*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*.herb-info {*/
+/*    display: none;*/
+/*    font-size: 1em;*/
+/*    color: #4a4a4a;*/
+/*}*/
+
+/*!* Секция 5: Conclusion *!*/
+/*.conclusion-section {*/
+/*    background: #e0f7fa;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.conclusion-section p {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    font-size: 1.2em;*/
+/*    line-height: 1.8;*/
+/*    color: #4a4a4a;*/
+/*}*/
+
+/*!* Отзивчивост *!*/
+/*@media (max-width: 768px) {*/
+/*    .content-wrapper {*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .media-content, .float-image, .herbs-video {*/
+/*        max-width: 100%;*/
+/*    }*/
+
+/*    .animated-title {*/
+/*        font-size: 3em;*/
+/*    }*/
+
+/*    .section-title {*/
+/*        font-size: 2em;*/
+/*    }*/
+
+/*    .remedy-table th, .remedy-table td {*/
+/*        font-size: 0.9em;*/
+/*        padding: 10px;*/
+/*    }*/
+/*}*/
