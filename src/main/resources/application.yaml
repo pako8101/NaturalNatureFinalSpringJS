@@ -33,6 +33,28 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD:810129}
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/natural_nature_app?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC}
 
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: "*"
+        liveness:
+          include: "*"
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
 
 
 
