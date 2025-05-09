@@ -21,5 +21,6 @@ COPY build/libs/app.jar app.jar
 # Set execution permissions
 RUN chmod +x app.jar
 
+EXPOSE 8000
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
