@@ -1,5 +1,9 @@
 spring:
   jpa:
+    security:
+      filter:
+        order: 10
+
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
