@@ -3,8 +3,11 @@ plugins {
     id 'org.springframework.boot' version '3.4.3'
     id 'io.spring.dependency-management' version '1.1.7'
 }
-jar {
-    archiveFileName = 'build/libs/NaturalNatureFinalApp-0.0.1-SNAPSHOT.jar'
+//jar {
+//    archiveFileName = 'build/libs/NaturalNatureFinalApp-0.0.1-SNAPSHOT.jar'
+//}
+bootJar {
+    archiveFileName = 'app.jar'  // това ще даде фиксирано име на JAR файла
 }
 
 
