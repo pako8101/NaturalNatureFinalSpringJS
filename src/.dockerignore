@@ -1,0 +1,7 @@
+echo "*
+!gradle/
+!src/
+!build.gradle
+!settings.gradle
+!gradlew
+!gradlew.bat" > .dockerignore
