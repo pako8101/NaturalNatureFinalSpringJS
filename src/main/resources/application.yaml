@@ -233,6 +233,12 @@ cloudinary:
 jwt:
   secret: ${jwt_secret}
   expiration: ${jwt.expiration:58000}
+  cors:
+    allowed-origins: "*"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    exposed-headers: "Authorization"
+    max-age: 3600
 
 user.deletion: P300D
 
