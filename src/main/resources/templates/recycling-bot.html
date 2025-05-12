@@ -1,33 +1,98 @@
-<!-- src/main/resources/templates/forum.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head::head"></head>
-<meta charset="UTF-8">
-<title>Forum - Eco Life</title>
-<link rel="stylesheet" th:href="@{/css/recycling-bot.css}">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <title>Recycling Bot - Nature Ethos</title>
+    <link rel="stylesheet" th:href="@{/css/recycling-bot.css}">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
-<!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <header class="hero">
-    <h1>Nature Ethos Forum</h1>
-    <p>Share your eco ideas and connect with the community!</p>
+    <h1>Recycling Bot</h1>
+    <p>Ask your recycling questions and get eco-friendly answers!</p>
 </header>
 
-<form th:action="@{/ask-recycling-bot}" method="post">
-    <label for="question">Задай въпрос за рециклиране:</label>
-    <input type="text" id="question" name="question" required />
-    <button type="submit">Питай</button>
-</form>
+<div class="container">
+    <!-- Form for Asking Questions -->
+    <section class="section">
+        <h2>Ask the Recycling Bot</h2>
+        <form th:action="@{/recycling-bot}" method="post" id="recycling-form">
+            <label for="question">How should I recycle this item?</label>
+            <input type="text" id="question" name="question" placeholder="e.g., How do I recycle plastic bottles?" required />
+            <button type="submit"><i class="fas fa-leaf"></i> Ask</button>
+        </form>
+    </section>
 
-<div th:if="${answer}">
-    <h3>Отговор от бота:</h3>
-    <p th:text="${answer}"></p>
+    <!-- History of Questions and Answers -->
+    <section class="section" th:if="${history != null and not #lists.isEmpty(history)}">
+        <h2>Your Recycling Questions</h2>
+        <table class="history-table">
+            <thead>
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="entry : ${history}">
+                <td th:text="${entry.question}"></td>
+                <td th:text="${entry.answer}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
 </div>
 
+
+
+<script>
+    document.getElementById('recycling-form').addEventListener('submit', function(e) {
+        const questionInput = document.getElementById('question');
+        if (!questionInput.value.trim()) {
+            e.preventDefault();
+            alert('Please enter a valid question about recycling!');
+        }
+    });
+</script>
 
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
+<!--&lt;!&ndash; src/main/resources/templates/forum.html &ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="fragments/head::head"></head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Forum - Eco Life</title>-->
+<!--<link rel="stylesheet" th:href="@{/css/recycling-bot.css}">-->
+<!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+<!--<body>-->
+<!--<div th:replace="~{fragments/preloader :: preloader}"></div>-->
+<!--&lt;!&ndash; Navbar &ndash;&gt;-->
+<!--<div th:replace="fragments/navbar :: navbar"></div>-->
+
+<!--<header class="hero">-->
+<!--    <h1>Nature Ethos Forum</h1>-->
+<!--    <p>Share your eco ideas and connect with the community!</p>-->
+<!--</header>-->
+
+<!--<form th:action="@{/ask-recycling-bot}" method="post">-->
+<!--    <label for="question">Задай въпрос за рециклиране:</label>-->
+<!--    <input type="text" id="question" name="question" required />-->
+<!--    <button type="submit">Питай</button>-->
+<!--</form>-->
+
+<!--<div th:if="${answer}">-->
+<!--    <h3>Отговор от бота:</h3>-->
+<!--    <p th:text="${answer}"></p>-->
+<!--</div>-->
+
+
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<!--</body>-->
+<!--</html>-->
