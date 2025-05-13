@@ -24,9 +24,17 @@
 <section class="section importance-section">
     <h2 class="section-title">Importance of Reducing Single-Use Plastics</h2>
     <div class="section-content">
-        <img src="/images/plastic-waste.jpg" alt="Plastic Waste" class="section-image">
+        <img src="/images/plastic/plastic-waste.jpg" alt="Plastic Waste" class="section-image">
         <p>
-            Single-use plastics, such as straws, bags, and bottles, are used for mere minutes but can take hundreds of years to decompose. They contribute to massive pollution, harm wildlife, and pose health risks to humans. Reducing their use is crucial for protecting our environment and ensuring a sustainable future. By making small changes in our daily habits, we can significantly decrease plastic waste and promote a healthier planet.
+            Single-use plastics, such as straws, bags, and bottles, are used for mere minutes but can take hundreds of years to decompose.
+            They contribute to massive pollution, harm wildlife, and pose health risks to humans.
+            Reducing their use is crucial for protecting our environment and ensuring a sustainable future.
+            By making small changes in our daily habits, we can significantly decrease plastic waste and promote a healthier planet.
+        </p>
+        <p>Reducing single-use plastics is crucial for the health of our planet. These disposable items, designed for only one use before being discarded, contribute significantly to pollution. They overwhelm landfills, taking hundreds of years to decompose, and often end up in our oceans, posing a severe threat to marine life. Animals can ingest or become entangled in plastic debris, leading to injury or death. Microplastics, tiny fragments resulting from the breakdown of larger plastics,
+            contaminate our water sources and can even enter the food chain, potentially impacting human health.
+            Moving away from single-use plastics encourages a more sustainable lifestyle. By choosing reusable alternatives like water bottles, shopping bags, and coffee cups, we can collectively lessen our environmental footprint. This shift also drives innovation in material science, pushing for the development of biodegradable and compostable alternatives. Reducing our reliance on these harmful plastics is a vital step towards preserving ecosystems, protecting wildlife, and ensuring a cleaner, healthier future for generations to come.
+            It's a collective responsibility that requires conscious choices and supportive policies to make a real difference.
         </p>
     </div>
 </section>
@@ -48,25 +56,25 @@
             <td>Plastic Bags</td>
             <td>Reusable Cloth Bags</td>
             <td>Durable, washable, reduces waste</td>
-            <td><img src="/images/reusable-bag.jpg" alt="Reusable Bag" class="table-image"></td>
+            <td><img src="/images/plastic/reusable-bag.jpeg" alt="Reusable Bag" class="table-image"></td>
         </tr>
         <tr>
             <td>Plastic Straws</td>
             <td>Bamboo or Metal Straws</td>
             <td>Reusable, eco-friendly, stylish</td>
-            <td><img src="/images/metal-straw.jpg" alt="Metal Straw" class="table-image"></td>
+            <td><img src="/images/plastic/metal-straw.jpg" alt="Metal Straw" class="table-image"></td>
         </tr>
         <tr>
             <td>Plastic Bottles</td>
             <td>Glass or Stainless Steel Bottles</td>
             <td>Long-lasting, BPA-free, recyclable</td>
-            <td><img src="/images/steel-bottle.jpg" alt="Steel Bottle" class="table-image"></td>
+            <td><img src="/images/plastic/steel-bottle.jpg" alt="Steel Bottle" class="table-image"></td>
         </tr>
         <tr>
             <td>Plastic Cutlery</td>
             <td>Biodegradable Wooden Cutlery</td>
             <td>Compostable, natural materials</td>
-            <td><img src="/images/wooden-cutlery.jpg" alt="Wooden Cutlery" class="table-image"></td>
+            <td><img src="/images/plastic/wooden-cutlery.jpg" alt="Wooden Cutlery" class="table-image"></td>
         </tr>
         </tbody>
     </table>
@@ -295,6 +303,7 @@
             <div class="tip-details" th:id="'details-' + ${tip.id}" style="display: none;">
                 <p th:text="'Additional Info for ' + ${tip.title} + ': Implementing this tip can significantly reduce your plastic footprint. For example, using ' + ${tip.title.toLowerCase()} + ' can save hundreds of plastic items per year. Join local initiatives to spread awareness!'"></p>
 <!--                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>-->
+
             </div>
         </div>
     </div>

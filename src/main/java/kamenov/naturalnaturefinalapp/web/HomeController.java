@@ -29,12 +29,12 @@ private final AiRecipeRepository recipeRepository;
         return "about";
     }
 
-    @GetMapping("/api/ai-recipes")
-    public String showAiRecipesPage(Model model) {
-        List<AiRecipe> recentRecipes = recipeRepository.findTop5ByOrderByGeneratedAtDesc();
-        model.addAttribute("recentRecipes", recentRecipes);
-        return "ai-recipes"; // ai-recipes.html в templates/
-    }
+//    @GetMapping("/api/ai-recipes")
+//    public String showAiRecipesPage(Model model) {
+//        List<AiRecipe> recentRecipes = recipeRepository.findTop5ByOrderByGeneratedAtDesc();
+//        model.addAttribute("recentRecipes", recentRecipes);
+//        return "ai-recipes"; // ai-recipes.html в templates/
+//    }
 //    @GetMapping("/waste-management")
 //    public String wasteManagement() {
 //        return "waste-management";
