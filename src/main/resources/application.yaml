@@ -1,43 +1,57 @@
 spring:
   jpa:
-    security:
-      filter:
-        order: 10
-
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-        format_sql: 'TRUE'
+        format_sql: true
     hibernate:
       ddl-auto: update
-      schema_management:
-              ignore_missing_tables=true:
-    open-in-view: 'false'
+    open-in-view: false
+  security:
+    filter:
+      order: 10
   mvc:
-    hidden-method:
+    hiddenmethod:
       filter:
-        enabled: 'true'
+        enabled: true
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-
-#    url: jdbc:mysql://avnadmin:AVNS_1LFLjST1e1VuH4euryo@pako-naturalethos.b.aivencloud.com:28158/defaultdb?ssl-mode=REQUIRED
-#    username: avnadmin
-#    password: AVNS_1LFLjST1e1VuH4euryo
-
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/natural_nature_app?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:810129}
     hikari:
       connection-timeout: 20000
       maximum-pool-size: 5
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+  web:
+    resources:
+      static-locations: classpath:/static/
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+  main:
+    allow-circular-references: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
 
-#      username: ${SPRING_DATASOURCE_USERNAME}
-#      password: ${SPRING_DATASOURCE_PASSWORD}
-#      url: ${SPRING_DATASOURCE_URL}
-#    password: ${db_password}
-#    username: ${db_username}
-    username: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:810129}
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/natural_nature_app?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC}
-
-# Actuator Configuration
 management:
   endpoints:
     web:
@@ -60,24 +74,35 @@ management:
     readinessstate:
       enabled: true
 
-
-
-#        url=jdbc:postgresql://natureethos.flycast:5432/postgres
-#        username=postgres
-#        password=вашата_парола
-  thymeleaf:
-    prefix: classpath:/templates/
-    cache: false
-    mode: HTML
-    encoding: UTF-8
-  web:
-    resources:
-      static-locations: classpath:/static/
-  main:
-    allow-circular-references: true
 server:
   address: 0.0.0.0
   port: ${PORT:8000}
+  tomcat:
+    uri-encoding: UTF-8
+
+jwt:
+  secret: ${JWT_SECRET:WSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8I}
+  expiration: ${JWT_EXPIRATION:58000}
+  cors:
+    allowed-origins: "*"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    exposed-headers: "Authorization"
+    max-age: 3600
+
+stripe:
+  api:
+    key: ${STRIPE_API_KEY}
+
+cloudinary:
+  name: ${CLOUDINARY_NAME:dy2y8i2de}
+  api-key: ${CLOUDINARY_API_KEY:111187215981859}
+  api-secret: ${CLOUDINARY_API_SECRET:H3gM21c_0mYpOPklNO3pR11s8HE}
+
+openai:
+  api:
+    key: ${OPENAI_API_KEY}
+
 logging:
   level:
     org.springframework: TRACE
@@ -87,14 +112,37 @@ logging:
     org.hibernate.SQL: DEBUG
     nodeValue: WARN
     blog: WARN
+
+upload:
+  directory: /uploads/
+
+notification:
+  mail: ${EMAIL_NOTIFICATION}
+
+natural:
+  api:
+    baseUrl: ${API_BASE_URL:http://localhost:8000/api}
+
+user:
+  deletion: P300D
+
+log:
+  deletion: P30D
+
 #spring:
 #  jpa:
+#    security:
+#      filter:
+#        order: 10
+#
 #    properties:
 #      hibernate:
-#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        dialect: org.hibernate.dialect.MySQLDialect
 #        format_sql: 'TRUE'
 #    hibernate:
 #      ddl-auto: update
+#      schema_management:
+#              ignore_missing_tables=true:
 #    open-in-view: 'false'
 #  mvc:
 #    hidden-method:
@@ -102,195 +150,278 @@ logging:
 #        enabled: 'true'
 #  datasource:
 #    driverClassName: com.mysql.cj.jdbc.Driver
-#    password: ${db_password}
-#    username: ${db_username}
-#    url: jdbc:mysql://localhost:3306/natural_nature_app?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
 #
-#  #  ${DATABASE_URL}
+##    url: jdbc:mysql://avnadmin:AVNS_1LFLjST1e1VuH4euryo@pako-naturalethos.b.aivencloud.com:28158/defaultdb?ssl-mode=REQUIRED
+##    username: avnadmin
+##    password: AVNS_1LFLjST1e1VuH4euryo
+#
+#    hikari:
+#      connection-timeout: 20000
+#      maximum-pool-size: 5
+#
+##      username: ${SPRING_DATASOURCE_USERNAME}
+##      password: ${SPRING_DATASOURCE_PASSWORD}
+##      url: ${SPRING_DATASOURCE_URL}
+##    password: ${db_password}
+##    username: ${db_username}
+#    username: ${SPRING_DATASOURCE_USERNAME:root}
+#    password: ${SPRING_DATASOURCE_PASSWORD:810129}
+#    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/natural_nature_app?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC}
+#
+## Actuator Configuration
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#      base-path: /actuator
+#  endpoint:
+#    health:
+#      show-details: always
+#      probes:
+#        enabled: true
+#      group:
+#        readiness:
+#          include: "*"
+#        liveness:
+#          include: "*"
+#  health:
+#    livenessstate:
+#      enabled: true
+#    readinessstate:
+#      enabled: true
+#
+#
+#
+##        url=jdbc:postgresql://natureethos.flycast:5432/postgres
+##        username=postgres
+##        password=вашата_парола
 #  thymeleaf:
 #    prefix: classpath:/templates/
+#    cache: false
+#    mode: HTML
+#    encoding: UTF-8
 #  web:
 #    resources:
 #      static-locations: classpath:/static/
+#  main:
+#    allow-circular-references: true
+#server:
+#  address: 0.0.0.0
+#  port: ${PORT:8000}
+#logging:
+#  level:
+#    org.springframework: TRACE
+#    org.springframework.jdbc: DEBUG
+#    kamenov.naturalnaturefinalapp: DEBUG
+#    org.hibernate.type.descriptor: TRACE
+#    org.hibernate.SQL: DEBUG
+#    nodeValue: WARN
+#    blog: WARN
+##spring:
+##  jpa:
+##    properties:
+##      hibernate:
+##        dialect: org.hibernate.dialect.MySQL8Dialect
+##        format_sql: 'TRUE'
+##    hibernate:
+##      ddl-auto: update
+##    open-in-view: 'false'
+##  mvc:
+##    hidden-method:
+##      filter:
+##        enabled: 'true'
+##  datasource:
+##    driverClassName: com.mysql.cj.jdbc.Driver
+##    password: ${db_password}
+##    username: ${db_username}
+##    url: jdbc:mysql://localhost:3306/natural_nature_app?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+##
+##  #  ${DATABASE_URL}
+##  thymeleaf:
+##    prefix: classpath:/templates/
+##  web:
+##    resources:
+##      static-locations: classpath:/static/
+##  thymeleaf: # Thymeleaf
+##    cache: false
+##    mode: HTML
+##    encoding: UTF-8
+##    prefix: file:src/main/resources/templates/
+##
+##  web:
+##    resources:
+##      static-locations: file:src/main/resources/static/
+##      cache:
+##        period: 0
+#
+#
+##  main:
+##    allow-circular-references: true
+##logging:
+##  level:
+##    org:
+##      springframework=DEBUG:
+##        naturalnaturefinalapp=DEBUG:
+##      hibernate:
+##        type:
+##          descriptor: TRACE
+##        SQL: DEBUG
+##      nodeValue: WARN
+##    blog: WARN
+##  pattern:
+##    level:
+##      server:
+##        port: ${PORT:8029}
+##server:
+##  port: 8029
+#
+#
+#servlet:
+#  multipart:
+#    max-file-size: 10MB
+#    max-request-size: 10MB
+#    enabled: true
 #  thymeleaf: # Thymeleaf
 #    cache: false
 #    mode: HTML
 #    encoding: UTF-8
 #    prefix: file:src/main/resources/templates/
-#
 #  web:
 #    resources:
-#      static-locations: file:src/main/resources/static/
+#      static-locations: file:src/main/resources/static/**
 #      cache:
 #        period: 0
-
-
-#  main:
-#    allow-circular-references: true
-#logging:
-#  level:
-#    org:
-#      springframework=DEBUG:
-#        naturalnaturefinalapp=DEBUG:
-#      hibernate:
-#        type:
-#          descriptor: TRACE
-#        SQL: DEBUG
-#      nodeValue: WARN
-#    blog: WARN
-#  pattern:
-#    level:
-#      server:
-#        port: ${PORT:8029}
-#server:
-#  port: 8029
-
-
-servlet:
-  multipart:
-    max-file-size: 10MB
-    max-request-size: 10MB
-    enabled: true
-  thymeleaf: # Thymeleaf
-    cache: false
-    mode: HTML
-    encoding: UTF-8
-    prefix: file:src/main/resources/templates/
-  web:
-    resources:
-      static-locations: file:src/main/resources/static/**
-      cache:
-        period: 0
-
-        server:
-          tomcat:
-            uri-encoding=UTF-8:
-
-              spring:
-                mail:
-                  host: smtp.gmail.com
-                  port: 587
-                  username: ${email_username}
-                  password: ${password_email}
-                  properties:
-                    mail.smtp.auth: true
-                    mail.smtp.starttls.enable: true
-
-
-#  mail:
-#    host: smtp.gmail.com
-#    port: 578
-#    username: ${email_username}
-#    password: ${password_email}
-#    test-connection: true
-
-  upload:
-  directory: src/main/resources/static/uploads/
-
-  # Адрес за уведомления (твой имейл)
-  notification:
-    mail: ${email_notification}
-    properties:
-      mail:
-        smtp:
-          auth=true:
-
-            properties:
-              mail:
-                smtp:
-                  starttls:
-                    enable=true:
-                        connectiontimeout: 5000  # Максимално време за изчакване на свързване (в милисекунди)
-                        timeout: 5000            # Максимално време за отговор
-                        writetimeout: 5000
-stripe:
-  api:
-    key: ${stripe.api.key}
-
-  openai:
-    api:
-     key: ${OPENAI_API_KEY}
-
-NaturalNatureApp:
-  default.admin.pass: ${default.admin.pass}
-  remember.me.key: ${remember.me.key}
-
-#shift:
-#  ancient_images: greek.jpeg, changeImage1.png, changeImage2.jpg, sphinks2.jpg
-#  refresh-cron: "0 */10 * * * *"
-
-#recaptcha:
-#secret: ${secret_key}
-#site: ${site_key}
-
-brand-service:
-base-url: http://localhost:8000
-
-cloudinary:
-  name: ${CLOUDINARY_NAME:dy2y8i2de}
-  api-key: ${CLOUDINARY_API_KEY:111187215981859}
-  api-secret: ${CLOUDINARY_API_SECRET:H3gM21c_0mYpOPklNO3pR11s8HE}
-
-
-
-
-jwt:
-  secret: ${jwt_secret:WSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8I}
-  expiration: ${jwt.expiration:58000}
-  cors:
-    allowed-origins: "*"
-    allowed-methods: "*"
-    allowed-headers: "*"
-    exposed-headers: "Authorization"
-    max-age: 3600
-
-user.deletion: P300D
-
-log:
-  deletion: P30D
-
-natural:
-  api:
-    baseUrl: "http//localhost:8000/api"
-
-After 3 years of frustration here is a solution for a working HOT SWAP:
-
-  https://attacomsian.com/blog/spring-boot-auto-reload-thymeleaf-templates
-  
-  Below are my tested settings (this is the only thing I've changed for it to work).
-
-application.yaml:
-
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          google:
-#            client-id: 275989394295-mnbcogfo2145eso40g23f3dp7qg3km4e.apps.googleusercontent.com
-#            client-secret: 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
-#            scope: profile, email
-#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-#        provider:
-#          google:
-#            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
-#            token-uri: https://oauth2.googleapis.com/token
-#            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-#            user-name-attribute: sub
-
-            spring:
-              security:
-                oauth2:
-                  client:
-                    registration:
-                      facebook:
-                        client-id: ${YOUR_FACE_CLIENT_ID }
-                        client-secret: ${YOUR_FACE_CLIENT_SECRET }
-                        scope: email, public_profile
-                        redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-                    provider:
-                      facebook:
-                        authorization-uri: https://www.facebook.com/v10.0/dialog/oauth
-                        token-uri: https://graph.facebook.com/v10.0/oauth/access_token
-                        user-info-uri: https://graph.facebook.com/me?fields=id,name,email
+#
+#        server:
+#          tomcat:
+#            uri-encoding=UTF-8:
+#
+#              spring:
+#                mail:
+#                  host: smtp.gmail.com
+#                  port: 587
+#                  username: ${email_username}
+#                  password: ${password_email}
+#                  properties:
+#                    mail.smtp.auth: true
+#                    mail.smtp.starttls.enable: true
 #
 #
+##  mail:
+##    host: smtp.gmail.com
+##    port: 578
+##    username: ${email_username}
+##    password: ${password_email}
+##    test-connection: true
+#
+#  upload:
+#  directory: src/main/resources/static/uploads/
+#
+#  # Адрес за уведомления (твой имейл)
+#  notification:
+#    mail: ${email_notification}
+#    properties:
+#      mail:
+#        smtp:
+#          auth=true:
+#
+#            properties:
+#              mail:
+#                smtp:
+#                  starttls:
+#                    enable=true:
+#                        connectiontimeout: 5000  # Максимално време за изчакване на свързване (в милисекунди)
+#                        timeout: 5000            # Максимално време за отговор
+#                        writetimeout: 5000
+#stripe:
+#  api:
+#    key: ${stripe.api.key}
+#
+#  openai:
+#    api:
+#     key: ${OPENAI_API_KEY}
+#
+#NaturalNatureApp:
+#  default.admin.pass: ${default.admin.pass}
+#  remember.me.key: ${remember.me.key}
+#
+##shift:
+##  ancient_images: greek.jpeg, changeImage1.png, changeImage2.jpg, sphinks2.jpg
+##  refresh-cron: "0 */10 * * * *"
+#
+##recaptcha:
+##secret: ${secret_key}
+##site: ${site_key}
+#
+#brand-service:
+#base-url: http://localhost:8000
+#
+#cloudinary:
+#  name: ${CLOUDINARY_NAME:dy2y8i2de}
+#  api-key: ${CLOUDINARY_API_KEY:111187215981859}
+#  api-secret: ${CLOUDINARY_API_SECRET:H3gM21c_0mYpOPklNO3pR11s8HE}
+#
+#
+#
+#
+#jwt:
+#  secret: ${jwt_secret:WSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8I}
+#  expiration: ${jwt.expiration:58000}
+#  cors:
+#    allowed-origins: "*"
+#    allowed-methods: "*"
+#    allowed-headers: "*"
+#    exposed-headers: "Authorization"
+#    max-age: 3600
+#
+#user.deletion: P300D
+#
+#log:
+#  deletion: P30D
+#
+#natural:
+#  api:
+#    baseUrl: "http//localhost:8000/api"
+#
+#After 3 years of frustration here is a solution for a working HOT SWAP:
+#
+#  https://attacomsian.com/blog/spring-boot-auto-reload-thymeleaf-templates
+#
+#  Below are my tested settings (this is the only thing I've changed for it to work).
+#
+#application.yaml:
+#
+##  security:
+##    oauth2:
+##      client:
+##        registration:
+##          google:
+##            client-id: 275989394295-mnbcogfo2145eso40g23f3dp7qg3km4e.apps.googleusercontent.com
+##            client-secret: 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
+##            scope: profile, email
+##            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+##        provider:
+##          google:
+##            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+##            token-uri: https://oauth2.googleapis.com/token
+##            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+##            user-name-attribute: sub
+#
+#            spring:
+#              security:
+#                oauth2:
+#                  client:
+#                    registration:
+#                      facebook:
+#                        client-id: ${YOUR_FACE_CLIENT_ID }
+#                        client-secret: ${YOUR_FACE_CLIENT_SECRET }
+#                        scope: email, public_profile
+#                        redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+#                    provider:
+#                      facebook:
+#                        authorization-uri: https://www.facebook.com/v10.0/dialog/oauth
+#                        token-uri: https://graph.facebook.com/v10.0/oauth/access_token
+#                        user-info-uri: https://graph.facebook.com/me?fields=id,name,email
+##
+##
