@@ -235,7 +235,7 @@ cloudinary:
 
 
 jwt:
-  secret: ${jwt_secret}
+  secret: ${jwt_secret:WSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8I}
   expiration: ${jwt.expiration:58000}
   cors:
     allowed-origins: "*"
