@@ -217,18 +217,27 @@
             <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>
             <p th:text="${tip.description}" class="tip-description">Tip Description</p>
 
-            <button class="learn-more-btn" th:attr="data-id=${tip.id}" onclick="toggleDetails(this)">Learn More</button>
+<!--            <button class="learn-more-btn" th:attr="data-id=${tip.id}"-->
+<!--                    onclick="toggleDetails(this)">Learn More</button>-->
             <!--            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>-->
-            <div class="tip-details" th:id="'details-' + ${tip.id}" style="display: none;">
+            <div class="tip-details" th:id="'details-' + ${tip.id}"
+                 style="display: none;">
 
                 <p th:text="'Additional Info for ' + ${tip.title} + ': This tip can save you money and reduce waste. For example, using '
                  + ${tip.title.toLowerCase()} + ' can prevent dozens of plastic items from entering landfills each year.
                  Start today and share your progress with friends!'"></p>
 
-<!--                <button class="less-btn" onclick="toggleDetails(this)" th:attr="data-id=${tip.id}">Less</button>-->
-
-<!--                                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>-->
+           <button class="learn-more-btn"
+                        th:id="'btn-' + ${tip.id}"
+                        th:onclick="'toggleDetails(' + ${tip.id} + ')'"
+                        style="margin-top: 8px;">Less</button>
             </div>
+
+            <!-- Първоначален бутон за Learn More -->
+                <button class="learn-more-btn"
+                        th:id="'btn-start-' + ${tip.id}"
+                        th:onclick="'toggleDetails(' + ${tip.id} + ')'"
+                >Learn More</button>
         </div>
     </div>
 </section>
@@ -238,14 +247,27 @@
 <!-- JavaScript за интерактивност -->
 <script>
     // Toggle за "Learn More"
-    function toggleDetails(button) {
-        const tipId = button.getAttribute('data-id');
+    function toggleDetails(tipId) {
         const details = document.getElementById(`details-${tipId}`);
+        const showBtn = document.getElementById(`btn-start-${tipId}`);
         const isVisible = details.style.display === 'block';
 
-        details.style.display = isVisible ? 'none' : 'block';
-        button.textContent = isVisible ? 'Learn More' : 'Less';
+        if (isVisible) {
+            details.style.display = 'none';
+            showBtn.style.display = 'inline-block';
+        } else {
+            details.style.display = 'block';
+            showBtn.style.display = 'none';
+        }
     }
+    // function toggleDetails(button) {
+    //     const tipId = button.getAttribute('data-id');
+    //     const details = document.getElementById(`details-${tipId}`);
+    //     const isVisible = details.style.display === 'block';
+    //
+    //     details.style.display = isVisible ? 'none' : 'block';
+    //     button.textContent = isVisible ? 'Learn More' : 'Less';
+    // }
 
 
     // function toggleDetails(tipId) {
