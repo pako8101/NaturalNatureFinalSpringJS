@@ -299,12 +299,25 @@
             <img th:src="${tip.imagePath}" alt="Tip Image" class="tip-image" onerror="this.src='/images/all-reduce.png'">
             <h3 th:text="${tip.title}" class="tip-title">Tip Title</h3>
             <p th:text="${tip.description}" class="tip-description">Tip Description</p>
-            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>
             <div class="tip-details" th:id="'details-' + ${tip.id}" style="display: none;">
                 <p th:text="'Additional Info for ' + ${tip.title} + ': Implementing this tip can significantly reduce your plastic footprint. For example, using ' + ${tip.title.toLowerCase()} + ' can save hundreds of plastic items per year. Join local initiatives to spread awareness!'"></p>
+                <button class="learn-more-btn"
+                        th:id="'btn-' + ${tip.id}"
+                        th:onclick="'toggleDetails(' + ${tip.id} + ')'"
+                        style="margin-top: 8px;">Less</button>
+            </div>
+
+            <!-- Първоначален бутон за Learn More -->
+            <button class="learn-more-btn"
+                    th:id="'btn-start-' + ${tip.id}"
+                    th:onclick="'toggleDetails(' + ${tip.id} + ')'"
+            >Learn More</button>
+<!--            <button class="learn-more-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Learn More</button>-->
+<!--            <div class="tip-details" th:id="'details-' + ${tip.id}" style="display: none;">-->
+<!--                <p th:text="'Additional Info for ' + ${tip.title} + ': Implementing this tip can significantly reduce your plastic footprint. For example, using ' + ${tip.title.toLowerCase()} + ' can save hundreds of plastic items per year. Join local initiatives to spread awareness!'"></p>-->
 <!--                <button class="less-btn" th:onclick="'toggleDetails(' + ${tip.id} + ')'">Less</button>-->
 
-            </div>
+<!--            </div>-->
         </div>
     </div>
 </section>
@@ -324,18 +337,34 @@
 <script>
     function toggleDetails(tipId) {
         const details = document.getElementById(`details-${tipId}`);
-        const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);
+        const showBtn = document.getElementById(`btn-start-${tipId}`);
         const isVisible = details.style.display === 'block';
 
         if (isVisible) {
             details.style.display = 'none';
-            learnMoreBtn.textContent = 'Learn More';
+            showBtn.style.display = 'inline-block';
         } else {
             details.style.display = 'block';
-            learnMoreBtn.textContent = 'Less';
-
+            showBtn.style.display = 'none';
         }
     }
 </script>
+
+<!--<script>-->
+<!--    function toggleDetails(tipId) {-->
+<!--        const details = document.getElementById(`details-${tipId}`);-->
+<!--        const learnMoreBtn = document.querySelector(`[onclick="toggleDetails(${tipId})"]`);-->
+<!--        const isVisible = details.style.display === 'block';-->
+
+<!--        if (isVisible) {-->
+<!--            details.style.display = 'none';-->
+<!--            learnMoreBtn.textContent = 'Learn More';-->
+<!--        } else {-->
+<!--            details.style.display = 'block';-->
+<!--            learnMoreBtn.textContent = 'Less';-->
+
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

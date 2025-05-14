@@ -225,6 +225,18 @@ body {
     /*object-fit: cover;*/
     transition: transform 0.5s ease;
 }
+.tip-details {
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.less-btn {
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 
 .tips-section .tip-card:hover .tip-image {
     transform: scale(1.1);
