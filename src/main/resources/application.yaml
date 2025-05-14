@@ -129,6 +129,8 @@ user:
 log:
   deletion: P30D
 
+  liquibase:
+    enabled: false
 #spring:
 #  jpa:
 #    security:
