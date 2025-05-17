@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head::head"></head>
-    <meta charset="UTF-8">
-    <title th:text="${pageTitle != null} ? ${pageTitle} : 'Permaculture: Cultivating a Sustainable Future'">Permaculture: Cultivating a Sustainable Future</title>
-    <link rel="stylesheet" th:href="@{/css/permaculture.css}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title th:text="${pageTitle != null} ? ${pageTitle} : 'Permaculture: Cultivating a Sustainable Future'">Permaculture:
+    Cultivating a Sustainable Future</title>
+<link rel="stylesheet" th:href="@{/css/permaculture.css}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
@@ -19,19 +20,32 @@
     <!-- Introduction -->
     <section class="section">
         <h2>Introduction: Embracing Eco-friendly Living Through Permaculture Practices</h2>
-        <p>Permaculture is a gateway to eco-friendly living, blending ancient wisdom with modern sustainability. Imagine a garden where every leaf, insect, and drop of water works in harmony to create a thriving ecosystem. By embracing permaculture practices, you’re not just gardening—you’re cultivating a lifestyle that heals the planet. This approach mimics nature’s cycles, encouraging us to observe, adapt, and grow alongside the Earth’s rhythms. It’s about planting seeds today that will bloom into a sustainable tomorrow. Permaculture teaches us to value diversity, reduce waste, and foster a deep connection with the natural world. Let’s step into this green journey, where every choice nurtures both our lives and the environment.</p>
+        <p>Permaculture is a gateway to eco-friendly living, blending ancient wisdom with modern sustainability. Imagine
+            a garden where every leaf, insect, and drop of water works in harmony to create a thriving ecosystem. By
+            embracing permaculture practices, you’re not just gardening—you’re cultivating a lifestyle that heals the
+            planet. This approach mimics nature’s cycles, encouraging us to observe, adapt, and grow alongside the
+            Earth’s rhythms. It’s about planting seeds today that will bloom into a sustainable tomorrow. Permaculture
+            teaches us to value diversity, reduce waste, and foster a deep connection with the natural world. Let’s step
+            into this green journey, where every choice nurtures both our lives and the environment.</p>
         <div class="media-container">
-            <img src="https://images.unsplash.com/photo-1589994016481-2f2a61e66d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Permaculture Garden" class="section-image">
-            <iframe src="https://www.youtube.com/embed/5R65n4TIo6w" title="Introduction to Permaculture" frameborder="0" allowfullscreen></iframe>
+            <img src="/images/permaculture/perma-garden.jpg" alt="Permaculture Garden" class="section-image">
+            <iframe src="https://www.youtube.com/embed/QXTXNSWOAqQ" title="Introduction to Permaculture"
+                    frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
     <!-- Uncover the Magic -->
     <section class="section">
         <h2>Uncover the Magic of Regenerative Agriculture: the Essence of Permaculture</h2>
-        <p>Regenerative agriculture lies at the heart of permaculture, restoring life to the soil and beyond. Picture a garden where plants, animals, and humans collaborate like a symphony, each playing a vital role in the melody of sustainability. Permaculture harnesses nature’s patterns to create ecosystems that regenerate rather than deplete. From crop diversity to soil enrichment, every action in permaculture fosters resilience and balance. It’s a partnership where we give back to the Earth as much as we take. By focusing on regeneration, permaculture ensures that future generations inherit a thriving planet. This magical essence transforms barren plots into vibrant, life-giving spaces.</p>
+        <p>Regenerative agriculture lies at the heart of permaculture, restoring life to the soil and beyond. Picture a
+            garden where plants, animals, and humans collaborate like a symphony, each playing a vital role in the
+            melody of sustainability. Permaculture harnesses nature’s patterns to create ecosystems that regenerate
+            rather than deplete. From crop diversity to soil enrichment, every action in permaculture fosters resilience
+            and balance. It’s a partnership where we give back to the Earth as much as we take. By focusing on
+            regeneration, permaculture ensures that future generations inherit a thriving planet. This magical essence
+            transforms barren plots into vibrant, life-giving spaces.</p>
         <div class="media-container">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Regenerative Agriculture" class="section-image">
+            <img src="/images/permaculture/regenerative.jpg" alt="Regenerative Agriculture" class="section-image">
         </div>
     </section>
 
@@ -63,16 +77,31 @@
     <!-- Designing Sustainable Systems -->
     <section class="section">
         <h2>Designing Sustainable Systems: Mimicking Nature’s Wisdom in Permaculture</h2>
-        <p>Permaculture is about designing systems that echo nature’s timeless wisdom, creating self-sustaining landscapes. Imagine a backyard where every element—plants, water, and wildlife—works together like a forest’s natural rhythm. By observing nature’s patterns, such as how trees shade the soil or how rivers carve the land, we can design gardens that thrive with minimal intervention. Techniques like companion planting and mulching mirror these natural processes, enhancing biodiversity. Water conservation, a core principle, involves capturing rain in swales or barrels to nourish the garden sustainably. These designs not only sustain themselves but also adapt to seasonal changes, reflecting nature’s resilience. Permaculture invites us to create spaces that are as enduring as the Earth itself.</p>
+        <p>Permaculture is about designing systems that echo nature’s timeless wisdom, creating self-sustaining
+            landscapes. Imagine a backyard where every element—plants, water, and wildlife—works together like a
+            forest’s natural rhythm. By observing nature’s patterns, such as how trees shade the soil or how rivers
+            carve the land, we can design gardens that thrive with minimal intervention. Techniques like companion
+            planting and mulching mirror these natural processes, enhancing biodiversity. Water conservation, a core
+            principle, involves capturing rain in swales or barrels to nourish the garden sustainably. These designs not
+            only sustain themselves but also adapt to seasonal changes, reflecting nature’s resilience. Permaculture
+            invites us to create spaces that are as enduring as the Earth itself.</p>
         <div class="media-container">
-            <iframe src="https://www.youtube.com/embed/Yw5vYhCj5uY" title="Designing with Nature" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/BQRoWXfAJ9s"
+                    title="Designing with Nature" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
     <!-- Practical Applications -->
     <section class="section">
         <h2>Practical Applications of Permaculture in Everyday Life: Organic Gardening and Water Conservation</h2>
-        <p>Permaculture seamlessly integrates into daily life through practical applications like organic gardening and water conservation. In your garden, planting diverse crops like beans with corn can naturally deter pests, embodying permaculture’s organic ethos. This method reduces the need for chemical pesticides, fostering a healthier ecosystem right at home. Water conservation is equally vital—installing a rain barrel can capture nature’s gift for your plants, cutting reliance on municipal water. Mulching with straw or wood chips helps retain soil moisture, ensuring every drop counts. These practices not only save resources but also deepen your connection to the Earth’s cycles. Permaculture turns everyday gardening into a sustainable act of care for the planet.</p>
+        <p>Permaculture seamlessly integrates into daily life through practical applications like organic gardening and
+            water conservation. In your garden, planting diverse crops like beans with corn can naturally deter pests,
+            embodying permaculture’s organic ethos. This method reduces the need for chemical pesticides, fostering a
+            healthier ecosystem right at home. Water conservation is equally vital—installing a rain barrel can capture
+            nature’s gift for your plants, cutting reliance on municipal water. Mulching with straw or wood chips helps
+            retain soil moisture, ensuring every drop counts. These practices not only save resources but also deepen
+            your connection to the Earth’s cycles. Permaculture turns everyday gardening into a sustainable act of care
+            for the planet.</p>
     </section>
 
     <!-- Key Permaculture Principles -->
@@ -131,16 +160,30 @@
     <!-- Building Community Resilience -->
     <section class="section">
         <h2>Building Community Resilience: Permaculture as a Tool for Local Empowerment</h2>
-        <p>Permaculture empowers communities by fostering resilience through sustainable, collective efforts. Imagine a neighborhood where shared gardens bloom with vegetables, uniting people in a common goal of self-sufficiency. By applying permaculture principles, such as composting or seed sharing, communities can reduce waste and strengthen local food systems. Hosting workshops on permaculture techniques, like building rain gardens, inspires collective learning and action. These initiatives create spaces where neighbors connect, share knowledge, and grow together. Permaculture transforms urban lots into vibrant hubs of biodiversity and collaboration. It’s a tool that not only nurtures the land but also builds lasting community bonds.</p>
+        <p>Permaculture empowers communities by fostering resilience through sustainable, collective efforts. Imagine a
+            neighborhood where shared gardens bloom with vegetables, uniting people in a common goal of
+            self-sufficiency. By applying permaculture principles, such as composting or seed sharing, communities can
+            reduce waste and strengthen local food systems. Hosting workshops on permaculture techniques, like building
+            rain gardens, inspires collective learning and action. These initiatives create spaces where neighbors
+            connect, share knowledge, and grow together. Permaculture transforms urban lots into vibrant hubs of
+            biodiversity and collaboration. It’s a tool that not only nurtures the land but also builds lasting
+            community bonds.</p>
         <div class="media-container">
-            <img src="https://images.unsplash.com/photo-1593005510329-8a5f1bc2f7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Community Garden" class="section-image">
+            <img src="/images/permaculture/resiliance.jpeg" alt="Community Garden" class="section-image"
+            >
         </div>
     </section>
 
     <!-- Harvesting Nature’s Abundance -->
     <section class="section">
         <h2>Harvesting Nature’s Abundance: the Fruits of Permaculture</h2>
-        <p>Permaculture unlocks nature’s abundance, yielding harvests that nourish both body and soul. Picture a food forest in your backyard, brimming with apples, herbs, and berries, all grown in harmony with the land. Through permaculture, every plant supports the ecosystem—legumes enrich the soil while fruit trees provide shade. This abundance comes from working with nature, using techniques like companion planting to maximize yields naturally. Harvesting fresh produce from your garden fosters a deep appreciation for the Earth’s generosity. It’s a reminder that sustainable practices can yield plentiful rewards without depleting resources. Permaculture ensures that nature’s gifts are shared with future generations.</p>
+        <p>Permaculture unlocks nature’s abundance, yielding harvests that nourish both body and soul. Picture a food
+            forest in your backyard, brimming with apples, herbs, and berries, all grown in harmony with the land.
+            Through permaculture, every plant supports the ecosystem—legumes enrich the soil while fruit trees provide
+            shade. This abundance comes from working with nature, using techniques like companion planting to maximize
+            yields naturally. Harvesting fresh produce from your garden fosters a deep appreciation for the Earth’s
+            generosity. It’s a reminder that sustainable practices can yield plentiful rewards without depleting
+            resources. Permaculture ensures that nature’s gifts are shared with future generations.</p>
     </section>
 
     <!-- Green Myths and Permaculture Facts -->
@@ -148,37 +191,70 @@
         <h2>Green Myths and Permaculture Facts</h2>
         <ul class="myths-facts">
             <li><strong>Myth: Permaculture requires vast spaces to be effective.</strong><br>
-                <span><strong>Fact:</strong> Permaculture thrives in any space, from urban balconies to rural farms, by maximizing efficiency.</span></li>
+                <span><strong>Fact:</strong> Permaculture thrives in any space, from urban balconies to rural farms, by maximizing efficiency.</span>
+            </li>
             <li><strong>Myth: Sustainable living is too expensive to start.</strong><br>
-                <span><strong>Fact:</strong> Permaculture saves costs over time through reduced energy use and homegrown food.</span></li>
+                <span><strong>Fact:</strong> Permaculture saves costs over time through reduced energy use and homegrown food.</span>
+            </li>
             <li><strong>Myth: Permaculture is only about gardening.</strong><br>
-                <span><strong>Fact:</strong> It’s a holistic lifestyle, encompassing water management, community building, and energy efficiency.</span></li>
+                <span><strong>Fact:</strong> It’s a holistic lifestyle, encompassing water management, community building, and energy efficiency.</span>
+            </li>
             <li><strong>Myth: You need formal training to practice permaculture.</strong><br>
-                <span><strong>Fact:</strong> Anyone can start with simple observation and a willingness to learn from nature.</span></li>
+                <span><strong>Fact:</strong> Anyone can start with simple observation and a willingness to learn from nature.</span>
+            </li>
             <li><strong>Myth: Going green means overhauling your entire life.</strong><br>
-                <span><strong>Fact:</strong> Small permaculture steps, like composting or planting natives, make a big impact over time.</span></li>
+                <span><strong>Fact:</strong> Small permaculture steps, like composting or planting natives, make a big impact over time.</span>
+            </li>
         </ul>
     </section>
 
     <!-- Cultivating a Mindful Connection -->
     <section class="section">
         <h2>Cultivating a Mindful Connection to the Earth: Permaculture as a Lifestyle Choice</h2>
-        <p>Permaculture as a lifestyle choice fosters a mindful connection to the Earth, grounding us in nature’s rhythms. Imagine tending to your garden with the same care you’d give a loved one, aware of every plant’s role in the ecosystem. This practice encourages us to live intentionally, reducing waste and honoring natural cycles. By composting kitchen scraps, you participate in the Earth’s cycle of renewal, turning waste into life. Permaculture shapes daily habits, from conserving water to choosing local produce, aligning your life with sustainability. It’s a way of living that deepens gratitude for the planet’s interconnected systems. Through permaculture, we become stewards of the Earth, nurturing its vitality.</p>
+        <p>Permaculture as a lifestyle choice fosters a mindful connection to the Earth, grounding us in nature’s
+            rhythms. Imagine tending to your garden with the same care you’d give a loved one, aware of every plant’s
+            role in the ecosystem. This practice encourages us to live intentionally, reducing waste and honoring
+            natural cycles. By composting kitchen scraps, you participate in the Earth’s cycle of renewal, turning waste
+            into life. Permaculture shapes daily habits, from conserving water to choosing local produce, aligning your
+            life with sustainability. It’s a way of living that deepens gratitude for the planet’s interconnected
+            systems. Through permaculture, we become stewards of the Earth, nurturing its vitality.</p>
+        <div class="media-container">
+            <img src="/images/permaculture/lifestyle.jpg" alt="lifestyle" class="section-image"
+            >
+        </div>
     </section>
 
     <!-- Educating and Inspiring Others -->
     <section class="section">
         <h2>Educating and Inspiring Others: Spreading the Permaculture Ethos</h2>
-        <p>Spreading the permaculture ethos is about inspiring others to embrace sustainable living through education and action. Hosting a community event to demonstrate composting can spark curiosity about permaculture’s benefits. By sharing homegrown herbs or teaching about rainwater harvesting, you plant seeds of change in others’ minds. These efforts create a ripple effect, encouraging neighbors to adopt eco-friendly practices in their own lives. Permaculture education fosters a culture of care, where sustainability becomes a shared value. It’s about building a movement, one garden at a time, to heal the planet together. Inspiring others through permaculture creates a greener, more connected world.</p>
+        <p>Spreading the permaculture ethos is about inspiring others to embrace sustainable living through education
+            and action. Hosting a community event to demonstrate composting can spark curiosity about permaculture’s
+            benefits. By sharing homegrown herbs or teaching about rainwater harvesting, you plant seeds of change in
+            others’ minds. These efforts create a ripple effect, encouraging neighbors to adopt eco-friendly practices
+            in their own lives. Permaculture education fosters a culture of care, where sustainability becomes a shared
+            value. It’s about building a movement, one garden at a time, to heal the planet together. Inspiring others
+            through permaculture creates a greener, more connected world.</p>
         <div class="media-container">
-            <iframe src="https://www.youtube.com/embed/9pL4x0mX8qI" title="Spreading Permaculture Practices" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/cL6rRvctFnQ"
+                    title="Spreading Permaculture Practices" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
     <!-- Conclusion -->
     <section class="section">
         <h2>Conclusion: Embracing Permaculture for a Sustainable Future</h2>
-        <p>Embracing permaculture paves the way for a sustainable future, harmonizing human life with nature’s wisdom. It’s a transformative approach that turns gardens into thriving ecosystems, rich with diversity and resilience. By adopting permaculture, we create landscapes that regenerate soil, conserve water, and support wildlife, all while reducing our ecological footprint. Imagine a world where every community grows its own food forests, sharing abundance sustainably. This vision becomes reality when we apply permaculture principles, from small balconies to large farms. Permaculture isn’t just a practice—it’s a global movement toward a healthier planet. Together, we can cultivate a future where nature and humanity flourish as one.</p>
+        <p>Embracing permaculture paves the way for a sustainable future, harmonizing human life with nature’s wisdom.
+            It’s a transformative approach that turns gardens into thriving ecosystems, rich with diversity and
+            resilience. By adopting permaculture, we create landscapes that regenerate soil, conserve water, and support
+            wildlife, all while reducing our ecological footprint. Imagine a world where every community grows its own
+            food forests, sharing abundance sustainably. This vision becomes reality when we apply permaculture
+            principles, from small balconies to large farms. Permaculture isn’t just a practice—it’s a global movement
+            toward a healthier planet. Together, we can cultivate a future where nature and humanity flourish as
+            one.</p>
+        <div class="media-container">
+            <img src="/images/permaculture/conclusion.jpg" alt="conclusion" class="section-image"
+            >
+        </div>
     </section>
 
     <!-- FAQ -->
@@ -187,27 +263,33 @@
         <div class="faq">
             <div class="faq-item">
                 <h3>1. How can permaculture principles help me reduce waste in my daily life?</h3>
-                <p>Permaculture reduces waste by composting organic matter and repurposing materials like wood or glass.</p>
+                <p>Permaculture reduces waste by composting organic matter and repurposing materials like wood or
+                    glass.</p>
             </div>
             <div class="faq-item">
                 <h3>2. What are some easy ways to incorporate permaculture practices into my home garden?</h3>
                 <p>Start with companion planting, mulching, and collecting rainwater to create a sustainable garden.</p>
             </div>
             <div class="faq-item">
-                <h3>3. Can you provide tips for creating a more sustainable and eco-friendly living space using permaculture design?</h3>
+                <h3>3. Can you provide tips for creating a more sustainable and eco-friendly living space using
+                    permaculture design?</h3>
                 <p>Use rainwater harvesting, plant native species, and compost to design an eco-friendly space.</p>
             </div>
             <div class="faq-item">
                 <h3>4. What are the benefits of composting in a permaculture system, and how can I get started?</h3>
-                <p>Composting enriches soil, reduces waste, and supports plant growth—start with a bin for kitchen scraps.</p>
+                <p>Composting enriches soil, reduces waste, and supports plant growth—start with a bin for kitchen
+                    scraps.</p>
             </div>
             <div class="faq-item">
                 <h3>5. How does permaculture promote biodiversity and resilience in ecosystems?</h3>
-                <p>It promotes biodiversity by encouraging diverse planting and creating habitats for wildlife, ensuring ecosystem resilience.</p>
+                <p>It promotes biodiversity by encouraging diverse planting and creating habitats for wildlife, ensuring
+                    ecosystem resilience.</p>
             </div>
             <div class="faq-item">
-                <h3>6. Are there any community initiatives or events that focus on promoting sustainable living through permaculture practices?</h3>
-                <p>Yes, look for local permaculture workshops, community gardens, or eco-village events promoting sustainability.</p>
+                <h3>6. Are there any community initiatives or events that focus on promoting sustainable living through
+                    permaculture practices?</h3>
+                <p>Yes, look for local permaculture workshops, community gardens, or eco-village events promoting
+                    sustainability.</p>
             </div>
         </div>
     </section>
@@ -225,18 +307,71 @@
 </div>
 
 
-
 <script>
     const articles = [
-        { id: 1, title: "Urban Permaculture: Sustainable Gardening in the City", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Urban permaculture brings sustainable gardening to city spaces, transforming concrete jungles into green havens. Imagine a balcony filled with pots of herbs, vegetables, and flowers, all working together to support each other." },
-        { id: 2, title: "Permaculture and Soil Health: Building Fertile, Resilient Soil", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Permaculture prioritizes soil health, creating fertile, resilient ground for sustainable growth. Healthy soil is the foundation of any permaculture system, teeming with microbes that nourish plants naturally." },
-        { id: 3, title: "Seed Saving in Permaculture: Preserving Biodiversity and Self-Sufficiency", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Seed saving in permaculture preserves biodiversity and promotes self-sufficiency, ensuring a sustainable future. By collecting seeds from your healthiest plants, you maintain genetic diversity, vital for resilient ecosystems." },
-        { id: 4, title: "Permaculture Water Management: Harvesting, Storing, and Conserving Water", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Permaculture water management focuses on harvesting, storing, and conserving water sustainably. Imagine a garden where every raindrop is captured in a barrel, ready to nourish your plants." },
-        { id: 5, title: "Companion Planting in Permaculture: Creating Natural Partnerships for Growth", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Companion planting in permaculture creates natural partnerships that boost growth and resilience. Picture marigolds and tomatoes growing side by side, where marigolds repel pests that harm tomatoes." },
-        { id: 6, title: "Permaculture Design for Small Spaces: Maximizing Yield in Limited Areas", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Permaculture design for small spaces maximizes yield, even in limited areas like balconies or patios. Imagine a tiny urban garden with vertical planters growing strawberries and herbs together." },
-        { id: 7, title: "Food Forests: Growing Abundance with Permaculture Practices", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Food forests in permaculture create abundance by mimicking natural forest ecosystems. Imagine a backyard where fruit trees, shrubs, and herbs grow in layers, each supporting the other." },
-        { id: 8, title: "Permaculture Zones and Sectors: Designing a Productive and Harmonious Garden", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Permaculture zones and sectors design gardens that are productive and harmonious with nature. Zones organize your garden based on usage—zone 1 might include daily herbs near your kitchen." },
-        { id: 9, title: "Permaculture Principles: Creating Sustainable Food Systems and Landscapes", date: "December 9, 2023", author: "Khubon Ishakova", summary: "Permaculture principles guide the creation of sustainable food systems and landscapes that thrive naturally. Principles like diversity and observation ensure your garden mirrors nature’s resilience, reducing the need for external inputs." }
+        {
+            id: 1,
+            title: "Urban Permaculture: Sustainable Gardening in the City",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Urban permaculture brings sustainable gardening to city spaces, transforming concrete jungles into green havens. Imagine a balcony filled with pots of herbs, vegetables, and flowers, all working together to support each other."
+        },
+        {
+            id: 2,
+            title: "Permaculture and Soil Health: Building Fertile, Resilient Soil",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Permaculture prioritizes soil health, creating fertile, resilient ground for sustainable growth. Healthy soil is the foundation of any permaculture system, teeming with microbes that nourish plants naturally."
+        },
+        {
+            id: 3,
+            title: "Seed Saving in Permaculture: Preserving Biodiversity and Self-Sufficiency",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Seed saving in permaculture preserves biodiversity and promotes self-sufficiency, ensuring a sustainable future. By collecting seeds from your healthiest plants, you maintain genetic diversity, vital for resilient ecosystems."
+        },
+        {
+            id: 4,
+            title: "Permaculture Water Management: Harvesting, Storing, and Conserving Water",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Permaculture water management focuses on harvesting, storing, and conserving water sustainably. Imagine a garden where every raindrop is captured in a barrel, ready to nourish your plants."
+        },
+        {
+            id: 5,
+            title: "Companion Planting in Permaculture: Creating Natural Partnerships for Growth",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Companion planting in permaculture creates natural partnerships that boost growth and resilience. Picture marigolds and tomatoes growing side by side, where marigolds repel pests that harm tomatoes."
+        },
+        {
+            id: 6,
+            title: "Permaculture Design for Small Spaces: Maximizing Yield in Limited Areas",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Permaculture design for small spaces maximizes yield, even in limited areas like balconies or patios. Imagine a tiny urban garden with vertical planters growing strawberries and herbs together."
+        },
+        {
+            id: 7,
+            title: "Food Forests: Growing Abundance with Permaculture Practices",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Food forests in permaculture create abundance by mimicking natural forest ecosystems. Imagine a backyard where fruit trees, shrubs, and herbs grow in layers, each supporting the other."
+        },
+        {
+            id: 8,
+            title: "Permaculture Zones and Sectors: Designing a Productive and Harmonious Garden",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Permaculture zones and sectors design gardens that are productive and harmonious with nature. Zones organize your garden based on usage—zone 1 might include daily herbs near your kitchen."
+        },
+        {
+            id: 9,
+            title: "Permaculture Principles: Creating Sustainable Food Systems and Landscapes",
+            date: "April 28, 2025",
+            author: "Kamenova Simona",
+            summary: "Permaculture principles guide the creation of sustainable food systems and landscapes that thrive naturally. Principles like diversity and observation ensure your garden mirrors nature’s resilience, reducing the need for external inputs."
+        }
     ];
 
     const articlesPerPage = 3;
