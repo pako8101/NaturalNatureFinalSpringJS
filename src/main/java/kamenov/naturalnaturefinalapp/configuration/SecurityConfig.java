@@ -69,6 +69,7 @@ public class SecurityConfig {
                                                 "/carbon-offsetting/**",
                                                 "/article-carbon/**",
                                                 "/article-national",
+                                                "/article-parks",
                                                 "/packing-light/**",
                                                 "/article-packing/**",
                                                 "/sustainable-transportation/**",

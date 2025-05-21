@@ -163,7 +163,7 @@ public String getJourneyPage(Model model) {
     @GetMapping("/article-parks")
     public String showArticle(@RequestParam("id") Long id, Model model) {
         model.addAttribute("articleId", id);
-        return "article-national";
+        return "article-parks";
     }
 
 }
