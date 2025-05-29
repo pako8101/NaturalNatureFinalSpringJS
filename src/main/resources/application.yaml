@@ -89,9 +89,9 @@ jwt:
     exposed-headers: "Authorization"
     max-age: 3600
 
-stripe:
-  api:
-    key: ${STRIPE_API_KEY}
+#stripe:
+#  api:
+#    key: ${STRIPE_API_KEY}
 
 cloudinary:
   name: ${CLOUDINARY_NAME:dy2y8i2de}
@@ -100,7 +100,7 @@ cloudinary:
 
 openai:
   api:
-    key: ${OPENAI_API_KEY}
+    key: ${HUGGINGFACE_API_KEY}
 
 logging:
   level:
@@ -130,8 +130,23 @@ user:
 log:
   deletion: P30D
 
+
   liquibase:
     enabled: false
+    # Controls the feature XYZ
+    # When enabled: [description of enabled state]
+    # When disabled: [description of disabled state]
+    featureName:
+      enabled: false
+      # Add other relevant configuration parameters
+      featureName:
+        enabled: false
+        validationRules:
+          minValue: 0
+          maxValue: 1
+          featureName:
+            isFeatureActive: false
+            description: "Controls XYZ functionality"
 #spring:
 #  jpa:
 #    security:

@@ -35,7 +35,7 @@ public class AiRecipeServiceImpl implements AiRecipeService {
     private final ObjectMapper objectMapper;
 
     public AiRecipeServiceImpl(AiRecipeRepository recipeRepository,
-                               @Value("${OPENAI_API_KEY}") String apiKey) {
+                               @Value("${HUGGINGFACE_API_KEY}") String apiKey) {
         this.recipeRepository = recipeRepository;
         this.objectMapper = new ObjectMapper();
         this.webClient = WebClient.builder()
@@ -398,6 +398,3 @@ public class AiRecipeServiceImpl implements AiRecipeService {
 //                });
 //    }
 //}
-
-
-

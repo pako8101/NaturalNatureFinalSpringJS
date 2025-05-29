@@ -46,6 +46,7 @@ dependencies {
         exclude group: 'org.liquibase', module: 'liquibase-core'
     }
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
     // Други зависимости
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'mysql:mysql-connector-java:8.0.33'
