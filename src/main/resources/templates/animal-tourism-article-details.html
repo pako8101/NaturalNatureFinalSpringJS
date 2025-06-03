@@ -1,31 +1,230 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head"></head>
-<meta charset="UTF-8">
-<title th:text="${article.title}"></title>
-<link rel="stylesheet" th:href="@{/css/nutrition-article-details.css}">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<head th:replace="fragments/head::head">
+    <meta charset="UTF-8">
+    <title th:text="${article.title}"></title>
+    <link rel="stylesheet" th:href="@{/css/nutrition-article-details.css}">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <body>
 <div th:replace="~{fragments/preloader :: preloader}"></div>
-<!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <main class="article-content">
     <h1 th:text="${article.title}"></h1>
-    <img th:src="${article.image}" onclick="openModal(this.src)"
-         alt="Article Image" class="article-image">
+    <img th:src="${article.image}" onclick="openModal(this.src)" alt="Article Image" class="article-image">
     <div th:utext="${article.content}" class="article-text"></div>
-    <a th:href="@{/animal-tourism}" class="back-link">Back to Wildlife-friendly travel</a>
+    <a th:href="@{/animal-tourism}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Animal Tourism</a>
+
+    <!-- Navigation Section -->
+    <div class="article-navigation">
+        <div>
+           <button class="nav-button"> <a  th:if="${previousId != null}"
+               th:href="@{/animal-tourism-article-details(id=${previousId})}"
+               class="btn btn-primary">Previews</a></button>
+        </div>
+        <div>
+           <button class="nav-button"> <a th:if="${nextId != null}"
+               th:href="@{/animal-tourism-article-details(id=${nextId})}"
+               class="btn btn-primary">Next</a></button>
+        </div>
+    </div>
+
+    <!--    <div class="article-navigation">-->
+<!--        <button id="prev-article" class="nav-button" >-->
+<!--            <i class="fas fa-chevron-left"></i> Preview article</button>-->
+<!--        <button id="next-article" class="nav-button" >Next article-->
+<!--            <i class="fas fa-chevron-right"></i></button>-->
+<!--    </div>-->
 </main>
+
 <div class="modal" id="image-modal">
-    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="close" onclick="closeModal()">×</span>
     <img id="modal-image" src="">
 </div>
-<footer th:replace="fragments/footer :: footer"></footer>
-</body>
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(rgba(102, 187, 106, 0.1), rgba(102, 187, 106, 0.1)), url('https://www.transparenttextures.com/patterns/leaf.png');
+        color: #E91E63;
+        line-height: 1.7;
+    }
+
+    .article-content {
+        max-width: 900px;
+        margin: 3rem auto;
+        padding: 2rem;
+        background: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(240, 98, 146, 0.1);
+        border: 3px solid #66BB6A;
+        animation: slideIn 1.2s ease-out;
+    }
+
+    @keyframes slideIn {
+        0% { opacity: 0; transform: translateY(50px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-family: 'Dancing Script', cursive;
+        color: #F06292;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 4px wavy #FFCA28;
+        padding-bottom: 0.5rem;
+    }
+
+    .article-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .article-image:hover {
+        transform: scale(1.02);
+    }
+
+    .article-text {
+        color: #66BB6A;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #FFCA28;
+        color: #FFFFFF;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        margin-top: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+        background: #E91E63;
+        transform: scale(1.05);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: #FFFFFF;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .article-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        padding: 1.5rem;
+        background: rgba(102, 187, 106, 0.1);
+        border-radius: 15px;
+        border: 2px solid #66BB6A;
+    }
+
+    .nav-button {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        background: #66BB6A;
+        color: #FFFFFF;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+
+    .nav-button:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+    }
+
+    .nav-button:not(:disabled):hover {
+        background: #E91E63;
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.2);
+    }
+</style>
+
 <script>
+    let articles = [];
+    let currentArticleId = null;
+
+    // Зареждане на статиите от контролера
+    function fetchArticles() {
+        // Използваме статичния списък от AnimalTourismController
+        articles = Object.entries(window.animalTourismArticles || {}).map(([id, data]) => ({
+            id: parseInt(id),
+            title: data.title,
+            image: data.image,
+            content: data.content
+        }));
+        currentArticleId = parseInt(window.location.search.split('id=')[1]);
+        setupNavigation();
+    }
+
+    function setupNavigation() {
+        const prevButton = document.getElementById('prev-article');
+        const nextButton = document.getElementById('next-article');
+
+        const currentIndex = articles.findIndex(article => article.id === currentArticleId);
+        if (currentIndex === -1) return;
+
+        // Предишна статия
+        if (currentIndex > 0) {
+            const prevArticle = articles[currentIndex - 1];
+            prevButton.textContent = `Preview article: ${prevArticle.title}`;
+            prevButton.onclick = () => window.location.href = `/animal-tourism-article-details?id=${prevArticle.id}`;
+            prevButton.disabled = false;
+        }
+
+        // Следваща статия
+        if (currentIndex < articles.length - 1) {
+            const nextArticle = articles[currentIndex + 1];
+            nextButton.textContent = `Next article: ${nextArticle.title}`;
+            nextButton.onclick = () => window.location.href = `/animal-tourism-article-details?id=${nextArticle.id}`;
+            nextButton.disabled = false;
+        }
+    }
+
     function openModal(src) {
         const modal = document.getElementById('image-modal');
         const modalImage = document.getElementById('modal-image');
@@ -37,5 +236,64 @@
         const modal = document.getElementById('image-modal');
         modal.style.display = 'none';
     }
+
+    // Добавяне на данните от контролера към window за достъп от JavaScript
+    window.animalTourismArticles = [[19,20,21,22,23,24,25,26,27].map(id => [id, animalTourismArticles.get(id.toLong())])].flat();
+
+    document.addEventListener('DOMContentLoaded', fetchArticles);
 </script>
+<script th:inline="javascript">
+    window.animalTourismArticles = /*[[${allArticles}]]*/ null;
+    let articles = Object.entries(window.animalTourismArticles || {}).map(([id, data]) => ({
+        id: parseInt(id),
+        title: data.title,
+        image: data.image,
+        content: data.content
+    }));
+</script>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="fragments/head::head"></head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title th:text="${article.title}"></title>-->
+<!--<link rel="stylesheet" th:href="@{/css/nutrition-article-details.css}">-->
+<!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+<!--<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">-->
+
+<!--<body>-->
+<!--<div th:replace="~{fragments/preloader :: preloader}"></div>-->
+<!--&lt;!&ndash; Navbar &ndash;&gt;-->
+<!--<div th:replace="fragments/navbar :: navbar"></div>-->
+
+<!--<main class="article-content">-->
+<!--    <h1 th:text="${article.title}"></h1>-->
+<!--    <img th:src="${article.image}" onclick="openModal(this.src)"-->
+<!--         alt="Article Image" class="article-image">-->
+<!--    <div th:utext="${article.content}" class="article-text"></div>-->
+<!--    <a th:href="@{/animal-tourism}" class="back-link">Back to Wildlife-friendly travel</a>-->
+<!--</main>-->
+<!--<div class="modal" id="image-modal">-->
+<!--    <span class="close" onclick="closeModal()">&times;</span>-->
+<!--    <img id="modal-image" src="">-->
+<!--</div>-->
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<!--</body>-->
+<!--<script>-->
+<!--    function openModal(src) {-->
+<!--        const modal = document.getElementById('image-modal');-->
+<!--        const modalImage = document.getElementById('modal-image');-->
+<!--        modalImage.src = src;-->
+<!--        modal.style.display = 'flex';-->
+<!--    }-->
+
+<!--    function closeModal() {-->
+<!--        const modal = document.getElementById('image-modal');-->
+<!--        modal.style.display = 'none';-->
+<!--    }-->
+<!--</script>-->
+<!--</html>-->

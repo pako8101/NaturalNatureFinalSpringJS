@@ -2,6 +2,7 @@ package kamenov.naturalnaturefinalapp.web;
 
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import kamenov.naturalnaturefinalapp.entity.TestForm;
 import org.springframework.stereotype.Controller;
@@ -105,13 +106,51 @@ public class AnimalTourismController {
 
 //    ---------------
 
+
+// ...
+
     @GetMapping("/animal-tourism-article-details")
     public String animalTourismArticleDetails(@RequestParam("id") Long id, Model model) {
         Map<String, String> article = animalTourismArticles.get(id);
         if (article == null) {
-            return "redirect:/animal-tourism"; // Ако статията не съществува, връщаме към основната страница
+            return "redirect:/animal-tourism";
         }
+
+        // Намери предишен и следващ ID
+        Long previousId = null;
+        Long nextId = null;
+
+        // Вземаме всички ключове (ID-тата) в списък, сортирани по големина
+        var sortedIds = animalTourismArticles.keySet().stream()
+                .sorted()
+                .toList();
+
+        // Намери индекса на текущата статия
+        int index = sortedIds.indexOf(id);
+
+        if (index > 0) {
+            previousId = sortedIds.get(index - 1);
+        }
+        if (index < sortedIds.size() - 1) {
+            nextId = sortedIds.get(index + 1);
+        }
+
         model.addAttribute("article", article);
+        model.addAttribute("previousId", previousId);
+        model.addAttribute("nextId", nextId);
+
         return "animal-tourism-article-details";
     }
+
+
+//    @GetMapping("/animal-tourism-article-details")
+//    public String animalTourismArticleDetails(@RequestParam("id") Long id, Model model) {
+//        Map<String, String> article = animalTourismArticles.get(id);
+//        if (article == null) {
+//            return "redirect:/animal-tourism"; // Ако статията не съществува, връщаме към основната страница
+//        }
+//        model.addAttribute("article", article);
+//        return "animal-tourism-article-details";
+//    }
+
 }
