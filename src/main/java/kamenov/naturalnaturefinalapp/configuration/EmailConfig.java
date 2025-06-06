@@ -10,8 +10,8 @@ import java.util.Properties;
 
 @Configuration
 public class EmailConfig {
-    @Value("${email_username}") private String email;
-    @Value("${password_email}") private String password;
+    @Value("${EMAIL_USERNAME}") private String email;
+    @Value("${EMAIL_PASSWORD}") private String password;
 
     @Bean
     public JavaMailSender javaMailSender() {

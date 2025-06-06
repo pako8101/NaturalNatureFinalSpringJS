@@ -14,8 +14,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 public class AppConfig {
-@Value("${email_username}") private String email;
-@Value("${password_email}") private String password;
+@Value("${EMAIL_USERNAME}") private String email;
+@Value("${EMAIL_PASSWORD}") private String password;
     @Bean
     public ModelMapper modelMapper() {
 
